@@ -28,6 +28,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="productDelete">
 		DELETE FROM PRODUCT WHERE PRO_NO = #{param1}
 	</delete>
+	
+	<select id="dynamicQueryList" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT WHERE ${param1 } LIKE #{param2 } 
+	</select>
 
 
 </mapper>

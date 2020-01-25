@@ -18,7 +18,7 @@
 	<div id="wrap">
 		<h3>상품 보기</h3>
 		<form action="productModify" method="POST">
-			<table border="1">				
+			<table border="1" style="width:500px;">				
 				<tbody>
 					<tr>
 						<td>상품번호</td>

@@ -39,18 +39,17 @@
 <body>
 	<div id="wrap">
 		<h3>상품 전체 목록</h3>
-	<!-- 	<div id="search">
+		<div id="search">
 			<form action="dynamicQuery" method="POST">
-				검색 
-				<select name="query">
-					<option value="PRO_NO">상품번호</option>
+					<select name="query">
 					<option value="PRO_NAME">상품명</option>
 					<option value="PRO_TASTE">맛</option>
+					<option value="PRO_NO">상품번호</option>
 				</select>
 				<input type="text" name="content"/>
 				<input type="submit" value="검색">
 			</form>	
-		</div> -->
+		</div> 
 		<table border="1">
 			<thead>
 				<tr>

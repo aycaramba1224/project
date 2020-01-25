@@ -14,6 +14,7 @@ import com.koreait.foodit.command.product.ProductDeleteCommand;
 import com.koreait.foodit.command.product.ProductInsertCommand;
 import com.koreait.foodit.command.product.ProductListCommand;
 import com.koreait.foodit.command.product.ProductModifyCommand;
+import com.koreait.foodit.command.product.ProductQueryCommand;
 import com.koreait.foodit.command.product.ProductViewCommand;
 
 @Controller
@@ -70,5 +71,12 @@ public class ProductController {
 		productCommand = new ProductDeleteCommand();
 		productCommand.execute(sqlSession, model);
 		return "redirect:/productList";
+	}
+	@RequestMapping("dynamicQuery")
+	public String dynamic(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		productCommand = new ProductQueryCommand();
+		productCommand.execute(sqlSession, model);
+		return "product/productList";
 	}
 }
