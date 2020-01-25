@@ -10,7 +10,7 @@
 	
 </head>
 <body> 
-     
+     <form action="guestInsert"  method="POST">
 		<table border="1">
 			<tbody>
 				<tr>
@@ -35,12 +35,11 @@
 			
 
 			<td colspan="4">
-	     <input type="button" id="btn" value="보내기"/>
-	     <div id="content"></div>
+	     <input type="submit"value="보내기" />
 			</td>
 			</tbody>
 	</table>
-	
+	</form>
 
 </body>
 </html>
