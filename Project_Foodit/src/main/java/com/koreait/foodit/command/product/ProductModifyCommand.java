@@ -29,7 +29,7 @@ public class ProductModifyCommand implements ProductCommand {
 		
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
 		redirectAttributes.addFlashAttribute("modifyResult", productDao.productModify(pro_name, pro_price, pro_content, pro_stock, pro_taste, pro_no) );
-		redirectAttributes.addFlashAttribute("isModify", "yes");	// 변수명 수정예정
+		redirectAttributes.addFlashAttribute("isProductModify", "yes");	 
 
 	}
 

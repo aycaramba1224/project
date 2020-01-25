@@ -21,13 +21,11 @@ public class ProductDeleteCommand implements ProductCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
 		int pro_no = Integer.parseInt(request.getParameter("pro_no"));
-		
-		// 변수명 수정예정
+		 
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
 		redirectAttributes.addFlashAttribute("deleteResult",productDao.productDelete(pro_no));
-		redirectAttributes.addFlashAttribute("isDelete", "yes");
+		redirectAttributes.addFlashAttribute("isProductDelete", "yes");
 		
-		//productDao.productDelete(pro_no);
 	}
 
 }

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+ 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +7,7 @@
 <title>productView</title>
 <script type="text/javascript">
 	function productRemove(){
-		var check = confirm("Á¤¸» »èÁ¦ÇÒ±î¿ä?");
+		var check = confirm("ì •ë§ ì‚­ì œí• ê¹Œìš”?");
 		if (check) {
 			location.href='productDelete?pro_no=${productDto.pro_no }';		
 		}
@@ -16,43 +16,43 @@
 </head>
 <body>
 	<div id="wrap">
-		<h3>»óÇ° º¸±â</h3>
+		<h3>ìƒí’ˆ ë³´ê¸°</h3>
 		<form action="productModify" method="POST">
 			<table border="1">				
 				<tbody>
 					<tr>
-						<td>»óÇ°¹øÈ£</td>
+						<td>ìƒí’ˆë²ˆí˜¸</td>
 						<td>${productDto.pro_no }
 							 <input type="hidden" name="pro_no" value="${productDto.pro_no }"/>  
 						</td>
 					</tr>
 					<tr>
-						<td>»óÇ°¸í</td>
+						<td>ìƒí’ˆëª…</td>
 						<td><input type="text" name="pro_name" value="${productDto.pro_name }"/></td>
 					</tr>
 					<tr>
-						<td>»óÇ°°¡°Ý</td>
+						<td>ìƒí’ˆê°€ê²©</td>
 						<td><input type="text" name="pro_price" value="${productDto.pro_price }"/></td>
 					</tr>
 					<tr>
-						<td>»óÇ°³»¿ë</td>
-						<!--¡Ú »çÀÌÁî º¯°æ¿¹Á¤ ¡Ú-->
+						<td>ìƒí’ˆë‚´ìš©</td>
+						<!--â˜… ì‚¬ì´ì¦ˆ ë³€ê²½ì˜ˆì • â˜…-->
 						<td><textarea rows="10" cols="10" name="pro_content" >${productDto.pro_content }</textarea></td>
 					</tr>
 					<tr>
-						<td>»óÇ°Àç°í</td>
+						<td>ìƒí’ˆìž¬ê³ </td>
 						<td><input type="text" name="pro_stock" value="${productDto.pro_stock }"/></td>
 					</tr>
 					<tr>
-						<td>»óÇ°¸À</td>
+						<td>ìƒí’ˆë§›</td>
 						<td>
-							<!--¡Ú ¸ÀÀÌ¸§ º¯°æ¿¹Á¤ ¡Ú-->							
+							<!--â˜… ë§›ì´ë¦„ ë³€ê²½ì˜ˆì • â˜…-->							
 							<select name="pro_taste">
-								<option value="¸Ê´Ù">¸Ê´Ù</option>
-								<option value="Â¥´Ù">Â¥´Ù</option>
-								<option value="´Þ´Ù">´Þ´Ù</option>
-								<option value="´ã¹é">´ã¹é</option>
-								<option value="ÀÌ±¹">ÀÌ±¹</option>
+								<option value="ë§µë‹¤">ë§µë‹¤</option>
+								<option value="ì§œë‹¤">ì§œë‹¤</option>
+								<option value="ë‹¬ë‹¤">ë‹¬ë‹¤</option>
+								<option value="ë‹´ë°±">ë‹´ë°±</option>
+								<option value="ì´êµ­">ì´êµ­</option>
 							</select>
 						</td>
 					</tr>					
@@ -60,9 +60,9 @@
 				<tfoot>
 					<tr>
 						<td colspan="2">
-							<input type="submit" value="»óÇ° ¼öÁ¤" />
-							<input type="button" value="»óÇ° »èÁ¦" onclick="productRemove()"/>
-							<input type="button" value="»óÇ° ¸ñ·Ï" onclick="location.href='productList'"/>
+							<input type="submit" value="ìƒí’ˆ ìˆ˜ì •" />
+							<input type="button" value="ìƒí’ˆ ì‚­ì œ" onclick="productRemove()"/>
+							<input type="button" value="ìƒí’ˆ ëª©ë¡" onclick="location.href='productList'"/>
 						</td>					
 					</tr>
 				</tfoot>

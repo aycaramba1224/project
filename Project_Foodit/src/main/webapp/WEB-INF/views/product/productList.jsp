@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -8,32 +7,50 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>productList</title>
 <script type="text/javascript">
-	var isProductInsert = "${isProductInsert}";
+	var isProductModify = "${isProductModify}";
+	if(isProductModify == "yes"){
+		var modifyResult = "${modifyResult}";
+		if(modifyResult == 0){
+			alert("ìƒí’ˆ ìˆ˜ì •ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
+		} else {
+			alert("ìƒí’ˆ ìˆ˜ì •ì´ ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
+		}
+	} 
+		var isProductInsert = "${isProductInsert}";
 	if(isProductInsert == "yes"){
 		var insertResult = "${insertResult}";
 		if(insertResult == 0){
-			alert("»óÇ° µî·ÏÀÌ ½ÇÆĞÇÏ¿´½À´Ï´Ù.");
+			alert("ìƒí’ˆ ë“±ë¡ì´ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
 		} else {
-			alert("»óÇ° µî·ÏÀÌ ¼º°øÇÏ¿´½À´Ï´Ù.");
+			alert("ìƒí’ˆ ë“±ë¡ì´ ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
 		}
 	}
-	</script>
+	var isProductDelete = "${isProductDelete}";
+	if(isProductDelete == "yes"){
+		var deleteResult ="${deleteResult}";
+		if(deleteResult == 0 ){
+			alert("ìƒí’ˆ ì‚­ì œê°€ ì‹¤íŒ¨í•˜ì˜€ìŠµë‹ˆë‹¤.");
+		} else {
+			alert("ìƒí’ˆ ì‚­ì œê°€ ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");	
+		}
+	}	
+</script>
 </head>
 <body>
 	<div id="wrap">
-		<h3>»óÇ° ÀüÃ¼ ¸ñ·Ï</h3>
+		<h3>ìƒí’ˆ ì „ì²´ ëª©ë¡</h3>
 		<table border="1">
 			<thead>
 				<tr>
-					<td>»óÇ°¹øÈ£</td>
-					<td>»óÇ°¸í</td>
-					<td>»óÇ°±İ¾×</td>				 			
+					<td>ìƒí’ˆë²ˆí˜¸</td>
+					<td>ìƒí’ˆëª…</td>
+					<td>ìƒí’ˆê¸ˆì•¡</td>				 			
 				</tr>
 			</thead>
 			<tbody>
 				<c:if test="${productListSize eq 0 }">
 				<tr>
-					<td colspan="3">µî·ÏµÈ »óÇ°ÀÌ ¾ø½À´Ï´Ù.</td>					
+					<td colspan="3">ë“±ë¡ëœ ìƒí’ˆì´ ì—†ìŠµë‹ˆë‹¤.</td>					
 				</tr>				
 				</c:if>
 				<c:forEach var="productDto" items="${productList }">
@@ -44,13 +61,13 @@
 				</tr>
 				</c:forEach>
 				<tr>
-					<td colspan="3">ÃÑ »óÇ° °³¼ö : ${productListSize }°³</td>
+					<td colspan="3">ì´ ìƒí’ˆ ê°œìˆ˜ : ${productListSize }ê°œ</td>
 				</tr>				
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="2">	
-						<input type="button" value="»óÇ°µî·Ï" onclick="location.href='productInsertPage'"/>
+					<td colspan="3">	
+						<input type="button" value="ìƒí’ˆë“±ë¡" onclick="location.href='productInsertPage'"/>
 					</td>					
 				</tr>
 			</tfoot>
