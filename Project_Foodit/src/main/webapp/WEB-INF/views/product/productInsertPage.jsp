@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>productInsert</title>
+<title>상품 등록</title>
 <script type="text/javascript">
 	function productInsert(f){
 		if(f.pro_no.value==""){
