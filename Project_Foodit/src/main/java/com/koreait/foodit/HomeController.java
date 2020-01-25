@@ -34,6 +34,13 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+		
+	
+	}
+	
+	@RequestMapping("index") 
+	public String index() { // main test용 index 경
+		return "index";
 	}
 	
 }

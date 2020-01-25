@@ -1,0 +1,381 @@
+@charset "UTF-8";
+/* font-face(wott, ttf) setting */
+/* 나눔바른고딕 */
+@font-face {
+    font-family: 'nbg';
+    src: url('./fonts/NanumBarunGothicRegular.woff') format('woff'),
+         url('./fonts/NanumBarunGothicRegular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'nbgB';
+    src: url('./fonts/NanumBarunGothicBold.woff') format('woff'),
+         url('./fonts/NanumBarunGothicBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* 나눔고딕 */
+@font-face {
+    font-family: 'ng';
+    src: url('./fonts/NanumGothic.woff') format('woff'),
+    	 url('./fonts/NanumGothic.woff2') format('woff2'),
+         url('./fonts/NanumGothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ngB';
+    src: url('./fonts/NanumGothicBold.woff') format('woff'),
+    	 url('./fonts/NanumGothicBold.woff2') format('woff2'),
+         url('./fonts/NanumGothicBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+/* font css 적용 */
+/* 
+	적용하고 싶은 클래스 뒤에 공백 추가 후 <div class= "info nbg">
+	이런식으로 뒤에 붙여주기만 하면 됩니다.
+	font-weight, font-style은 사용하지 말아주세요. 
+*/ 
+.nbg{
+	font-family: nbg;
+}
+.nbgB{
+	font-family: nbgB;
+}
+.ng{
+	font-family: ng;
+}
+.ngB{
+	font-family: ngB;
+}
+/* CSS 초기화 */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 구버전 브라우저 초기화 */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+th, td { 
+	vertical-align: middle;/* white-space: nowrap */
+}
+a {
+	color: #333; text-decoration: none; line-height: 1;
+}
+a:visited {
+	color: #333;
+}
+*:after, *:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* common-header */
+#header{
+	width: 100%;
+}
+#header .gnbWrap{
+	min-width: 1260px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+#header .gnbWrap .gnbUtil{
+	min-width: 1260px;
+	height: 33px;
+    padding-top: 7px;
+    background-color: #202020;
+    text-align: left;
+}
+#header .gnbUtil ul{
+	float: right;
+	padding-right: 40px;
+	padding-top: 4px;
+}
+#header .gnbUtil ul li{
+	float: left;
+}
+#header .gnbUtil ul li a{
+	color: #fff;
+    font-size: 13px;
+    line-height: 21px;
+}
+#header .gnbUtil ul li a:before{
+	content: '';
+    display: inline-block;
+    position: relative;
+    width: 1px;
+    height: 12px;
+    margin: 0 12px;
+    background-color: rgba(255, 255, 255, 0.2);
+    vertical-align: middle;
+}
+#header .gnbMenu{
+	position: relative;
+    max-width: 1920px;
+    min-width: 1260px;
+    height: 53px;
+    margin: 0 auto;
+    padding-top: 24px;
+    text-align: center;
+}
+#header .gnbMenu .logo{
+	position: absolute;
+	left: 40px;
+    top: 25px;
+    border: 1px solid #000;
+}
+#header .gnbMenu .logo a{
+    display: block;
+    width: 100px;
+    height: 30px;	
+    line-height: 30px;	
+}
+#header .gnbList li{
+	display: inline-block;
+}
+
+#header .gnbList li a{
+	display: inline-block;
+    padding: 0 32px;
+    color: #101010;
+    font-size: 22px;
+    line-height: 32px;
+}
+#header .gnbList li .red_dot{
+	position: relative;
+}
+#header .gnbList li .red_dot:before{
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 0;
+    width: 6px;
+    height: 6px;
+    background: #EE0700;
+    border-radius: 3px;
+}
+#header .gnbSide{
+    position: absolute;
+	right: 42px;
+    top: 14px;
+}
+#header .gnbSide li{
+	float: left;
+    margin-left: 20px;
+}
+#header .gnbSide li.sideCart a:before{
+	background-position: -430px -270px;
+}
+#header .gnbSide li.sideCart .num{
+	position: absolute;
+    right: 61px;
+    top: -1px;
+    width: 16px;
+    height: 16px;
+    border-radius: 8px;
+    background-color: #FF2727;
+    color: #fff;
+    font-weight: 700;
+    font-size: 9px;
+    line-height: 16px;
+    text-align: center;
+}
+#header .gnbSide li.sideFind a:before{
+	background-position: -243px -687px;
+}
+#header .gnbSide li a:before{
+	content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 0 auto;
+    background: url(../images/iconset.png) no-repeat;
+    background-size: 470px 780px;
+}
+#header .gnbSide li a .txt{
+	display: block;
+    margin-top: -2px;
+    font-size: 12px;
+    line-height: 20px;
+    letter-spacing: -1px;
+    color: #101010;
+}
+}
+
+/* common-footer */
+#footer{
+	position: relative;
+	z-index: 999;
+}
+#footer .footerWrap{
+	position: relative;
+    min-width: 1260px;
+    height: 213px;
+    margin: 0 auto;
+    background-color: #202020;
+    text-align: center;
+}
+#footer .footerCont{
+	width: 1180px;
+    margin: 0 auto;
+    text-align: left;
+}
+#footer .footerWrap .ftL{
+	float: left;
+    width: 300px;
+    padding-top: 36px;
+}
+#footer .footerWrap .logo a{
+	display: block;
+    width: 160px;
+    height: 48px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    line-height: 48px;
+}
+#footer .footerWrap .copy{
+	padding: 45px 0 0 1px;
+    color: #808080;
+    font-size: 12px;
+    line-height: 20px;
+}
+#footer .footerWrap .ftC{
+	float: left;
+    width: 650px;
+    padding-top: 32px;
+}
+#footer .footerWrap .ftMenu{
+	width: 100%;
+    overflow: hidden;
+}
+#footer .footerWrap .ftMenu ul{
+    width: 625px;
+    margin-left: -25px;
+}
+#footer .footerWrap .ftMenu li{
+	float: left;
+    padding-right: 24px;
+}
+#footer .footerWrap .ftMenu .ftPoint{
+	color: #BDD61A !important;
+}
+#footer .footerWrap .ftMenu li a{
+	color: #fff;
+    font-size: 13px;
+    line-height: 21px;
+}
+#footer .footerWrap .ftInfo{
+	overflow: hidden;
+    padding-top: 18px;
+    width: 630px;
+}
+#footer .footerWrap .ftInfo .ftInfoCon{
+	margin-left: -9px;
+}
+#footer .footerWrap .ftInfo p{
+    float: left;
+    margin-top: 6px;
+    padding-right: 8px;
+    color: #808080;
+    font-size: 12px;
+    line-height: 20px;
+    white-space: nowrap;
+}
+#footer .footerWrap .ftInfo p:before{
+    content: '';
+    display: inline-block;
+    position: relative;
+    width: 1px;
+    height: 11px;
+    margin-right: 8px;
+    background-color: rgba(255,255,255,0.1);
+    vertical-align: middle;
+}
+#footer .footerWrap .ftMenu li:before{
+	content: '';
+    display: inline-block;
+    position: relative;
+    width: 1px;
+    height: 12px;
+    margin-right: 24px;
+    background-color: rgba(255,255,255,0.1);
+    vertical-align: middle;
+}
+#footer .footerWrap .ftR{
+    float: right;
+    padding-top: 31px;
+}
+#footer .footerWrap .ftR dt{
+	float: left;
+    padding-right: 6px;
+    color: #fff;
+    font-size: 17px;
+    line-height: 24px;
+}
+#footer .footerWrap .ftR dd{
+    float: left;
+    color: #fff;
+    font-size: 17px;
+    line-height: 24px;
+}
+#footer .footerWrap .ftR .btnFtLink{
+    display: block;
+    position: absolute;
+    top: 63px;
+    width: 88px;
+    height: 32px;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-size: 13px;
+    line-height: 30px;
+    text-align: center;
+}
+
+/* main-css */
+#main{ 
+	/* 내용이 추가되면 아래의 css를 지워주세요. */
+	text-align: center;
+	font-size: 50px;
+	padding: 500px 0;
+}
