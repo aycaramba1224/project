@@ -11,8 +11,9 @@ public interface ProductDao {
 	public int productModify(String pro_name, String pro_price, String pro_content, String pro_stock,
 						 	String pro_taste, int pro_no);
 	public int productInsert(int pro_no, String pro_name, String pro_price, String pro_content,
-							String pro_stock, String pro_taste );
-	
+							String pro_stock, String pro_taste );	
 	public int productDelete(int pro_no);
+	
+	public ArrayList<ProductDto> dynamicQueryList(String query, String content);
 	
 }

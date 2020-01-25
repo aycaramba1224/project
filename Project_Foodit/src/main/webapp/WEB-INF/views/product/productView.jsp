@@ -45,23 +45,18 @@
 					</tr>
 					<tr>
 						<td>상품맛</td>
-						<td>
-							<!--★ 맛이름 변경예정 ★-->							
-							<select name="pro_taste">
-								<option value="맵다">맵다</option>
-								<option value="짜다">짜다</option>
-								<option value="달다">달다</option>
-								<option value="담백">담백</option>
-								<option value="이국">이국</option>
-							</select>
+						<td>						
+							${productDto.pro_taste }					
 						</td>
 					</tr>					
 				</tbody>
 				<tfoot>
 					<tr>
 						<td colspan="2">
+						<!-- 관리자만 보이는 부분  (처리예정)-->
 							<input type="submit" value="상품 수정" />
 							<input type="button" value="상품 삭제" onclick="productRemove()"/>
+						<!-- 관리자만 보이는 부분  (처리예정)-->	
 							<input type="button" value="상품 목록" onclick="location.href='productList'"/>
 						</td>					
 					</tr>

@@ -7,6 +7,35 @@
 <title>productInsert</title>
 <script type="text/javascript">
 	function productInsert(f){
+		if(f.pro_no.value==""){
+			alert("상품번호을 입력하세요.");
+			f.pro_no.focus();
+			return;
+		}
+		if(f.pro_name.value==""){
+			alert("상품명을 입력하세요.");
+			f.pro_name.focus();
+			return;
+		}
+		if(f.pro_price.value==""){
+			alert("상품금액을 입력하세요.");
+			f.pro_price.focus();
+			return;
+		}
+		if(f.pro_content.value==""){
+			alert("상품설명을 입력하세요.");
+			f.pro_content.focus();
+			return;
+		}
+		if(f.pro_stock.value==""){
+			alert("상품재고를 입력하세요.");
+			f.pro_stock.focus();
+			return;
+		}
+		if(f.pro_taste.value==""){
+			alert("상품맛을 선택하세요.");
+			return;
+		}
 		f.action = "productInsert";
 		f.submit();
 	}
@@ -44,13 +73,11 @@
 						<td>상품맛</td>
 						<td>
 							<!--★ 맛이름 변경예정 ★-->							
-							<select name="pro_taste">
-								<option value="맵다">맵다</option>
-								<option value="짜다">짜다</option>
-								<option value="달다">달다</option>
-								<option value="담백">담백</option>
-								<option value="이국">이국</option>
-							</select>
+							<input type="radio" name="pro_taste" value="매콤한맛">매콤한맛
+							<input type="radio" name="pro_taste" value="짭짤한맛">짭짤한맛
+							<input type="radio" name="pro_taste" value="담백한맛">담백한맛
+							<input type="radio" name="pro_taste" value="이국적인맛">이국적인맛
+							<input type="radio" name="pro_taste" value="얼큰한맛">얼큰한맛						
 						</td>
 					</tr>					
 				</tbody>
