@@ -8,6 +8,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="productList" resultType="com.koreait.foodit.dto.ProductDto">
 		SELECT * FROM PRODUCT ORDER BY PRO_NO	
 	</select>
+	
+	<select id="productView" parameterType="int" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT WHERE PRO_NO = #{pro_no}		
+	</select>
+
+
+	<update id="productModify">
+		UPDATE PRODUCT SET PRO_NAME = #{param1 }, PRO_PRICE = #{param2}, PRO_CONTENT = #{param3 },
+		 PRO_STOCK = #{param4}, PRO_TASTE = #{param5} WHERE PRO_NO = #{param6}
+	</update>
+	
+	<insert id="productInsert">
+		INSERT INTO PRODUCT (PRO_NO, PRO_NAME, PRO_PRICE, PRO_CONTENT, PRO_STOCK, PRO_TASTE) 
+			VALUES 
+		(#{param1}, #{param2}, #{param3}, #{param4}, #{param5} ,#{param6} )
+	</insert>
+
+	<delete id="productDelete">
+		DELETE FROM PRODUCT WHERE PRO_NO = #{param1}
+	</delete>
 
 
 </mapper>
