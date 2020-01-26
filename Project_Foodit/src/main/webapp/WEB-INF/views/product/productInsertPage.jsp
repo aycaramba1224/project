@@ -45,7 +45,7 @@
 <body>
 	<div id="wrap">
 		<h3>상품 등록</h3>
-		<form method="POST">
+		<form method="POST"  autocomplete="off">
 			<table border="1">				
 				<tbody>
 					<tr>

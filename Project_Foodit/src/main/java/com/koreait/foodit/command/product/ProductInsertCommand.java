@@ -27,7 +27,6 @@ public class ProductInsertCommand implements ProductCommand {
 		String pro_stock = request.getParameter("pro_stock");
 		String pro_taste = request.getParameter("pro_taste");	 		
 		
-		// 이부분은 나중에 수정예정임 	
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
 		redirectAttributes.addFlashAttribute("insertResult",	productDao.productInsert
 				(pro_no, pro_name, pro_price, pro_content, pro_stock, pro_taste));

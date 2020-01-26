@@ -3,6 +3,18 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace=" ">
+<mapper namespace="com.koreait.foodit.dao.GuestDao ">
 
+	<select id="guestList" resultType="com.koreait.foodit.dto.GuestDto">
+	
+	SELECT * FROM GUEST ORDER BY GUEST_NO
+	</select>
+	
+	<insert id="guestInsert">
+		INSERT INTO GUEST (GUEST_NO,GUEST_PW,GUEST_NAME,GUEST_PHONE) 
+			VALUES 
+		(#{param1}, #{param2}, #{param3}, #{param4})
+	</insert>
+	
+	
 </mapper>

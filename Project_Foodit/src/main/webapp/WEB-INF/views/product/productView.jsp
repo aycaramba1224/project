@@ -1,10 +1,8 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>productView</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function productRemove(){
 		var check = confirm("정말 삭제할까요?");
@@ -12,12 +10,20 @@
 			location.href='productDelete?pro_no=${productDto.pro_no }';		
 		}
 	}
+	
+	function goCart(f){
+		alert("상품이 장바구니에 담겼습니다.");
+		f.action ="cartList?pro_no=${productDto.pro_no }";
+		
+		f.submit();
+	}
 </script>
 </head>
 <body>
 	<div id="wrap">
 		<h3>상품 보기</h3>
 		<form action="productModify" method="POST">
+		<input type="hidden" name="pro_no" value="${productDto.pro_no }"/>
 			<table border="1" style="width:500px;">				
 				<tbody>
 					<tr>
@@ -51,6 +57,45 @@
 					</tr>					
 				</tbody>
 				<tfoot>
+					<tr>
+						<td>구매수량</td>
+						<td>
+							<button type="button" class="minus" >-</button>
+							<input type="number" class="numBox" min="1" max="${view.gdsStock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
+							<button type="button" class="plus" >+</button> &nbsp;&nbsp;
+							<input type="button" value="장바구니 담기" onclick="goCart(this.form)"/>
+							<script type="text/javascript"> 
+							// 구매 수량 플러스
+							$(".plus").click(function(){
+								var num = $(".numBox").val();
+								var plusNum = Number(num) + 1;
+								if(num >= 11){
+									alert("최대 구매 가능 수량은 10개 입니다.");
+								}
+						 
+								if(plusNum >= 11) {			// 최대 구매가능 상품은 10개로 제한함(alert위치 파악중)
+									$(".numBox").val(num);
+								} else {
+									$(".numBox").val(plusNum);  
+									
+								}
+								
+							});
+
+							// 구매 수량 마이너스
+							$(".minus").click(function(){
+								var num = $(".numBox").val();
+								var minusNum = Number(num) - 1;
+							 
+								if(minusNum <= 0) {
+									$(".numBox").val(num);
+								} else {
+									$(".numBox").val(minusNum);          
+								}
+							});							
+							</script>
+						</td>
+					</tr>
 					<tr>
 						<td colspan="2">
 						<!-- 관리자만 보이는 부분  (처리예정)-->
