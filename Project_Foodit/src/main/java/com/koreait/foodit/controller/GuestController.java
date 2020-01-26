@@ -10,8 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.koreait.foodit.command.guest.GuestCommand;
+import com.koreait.foodit.command.guest.GuestListCommand;
 import com.koreait.foodit.command.guest.GuestinsertCommand;
-import com.koreait.foodit.command.product.ProductCommand;
+
 
 
 @Controller
@@ -21,17 +22,23 @@ public class GuestController {
 	private SqlSession sqlSession;
 	private GuestCommand guestCommand;
 
-	@RequestMapping("guestindex")
-	public String guestindexPage(Model model) {
-		return "guest/guestindex";
+	
+	@RequestMapping("guestList")
+	public String guestList(HttpServletRequest request ,Model model) {
+		model.addAttribute("request", request);
+		guestCommand= new GuestListCommand();
+		guestCommand.execute(sqlSession, model);
+		return "guest/guestList";
+		
 	}
+	
 	
 	@RequestMapping("guestInsert")
 	public String guestInsertPage(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		guestCommand = new GuestinsertCommand();
 		guestCommand.execute(sqlSession, model);
-		return "redirect:/guestindex";
+		return "redirect:/guestList";	
 	}
 	
 	

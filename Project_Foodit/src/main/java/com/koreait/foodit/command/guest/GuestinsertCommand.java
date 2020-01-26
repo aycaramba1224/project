@@ -2,11 +2,12 @@ package com.koreait.foodit.command.guest;
 
 import java.util.Map;
 
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 
 import com.koreait.foodit.dao.GuestDao;
 
@@ -24,7 +25,7 @@ public class GuestinsertCommand implements GuestCommand {
 		String guest_pw = request.getParameter("guest_pw");
 		String guest_name = request.getParameter("guest_name");
 		String guest_phone = request.getParameter("guest_phone");
-		gDao.guestInsert(guest_no, guest_pw, guest_name, guest_phone);
+      gDao.guestInsert(guest_no, guest_pw, guest_name, guest_phone);
 		
 		
 	}
