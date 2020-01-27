@@ -23,7 +23,7 @@ public class CartController {
 	public String cartList( Model model) {		
 		cartCommand = new CartListCommand();
 		cartCommand.execute(sqlSession, model);		 
-		return "cart/cartList";
+		return "cart/cartView";
 	}
 	
 	@RequestMapping("cartView")
@@ -32,7 +32,7 @@ public class CartController {
 		cartCommand = new CartViewCommand();
 		cartCommand.execute(sqlSession, model);
 		
-		return "cart/cartList";
+		return "cart/cartView";
 	}
 	
 

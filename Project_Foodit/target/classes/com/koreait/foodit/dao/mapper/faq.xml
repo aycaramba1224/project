@@ -8,6 +8,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
    SELECT * FROM FAQ ORDER BY FAQ_NO
  </select>
  
+ <update id="faqModify">
+      UPDATE FAQ 
+      SET FAQ_TITLE = #{param1},
+          FAQ_CONTENT = #{param2}, 
+          CLASSNO = #{param3}, 
+      WHERE    
+          FAQ_NO = #{param4} 
+ 
+ </update>
+ 
+ <select id="faqView" resultType="com.koreait.foodit.dto.FaqDto">
+     SELECT * 
+     FROM FAQ 
+     WHERE FAQ_NO = #{param1}
+ </select>
+ 
+ <delete id="faqDelete">
+     DELETE
+     FROM FAQ
+     WHERE FAQ_NO = #{param1}
+ </delete>
+ 
+ <insert id="faqWrite">
+     INSERT INTO 
+     FAQ (FAQ_TITLE, FAQ_CONTENT, FAQ_ID, CLASSNO)
+     VALUES (#{param1}, #{param2}, #{param3}, #{param4})
+ </insert>
+ 
+ <select id="dynamicQueryList" resultType="com.koreait.foodit.dto.FaqDto">
+      SELECT *
+      FROM FAQ
+      WHERE ${param1} LIKE #{param2}
+</select>
+ 
  
  
 </mapper>

@@ -1,5 +1,4 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
- 
+ <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 
 <title>productView</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -7,16 +6,16 @@
 	function productRemove(){
 		var check = confirm("정말 삭제할까요?");
 		if (check) {
-			location.href='productDelete?pro_no=${productDto.pro_no }';		
+			location.href="productDelete?pro_no=${productDto.pro_no }";		
 		}
-	}
-	
+	}	
 	function goCart(f){
-		alert("상품이 장바구니에 담겼습니다.");
-		f.action ="cartList?pro_no=${productDto.pro_no }";
-		
-		f.submit();
-	}
+		var check2 = confirm("상품이 장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?");
+		if (check2) {
+			f.action="cartView?pro_no=${productDto.pro_no }";
+			f.submit();
+		}
+	} 
 </script>
 </head>
 <body>
@@ -52,7 +51,15 @@
 					<tr>
 						<td>상품맛</td>
 						<td>						
-							${productDto.pro_taste }					
+							<select name="pro_taste">
+								<option value="${productDto.pro_taste }">${productDto.pro_taste}</option>
+								<option value="선택">==========</option>
+								<option value="매콤한맛">매콤한맛</option>
+								<option value="짭짤한맛">짭짤한맛</option>
+								<option value="담백한맛">담백한맛</option>
+								<option value="이국적인맛">이국적인맛</option>
+								<option value="얼큰한맛">얼큰한맛</option>
+							</select>					
 						</td>
 					</tr>					
 				</tbody>
@@ -61,39 +68,34 @@
 						<td>구매수량</td>
 						<td>
 							<button type="button" class="minus" >-</button>
-							<input type="number" class="numBox" min="1" max="${view.gdsStock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
+							<input type="number" class="count" min="1" max="${productDto.pro_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
 							<button type="button" class="plus" >+</button> &nbsp;&nbsp;
 							<input type="button" value="장바구니 담기" onclick="goCart(this.form)"/>
 							<script type="text/javascript"> 
 							// 구매 수량 플러스
 							$(".plus").click(function(){
-								var num = $(".numBox").val();
+								var num = $(".count").val();
 								var plusNum = Number(num) + 1;
-								if(num >= 11){
-									alert("최대 구매 가능 수량은 10개 입니다.");
-								}
-						 
-								if(plusNum >= 11) {			// 최대 구매가능 상품은 10개로 제한함(alert위치 파악중)
-									$(".numBox").val(num);
+								if(plusNum >= 11) {	
+									alert("최대 구매 가능 수량은 10개 입니다.");// 최대 구매가능 상품은 10개로 제한함(alert위치 파악중)
+									$(".count").val(num);
 								} else {
-									$(".numBox").val(plusNum);  
-									
-								}
-								
+									$(".count").val(plusNum);  									
+								}								
 							});
 
 							// 구매 수량 마이너스
 							$(".minus").click(function(){
-								var num = $(".numBox").val();
-								var minusNum = Number(num) - 1;
-							 
+								var num = $(".count").val();
+								var minusNum = Number(num) - 1;							 
 								if(minusNum <= 0) {
-									$(".numBox").val(num);
+									$(".count").val(num);
 								} else {
-									$(".numBox").val(minusNum);          
+									$(".count").val(minusNum);          
 								}
 							});							
 							</script>
+							
 						</td>
 					</tr>
 					<tr>

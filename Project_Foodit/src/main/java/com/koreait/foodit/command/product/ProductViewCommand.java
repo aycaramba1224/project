@@ -22,7 +22,6 @@ public class ProductViewCommand implements ProductCommand {
 		int pro_no = Integer.parseInt(request.getParameter("pro_no"));
 		
 		model.addAttribute("productDto", productDao.productView(pro_no));
-
 	}
 
 }

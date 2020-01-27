@@ -72,12 +72,13 @@
 					<tr>
 						<td>상품맛</td>
 						<td>
-							<!--★ 맛이름 변경예정 ★-->							
-							<input type="radio" name="pro_taste" value="매콤한맛">매콤한맛
-							<input type="radio" name="pro_taste" value="짭짤한맛">짭짤한맛
-							<input type="radio" name="pro_taste" value="담백한맛">담백한맛
-							<input type="radio" name="pro_taste" value="이국적인맛">이국적인맛
-							<input type="radio" name="pro_taste" value="얼큰한맛">얼큰한맛						
+							<select name="pro_taste">
+								<option value="매콤한맛">매콤한맛</option>
+								<option value="짭짤한맛">짭짤한맛</option>
+								<option value="담백한맛">담백한맛</option>
+								<option value="이국적인맛">이국적인맛</option>
+								<option value="얼큰한맛">얼큰한맛</option>
+							</select>					
 						</td>
 					</tr>					
 				</tbody>
