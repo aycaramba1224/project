@@ -41,7 +41,7 @@
 					</tr>
 					<tr>
 						<td>상품내용</td>
-						<!--★ 사이즈 변경예정 ★-->
+						<!--★ 사진 업로드 기능 추가예정 ★-->
 						<td><textarea rows="10" cols="10" name="pro_content" >${productDto.pro_content }</textarea></td>
 					</tr>
 					<tr>
@@ -71,6 +71,7 @@
 							<input type="number" class="count" min="1" max="${productDto.pro_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
 							<button type="button" class="plus" >+</button> &nbsp;&nbsp;
 							<input type="button" value="장바구니 담기" onclick="goCart(this.form)"/>
+							 
 							<script type="text/javascript"> 
 							// 구매 수량 플러스
 							$(".plus").click(function(){

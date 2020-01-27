@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.dao.CartDao;
 
@@ -24,7 +25,10 @@ public class CartInsertCommand implements CartCommand {
 		int pro_no = Integer.parseInt(request.getParameter("pro_no"));
 		int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));
 		
+		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
+		redirectAttributes.addFlashAttribute("cartInsertResult", cartDao.cartInsert(cart_no, id, pro_no, cart_amount));	 
 
+		redirectAttributes.addFlashAttribute("isCartInsert", "yes");
 	}
 
 }
