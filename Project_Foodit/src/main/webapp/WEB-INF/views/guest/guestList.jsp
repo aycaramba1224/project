@@ -35,6 +35,11 @@
 
 			</table>
 			<input type="button" value="비회원작성하기" onclick="location.href='guestInsertPage'" />
+			
+			<!--관리자모드 -->
+			<input type="button" value="비회원정보 삭제" onclick="location.href='guestDelete'" />
+			<!--비회원이기떄문에 정보 수정은 안됨  -->
+			
 			</form>
 
 </body>

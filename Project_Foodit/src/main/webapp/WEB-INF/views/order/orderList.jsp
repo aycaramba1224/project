@@ -10,9 +10,21 @@
 <body>
      <body>
       <table>
+          
 	
 			<tbody>
+				<c:choose>			
 				<c:choose>
+				<!--연결하는 부분은아직...ㅠㅠ  -->
+				<!-- 
+						<c:when test="${ guest_no eq null }">
+							
+						</c:when>
+						<c:otherwise>
+						<td>{guest_no }</td>
+						</c:otherwise>
+					</c:choose>
+					-->
 					<c:when test="${empty orderList }">
 						<tr>
 							<td colspan="4">작성된 주문정보가 없습니다.</td>
@@ -20,13 +32,12 @@
 						</c:when>
 					<c:otherwise>
 				<c:forEach var="OrderBaseDto" items="${ orderList}">
-				<tr>					
-					<td>${ OrderBaseDto.order_no}</td>	
+				<tr>		
+			
 					<td>${ OrderBaseDto.order_name}</td>	
 					<td>${ OrderBaseDto.order_post}</td>	
 					<td>${ OrderBaseDto.order_road}</td>	
-								
-								
+									
 				</tr>
 				</c:forEach>
 				</c:otherwise>
@@ -36,7 +47,8 @@
 			
 			<tr>
 			<td colspan="4">	
-				<input type="button" value="주문내역 보기" onclick="location.href=''"/>
+		       <!--마이페이지 곳에서 회원 주문자 정보 수정 가능? -->
+		       <!-- 관리자 페이지에서도 수정? -->
 			</td>					
 				</tr>
    </table>

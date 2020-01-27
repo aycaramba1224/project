@@ -7,8 +7,11 @@
 	<title>Home</title>
 </head>
 <body>
-	<input type="button" value="비회원 주문하기" onclick="location.href='guestList'" />
+	 <input type="button" value="비회원 주문하기" onclick="location.href='guestInsertPage'" />
 	<input type="button" value="주문하기" onclick="location.href='order'" />
+	<input type="button" value="주문내역보기" onclick="location.href='orderListPage'" />
+	
+	
 	<input type="button" value="상품 전체 목록" onclick="location.href='productList'" />	
 	<input type="button" value="장바구니 목록" onclick="location.href='cartList'" />	
 	

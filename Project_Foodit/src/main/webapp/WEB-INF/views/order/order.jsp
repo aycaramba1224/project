@@ -68,13 +68,23 @@
 </head>
 <body>
 	
+	    
 		<form method="POST">
+	    <!--상품정보도 들어가야됨  -->
 		<table>
 			<tbody>
 				<tr>
-					<td>주문번호</td>
-					<td><input type="text" name="order_no"/></td>
-				</tr>
+				<!-- guest_no랑 연결 guest_no -->
+				<c:choose>
+						<c:when test="${ guest_no eq null }">
+							<td><input type="text" name="order_no"  autofocus /></td>
+						</c:when>
+						
+						<c:otherwise>
+							<td><input type="text" name="order_no" value="${guest_no }"  /></td>
+						</c:otherwise>
+					</c:choose>
+					
 	                 <!--memberID랑 연결되어 있는 부분
 	                 <tr>
 	                 <td>주문아이디 </td>
@@ -110,8 +120,10 @@
                </tbody>
                    <tr>
                	<td colspan="4">
-	     <input type="button" value="보내기" onclick="location.href='orderInsert'" />
-	     <input type="button" value="주문정보리스트 보기" onclick="location.href=oderListPage'' "/>
+	     <input type="button" value="구매하기" onclick="location.href='orderInsert'" />
+	     <!--비회원 정보 입력하고 정보 입력하고 구매하기 버튼누르면 어디로??? -->
+	     <!--관리자일떄  -->
+	     <input type="button" value="주문정보리스트 보기" onclick="location.href='oderListPage' "/>
 			</td>
 			</tr>
                </table>
