@@ -2,13 +2,16 @@ package com.koreait.foodit.command.guest;
 
 import java.util.Map;
 
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.dao.GuestDao;
+import com.koreait.foodit.dto.GuestDto;
 
 public class GuestinsertCommand implements GuestCommand {
 
@@ -19,6 +22,7 @@ public class GuestinsertCommand implements GuestCommand {
 
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
+  RedirectAttributes redirectAttributes = (RedirectAttributes)map.get(" redirectAttributes");
 		
 		int guest_no = Integer.parseInt(request.getParameter("guest_no"));		
 		String guest_pw = request.getParameter("guest_pw");
@@ -27,6 +31,10 @@ public class GuestinsertCommand implements GuestCommand {
 		gDao.guestInsert(guest_no, guest_pw, guest_name, guest_phone);
 		
 		
+		}
+
+     
+		
 	}
 
-}
+

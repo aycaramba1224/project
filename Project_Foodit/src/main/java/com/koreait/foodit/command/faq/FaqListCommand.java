@@ -14,9 +14,6 @@ public class FaqListCommand implements FaqCommand {
         model.addAttribute("faqList", fDao.faqList());
         model.addAttribute("faqListCount", fDao.faqList().size());
         
-		
-		
-		
 	}
 
 }

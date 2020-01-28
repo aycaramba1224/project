@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.koreait.foodit.dao.CartDao">
+	
+	<select id="cartList" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT
+	</select>
+	
+	<select id="cartView" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT WHERE PRO_NO = #{pro_no}	
+	</select>
+	
+	
+	
+	
+	<insert id="cartInsert">
+		INSERT INTO CART (CART_NO, ID, PRO_NO, CART_AMOUNT) VALUES ( CART_SEQ.NEXTBAL, #{param2}, #{param3}, #{param4})
+	</insert>
+
+</mapper>

@@ -5,12 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.foodit.dao.GuestDao ">
 
+	<select id="guestList" resultType="com.koreait.foodit.dto.GuestDto">
+	
+	SELECT * FROM GUEST ORDER BY GUEST_NO
+	
+	</select>
+
 	
 	<insert id="guestInsert">
 		INSERT INTO GUEST (GUEST_NO,GUEST_PW,GUEST_NAME,GUEST_PHONE) 
 			VALUES 
 		(#{param1}, #{param2}, #{param3}, #{param4})
 	</insert>
+	
+	<!--비회원정보 삭제  -->
+	<delete id="guestDelete">
+	 DELETE FROM GUEST WHERE GUEST_NO =#{guest_no}
+	</delete>
+	
 	
 	
 </mapper>

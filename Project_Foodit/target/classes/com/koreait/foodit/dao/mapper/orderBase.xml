@@ -3,6 +3,30 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace=" ">
+<mapper namespace="com.koreait.foodit.dao.OrderBaseDao">
+
+<insert id ="orderInsert">
+INSERT INTO ORDER_BASE (ORDER_NO,ORDER_NAME,ORDER_POST,ORDER_ROAD)
+ VALUES 
+ 
+ (#{param1},#{param2},#{param3},#{param4})
+
+</insert>
+
+<select id="orderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
+ 
+ SELECT * FROM ORDER_BASE ORDER BY ORDER_NO
+ 
+</select>
+
+<!--guest_no 찾기-->
+<select id="order_noView"  parameterType="int" resultType="com.koreait.foodit.dto.GuestDto">
+
+SELECT FROM GUEST WHERE GUEST_NO = #{guest_no}
+
+</select>
+
+
+
 
 </mapper>

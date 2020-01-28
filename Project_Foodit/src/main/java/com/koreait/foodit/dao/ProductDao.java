@@ -14,6 +14,6 @@ public interface ProductDao {
 							String pro_stock, String pro_taste );	
 	public int productDelete(int pro_no);
 	
-	public ArrayList<ProductDto> dynamicQueryList(String query, String content);
+	public ArrayList<ProductDto> productSearchResult(String query, String content);
 	
 }

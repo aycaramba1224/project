@@ -37,24 +37,13 @@
 </script>
 </head>
 <body>
-	<div id="wrap">
-		<h3>상품 전체 목록</h3>
-		<div id="search">
-			<form action="dynamicQuery" method="POST">
-					<select name="query">
-					<option value="PRO_NAME">상품명</option>
-					<option value="PRO_TASTE">맛</option>
-					<option value="PRO_NO">상품번호</option>
-				</select>
-				<input type="text" name="content"/>
-				<input type="submit" value="검색">
-			</form>	
-		</div> 
+	<div id="wrap">	
 		<table border="1">
 			<thead>
 				<tr>
-					<td>상품번호</td>
-					<td>상품명</td>
+				<!-- 수정 예정  -->
+					<td>상품번호</td> <!-- 상품번호대신 썸네일 이미지로 대체예정 -->
+					<td>상품명</td>	
 					<td>상품금액</td>				 			
 				</tr>
 			</thead>
@@ -71,9 +60,11 @@
 					<td>${productDto.pro_price }</td>					
 				</tr>
 				</c:forEach>
+				<!-- 관리자만 보이는 부분  (처리예정)-->
 				<tr>
 					<td colspan="3">총 상품 개수 : ${productListSize }개</td>
-				</tr>				
+				</tr>		
+				<!-- 관리자만 보이는 부분  (처리예정)-->		
 			</tbody>
 			<tfoot>
 			<!-- 관리자만 보이는 부분  (처리예정)-->
