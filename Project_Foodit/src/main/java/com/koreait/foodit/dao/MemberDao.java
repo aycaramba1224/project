@@ -1,5 +1,9 @@
 package com.koreait.foodit.dao;
 
 public interface MemberDao {
-
+	
+	public int add(String id, String pw, String name, 
+					String phone, String email, String birth, 
+					String post, String road);
+	
 }

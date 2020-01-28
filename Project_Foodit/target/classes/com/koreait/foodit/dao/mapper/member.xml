@@ -3,6 +3,14 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace=" ">
+<mapper namespace="com.koreait.foodit.dao.MemberDao">
+
+	<insert id="add">
+		INSERT INTO
+			MEMBER(ID, PW, NAME, PHONE, EMAIL, BIRTH, POST, ROAD, REG_DATE, ROLE)
+		VALUES
+			(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, SYSDATE, 'user')
+			
+	</insert>
 
 </mapper>
