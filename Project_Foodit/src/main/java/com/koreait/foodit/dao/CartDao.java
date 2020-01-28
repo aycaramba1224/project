@@ -9,7 +9,7 @@ public interface CartDao {
 	public ArrayList<ProductDto> cartList();
 	
 	
-	public ProductDto cartView(int pro_no);
+	public ArrayList<ProductDto> cartView(int pro_no);
 	
 	public int cartInsert (int cart_no, String id, int pro_no, int cart_amount);
 	

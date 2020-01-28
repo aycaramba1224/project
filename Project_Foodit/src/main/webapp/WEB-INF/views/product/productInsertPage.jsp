@@ -43,9 +43,8 @@
 </script>
 </head>
 <body>
-	<div id="wrap">
-		<h3>상품 등록</h3>
-		<form method="POST"  autocomplete="off">
+	<div id="wrap">		
+		<form method="POST">
 			<table border="1">				
 				<tbody>
 					<tr>

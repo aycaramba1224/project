@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM PRODUCT
 	</select>
 	
-	<select id="cartView" parameterType="int" resultType="com.koreait.foodit.dto.ProductDto">
+	<select id="cartView" resultType="com.koreait.foodit.dto.ProductDto">
 		SELECT * FROM PRODUCT WHERE PRO_NO = #{pro_no}	
 	</select>
 	

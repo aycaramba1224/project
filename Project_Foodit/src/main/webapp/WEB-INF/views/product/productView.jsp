@@ -28,12 +28,12 @@
 					<tr>
 						<td>상품번호</td>
 						<td>${productDto.pro_no }
-							 <input type="hidden" name="pro_no" value="${productDto.pro_no }"/>  
+							 <input type="hidden" class="pro_no" name="pro_no" value="${productDto.pro_no }"/>  
 						</td>
 					</tr>
 					<tr>
 						<td>상품명</td>
-						<td><input type="text" name="pro_name" value="${productDto.pro_name }"/></td>
+						<td><input type="text"  id="pro_name" name="pro_name" value="${productDto.pro_name }"/></td>
 					</tr>
 					<tr>
 						<td>상품가격</td>
@@ -68,44 +68,48 @@
 						<td>구매수량</td>
 						<td>
 							<button type="button" class="minus" >-</button>
-							<input type="number" class="count" min="1" max="${productDto.pro_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
+							<input type="number" class="cartCount" name="cartCount" min="1" max="${productDto.pro_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
 							<button type="button" class="plus" >+</button> &nbsp;&nbsp;
-							<input type="button" value="장바구니 담기" onclick="goCart(this.form)"/>
-							 
 							<script type="text/javascript"> 
 							// 구매 수량 플러스
 							$(".plus").click(function(){
-								var num = $(".count").val();
+								var num = $(".cartCount").val();
 								var plusNum = Number(num) + 1;
 								if(plusNum >= 11) {	
 									alert("최대 구매 가능 수량은 10개 입니다.");// 최대 구매가능 상품은 10개로 제한함(alert위치 파악중)
-									$(".count").val(num);
+									$(".cartCount").val(num);
 								} else {
-									$(".count").val(plusNum);  									
+									$(".cartCount").val(plusNum);  									
 								}								
 							});
 
 							// 구매 수량 마이너스
 							$(".minus").click(function(){
-								var num = $(".count").val();
+								var num = $(".cartCount").val();
 								var minusNum = Number(num) - 1;							 
 								if(minusNum <= 0) {
-									$(".count").val(num);
+									$(".cartCount").val(num);
 								} else {
-									$(".count").val(minusNum);          
+									$(".cartCount").val(minusNum);          
 								}
 							});							
-							</script>
+							</script>							
+							
+							 <input type="button" value="장바구니 담기" onclick="goCart(this.form)"/>
+						
+							
+					
+					
 							
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2">
+							<input type="button" value="상품 목록" onclick="location.href='productList'"/>
 						<!-- 관리자만 보이는 부분  (처리예정)-->
 							<input type="submit" value="상품 수정" />
 							<input type="button" value="상품 삭제" onclick="productRemove()"/>
 						<!-- 관리자만 보이는 부분  (처리예정)-->	
-							<input type="button" value="상품 목록" onclick="location.href='productList'"/>
 						</td>					
 					</tr>
 				</tfoot>

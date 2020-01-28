@@ -36,11 +36,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      VALUES (#{param1}, #{param2}, #{param3}, #{param4})
  </insert>
  
- <select id="dynamicQueryList" resultType="com.koreait.foodit.dto.FaqDto">
-      SELECT *
-      FROM FAQ
-      WHERE ${param1} LIKE #{param2}
-</select>
+ 
  
  
  

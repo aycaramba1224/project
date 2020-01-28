@@ -46,6 +46,9 @@ public class CartController {
 		cartCommand.execute(sqlSession, model);
 		return "redirect:/cartView";		
 	}	
+	
+
+
 		
 		
 }

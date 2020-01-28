@@ -12,20 +12,8 @@
 	<div id="wrap">
 		<table border=1>
 			<tbody>				
-				<c:forEach var="productDto" items="${cartList}">
-					<tr>
-						<td>상품번호</td>
-						<td>${productDto.pro_no }</td>
-					</tr>
-					<tr>
-						<td>상품명</td>
-						<td>${productDto.pro_name }</td>
-					</tr>
-					<tr>
-						<td>상품금액</td>
-						<td>${productDto.pro_price }</td>
-					</tr>
-					</c:forEach>					
+				 
+					 					
 			</tbody>
 		</table>
 	</div>

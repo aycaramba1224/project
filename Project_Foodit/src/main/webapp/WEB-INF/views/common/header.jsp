@@ -44,7 +44,7 @@
 								</a>
 							</li>
 							<li class="sideFind">
-								<a href="">
+								<a href="productSearch">
 									<span class="txt">메뉴찾기</span>
 								</a>
 							</li>
