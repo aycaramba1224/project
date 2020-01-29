@@ -6,26 +6,36 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.koreait.foodit.dao.OrderBaseDao">
 
 <insert id ="orderInsert">
-INSERT INTO ORDER_BASE (ORDER_NO,ORDER_NAME,ORDER_POST,ORDER_ROAD)
+INSERT INTO ORDER_BASE (ORDER_NO,ORDER_ID,ORDER_NAME,ORDER_POST,ORDER_ROAD)
  VALUES 
- 
- (#{param1},#{param2},#{param3},#{param4})
+ (#{param1},#{param2},#{param3},#{param4},#{param5})
 
 </insert>
 
 <select id="orderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
- 
  SELECT * FROM ORDER_BASE ORDER BY ORDER_NO
- 
 </select>
 
-<!--guest_no 찾기-->
-<select id="order_noView"  parameterType="int" resultType="com.koreait.foodit.dto.GuestDto">
-
-SELECT FROM GUEST WHERE GUEST_NO = #{guest_no}
-
+<select id="orderList_view" parameterType="int" resultType="com.koreait.foodit.dto.OrderBaseDto">
+	
+	SELECT * FROM ORDER_BASE WHERE ORDER_NO = #{param1}
+	
 </select>
 
+<update id="orderListModify">
+ UPDATE	 ORDER_BASE SET
+		   ORDER_NAME = #{param1},
+		   ORDER_POST = #{param2},
+		   ORDER_ROAD = #{param3}
+		WHERE
+			ORDER_NO = #{param4}
+</update>
+
+<delete id="orderBaseDelete">
+
+	 DELETE FROM ORDER_BASE WHERE ORDER_NO = #{param1}
+	 
+</delete>
 
 
 

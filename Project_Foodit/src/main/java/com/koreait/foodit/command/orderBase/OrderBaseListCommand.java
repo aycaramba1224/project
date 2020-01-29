@@ -8,12 +8,10 @@ import com.koreait.foodit.dao.OrderBaseDao;
 public class OrderBaseListCommand implements OrderBaseCommand {
 
 	@Override
-	public void execute(SqlSession sqlSession, Model model) {
+	public void execute(SqlSession sqlSession,Model model) {
 		// TODO Auto-generated method stub
        OrderBaseDao obDao = sqlSession.getMapper(OrderBaseDao.class);
-       
-       model.addAttribute("orderList ",obDao.orderList());
-       model.addAttribute("orderListSize",obDao.orderList().size());
+       model.addAttribute("orderBaseList",obDao.orderList());
+       model.addAttribute("orderBaseListSize",obDao.orderList().size());
 	}
-
 }

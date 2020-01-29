@@ -1,45 +1,88 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta  content="text/html; charset=UTF-8">
+<title>비회원 리스트 </title>
 <title>Insert title here</title>
+ <script>
+var  guestInsertResult = "${guestInsertResult}";
+if( guestInsertResult == "yes"){
+	var guestResult= "${guestResult}";
+	if(guestResult == 0){
+		alert("비회원 정보 등록 실패.");
+	} else {
+		alert("비회원 등록 성공.");
+	}
+}
+
+var guestDeleteResult = "${guestDeleteResult}";
+if( guestDeleteResult == "yes"){
+	var deleteResult = "${deleteResult}";
+	if(deleteResult== 0){
+		alert("비회원정보 삭제 실패.");
+	} else {
+		alert("비회원정보 삭제 성공.");
+	}
+}
+
+var guestModifyResult = "${guestModifyResult}";
+if( guestModifyResult == "yes"){
+	var guestMOResult = "${guestMOResult}";
+	if(guestMOResult== 0){
+		alert("비회원정보 수정 실패.");
+	} else {
+		alert("비회원정보 수정 성공.");
+	}
+}
+
+
+
+
+</script>
 </head>
 <body>
-<form  method="POST">
+   <form method="post">
 		<table border="1">
 		<tbody>
-		<c:choose>
-					<c:when test="${empty guestList }">
-						<tr>
-							<td colspan="4">작성된 비회원정보가 없습니다.</td>
-						</tr>
-						</c:when>
-					<c:otherwise>
-				<c:forEach var="GuestDto" items="${guestList}">
-				<tr>					
-					<td>${ GuestDto.guest_no}</td>	
-					<td>${ GuestDto.guest_pw}</td>	
-					<td>${ GuestDto.guest_name}</td>	
-					<td>${ GuestDto.guest_phone}</td>	
-								
-								
+					
+	   <tr>
+			<th>비회원주문번호</th>
+			<th>비회원 주문비밀번호</th>
+			<th>비회원 이름</th>
+			<th>비회원 연락처</th>
+		</tr>
+	
+		<c:if test="${guestListSize eq 0 }">
+			<tr>
+				<td colspan="5">저장된 비회원정보가 없습니다.</td>
+			</tr>
+		</c:if>
+		
+		<c:if test="${ guestListSize ne 0 }">
+			<c:forEach var="GuestDto" items="${guestList}">
+				<tr>
+					<td><a href="guestListview?guest_no=${GuestDto.guest_no}">${GuestDto.guest_no}</a></td>
+					<td>${GuestDto.guest_pw}</td>
+					<td>${GuestDto.guest_name}</td>
+					<td>${GuestDto.guest_phone}</td>
 				</tr>
-				</c:forEach>
-				</c:otherwise>
-				</c:choose>
+			</c:forEach>
+		</c:if>
+		</tbody>
+		<tr>
+			<th colspan="6">
+				전체 주문에대한정보(${guestListSize })개&nbsp;&nbsp;
+		      </th>
+		      </tr>
 
 			</tbody>
 
 			</table>
 			<input type="button" value="비회원작성하기" onclick="location.href='guestInsertPage'" />
-			
-			<!--관리자모드 -->
-			<input type="button" value="비회원정보 삭제" onclick="location.href='guestDelete'" />
-			<!--비회원이기떄문에 정보 수정은 안됨  -->
-			
+
 			</form>
 
 </body>

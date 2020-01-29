@@ -4,18 +4,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>주문내역 볼 수 있는 페이지</title>
 </head>
 <body>
+      
+
+           
 
 
 
 
-
-
-
-        <!--관리자 일떄 -->
-      <input type="button" value="주문내역 상태 확인" onclick="location.href='orderListupdatePage'" />
-      <input type="button" value="주문내역 상태 수정" onclick="location.href=''" />
+      
+      <input type="button" value="주문내역 상태 확인" onclick="location.href='orderListViewPage'" />
+     
 </body>
 </html>
