@@ -56,7 +56,7 @@
 				<c:forEach var="productDto" items="${productList }">
 				<tr>					
 					<td>${productDto.pro_no }</td>
-					<td><a href="productView?pro_no=${productDto.pro_no}">${productDto.pro_name}</a></td>
+					<td><a href="productView?pro_no=${productDto.pro_no}">${productDto.product_name}</a></td>
 					<td>${productDto.pro_price }</td>					
 				</tr>
 				</c:forEach>

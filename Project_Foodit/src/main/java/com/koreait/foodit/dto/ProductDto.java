@@ -2,67 +2,59 @@ package com.koreait.foodit.dto;
 
 public class ProductDto {
 
-	private int pro_no, order_pro_no;
-	private String 	pro_name,
-					pro_price,
-					pro_content,
-					pro_stock,
-					pro_taste;
+	private int product_no;
+	private String 	product_name,
+					product_price,
+					product_content,
+					product_stock,
+					product_taste;
 	
 	public ProductDto() { }
-	public ProductDto(int pro_no, int order_pro_no, String pro_name, String pro_price, String pro_content,
-			String pro_stock, String pro_taste) {
+	public ProductDto(int product_no, String product_name, String product_price, String product_content,
+			String product_stock, String product_taste) {
 		super();
-		this.pro_no = pro_no;
-		this.order_pro_no = order_pro_no;
-		this.pro_name = pro_name;
-		this.pro_price = pro_price;
-		this.pro_content = pro_content;
-		this.pro_stock = pro_stock;
-		this.pro_taste = pro_taste;
+		this.product_no = product_no;
+		this.product_name = product_name;
+		this.product_price = product_price;
+		this.product_content = product_content;
+		this.product_stock = product_stock;
+		this.product_taste = product_taste;
 	}
-	
-	public int getPro_no() {
-		return pro_no;
+	public int getProduct_no() {
+		return product_no;
 	}
-	public void setPro_no(int pro_no) {
-		this.pro_no = pro_no;
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
 	}
-	public int getOrder_pro_no() {
-		return order_pro_no;
+	public String getProduct_name() {
+		return product_name;
 	}
-	public void setOrder_pro_no(int order_pro_no) {
-		this.order_pro_no = order_pro_no;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
-	public String getPro_name() {
-		return pro_name;
+	public String getProduct_price() {
+		return product_price;
 	}
-	public void setPro_name(String pro_name) {
-		this.pro_name = pro_name;
+	public void setProduct_price(String product_price) {
+		this.product_price = product_price;
 	}
-	public String getPro_price() {
-		return pro_price;
+	public String getProduct_content() {
+		return product_content;
 	}
-	public void setPro_price(String pro_price) {
-		this.pro_price = pro_price;
+	public void setProduct_content(String product_content) {
+		this.product_content = product_content;
 	}
-	public String getPro_content() {
-		return pro_content;
+	public String getProduct_stock() {
+		return product_stock;
 	}
-	public void setPro_content(String pro_content) {
-		this.pro_content = pro_content;
+	public void setProduct_stock(String product_stock) {
+		this.product_stock = product_stock;
 	}
-	public String getPro_stock() {
-		return pro_stock;
+	public String getProduct_taste() {
+		return product_taste;
 	}
-	public void setPro_stock(String pro_stock) {
-		this.pro_stock = pro_stock;
-	}
-	public String getPro_taste() {
-		return pro_taste;
-	}
-	public void setPro_taste(String pro_taste) {
-		this.pro_taste = pro_taste;
-	}
+	public void setProduct_taste(String product_taste) {
+		this.product_taste = product_taste;
+	} 
 	
 }

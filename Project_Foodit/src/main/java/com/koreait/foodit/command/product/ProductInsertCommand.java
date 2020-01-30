@@ -19,21 +19,17 @@ public class ProductInsertCommand implements ProductCommand {
 		
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		int pro_no = Integer.parseInt(request.getParameter("pro_no"));		
-		String pro_name = request.getParameter("pro_name");
-		String pro_price = request.getParameter("pro_price");
-		String pro_content = request.getParameter("pro_content");
-		String pro_stock = request.getParameter("pro_stock");
-		String pro_taste = request.getParameter("pro_taste");	 		
+		 
+		String product_name = request.getParameter("product_name");
+		String product_price = request.getParameter("product_price");
+		String product_content = request.getParameter("product_content");
+		String product_stock = request.getParameter("product_stock");
+		String product_taste = request.getParameter("product_taste");	 		
 		
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("insertResult",	productDao.productInsert
-				(pro_no, pro_name, pro_price, pro_content, pro_stock, pro_taste));
-
-		redirectAttributes.addFlashAttribute("isProductInsert", "yes");
-		
-
+		redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert (product_name, 
+										product_price, product_content, product_stock, product_taste));
+		redirectAttributes.addFlashAttribute("isproductInsert", "yes");
 	}
 
 }
