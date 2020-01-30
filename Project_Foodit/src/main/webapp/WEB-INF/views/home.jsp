@@ -9,7 +9,6 @@
 <body>
     
 	 <input type="button" value="비회원 주문하기" onclick="location.href='guestList'" />
-	 <!--주문하기에서 주문내역,수정,삭제 가능하도록 구현 예정  -->
 	<input type="button" value="주문하기" onclick="location.href='orderBaseList'" />
       
 	
