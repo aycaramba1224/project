@@ -10,7 +10,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			MEMBER(ID, PW, NAME, PHONE, EMAIL, BIRTH, POST, ROAD, REG_DATE, ROLE)
 		VALUES
 			(#{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7}, #{param8}, SYSDATE, 'user')
-			
 	</insert>
+
+	<select id="idCheck" resultType="com.koreait.foodit.dto.MemberDto">
+		SELECT
+			*
+		FROM
+			MEMBER
+		WHERE
+			ID = #{param1}	
+	</select>
 
 </mapper>

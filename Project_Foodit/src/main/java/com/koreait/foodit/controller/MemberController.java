@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.koreait.foodit.command.member.MemberCommand;
 import com.koreait.foodit.dao.MemberDao;
+import com.koreait.foodit.dto.MemberDto;
 
 @Controller
 public class MemberController {
@@ -23,6 +24,10 @@ public class MemberController {
 	@RequestMapping("sbm02")
 	public String sbm02() {
 		return "join/joinPage";
+	}
+	@RequestMapping("sbmr")
+	public String sbmr() {
+		return "login/loginPage";
 	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="join", produces="application/json")
@@ -46,10 +51,20 @@ public class MemberController {
 			obj.put("result", "FAIL");
 		}
 		return obj.toJSONString();
-		
 	}
-	@RequestMapping("sbmr")
-	public String sbmr() {
-		return "login/loginPage";
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="idCheck", produces="application/json")
+	@ResponseBody
+	public String idCheck(@RequestParam("mId") String id) {
+		MemberDao mDao = sqlSession.getMapper(MemberDao.class);
+		MemberDto mDto = mDao.idCheck(id);
+		JSONObject obj = new JSONObject();
+		if( mDto != null ) {
+			obj.put("result", "YES");
+		} else {
+			obj.put("result", "NO");
+		}
+		return obj.toJSONString();
 	}
 }

@@ -1,28 +1,74 @@
 // submitPage(회원가입)
 $(function(){
+	/* 정규식 */
+	// 아이디 : 5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 가능
+	var regExpId = RegExp(/^[0-9a-z]([-_]?[0-9a-z]){4,20}$/);
+	// 비밀번호 : 8~20자 영문 대 소문자, 숫자, 특수문자를 사용
+	var regExpPw = RegExp(/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/);
+	// 이름 : 한글과 영문 대 소문자를 사용 (특수기호, 공백 사용 불가)
+	var regExpName = RegExp(/^[가-힣a-zA-Z]{2,20}$/);
+	// 휴대전화
+	var regExpPhone = RegExp(/^01([0|1|6|7|8|9]?)-([0-9]{3,4})-([0-9]{4})$/);
+	// 이메일
+	var regExpEmail = RegExp(/^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i);
 	/* 폼 유효성 체크 */
-	// 입력 포커스를 잃었을 때 체크
-	$("#mId").blur(function(){ 
+	// input 길이 제한
+	$("input[type=text], input[type=password]").each(function(){
+		$(this).attr("maxlength", "20");
+	});
+	
+	// 입력을 한 후 체크
+	$("#mId").keyup(function(){
+		// 아이디 중복 체크
 		if( $("#mId").val() == "" ){
 			$("#etId").text("필수 항목입니다.");
 			$("#etId").attr("class", "warning");
 			return false;
 		} else {
-			$("#etId").empty();
-			$("#etId").remove("class");
+			/* AJAX 통신 처리 */
+			$.ajax({
+				url: "idCheck",
+				type: "POST",
+				dataType: "json",
+				data: "mId=" + $("#mId").val(),
+				success: function( obj ){
+					//var obj = eval( jsonObj );
+					if( regExpId.test($("#mId").val()) ){
+						if( obj["result"] == "YES" ){
+							$("#etId").text("이미 사용중이거나 탈퇴한 아이디입니다.");
+							$("#etId").attr("class", "warning");
+						} else {
+							$("#etId").empty();
+							$("#etId").remove("class");
+						}
+					} else {
+						$("#etId").text("5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 가능합니다.");
+						$("#etId").attr("class", "warning");
+					}
+				},
+				error: function(){
+					alert("실패!");
+				}
+			});
 		}
 	});
-	$("#mPw").blur(function(){
+	$("#mPw").keyup(function(){
 		if( $("#mPw").val() == "" ){
 			$("#etPw").text("필수 항목입니다.");
 			$("#etPw").attr("class", "warning");
 			return false;
 		} else {
-			$("#etPw").empty();
-			$("#etPW").remove("class");
+			if( !regExpPw.test($("#mPw").val()) ){
+				$("#etPw").text("8~20자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+				$("#etPw").attr("class", "warning");
+				return false;
+			} else {
+				$("#etPw").empty();
+				$("#etPw").remove("class");
+			}
 		}
 	});
-	$("#mPwC").blur(function(){
+	$("#mPwC").keyup(function(){
 		if( $("#mPwC").val() == "" ){
 			$("#etPwC").text("필수 항목입니다.");
 			$("#etPwC").attr("class", "warning");
@@ -40,37 +86,55 @@ $(function(){
 			$("#etPWC").remove("class");
 		}
 	});
-	$("#mName").blur(function(){
+	$("#mName").keyup(function(){
 		if( $("#mName").val() == "" ){
 			$("#etName").text("필수 항목입니다.");
 			$("#etName").attr("class", "warning");
 			return false;
 		} else {
-			$("#etName").empty();
-			$("#etName").remove("class");
+			if( !regExpName.test($("#mName").val()) ){
+				$("#etName").text("한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)");
+				$("#etName").attr("class", "warning");
+				return false;
+			} else {
+				$("#etName").empty();
+				$("#etName").remove("class");
+			}
 		}
 	});
-	$("#mPhone").blur(function(){
+	$("#mPhone").keyup(function(){
 		if( $("#mPhone").val() == "" ){
 			$("#etPhone").text("필수 항목입니다.");
 			$("#etPhone").attr("class", "warning");
 			return false;
 		} else {
-			$("#etPhone").empty();
-			$("#etPhone").remove("class");
+			if( !regExpPhone.test($("#mPhone").val()) ){
+				$("#etPhone").text("휴대폰 번호를 다시 확인해주세요.");
+				$("#etPhone").attr("class", "warning");
+				return false;
+			} else {
+				$("#etPhone").empty();
+				$("#etPhone").remove("class");
+			}
 		}
 	});
-	$("#mEmail").blur(function(){
+	$("#mEmail").keyup(function(){
 		if( $("#mEmail").val() == "" ){
 			$("#etEmail").text("필수 항목입니다.");
 			$("#etEmail").attr("class", "warning");
 			return false;
 		} else {
-			$("#etEmail").empty();
-			$("#etEmail").remove("class");
+			if( !regExpEmail.test($("#mEmail").val()) ){
+				$("#etEmail").text("이메일을 다시 확인해주세요.");
+				$("#etEmail").attr("class", "warning");
+				return false;
+			} else {
+				$("#etEmail").empty();
+				$("#etEmail").remove("class");
+			}
 		}
 	});
-	$("#mBirth").blur(function(){
+	$("#mBirth").keyup(function(){
 		if( $("#mBirth").val() == "" ){
 			$("#etBirth").text("필수 항목입니다.");
 			$("#etBirth").attr("class", "warning");
@@ -80,7 +144,7 @@ $(function(){
 			$("#etBirth").remove("class");
 		}
 	});
-	$("#mPost").blur(function(){
+	$("#mPost").keyup(function(){
 		if( $("#mPost").val() == "" ){
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
@@ -91,7 +155,7 @@ $(function(){
 			$("#postSearch").remove("class");
 		}
 	});
-	$("#mRoad").blur(function(){
+	$("#mRoad").keyup(function(){
 		if( $("#mRoad").val() == "" ){
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
@@ -101,7 +165,7 @@ $(function(){
 			$("#etPost").remove("class");
 		}
 	});
-	$("#mDetail").blur(function(){
+	$("#mDetail").keyup(function(){
 		if( $("#mDetail").val() == "" ){
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
@@ -111,7 +175,7 @@ $(function(){
 			$("#etPost").remove("class");
 		}
 	});
-	$("#mExtra").blur(function(){
+	$("#mExtra").keyup(function(){
 		if( $("#mRoad").val() == "" ){
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
@@ -121,129 +185,92 @@ $(function(){
 			$("#etPost").remove("class");
 		}
 	});
+
 	
 	$("#joinBtn").click(function(){ // 가입하기 버튼을 눌렀을 때.
-		
-		// 아이디 체크
+	// 폼에 아무런 데이터를 입력하지 않고 넘겼을 시 data넘어가는 것을 방지.
+		/* Refactoring 예정 */
+		// 아이디 체크 
 		if( $("#mId").val() == "" ){
 			$("#mId").focus();
 			$("#etId").text("필수 항목입니다.");
 			$("#etId").attr("class", "warning");
 			return false;
-		} else {
-			$("#etId").empty();
-			$("#etId").remove("class");
-		}
+		} 
 		// 비밀번호 체크
 		if( $("#mPw").val() == "" ){
 			$("#mPw").focus();
 			$("#etPw").text("필수 항목입니다.");
 			$("#etPw").attr("class", "warning");
 			return false;
-		} else {
-			$("#etPw").empty();
-			$("#etPw").remove("class");
-		}
+		} 
 		// 비밀번호 재확인체크
 		if( $("#mPwC").val() == "" ){
 			$("#mPwC").focus();
 			$("#etPwC").text("필수 항목입니다.");
 			$("#etPwC").attr("class", "warning");
 			return false;
-		} else {
-			$("#etPwC").empty();
-			$("#etPwC").remove("class");
-		}
+		} 
 		// 비밀번호 재확인 일치여부 체크
 		if( $("#mPw").val() != $("#mPwC").val() ){
 			$("#mPwC").focus();
-			$("#etPwC").text("비밀번호가 일치하지 않습니다.");
-			$("#etPwC").attr("class", "warning");
 			return false;
-		} else {
-			$("#etPwC").empty();
-			$("#etPwC").remove("class");
-		}
+		} 
 		// 이름 체크
 		if( $("#mName").val() == "" ){
 			$("#mName").focus();
 			$("#etName").text("필수 항목입니다.");
 			$("#etName").attr("class", "warning");
 			return false;
-		} else {
-			$("#etName").empty();
-			$("#etName").remove("class");
-		}
+		} 
 		// 연락처 체크
 		if( $("#mPhone").val() == "" ){
 			$("#mPhone").focus();
 			$("#etPhone").text("필수 항목입니다.");
 			$("#etPhone").attr("class", "warning");
 			return false;
-		} else {
-			$("#etPhone").empty();
-			$("#etPhone").remove("class");
-		}
+		} 
 		// 이메일 체크
 		if( $("#mEmail").val() == "" ){
 			$("#mEmail").focus();
 			$("#etEmail").text("필수 항목입니다.");
 			$("#etEmail").attr("class", "warning");
 			return false;
-		} else {
-			$("#etEmail").empty();
-			$("#etEmail").remove("class");
-		}
+		} 
 		// 생년월일 체크
 		if( $("#mBirth").val() == "" ){
 			$("#mBirth").focus();
 			$("#etBirth").text("필수 항목입니다.");
 			$("#etBirth").attr("class", "warning");
 			return false;
-		} else {
-			$("#etBirth").empty();
-			$("#etBirth").remove("class");
-		}
+		} 
 		// 주소 체크
 		if( $("#mPost").val() == "" ){
 			$("#mPost").focus();
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
-			$("#postSearch").attr("class", "warAddr");
 			return false;
-		} else {
-			$("#etPost").empty();
-			$("#etPost").remove("class");
-			$("#postSearch").remove("class");
-		}
+		} 
 		if( $("#mRoad").val() == "" ){
 			$("#mRoad").focus();
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
 			return false;
-		} else {
-			$("#etPost").empty();
-			$("#etPost").remove("class");
-		}
+		} 
 		if( $("#mDetail").val() == "" ){
 			$("#mDetail").focus();
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
 			return false;
-		} else {
-			$("#etPost").empty();
-			$("#etPost").remove("class");
-		}
+		} 
 		if( $("#mExtra").val() == "" ){
 			$("#mExtra").focus();
 			$("#etPost").text("필수 항목입니다.");
 			$("#etPost").attr("class", "warning");
 			return false;
-		} else {
-			$("#etPost").empty();
-			$("#etPost").remove("class");
-		}
+		} 
 		/* AJAX 통신 처리 */
+		/* Refactoring 예정 */
 		$.ajax({
 			url: "join",
 			type: "POST",
