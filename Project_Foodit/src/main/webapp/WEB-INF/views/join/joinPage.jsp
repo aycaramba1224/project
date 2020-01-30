@@ -53,7 +53,7 @@
 							<th><label for="mPhone">휴대폰 번호</label></th>
 							<td>
 								<span>	
-									<input type="text" id="mPhone" name="phone" placeholder="-없이 입력하세요."/>
+									<input type="text" id="mPhone" name="phone" placeholder="- 를 포함한 숫자만 입력하세요."/>
 								</span>
 								<p id="etPhone"></p>
 							</td>
