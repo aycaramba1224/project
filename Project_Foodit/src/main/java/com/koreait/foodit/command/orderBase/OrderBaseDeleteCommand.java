@@ -17,9 +17,9 @@ public class OrderBaseDeleteCommand implements OrderBaseCommand {
 		OrderBaseDao orderDao = sqlSession.getMapper(OrderBaseDao.class);
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int order_no = Integer.parseInt(request.getParameter("order_no"));
+		String order_id = request.getParameter("order_id");
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("deleteResult",orderDao.orderBaseDelete(order_no));
+		redirectAttributes.addFlashAttribute("deleteResult",orderDao.orderBaseDelete(order_id));
 		redirectAttributes.addFlashAttribute("orderDeleteResult","yes" );
 
 	}

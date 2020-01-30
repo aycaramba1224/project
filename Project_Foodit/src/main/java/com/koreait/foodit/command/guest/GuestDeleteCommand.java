@@ -17,9 +17,9 @@ public class GuestDeleteCommand implements GuestCommand {
 		GuestDao gDao = sqlSession.getMapper(GuestDao.class);
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int guest_no = Integer.parseInt(request.getParameter("guest_no"));
+		String guest_id = request.getParameter("guest_id");
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("deleteResult",gDao.guestDelete(guest_no));
+		redirectAttributes.addFlashAttribute("deleteResult",gDao.guestDelete(guest_id));
 		redirectAttributes.addFlashAttribute("guestDeleteResult","yes" );
 
 

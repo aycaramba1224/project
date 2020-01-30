@@ -16,8 +16,8 @@ public class OrderBaseViewCommand implements OrderBaseCommand {
 		OrderBaseDao orderBDao = sqlSession.getMapper(OrderBaseDao.class);
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int order_no = Integer.parseInt(request.getParameter("order_no"));
-		model.addAttribute("orderBaseDto",orderBDao.orderList_view(order_no));
+		String order_id = request.getParameter("order_id");
+		model.addAttribute("orderBaseDto",orderBDao.orderList_view(order_id));
 	}
 
 }

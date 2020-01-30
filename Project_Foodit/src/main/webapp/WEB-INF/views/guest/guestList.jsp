@@ -64,7 +64,7 @@ if( guestModifyResult == "yes"){
 		<c:if test="${ guestListSize ne 0 }">
 			<c:forEach var="GuestDto" items="${guestList}">
 				<tr>
-					<td><a href="guestListview?guest_no=${GuestDto.guest_no}">${GuestDto.guest_no}</a></td>
+					<td><a href="guestListview?guest_id=${GuestDto.guest_id}">${GuestDto.guest_id}</a></td>
 					<td>${GuestDto.guest_pw}</td>
 					<td>${GuestDto.guest_name}</td>
 					<td>${GuestDto.guest_phone}</td>

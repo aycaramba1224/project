@@ -18,8 +18,8 @@ public class GuestViewCommand implements GuestCommand {
 		GuestDao gDao = sqlSession.getMapper(GuestDao.class);
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int guest_no = Integer.parseInt(request.getParameter("guest_no"));
-		model.addAttribute("guestDto",gDao.guestListView(guest_no));
+		String guest_id = request.getParameter("guest_id");
+		model.addAttribute("guestDto",gDao.guestListView(guest_id));
 	}
 
 }

@@ -19,7 +19,7 @@
 			<tbody>
 				<tr>
 					<td>비회원주문번호</td>
-					<td><input type="text" name="guest_no" id="guest_no" placeholder="※10자이상 숫자"/>
+					<td><input type="text" name="guest_id" id="guest_id" placeholder="※8-16자 소문자+숫자"/>
 					
 					</td>
 				</tr>

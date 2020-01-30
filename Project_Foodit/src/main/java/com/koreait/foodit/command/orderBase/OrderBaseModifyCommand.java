@@ -19,10 +19,13 @@ public class OrderBaseModifyCommand implements OrderBaseCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		String order_name = request.getParameter("order_name");
 		String order_post = request.getParameter("order_post");
-		String order_road = request.getParameter("order_road");
-		int order_no = Integer.parseInt(request.getParameter("order_no"));
+		String order_road1 = request.getParameter("order_road1");
+		String order_road2 = request.getParameter("order_road2");
+		String order_road3 = request.getParameter("order_road3");
+		String order_phone = request.getParameter("order_phone");
+		String order_id = request.getParameter("order_id");
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("orderModifyResult",orderDao.orderListModify(order_name,order_post,order_road,order_no));
+		redirectAttributes.addFlashAttribute("orderModifyResult",orderDao.orderListModify(order_name, order_post, order_road1, order_road2, order_road3, order_phone, order_id));
 		redirectAttributes.addFlashAttribute("orderBaseModifyResult","yes");
 	}
 

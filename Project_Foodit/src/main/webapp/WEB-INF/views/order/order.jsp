@@ -69,29 +69,22 @@
 <body>
 	
 	    
-		<form method="POST" action="orderInsert">
+		<form method="post" action="orderInsert">
 	    <!--상품정보도 들어가야됨  -->
 		<table border="1">
 			<tbody>
-				<!-- guest_no랑 연결 guest_no
-				<c:choose>
-						<c:when test="${ guest_no eq null }">
-						</c:when>
-						<c:otherwise>
-					<td>주문번호<input type="text" name="order_no" value="${guest_no }"  /></td>
-						</c:otherwise>
-					</c:choose>
-					-->
-					
+				
+					<!--비회원직접쓰는 주문번호 말고 회원은 주문번호를 주어줌 
+						그래서 DB에회원용 주문번호 칼럼을 넣고 랜덤으로 주어지도록??-->
 					<tr>
-					<td>주문번호<input type="text" name="order_no" id="order_no" /></td>
+					<td>주문아이디<input type="text" name="order_id" id="order_id" /></td>
 					</tr>
-	                 
+	                 <!--mId랑 연결해야됨  
 	                 <tr>
-	                 <td>주문아이디 
-	                 <input type="text" name="order_id" id="order_id" /></td>
+	                 <td>주문자아이디 (회원아이디)
+	                 <input type="text" name="id" id="id" /></td>
 	                 </tr>
-	                  
+	                  -->
 					<tr>
 						<td>주문자이름
 						<input type="text" name="order_name" id="order_name" /></td>
@@ -106,18 +99,29 @@
 				  <tr>
 				    <td>주소
 				    
-		<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="order_road" size="40"/>
-		<!-- 
+		<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="order_road1" />
+		
          <input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="order_road2">
          <span id="guide" style="color:#999;display:none"></span>
           <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="order_road3" >
-          <input type="text" id="sample4_extraAddress" placeholder="참고항목" name="order_road4">
-					   --> 
+          
 					     <td>
 				    </tr>
+				    
+				    <tr>
+				    <td>주문자 휴대폰 번호
+						<input type="text" name="order_phone" id="order_phone"/></td>
+				    </tr>
+				    <!-- 
+				    <tr>
+				    <td>
+			                         총 가격 <input type="hidden" name="amount" value="${sum}"/> 장바구니 총가격이랑 같아야함
+				    </td>
+				    </tr>
+				    	     -->
                </tbody>
                    <tr>
-               	<td colspan="4">
+               	<td colspan="7">
 	     <input type="submit" value="구매하기" />
 	     <!--비회원 정보 입력하고 정보 입력하고 구매하기 버튼누르면 어디로??? -->
 	     <!--관리자일떄  -->

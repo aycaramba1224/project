@@ -46,43 +46,48 @@
 			<tbody>
 					
 				<tr>
-			<th>주문번호</th>
-			<th>주문자아이디</th>
+			<th>주문아이디(비회원인 경우 주문아이디)</th>
+			<!--<th>주문자아이디(회원연결)</th>-->
 			<th>주문자이름</th>
 			<th>우편번호</th>
-			<th>주소</th>
+			<th>도로명</th>
+			<th>지번주소</th>
+			<th>상세주소</th>
+			<th>주문자 연락처</th>
+			<th>주문날짜</th>
 			
-		
 		</tr>
 	
 		<c:if test="${orderBaseListSize eq 0 }">
 			<tr>
-				<td colspan="5">저장된 주문정보가 없습니다.</td>
+				<td colspan="8">저장된 주문정보가 없습니다.</td>
 			</tr>
 		</c:if>
 		
 		<c:if test="${ orderBaseListSize ne 0 }">
 			<c:forEach var="OrderBaseDto" items="${orderBaseList}">
 				<tr>
-					<td>${OrderBaseDto.order_no}</td>
-					<td><a href="orderbaseListview?order_no=${OrderBaseDto.order_no}">${OrderBaseDto.order_id }</a></td>
+	<td><a href="orderbaseListview?order_id=${OrderBaseDto.order_id}">${OrderBaseDto.order_id}</a></td>
 					<td>${OrderBaseDto.order_name}</td>
 					<td>${OrderBaseDto.order_post}</td>
-					<td>${OrderBaseDto.order_road}</td>
-					
+					<td>${OrderBaseDto.order_road1}</td>
+					<td>${OrderBaseDto.order_road2}</td>
+					<td>${OrderBaseDto.order_road3}</td>
+					<td>${OrderBaseDto.order_phone }</td>
+					<td>${OrderBaseDto.orderDate }</td>
 					
 				</tr>
 			</c:forEach>
 		</c:if>
 		</tbody>
 		<tr>
-			<th colspan="6">
+			<th colspan="8">
 				전체 주문에대한정보(${orderBaseListSize })개&nbsp;&nbsp;
 		      </th>
 		      </tr>
 		     
 			<tr>
-			<td colspan="5">	
+			<td colspan="8">	
 		       <input type="button" value="주문정보입력" onclick="location.href='orderInsertPage'"/>
 			</td>					
 				</tr>

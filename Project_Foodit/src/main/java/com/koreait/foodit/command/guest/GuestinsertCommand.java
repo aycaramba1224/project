@@ -22,13 +22,13 @@ public class GuestinsertCommand implements GuestCommand {
 
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int guest_no = Integer.parseInt(request.getParameter("guest_no"));		
+		String guest_id = request.getParameter("guest_id");		
 		String guest_pw = request.getParameter("guest_pw");
 		String guest_name = request.getParameter("guest_name");
 		String guest_phone = request.getParameter("guest_phone");
 		
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("guestResult",gDao.guestInsert(guest_no, guest_pw, guest_name, guest_phone));
+		redirectAttributes.addFlashAttribute("guestResult",gDao.guestInsert(guest_id, guest_pw, guest_name, guest_phone));
 		redirectAttributes.addFlashAttribute("guestInsertResult","yes");
 		
 		}
