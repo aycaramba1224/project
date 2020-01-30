@@ -8,11 +8,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
-import com.koreait.foodit.command.guest.GuestinsertCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseCommand;
+import com.koreait.foodit.command.orderBase.OrderBaseDeleteCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseInsertCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseListCommand;
+import com.koreait.foodit.command.orderBase.OrderBaseModifyCommand;
+import com.koreait.foodit.command.orderBase.OrderBaseViewCommand;
 
 @Controller
 public class OrderBaseController {
@@ -20,28 +21,53 @@ public class OrderBaseController {
 	 private SqlSession sqlSession;
 	 private OrderBaseCommand orderBaseCommand;
 	
-	 //주문정보입력하는 페이지
-	@RequestMapping("order")
-	public String OrderPage( ) {
-		return "order/order";
-	}
-	
-	@RequestMapping("oderListPage")
+	//주문정보입력하는 페이지
+	@RequestMapping("orderBaseList")
 	public String oderListPage(HttpServletRequest request,Model model ) {
 		model.addAttribute("request", request);
 		orderBaseCommand = new OrderBaseListCommand();
 		orderBaseCommand.execute(sqlSession, model);
-		return "order/orderList";
+		return "order/orderBaseList";
 	}
 	
+	@RequestMapping("orderInsertPage")
+	public String orderInsertPage() {
+		return "order/order";
+	}
+	
+	@RequestMapping("orderbaseListview")
+	public String orderbaseListview(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		orderBaseCommand = new OrderBaseViewCommand();
+		orderBaseCommand.execute(sqlSession, model);
+		return "order/orderBaseView";
+	}
 	
 	@RequestMapping("orderInsert")
-	public String orderList(RedirectAttributes redirectAttributes
-			,HttpServletRequest request, Model model) {
+	public String orderInsert(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
+		model.addAttribute("redirectAttributes",redirectAttributes);
 		orderBaseCommand = new OrderBaseInsertCommand();
 		orderBaseCommand.execute(sqlSession, model);
-		return "riderect:/orderList";
+		return "redirect:/orderBaseList";
+	}
+	
+	@RequestMapping("orderListModify")
+	public String orderListModify(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("redirectAttributes",redirectAttributes);
+		orderBaseCommand = new OrderBaseModifyCommand();
+		orderBaseCommand.execute(sqlSession, model);
+		return "redirect:/orderBaseList";
+	}
+	
+	@RequestMapping("orderBaseDelete")
+	public String orderBaseDelete(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("redirectAttributes",redirectAttributes);
+		orderBaseCommand = new OrderBaseDeleteCommand();
+		orderBaseCommand.execute(sqlSession, model);
+		return "redirect:/orderBaseList";
 	}
 	
 }

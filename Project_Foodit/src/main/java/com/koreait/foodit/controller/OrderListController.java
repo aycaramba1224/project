@@ -15,14 +15,14 @@ public class OrderListController {
 	 private OrderListCommand orderListCommand;
 	 
 	 @RequestMapping("orderListPage")
-	 public String orderListPage() {
+	 public String orderListPage(Model model) {
 		 
 		 return "orderList/orderListPage";
 	 }
 	 
      //관리자가 주문 내역상태 조정
-	@RequestMapping("orderListupdatePage")
-	public String orderListupdatePage() {
-		return "orderList/orderListUpdatePage";
+	@RequestMapping("orderListViewPage")
+	public String orderListViewPage(Model model) {
+		return "orderList/orderListViewPage";
 	}
 }

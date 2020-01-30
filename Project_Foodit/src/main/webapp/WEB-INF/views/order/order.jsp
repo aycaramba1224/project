@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 	
 <title>Insert title here</title>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -69,61 +69,59 @@
 <body>
 	
 	    
-		<form method="POST">
+		<form method="POST" action="orderInsert">
 	    <!--상품정보도 들어가야됨  -->
-		<table>
+		<table border="1">
 			<tbody>
-				<tr>
-				<!-- guest_no랑 연결 guest_no -->
+				<!-- guest_no랑 연결 guest_no
 				<c:choose>
 						<c:when test="${ guest_no eq null }">
-							<td><input type="text" name="order_no"  autofocus /></td>
 						</c:when>
-						
 						<c:otherwise>
-							<td><input type="text" name="order_no" value="${guest_no }"  /></td>
+					<td>주문번호<input type="text" name="order_no" value="${guest_no }"  /></td>
 						</c:otherwise>
 					</c:choose>
+					-->
 					
-	                 <!--memberID랑 연결되어 있는 부분
-	                 <tr>
-	                 <td>주문아이디 </td>
-	                 <td><input type="text" name="order_id" /></td>
-	                 </tr>
-	                 
-	                   -->
 					<tr>
-						<td>주문자이름</td>
-						<td><input type="text" name="order_name" /></td>
+					<td>주문번호<input type="text" name="order_no" id="order_no" /></td>
+					</tr>
+	                 
+	                 <tr>
+	                 <td>주문아이디 
+	                 <input type="text" name="order_id" id="order_id" /></td>
+	                 </tr>
+	                  
+					<tr>
+						<td>주문자이름
+						<input type="text" name="order_name" id="order_name" /></td>
 					</tr>
 					
 					<tr>
-						<td>우편번호</td>
-					     <td>
+						<td>우편번호
 				<input type="text" id="sample4_postcode" placeholder="우편번호" name="order_post" />
 			    <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+			    </td>
 				</tr>
-				
 				  <tr>
-				    <td>주소</td> 
-				    <td>
-		<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="order_road" />
-         <input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="order_road">
+				    <td>주소
+				    
+		<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="order_road" size="40"/>
+		<!-- 
+         <input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="order_road2">
          <span id="guide" style="color:#999;display:none"></span>
-          <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="order_road" >
-          <input type="text" id="sample4_extraAddress" placeholder="참고항목" name="order_road">
+          <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="order_road3" >
+          <input type="text" id="sample4_extraAddress" placeholder="참고항목" name="order_road4">
+					   --> 
 					     <td>
 				    </tr>
-				    
-		
-			
                </tbody>
                    <tr>
                	<td colspan="4">
-	     <input type="button" value="구매하기" onclick="location.href='orderInsert'" />
+	     <input type="submit" value="구매하기" />
 	     <!--비회원 정보 입력하고 정보 입력하고 구매하기 버튼누르면 어디로??? -->
 	     <!--관리자일떄  -->
-	     <input type="button" value="주문정보리스트 보기" onclick="location.href='oderListPage' "/>
+	     <input type="button" value="주문정보리스트 보기" onclick="location.href='orderBaseList'"/>
 			</td>
 			</tr>
                </table>

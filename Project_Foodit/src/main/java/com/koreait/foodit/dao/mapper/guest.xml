@@ -3,26 +3,36 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.koreait.foodit.dao.GuestDao ">
+<mapper namespace="com.koreait.foodit.dao.GuestDao">
 
 	<select id="guestList" resultType="com.koreait.foodit.dto.GuestDto">
-	
-	SELECT * FROM GUEST ORDER BY GUEST_NO
-	
+	SELECT * FROM GUEST ORDER BY GUEST_NO 
 	</select>
-
 	
 	<insert id="guestInsert">
 		INSERT INTO GUEST (GUEST_NO,GUEST_PW,GUEST_NAME,GUEST_PHONE) 
 			VALUES 
-		(#{param1}, #{param2}, #{param3}, #{param4})
+		(#{param1},#{param2},#{param3},#{param4})
 	</insert>
 	
-	<!--비회원정보 삭제  -->
+	<select id="guestListView" parameterType="int" resultType="com.koreait.foodit.dto.GuestDto">
+	
+		SELECT * FROM GUEST WHERE GUEST_NO = #{param1}
+	</select>
+	
 	<delete id="guestDelete">
-	 DELETE FROM GUEST WHERE GUEST_NO =#{guest_no}
+	 DELETE FROM GUEST WHERE GUEST_NO = #{param1}
+	
 	</delete>
 	
+	<update id="guestModify">
 	
+	UPDATE GUEST SET
+		   GUEST_PW = #{param1},
+		   GUEST_NAME = #{param2},
+		   GUEST_PHONE = #{param3}
+		WHERE
+			GUEST_NO = #{param4}
 	
+	</update>
 </mapper>
