@@ -8,15 +8,7 @@
 <title>비회원 리스트 </title>
 <title>Insert title here</title>
  <script>
-var  guestInsertResult = "${guestInsertResult}";
-if( guestInsertResult == "yes"){
-	var guestResult= "${guestResult}";
-	if(guestResult == 0){
-		alert("비회원 정보 등록 실패.");
-	} else {
-		alert("비회원 등록 성공.");
-	}
-}
+
 
 var guestDeleteResult = "${guestDeleteResult}";
 if( guestDeleteResult == "yes"){
@@ -49,7 +41,7 @@ if( guestModifyResult == "yes"){
 		<tbody>
 					
 	   <tr>
-			<th>비회원주문번호</th>
+			<th>비회원주문번호</th><!--주문테이블의 order_no랑 연결 -->
 			<th>비회원 주문비밀번호</th>
 			<th>비회원 이름</th>
 			<th>비회원 연락처</th>
@@ -81,7 +73,7 @@ if( guestModifyResult == "yes"){
 			</tbody>
 
 			</table>
-			<input type="button" value="비회원작성하기" onclick="location.href='guestInsertPage'" />
+			
 
 			</form>
 

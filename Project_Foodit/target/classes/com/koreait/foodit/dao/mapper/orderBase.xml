@@ -6,33 +6,41 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.koreait.foodit.dao.OrderBaseDao">
 
 <insert id ="orderInsert">
- INSERT INTO ORDER_BASE (ORDER_NAME,ORDER_POST,ORDER_ROAD1)
+ INSERT INTO ORDER_BASE (ORDER_NO,GUEST_PW,ORDER_NAME,ORDER_PHONE,ORDER_PHONE2,ORDER_PHONE3,
+ ORDER_EMAIL,ORDER_EMAIL2,ORDER_POST,ORDER_ROAD1)
  VALUES 
- (#{param1},#{param2},#{param3})
+ (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},
+ #{param5},#{param6},#{param7},#{param8},#{param9})
 </insert>
 
 
 <select id="orderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
- SELECT * FROM ORDER_BASE ORDER BY ORDER_NAME
+ SELECT * FROM ORDER_BASE ORDER BY ORDER_NO
 </select>
 
-<select id="orderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="String">
+<select id="orderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="int">
 	
- SELECT * FROM ORDER_BASE WHERE ORDER_NAME= #{order_name}
+ SELECT * FROM ORDER_BASE WHERE ORDER_NO= #{order_no}
 	
 </select>
 
 <update id="orderListModify">
  UPDATE	 ORDER_BASE SET
-		   ORDER_POST = #{param1},
-		   ORDER_ROAD1 = #{param2}
+           ORDER_NAME = #{param1},
+           ORDER_PHONE = #{param2},
+           ORDER_PHONE2 = #{param3},
+           ORDER_PHONE3 = #{param4},
+           ORDER_EMAIL = #{param5},
+           ORDER_EMAIL2 = #{param6},
+		   ORDER_POST = #{param7},
+		   ORDER_ROAD1 = #{param8}
 		WHERE
-			ORDER_NAME = #{param3}
+			ORDER_NO = #{param9}
 </update>
 
  <delete id="orderBaseDelete">
 
-	 DELETE FROM ORDER_BASE WHERE ORDER_NAME= #{param1}
+	 DELETE FROM ORDER_BASE WHERE ORDER_NO= #{param1}
 	 
  </delete>
 
