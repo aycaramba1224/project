@@ -18,7 +18,8 @@
 </head>
 <body>
 	<div id="wrap">
-		<table border=1>
+	ㅇㅇ
+	<%-- 	<table border=1>
 		<c:forEach var="productDto" items="${cartView }">
 		<c:choose>
 			<c:when test="${productDto.pro_no ne null }">
@@ -55,7 +56,7 @@
 		 
 				</c:choose>			
 			</c:forEach>
-		</table>
+		</table> --%>
 	</div>
 </body>
 </html>
