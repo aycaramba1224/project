@@ -20,10 +20,10 @@ public class ProductDeleteCommand implements ProductCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
-		int pro_no = Integer.parseInt(request.getParameter("pro_no"));
+		int product_no = Integer.parseInt(request.getParameter("product_no"));
 		 
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("deleteResult",productDao.productDelete(pro_no));
+		redirectAttributes.addFlashAttribute("deleteResult",productDao.productDelete(product_no));
 		redirectAttributes.addFlashAttribute("isProductDelete", "yes");
 		
 	}

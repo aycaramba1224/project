@@ -6,13 +6,13 @@
 	function productRemove(){
 		var check = confirm("정말 삭제할까요?");
 		if (check) {
-			location.href="productDelete?pro_no=${productDto.pro_no }";		
+			location.href="productDelete?product_no=${productDto.product_no }";		
 		}
 	}	
 	function goCart(f){
 		var check2 = confirm("상품이 장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?");
 		if (check2) {
-			f.action="cartView?pro_no=${productDto.pro_no }";
+			f.action="cartView?product_no=${productDto.product_no }";
 			f.submit();
 		}
 	} 
@@ -22,37 +22,35 @@
 	<div id="wrap">
 		<h3>상품 보기</h3>
 		<form action="productModify" method="POST">
-		<input type="hidden" name="pro_no" value="${productDto.pro_no }"/>
+		<input type="hidden" name="product_no" value="${productDto.product_no }"/>
 			<table border="1" style="width:500px;">				
 				<tbody>
 					<tr>
 						<td>상품번호</td>
-						<td>${productDto.pro_no }
-							 <input type="hidden" class="pro_no" name="pro_no" value="${productDto.pro_no }"/>  
-						</td>
+						<td>${productDto.product_no }</td>
 					</tr>
 					<tr>
 						<td>상품명</td>
-						<td><input type="text"  id="pro_name" name="pro_name" value="${productDto.pro_name }"/></td>
+						<td><input type="text" name="product_name" value="${productDto.product_name }"/></td>
 					</tr>
 					<tr>
 						<td>상품가격</td>
-						<td><input type="text" name="pro_price" value="${productDto.pro_price }"/></td>
+						<td><input type="text" name="product_price" value="${productDto.product_price }"/></td>
 					</tr>
 					<tr>
 						<td>상품내용</td>
 						<!--★ 사진 업로드 기능 추가예정 ★-->
-						<td><textarea rows="10" cols="10" name="pro_content" >${productDto.pro_content }</textarea></td>
+						<td><textarea rows="10" cols="10" name="product_content" >${productDto.product_content }</textarea></td>
 					</tr>
 					<tr>
 						<td>상품재고</td>
-						<td><input type="text" name="pro_stock" value="${productDto.pro_stock }"/></td>
+						<td><input type="text" name="product_stock" value="${productDto.product_stock }"/></td>
 					</tr>
 					<tr>
 						<td>상품맛</td>
 						<td>						
-							<select name="pro_taste">
-								<option value="${productDto.pro_taste }">${productDto.pro_taste}</option>
+							<select name="product_taste">
+								<option value="${productDto.product_taste }">${productDto.product_taste}</option>
 								<option value="선택">==========</option>
 								<option value="매콤한맛">매콤한맛</option>
 								<option value="짭짤한맛">짭짤한맛</option>
@@ -96,11 +94,6 @@
 							</script>							
 							
 							 <input type="button" value="장바구니 담기" onclick="goCart(this.form)"/>
-						
-							
-					
-					
-							
 						</td>
 					</tr>
 					<tr>
