@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<td>상품가격</td>
-						<td><input type="text" name="product_price"/></td>
+						<td><input type="text" name="product_price" placeholder=",사용 금지 "/></td>
 					</tr>
 					<tr>
 						<td>상품내용</td>

@@ -29,7 +29,7 @@ public class ProductInsertCommand implements ProductCommand {
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
 		redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert (product_name, 
 										product_price, product_content, product_stock, product_taste));
-		redirectAttributes.addFlashAttribute("isproductInsert", "yes");
+		redirectAttributes.addFlashAttribute("isProductInsert", "yes");
 	}
 
 }

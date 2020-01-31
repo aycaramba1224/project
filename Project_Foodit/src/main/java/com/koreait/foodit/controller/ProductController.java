@@ -25,11 +25,11 @@ public class ProductController {
 	private ProductCommand productCommand;
 	
 	@RequestMapping("productList")
-	public String productList(Model model) {
+	public String productList(Model model) {	
 		productCommand = new ProductListCommand();
 		productCommand.execute(sqlSession, model);
 		return "product/productList";
-	}
+	} 
 	
 	@RequestMapping("productInsertPage")
 	public String productInsertPage() {
@@ -48,11 +48,18 @@ public class ProductController {
 
 	@RequestMapping("productView")
 	public String productView(HttpServletRequest request, Model model) {
-		
 		model.addAttribute("request", request);
 		productCommand = new ProductViewCommand();
 		productCommand.execute(sqlSession, model);
 		return "product/productView";
+	}
+	
+	@RequestMapping("productModifyPage")
+	public String productModifyPage(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		productCommand = new ProductViewCommand();
+		productCommand.execute(sqlSession, model);
+		return "product/productModifyPage";
 	}
 	
 	@RequestMapping("productModify")
@@ -72,6 +79,7 @@ public class ProductController {
 		productCommand.execute(sqlSession, model);
 		return "redirect:/productList";
 	}
+	
 	@RequestMapping("productSearchResult")
 	public String dynamic(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
@@ -85,5 +93,5 @@ public class ProductController {
 		return"product/productSearch";
 	}
 	
-
+	
 }

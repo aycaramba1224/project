@@ -9,16 +9,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM PRODUCT ORDER BY PRODUCT_NO 
 	</select>
 	
-	<select id="productView" parameterType="int" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{product_no}		
+	<select id="productView" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{param1}		
 	</select>
 	
 	<update id="productModify">
 		UPDATE 
 			PRODUCT 
 		SET 
-			PRODUCT_NAME = #{param1}, PRODUCT_PRICE = #{param2}, PRODUCT_CONTENT = #{param3},
-		 	PRODUCT_STOCK = #{param4}, PRODUCT_TASTE = #{param5} WHERE PRODUCT_NO = #{param6}
+			PRODUCT_NAME = #{param1}, PRODUCT_PRICE = #{param2}, PRODUCT_TASTE = #{param3}, 
+			PRODUCT_STOCK = #{param4}, PRODUCT_CONTENT = #{param5} 
+		WHERE PRODUCT_NO = #{param6}
 	</update>
 	
 	<insert id="productInsert">

@@ -10,8 +10,10 @@ public interface ProductDao {
 	
 	public ProductDto productView(int product_no);	
 	
-	public int productModify(String product_name, String product_price, String product_content, String product_stock,
-						 	String product_taste, int product_no);
+	public ProductDto productModifyPage(int product_no);	
+	
+	public int productModify(String product_name, String product_price, String product_taste, 
+							 String product_stock, String product_content, int product_no);
 	
 	public int productInsert(String product_name, String product_price, String product_content,
 							String product_stock, String product_taste );	
