@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	// title 처리
 	String title = "Foodit";
@@ -18,6 +17,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>${ title }</title>
 <link href="<c:url value="/resources/css/common.css" />" type="text/css" rel="stylesheet" >
+<link href="<c:url value="/resources/css/join.css" />" type="text/css" rel="stylesheet" >
+<link href="<c:url value="/resources/css/login.css" />" type="text/css" rel="stylesheet" >
 <link rel="shortcut icon" href="#" type="image/x-icon">
 <link href="<c:url value="/resources/bootstrap/css/datepicker3.css" />" type="text/css" rel="stylesheet" >
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

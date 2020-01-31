@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/* joinPage */
+.joinWrap{
+    padding: 70px 30px;
+}
+.joinWrap .joinBox{
+	max-width: 1200px;
+    margin: 0 auto;
+}
+.joinBox .joinTit{
+	overflow: hidden;
+    border-bottom: 1px solid #999999;
+}
+.joinBox .joinTit h2{
+    font-size: 28px;
+    font-weight: 600;
+    color: #222222;
+}
+.joinBox .joinTit p{
+	float: right;
+    position: relative;
+    bottom: 9px;
+    font-size: 13px;
+}
+
+.joinBox .joinCont table{
+	width: 100%;
+}
+.joinCont tbody th{
+    text-align: left;
+    font-size: 18px;
+    padding: 40px;
+}
+.joinCont tbody td{
+    height: 47px;
+    line-height: 47px;
+}
+.joinCont tbody th:after{
+    content: '*';
+    display: inline-block;
+    position: relative;
+    left: 5px;
+    color: #ff3939;
+}
+.joinCont tbody tr{
+    border-bottom: 1px solid #eee;
+}
+.joinCont tbody tr:last-child td{
+    padding-bottom: 20px;
+}
+.joinBox .joinCont input[type=text], .joinBox .joinCont input[type=password]{
+	width: 340px;
+    height: 30px;
+	font-size: 15px;
+	border: 0;
+}
+.joinBox .joinCont tbody button{
+    width: 120px;
+    border: 1px solid #eeeeee;
+}
+.joinBox .joinCont button{
+    height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+}
+.joinBox .joinCont .inputWrap{
+	display: inline-block;
+    border: 1px solid #d4d4d4;
+    vertical-align: middle;
+    padding: 10px;
+}
+.joinBox .joinCont tfoot{
+	text-align: center;
+}
+.joinBox .joinCont tfoot td{
+	padding-top: 30px;
+}
+.joinBox .joinCont tfoot #joinBtn{
+	background-color: #7acc3d;
+	color: #fff;
+	transition: all ease 0.5s 0s;
+	-webkit-transition: all ease 0.5s 0s;
+}
+.joinBox .joinCont tfoot #joinBtn:hover{
+	background-color: #ff3e3e;
+}
+.joinBox .joinCont tfoot button{
+    width: 150px;
+    border: 1px solid #eeeeee;
+}
+/* 회원가입 폼(Jquery) */
+.warning{
+	color: red;
+}
+.warAddr{
+	border: 1px solid #e82121;
+    background: #f12929;
+    color: #fff;
+}
+.gang{
+	border: 1px solid #32c344 !important;
+}

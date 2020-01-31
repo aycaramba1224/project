@@ -40,6 +40,7 @@ $(function(){
 						} else {
 							$("#etId").empty();
 							$("#etId").remove("class");
+							
 						}
 					} else {
 						$("#etId").text("5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 가능합니다.");

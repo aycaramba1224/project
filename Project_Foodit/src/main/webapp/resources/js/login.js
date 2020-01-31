@@ -1,10 +1,17 @@
 // join의 성공/실패
-var isJoin = "${isJoin}";
-if( isJoin == "yes" ){
-	var joinResult = "${joinResult}";
-	if( joinResult == 0 ){
-		alert("회원가입이 실패했습니다.");
-	} else {
-		alert("회원가입이 성공했습니다.");
-	}
+$(function(){
+	// 탭 선택에 따른 내용 표시
+	$('label[for="loginMenu01"]').click(function(){
+		$("#loginM").css("display","block");
+		$("#loginNm").css("display","none");
+		
+	});
+	$('label[for="loginMenu02"]').click(function(){
+		$("#loginM").css("display","none");
+		$("#loginNm").css("display","block");
+	});
+});
+function mLogin( ml ){
+	ml.action = "sendM";
+	ml.submit();
 }
