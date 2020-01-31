@@ -8,7 +8,8 @@
 </head>
 <body>
     
-	 <input type="button" value="비회원 주문하기" onclick="location.href='guestList'" />
+	 <input type="button" value="비회원" onclick="location.href='guestList'" />
+	 <input type="button" value="비회원 조회하기"  onclick="location.href=''" />
 	 <input type="button" value="주문하기" onclick="location.href='orderInsertPage'"/>
       
 	
