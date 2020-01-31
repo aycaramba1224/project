@@ -11,7 +11,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.command.cart.CartCommand;
 import com.koreait.foodit.command.cart.CartInsertCommand;
-import com.koreait.foodit.command.cart.CartListCommand;
 import com.koreait.foodit.command.cart.CartViewCommand;
 
 @Controller
@@ -21,11 +20,10 @@ public class CartController {
 	private SqlSession sqlSession;
 	private CartCommand cartCommand;
 
-	@RequestMapping("cartList") 
-	public String cartList( Model model) {		
-		cartCommand = new CartListCommand();
-		cartCommand.execute(sqlSession, model);		 
-		return "cart/cartView";
+	 @RequestMapping("cartList") 
+	public String cartList( ) {		
+		 	 
+		return "cart/cartList";
 	}
 	
 	@RequestMapping("cartView")
@@ -45,10 +43,6 @@ public class CartController {
 		cartCommand = new CartInsertCommand();
 		cartCommand.execute(sqlSession, model);
 		return "redirect:/cartView";		
-	}	
+	}	 
 	
-
-
-		
-		
 }
