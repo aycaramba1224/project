@@ -5,8 +5,10 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.ui.Model;
 import com.koreait.foodit.dao.OrderBaseDao;
+
 
 public class OrderBaseViewCommand implements OrderBaseCommand {
 
@@ -16,8 +18,9 @@ public class OrderBaseViewCommand implements OrderBaseCommand {
 		OrderBaseDao orderBDao = sqlSession.getMapper(OrderBaseDao.class);
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int order_no = Integer.parseInt(request.getParameter("order_no"));
-		model.addAttribute("orderBaseDto",orderBDao.orderList_view(order_no));
+		String order_name =request.getParameter("order_name");
+		model.addAttribute("orderBaseDto",orderBDao.orderList_view(order_name));
+		
 	}
 
 }

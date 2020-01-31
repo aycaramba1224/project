@@ -8,7 +8,7 @@
 <script>
 function guestDelete(){
 	if (confirm("정말 삭제할까요?")) {
-		location.href='guestDelete?guest_no=${guestDto.guest_no}';
+		location.href='guestDelete?guest_id=${guestDto.guest_id}';
 	}
 }
 
@@ -21,8 +21,8 @@ function guestDelete(){
 				<tbody>
 					<tr>
 						<td>비회원주문번호
-							${guestDto.guest_no }
-							<input type="hidden" name="guest_no" value="${guestDto.guest_no}" size="20"/>
+							${guestDto.guest_id }
+							<input type="hidden" name="guest_id" value="${guestDto.guest_id}" size="20"/>
 						</td>
 					</tr>
 					<tr>

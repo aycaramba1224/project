@@ -6,37 +6,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.koreait.foodit.dao.OrderBaseDao">
 
 <insert id ="orderInsert">
-INSERT INTO ORDER_BASE (ORDER_NO,ORDER_ID,ORDER_NAME,ORDER_POST,ORDER_ROAD)
+ INSERT INTO ORDER_BASE (ORDER_NAME,ORDER_POST,ORDER_ROAD1)
  VALUES 
- (#{param1},#{param2},#{param3},#{param4},#{param5})
-
+ (#{param1},#{param2},#{param3})
 </insert>
 
+
 <select id="orderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
- SELECT * FROM ORDER_BASE ORDER BY ORDER_NO
+ SELECT * FROM ORDER_BASE ORDER BY ORDER_NAME
 </select>
 
-<select id="orderList_view" parameterType="int" resultType="com.koreait.foodit.dto.OrderBaseDto">
+<select id="orderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="String">
 	
-	SELECT * FROM ORDER_BASE WHERE ORDER_NO = #{param1}
+ SELECT * FROM ORDER_BASE WHERE ORDER_NAME= #{order_name}
 	
 </select>
 
 <update id="orderListModify">
  UPDATE	 ORDER_BASE SET
-		   ORDER_NAME = #{param1},
-		   ORDER_POST = #{param2},
-		   ORDER_ROAD = #{param3}
+		   ORDER_POST = #{param1},
+		   ORDER_ROAD1 = #{param2}
 		WHERE
-			ORDER_NO = #{param4}
+			ORDER_NAME = #{param3}
 </update>
 
-<delete id="orderBaseDelete">
+ <delete id="orderBaseDelete">
 
-	 DELETE FROM ORDER_BASE WHERE ORDER_NO = #{param1}
+	 DELETE FROM ORDER_BASE WHERE ORDER_NAME= #{param1}
 	 
-</delete>
+ </delete>
 
+<!-- 주문상세 정보 카트에 있는 것 불러오는 거는 보류-->
+<select id="order_Details" resultType="com.koreait.foodit.dto.CartDto">
+  
+    
+ 
+</select>
 
 
 </mapper>

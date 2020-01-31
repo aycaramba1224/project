@@ -8,8 +8,6 @@
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script type="text/javascript">
-
-	
 	</script>
 </head>
 <body> 
@@ -19,7 +17,7 @@
 			<tbody>
 				<tr>
 					<td>비회원주문번호</td>
-					<td><input type="text" name="guest_no" id="guest_no" placeholder="※10자이상 숫자"/>
+					<td><input type="text" name="guest_id" id="guest_id" placeholder="※8-16자 소문자+숫자"/>
 					
 					</td>
 				</tr>
@@ -27,7 +25,7 @@
 					<tr>
 						<td>비회원주문비밀번호</td>
 				<td><input type="text" name="guest_pw"  id ="guest_pw" placeholder="※8-16자 소문자+숫자" /></td>
-								<!-- Enter 누름과 동시에 cookie자동저장 -->
+								
 					</tr>
 					
 					<tr>

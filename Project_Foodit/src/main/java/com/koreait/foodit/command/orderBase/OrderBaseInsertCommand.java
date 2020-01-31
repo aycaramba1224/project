@@ -9,7 +9,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.dao.GuestDao;
+import com.koreait.foodit.dao.MemberDao;
 import com.koreait.foodit.dao.OrderBaseDao;
+import com.koreait.foodit.dto.MemberDto;
 
 public class OrderBaseInsertCommand implements OrderBaseCommand {
 
@@ -20,14 +22,14 @@ public class OrderBaseInsertCommand implements OrderBaseCommand {
 	        OrderBaseDao orderDao = sqlSession.getMapper(OrderBaseDao.class);
 			Map<String, Object> map = model.asMap();
 			HttpServletRequest request = (HttpServletRequest) map.get("request");
-			int order_no = Integer.parseInt(request.getParameter("order_no"));
-			String order_id = request.getParameter("order_id");
 			String order_name = request.getParameter("order_name");
 			String order_post = request.getParameter("order_post");
-			String order_road = request.getParameter("order_road");
+			String order_road1 = request.getParameter("order_road1");
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-			redirectAttributes.addFlashAttribute("orderResult",orderDao.orderInsert(order_no, order_id,order_name,order_post,order_road));
+			redirectAttributes.addFlashAttribute("orderResult",orderDao.orderInsert(order_name, order_post, order_road1));
 			redirectAttributes.addFlashAttribute("orderInsertResult","yes");
+			
+			
             
 			
 	}

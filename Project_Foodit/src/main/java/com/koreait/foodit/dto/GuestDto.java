@@ -1,28 +1,28 @@
 package com.koreait.foodit.dto;
 
 public class GuestDto {
-
-	private int guest_no;
-	private String 	guest_pw, 
+	
+	private String 	guest_id,
+					guest_pw, 
 					guest_name,
 					guest_phone;
 	
 	public GuestDto() {	}
-	public GuestDto(int guest_no, String guest_pw, String guest_name, String guest_phone) {
+	public GuestDto(String guest_id, String guest_pw, String guest_name, String guest_phone) {
 		super();
-		this.guest_no = guest_no;
+		this.guest_id = guest_id;
 		this.guest_pw = guest_pw;
 		this.guest_name = guest_name;
 		this.guest_phone = guest_phone;
 	}
 	
 
-	public int getGuest_no() {
-		return guest_no;
+	public String getGuest_id() {
+		return guest_id;
 	}
 
-	public void setGuest_no(int guest_no) {
-		this.guest_no = guest_no;
+	public void setGuest_no(String guest_id) {
+		this.guest_id = guest_id;
 	}
 
 	public String getGuest_pw() {

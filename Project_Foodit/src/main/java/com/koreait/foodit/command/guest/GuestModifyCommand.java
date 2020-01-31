@@ -16,15 +16,15 @@ public class GuestModifyCommand implements GuestCommand {
 	public void execute(SqlSession sqlSession, Model model) {
 		// TODO Auto-generated method stub
 		  GuestDao gDao = sqlSession.getMapper(GuestDao.class);
-			Map<String, Object> map = model.asMap();
+			Map<String, Object>map = model.asMap();
 			HttpServletRequest request = (HttpServletRequest) map.get("request");
 			String guest_pw = request.getParameter("guest_pw");
 			String guest_name = request.getParameter("guest_name");
 			String guest_phone = request.getParameter("guest_phone");
-			int guest_no = Integer.parseInt(request.getParameter("guest_no"));
+			String guest_id = request.getParameter("guest_id");
 			
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-			redirectAttributes.addFlashAttribute("guestMOResult",gDao.guestModify(guest_pw,guest_name,guest_phone,guest_no));
+			redirectAttributes.addFlashAttribute("guestMOResult",gDao.guestModify(guest_pw, guest_name, guest_phone, guest_id));
 			redirectAttributes.addFlashAttribute("guestModifyResult","yes");
 	}
 

@@ -67,66 +67,107 @@
 </script>
 </head>
 <body>
-	
-	    
-		<form method="POST" action="orderInsert">
-	    <!--상품정보도 들어가야됨  -->
-		<table border="1">
-			<tbody>
-				<!-- guest_no랑 연결 guest_no
-				<c:choose>
-						<c:when test="${ guest_no eq null }">
-						</c:when>
-						<c:otherwise>
-					<td>주문번호<input type="text" name="order_no" value="${guest_no }"  /></td>
-						</c:otherwise>
-					</c:choose>
-					-->
-					
-					<tr>
-					<td>주문번호<input type="text" name="order_no" id="order_no" /></td>
-					</tr>
-	                 
-	                 <tr>
-	                 <td>주문아이디 
-	                 <input type="text" name="order_id" id="order_id" /></td>
-	                 </tr>
-	                  
-					<tr>
-						<td>주문자이름
-						<input type="text" name="order_name" id="order_name" /></td>
-					</tr>
-					
-					<tr>
-						<td>우편번호
-				<input type="text" id="sample4_postcode" placeholder="우편번호" name="order_post" />
-			    <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-			    </td>
-				</tr>
-				  <tr>
-				    <td>주소
+	  <h1>주문하기</h1>
+	  <br />
+	  <br />
+	  <h2>주문자</h2>
+	    <hr />
+		<form method="post" action="orderInsert">
+	          
+		
+	                  <div>
+	                    <label> 이름</label>   
+						<input type="text" name="order_name" id="order_name" />
+					  </div>
+					  
+					   <div>
+					  	<label>휴대폰</label>
+					  	<select name="order_phone1" class="order_phone">
+					  <option value="::선택::">::선택::</option>
+			          <option value="010">010</option>
+			          <option value="011">011</option>
+			          <option value="019">019</option>
+		               </select>
+		               <input type="text" name="order_phone2" class="order_phone"/>
+		               <input type="text" name="order_phone3" class="order_phone"/>
+		               </div>
+		               
+						
+						<div>
+						<label>이메일</label>
+						<input type="text" name="order_email1" class="order_email"/>
+						@
+						<input type="text" name="order_email2" class="order_email"/>
+					  	<select name="order_email3" class="order_email">
+			          <option value="::선택::">::선택::</option>
+			           <option value="naver.com">naver.com</option>
+			          <option value="darm.net">darm.net</option>
+			          <option value="google">google</option>
+		               </select>
+						</div>
+					 
+					     <div>
+					     <label>주문비밀번호</label>
+					     <input type="text" name="guest_pw" class="guest_pw"/>
+					     <label>주문비밀번호 확인</label> 
+					     <input type="text" name="guest_pw" class="guest_pw"/>
+					     </div>
+					     
+					    <h2>배송정보</h2>
+					    <div>
+	                    <label> 이름</label>   
+						<input type="text" name="order_name" id="order_name" />
+                        </div>
+                        
+                         <div>
+					  	<label>휴대폰</label>
+					  	<select name="order_phone1">
+					  <option value="::선택::">::선택::</option>
+			          <option value="010">010</option>
+			          <option value="011">011</option>
+			          <option value="019">019</option>
+		               </select>
+		               <input type="text" name="order_phone2" class="order_phone"/>
+		               <input type="text" name="order_phone3" class="order_phone"/>
+		               </div>
+		  
+                        <div>
+                     <label>주소</label>
+					<input type="text" id="sample4_postcode" placeholder="우편번호" name="order_post" />
+			    	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+				      </div>
+				      
+				    <div>
+				    <input type="text" id="sample4_roadAddress" name="order_road1" />
+                   </div>
+				     
+				     <br />
+				   <div>
+				   상품정보(장바구니 정보가 들어가야함)
+				   </div>
+				    <br />
 				    
-		<input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="order_road" size="40"/>
-		<!-- 
-         <input type="text" id="sample4_jibunAddress" placeholder="지번주소" name="order_road2">
-         <span id="guide" style="color:#999;display:none"></span>
-          <input type="text" id="sample4_detailAddress" placeholder="상세주소" name="order_road3" >
-          <input type="text" id="sample4_extraAddress" placeholder="참고항목" name="order_road4">
-					   --> 
-					     <td>
-				    </tr>
-               </tbody>
-                   <tr>
-               	<td colspan="4">
-	     <input type="submit" value="구매하기" />
-	     <!--비회원 정보 입력하고 정보 입력하고 구매하기 버튼누르면 어디로??? -->
-	     <!--관리자일떄  -->
-	     <input type="button" value="주문정보리스트 보기" onclick="location.href='orderBaseList'"/>
-			</td>
-			</tr>
-               </table>
+               	 <h2>결제정보</h2>
+               	 <div>
+               	 총 상품금액<input type="text" />
+               	 </div>
+               	 <div>
+               	 총 배송비<input type="text" />
+               	 </div>
+               	 <div>
+               	 총 결제 금액<input type="text" />
+               	 </div>
+               	
+               	 
+               	 <div>
+	             <input type="submit" value="결제하기" />
+	             </div>
                </form>
-           
+               
+               <!-- 이거는 주문내역 페이지에 들어갈 	부분
+	        <input type="button" value="주문정보리스트 보기" onclick="location.href='orderBaseList'"/>
+           -->
+				  <!-- <input type="hidden" name="amount" value="${sum}"/> -->
 
 </body>
 </html>

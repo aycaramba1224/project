@@ -10,7 +10,7 @@
 <script>
 function orderDelete(){
 	if (confirm("정말 삭제할까요?")) {
-		location.href='orderBaseDelete?order_no=${orderBaseDto.order_no}';
+		location.href='orderBaseDelete?order_name=${orderBaseDto.order_name}';
 	}
 }
 orderBaseDelete
@@ -78,18 +78,19 @@ orderBaseDelete
 			<table border="1">
 				<tbody>
 					<tr>
+				        
 						<td>주문번호
-							${orderBaseDto.order_no }
-							<input type="hidden" name="order_no" value="${orderBaseDto.order_no }" size="20"/>
+						 <!--  
+							${orderBaseDto.order_id }
+							<input type="hidden" name="order_id" value="${orderBaseDto.order_id }"/>
+						 -->
 						</td>
 					</tr>
-					<tr>
-						<td>주문아이디
-						${orderBaseDto.order_id }</td>
-					</tr>
+					
 					<tr>
 						<td>주문자이름
-						<input type="text" name="order_name" value="${orderBaseDto.order_name}" size="20"/></td>
+						<input type="text" name="order_name" value="${orderBaseDto.order_name}"/>
+						</td>
 					</tr>
 					
 					<tr>
@@ -100,10 +101,23 @@ orderBaseDelete
 					
 					<tr>
 				<td>주소
-		      <input type="text" id="sample4_roadAddress" placeholder="도로명주소"  name="order_road" size="70"value="${orderBaseDto.order_road}" /></td>
-					
+		      <input type="text" id="sample4_roadAddress" placeholder="주소"  name="order_road1" size="70"value="${orderBaseDto.order_road1}" />
+		      </td>
 					</tr>
-				
+					<tr>
+					<td>주문자 휴대폰번호
+					<!-- 
+						<input type="text" name="order_phone" value="${orderBaseDto.order_phone}" />
+						-->
+					</td>
+					</tr>
+					
+					<tr>
+					<td>
+					  ${OrderBaseDto.orderDate}
+					</td>
+					</tr>
+					
 					<tr>
 						<td colspan="2">
 	
