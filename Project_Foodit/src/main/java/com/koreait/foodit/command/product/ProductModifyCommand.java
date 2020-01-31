@@ -20,15 +20,15 @@ public class ProductModifyCommand implements ProductCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 				
-		String pro_name = request.getParameter("pro_name");
-		String pro_price = request.getParameter("pro_price");
-		String pro_content = request.getParameter("pro_content");
-		String pro_stock = request.getParameter("pro_stock");
-		String pro_taste = request.getParameter("pro_taste");
-		int pro_no =  Integer.parseInt(request.getParameter("pro_no"));
+		String product_name = request.getParameter("product_name");
+		String product_price = request.getParameter("product_price");
+		String product_content = request.getParameter("product_content");
+		String product_stock = request.getParameter("product_stock");
+		String product_taste = request.getParameter("product_taste");
+		int product =  Integer.parseInt(request.getParameter("product_no"));
 		
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("modifyResult", productDao.productModify(pro_name, pro_price, pro_content, pro_stock, pro_taste, pro_no) );
+		redirectAttributes.addFlashAttribute("modifyResult", productDao.productModify(product_name, product_price, product_content, product_stock, product_taste, product_no) );
 		redirectAttributes.addFlashAttribute("isProductModify", "yes");	 
 
 	}
