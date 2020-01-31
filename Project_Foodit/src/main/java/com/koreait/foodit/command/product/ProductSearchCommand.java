@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 import com.koreait.foodit.dao.ProductDao;
 
-public class ProductSearchResultCommand implements ProductCommand { 
+public class ProductSearchCommand implements ProductCommand { 
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {

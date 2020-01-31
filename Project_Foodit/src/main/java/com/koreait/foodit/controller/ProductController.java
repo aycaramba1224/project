@@ -14,7 +14,7 @@ import com.koreait.foodit.command.product.ProductDeleteCommand;
 import com.koreait.foodit.command.product.ProductInsertCommand;
 import com.koreait.foodit.command.product.ProductListCommand;
 import com.koreait.foodit.command.product.ProductModifyCommand;
-import com.koreait.foodit.command.product.ProductSearchResultCommand;
+import com.koreait.foodit.command.product.ProductSearchCommand;
 import com.koreait.foodit.command.product.ProductViewCommand;
 
 @Controller
@@ -83,9 +83,9 @@ public class ProductController {
 	@RequestMapping("productSearchResult")
 	public String dynamic(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
-		productCommand = new ProductSearchResultCommand();
+		productCommand = new ProductSearchCommand();
 		productCommand.execute(sqlSession, model);
-		return "product/productList";
+		return "product/productSearchResult";
 	}
 	
 	@RequestMapping("productSearch")
