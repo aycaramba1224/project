@@ -17,7 +17,9 @@ public interface OrderBaseDao {
 			String order_post,String order_road1,int order_no);
 	public int orderBaseDelete(int order_no);
 	
-	public OrderBaseDto guestOrder(String guest_pw);
+	public ArrayList<OrderBaseDto> guestOrder(String guestquery ,String content);
+	public ArrayList<OrderBaseDto> guest_noOrder(String guestquery2 ,String content2);
+	public OrderBaseDto guestorderList_view(int order_no);
 	
 	
 	

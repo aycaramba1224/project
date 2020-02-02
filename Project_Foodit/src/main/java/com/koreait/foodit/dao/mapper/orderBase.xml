@@ -19,18 +19,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 </select>
 
 
+
 <select id="orderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="int">
 	
  SELECT * FROM ORDER_BASE WHERE ORDER_NO= #{order_no}
 	
 </select>
+
+<select id="guestorderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="int">
+	
+ SELECT * FROM ORDER_BASE WHERE ORDER_NO= #{order_no}
+	
+</select>
+
+
  
-<select id="guestOrder" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="String">
+<select id="guestOrder" resultType="com.koreait.foodit.dto.OrderBaseDto">
     
-     SELECT * FROM ORDER_BASE WHERE GUEST_PW = #{guest_pw}
+     SELECT * FROM ORDER_BASE WHERE ${param1} LIKE #{param2}
 		 	
 </select>
 
+<select id="guest_noOrder" resultType="com.koreait.foodit.dto.OrderBaseDto">
+    
+     SELECT * FROM ORDER_BASE WHERE ${param1} LIKE #{param2}
+		 	
+</select>
 
 <update id="orderListModify">
  UPDATE	 ORDER_BASE SET

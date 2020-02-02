@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.command.orderBase.GuestOrderCommand;
+import com.koreait.foodit.command.orderBase.GuestOrderViewCommand2;
 import com.koreait.foodit.command.orderBase.OrderBaseCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseDeleteCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseInsertCommand;
@@ -42,6 +43,14 @@ public class OrderBaseController {
 			orderBaseCommand = new GuestOrderCommand();
 			orderBaseCommand.execute(sqlSession, model);
 			return "order/guestOrder";
+		}
+	 
+	 @RequestMapping("guestOderListview")
+		public String guestOderListview(HttpServletRequest request,Model model) {
+		 model.addAttribute("request", request);
+			orderBaseCommand = new GuestOrderViewCommand2();
+			orderBaseCommand.execute(sqlSession, model);
+			return "order/guestOrderView";
 		}
 	 
 		
