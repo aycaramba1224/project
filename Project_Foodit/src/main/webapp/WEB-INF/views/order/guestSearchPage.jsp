@@ -10,10 +10,13 @@
  function guestSearch(f){
 	 if(f.content2.value==""){
 		 alert("비회원주문번호를 입력해주세요");
+		 return false;
 	 }
 	 if(f.content.value==""){
 		 alert("비회원비밀번호를 입력해주세요");
+		 return false;
 	 }
+	
 	 f.action = "guestSearch";
 	 f.submit();
  }
@@ -32,7 +35,7 @@
    
     <div>
     <input type="hidden" name="guestquery" value="guest_pw"/>
-    <input type="text" placeholder="주문비밀번호를 입력해주세요" name="content" />
+    <input type="password" placeholder="주문비밀번호를 입력해주세요" name="content" />
     </div>
 
      <input type="button" value="비회원주문/배송조회" onclick="guestSearch(this.form)"/>

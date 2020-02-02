@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
 //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 function sample4_execDaumPostcode() {
@@ -90,6 +91,12 @@ function passchk() {
 	  <h2>주문자</h2>
 	    <hr />
 		<form method="post" id ="f" action="orderInsert">
+		<!-- 
+			<div>
+			    <label>회원아이디</label>
+			    
+			</div>
+		 -->
 	                  <div>
 	                    <label> 이름</label>   
 						<input type="text" name="order_name" id="order_name" />
@@ -167,7 +174,8 @@ function passchk() {
                	 총 상품금액<input type="text" />
                	 </div>
                	 <div>
-               	 총 배송비<input type="text" />
+               	 총 배송비
+               	 <input type="text"  />
                	 </div>
                	 <div>
                	 총 결제 금액<input type="text" />
@@ -183,7 +191,6 @@ function passchk() {
                
          
 				  <input type="hidden" name="amount" value="${sum}"/> -->
-    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   
 </body>
 </html>

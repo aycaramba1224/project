@@ -114,6 +114,7 @@ function sample4_execDaumPostcode() {
 
 					</tbody>
 					</table>
+					 <h1>상품정보</h1>
 					<h1>배송정보</h1>
 					<table border="1">
 					<tbody>

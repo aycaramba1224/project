@@ -6,6 +6,48 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+*{
+   margin:0;
+   padding:0;
+   }
+    h1{
+    text-align: center;
+    margin-bottom: 20px;
+    }
+   table {
+    border-collapse: collapse;
+    margin:auto;
+    border-top: 1px solid #444444;
+    width:500px;
+    text-align:center;
+    border-radius:50px;
+    font-size: 20px;
+    text-decoration: none;
+   }
+   .td1 {
+  background-color:lightgray;
+  color:black;
+   
+   }
+   td {
+   border-bottom: 1px solid #444444;
+    padding: 10px;
+   font-size:12px;
+   border-bottom: 1px solid #444444;
+ }
+     .click-td1  a{
+      text-decoration: none;
+      }
+    .click-td1:hover{
+     background: darkgray;
+		color: white;
+    }
+    a:hover {
+		color: white;
+	   }
+
+</style>
 </head>
 <body>
 		<form method="post"  name="f">
@@ -16,17 +58,16 @@
 			<c:forEach var="OrderBaseDto" items="${guestList}">
 			<c:forEach var="OrderBaseDto" items="${guest_noList}">
 			<tr>
-			<td>
+			<td class="td1">
 			비회원 주문번호
 			</td>
-			<td>
-			 
+			<td class="click-td1">
 	  <a href="guestOderListview?order_no=${OrderBaseDto.order_no}">${OrderBaseDto.order_no}</a>
 			</td>
 			</tr>
 			
 			<tr>
-			<td>
+			<td class="td1">
 			비회원 비밀번호
 			</td>
 			<td>
