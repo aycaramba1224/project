@@ -12,7 +12,6 @@ function orderDelete(f){
 		location.href='orderBaseDelete?order_no=${orderBaseDto.order_no}';
 	}
 }
-
 //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 function sample4_execDaumPostcode() {
     new daum.Postcode({
@@ -68,6 +67,8 @@ function sample4_execDaumPostcode() {
         }
     }).open();
 }
+
+
 </script>
 
 </head>
@@ -110,30 +111,23 @@ function sample4_execDaumPostcode() {
 						<input type="text" name="order_email2" value="${orderBaseDto.order_email2}"/>
 						</td>
 					</tr>
-					
-					<tr>
-					<td>
-					  ${OrderBaseDto.orderDate}
-					</td>
-					</tr>
-					
+
 					</tbody>
 					</table>
-					
 					<h1>배송정보</h1>
 					<table border="1">
-				<tbody>
-				   <tr>
-						<td>주문자이름
-						<input type="text" name="order_name" value="${orderBaseDto.order_name}"/>
+					<tbody>
+					 <tr>
+						<td>배송자이름
+						<input type="text" name="delivery_name" value="${orderBaseDto.delivery_name}"/>
 						</td>
 					</tr>
 					
 					<tr>
-						<td>휴대폰
-						<input type="text" name="order_phone" value="${orderBaseDto.order_phone}"/>-
-						<input type="text" name="order_phone2" value="${orderBaseDto.order_phone2}"/>-
-						<input type="text" name="order_phone3" value="${orderBaseDto.order_phone3}"/>
+						<td>배송자휴대폰
+						<input type="text" name="delivery_phone" value="${orderBaseDto.delivery_phone}"/>-
+						<input type="text" name="delivery_phone2" value="${orderBaseDto.delivery_phone2}"/>-
+						<input type="text" name="delivery_phone3" value="${orderBaseDto.delivery_phone3}"/>
 						</td>
 					</tr>
 				
@@ -150,14 +144,22 @@ function sample4_execDaumPostcode() {
 					</tr>
 				
 					<tr>
-						<td colspan="4">
+					<td>
+					  ${OrderBaseDto.orderDate}
+					</td>
+					</tr>
+					
+					<tr>
+						<td colspan="5">
 						    <input type="button" value="주문 정보보기" onclick="location.href='orderBaseList'" />
 						    <input type="submit" value="주문정보 수정" />
 							<input type="button" value="주문정보 삭제" onclick="orderDelete()" />
 						</td>
 					</tr>
-				</tbody>
-			</table>
+					</tbody>
+					</table>
+				
+		
 		</form>
 	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   

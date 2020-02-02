@@ -7,10 +7,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <insert id ="orderInsert">
  INSERT INTO ORDER_BASE (ORDER_NO,GUEST_PW,ORDER_NAME,ORDER_PHONE,ORDER_PHONE2,ORDER_PHONE3,
- ORDER_EMAIL,ORDER_EMAIL2,ORDER_POST,ORDER_ROAD1)
+ ORDER_EMAIL,ORDER_EMAIL2,DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PHONE3,ORDER_POST,ORDER_ROAD1)
  VALUES 
  (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},
- #{param5},#{param6},#{param7},#{param8},#{param9})
+ #{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13})
 </insert>
 
 
@@ -18,11 +18,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  SELECT * FROM ORDER_BASE ORDER BY ORDER_NO
 </select>
 
+
 <select id="orderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="int">
 	
  SELECT * FROM ORDER_BASE WHERE ORDER_NO= #{order_no}
 	
 </select>
+ 
+<select id="guestOrder" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="String">
+    
+     SELECT * FROM ORDER_BASE WHERE GUEST_PW = #{guest_pw}
+		 	
+</select>
+
 
 <update id="orderListModify">
  UPDATE	 ORDER_BASE SET
@@ -32,10 +40,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
            ORDER_PHONE3 = #{param4},
            ORDER_EMAIL = #{param5},
            ORDER_EMAIL2 = #{param6},
-		   ORDER_POST = #{param7},
-		   ORDER_ROAD1 = #{param8}
+           DELIVERY_NAME = #{param7},
+           DELIVERY_PHONE = #{param8},
+           DELIVERY_PHONE2 = #{param9},
+           DELIVERY_PHONE3 = #{param10},
+		   ORDER_POST = #{param11},
+		   ORDER_ROAD1 = #{param12}
 		WHERE
-			ORDER_NO = #{param9}
+			ORDER_NO = #{param13}
 </update>
 
  <delete id="orderBaseDelete">
@@ -43,13 +55,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 DELETE FROM ORDER_BASE WHERE ORDER_NO= #{param1}
 	 
  </delete>
-
-<!-- 주문상세 정보 카트에 있는 것 불러오는 거는 보류-->
-<select id="order_Details" resultType="com.koreait.foodit.dto.CartDto">
-  
-    
- 
-</select>
-
 
 </mapper>

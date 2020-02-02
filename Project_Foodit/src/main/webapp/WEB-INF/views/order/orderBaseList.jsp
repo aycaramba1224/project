@@ -18,6 +18,16 @@ if( orderInsertResult == "yes"){
 	}
 }
 
+var orderBaseModifyResult = "${orderBaseModifyResult}";
+if( orderBaseModifyResult == "yes"){
+	var orderModifyResult= "${orderModifyResult}";
+	if(orderModifyResult == 0){
+		alert("주문 정보 수정 실패.");
+	} else {
+		alert("주문정보 수정성공.");
+	}
+}
+
 
 var orderDeleteResult = "${orderDeleteResult}";
  if( orderDeleteResult == "yes"){
@@ -73,8 +83,8 @@ var orderDeleteResult = "${orderDeleteResult}";
     <table border="1">
     <tbody>
 			<tr>
-			<th>주문자이름</th>
-			<th>주문자 휴대폰</th>
+			<th>배송자이름</th>
+			<th>배송자휴대폰</th>
 			<th>우편번호</th>
 			<th>주소</th>
 			<th>주문날짜</th>
@@ -84,8 +94,8 @@ var orderDeleteResult = "${orderDeleteResult}";
 			
 				<tr>
 					
-				    <td>${OrderBaseDto.order_name}</td>
-				    <td>${OrderBaseDto.order_phone}-${OrderBaseDto.order_phone2}-${OrderBaseDto.order_phone3}</td>
+				    <td>${OrderBaseDto.delivery_name}</td>
+				    <td>${OrderBaseDto.delivery_phone}-${OrderBaseDto.delivery_phone2}-${OrderBaseDto.delivery_phone3}</td>
 				    <td>${OrderBaseDto.order_post}</td>
 					<td>${OrderBaseDto.order_road1}</td>
 					<td>${OrderBaseDto.orderDate }</td>

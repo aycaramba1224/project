@@ -130,20 +130,20 @@ function passchk() {
 					     
 					    <h2>배송정보</h2>
 					    <div>
-	                    <label> 이름</label>   
-						<input type="text" name="order_name" id="order_name" />
+	                    <label>이름</label>   
+						<input type="text" name="delivery_name" id="delivery_name" />
                         </div>
                         
                          <div>
 					  	<label>휴대폰</label>
-					  	<select name="order_phone">
+					  	<select name="delivery_phone">
 					  <option value="::선택::">::선택::</option>
 			          <option value="010">010</option>
 			          <option value="011">011</option>
 			          <option value="019">019</option>
 		               </select>
-		               <input type="text" name="order_phone2" class="order_phone"/>
-		               <input type="text" name="order_phone3" class="order_phone"/>
+		               <input type="text" name="delivery_phone2" class="delivery_phone2"/>
+		               <input type="text" name="delivery_phone3" class="delivery_phone3"/>
 		               </div>
 		  
                         <div>
