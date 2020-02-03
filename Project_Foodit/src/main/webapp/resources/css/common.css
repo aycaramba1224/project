@@ -130,6 +130,9 @@ a:visited {
 }
 #header .gnbUtil ul li{
 	float: left;
+	color: #fff;
+    font-size: 13px;
+    line-height: 21px;
 }
 #header .gnbUtil ul li a{
 	color: #fff;

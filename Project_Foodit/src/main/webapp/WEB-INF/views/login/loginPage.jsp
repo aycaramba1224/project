@@ -5,6 +5,16 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="로그인" name="title"/>
 </jsp:include>
+<script type="text/javascript">
+// controller의 결과 값에따른 alert
+var flag = "${flag}";
+if( flag == "1" ){
+	alert("일치하는 회원정보가 없습니다.");
+}
+if( flag == "2" ){
+	alert("아이디 패스워드 오류입니다.");
+}
+</script>
 <div class="loginWrap">
 	<div class="loginBox">
 		<h1 class="loginTit nbgB">로그인</h1>
@@ -29,17 +39,16 @@
 			</ul>
 		</div>
 		<div id="loginM" class="loginCont nbg">
-			<form method="post" name="mL">
+			<form id="ml" method="post"> 
 				<div class="inputArea">
-					<input type="text" name="mrId" placeholder="아이디" /> 
+					<input type="text" name="id" id="mId" placeholder="아이디" /> 
 				</div>
-				
 				<div class="inputArea">
-					<input type="password" name="mrPw" placeholder="비밀번호" /> 
+					<input type="password" name="pw" id="mPw" placeholder="비밀번호" /> 
 				</div>
 				<div class="cfWrap">
 					<div class="chkWrap">
-						<input type="checkbox" id="chkSave" name="chkmSave" />
+						<input type="checkbox" name="isChecked" id="isChecked"/>
 						<label for="chkSave">
 							<span class="txt">아이디 저장</span>
 						</label> 
@@ -49,23 +58,24 @@
 						<a href="#">비밀번호 찾기</a>
 					</div>
 				</div>
+				<!-- onclick="mLogin(this.form)" > -->
 				<div class="btn_wrap"> 
-					<button id="loginBtn" onclick="mLogin(this.form)" >
+					<button type="submit" class="loginBtn" > 
 						<span class="nbgB">로그인</span>
 					</button>
 				</div>
 			</form>
 		</div>
 		<div id="loginNm" class="loginCont nbg" style="display:none">
-			<form method="post">
+			<form method="post" id="nl">
 				<div class="inputArea">
-					<input type="text" name="mrId" placeholder="주문번호 입력" /> 
+					<input type="text" name="guest_no" placeholder="주문번호 입력" /> 
 				</div>
 				<div class="inputArea">
-					<input type="password" name="mrPw" placeholder="주문 비밀번호 입력" /> 
+					<input type="password" name="guest_pw" placeholder="주문 비밀번호 입력" /> 
 				</div>
 				<div class="btn_wrap"> 
-					<button id="loginBtn" onclick="#" >
+					<button type="button" class="loginBtn" onclick="nonLogin(this.form)" >
 						<span class="nbgB">주문조회</span>
 					</button>
 				</div>

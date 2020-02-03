@@ -109,7 +109,7 @@ content: '';
     background-position: center;
     background-size: 25px;
 }
-.loginBox .btn_wrap #loginBtn{
+.loginBox .btn_wrap .loginBtn{
 	color: #101010;
     border: 1px solid #BDD61A;
     background-color: #BDD61A;
