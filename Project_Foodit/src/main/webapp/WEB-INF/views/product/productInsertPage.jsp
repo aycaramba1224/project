@@ -41,7 +41,7 @@
 <body>
 
 	<div id="wrap">		
-		<form method="POST">
+		<form method="POST" enctype="multipart/form-data">
 			<table border="1">				
 				<tbody> 
 					<tr>
@@ -80,6 +80,27 @@
 							<input type="button" value="상품등록" onclick="productInsert(this.form)"/>
 							<input type="button" value="상품목록" onclick="location.href='productList'"/>
 						</td>					
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="inputArea">
+							<label for="product_img">이미지</label>
+							<input type="file" id="product_img" name="file" />
+							<div class="select_img"><img src="" /></div>
+							 
+							 <script>
+								$("#product_img").change(function(){
+									if(this.files && this.files[0]) {
+										var reader = new FileReader;
+										reader.onload = function(data) {
+											$(".select_img img").attr("src", data.target.result).width(500);        
+										}
+										reader.readAsDataURL(this.files[0]);
+									}
+								});
+								</script>							  
+							</div>						
+						</td>
 					</tr>
 				</tfoot>
 			</table>	

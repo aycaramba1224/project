@@ -39,6 +39,7 @@ public class ProductController {
 	@RequestMapping("productInsert")
 	public String productInsert(RedirectAttributes redirectAttributes, HttpServletRequest request,
 								Model model	) {
+		
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request);
 		productCommand = new ProductInsertCommand();
@@ -93,5 +94,9 @@ public class ProductController {
 		return"product/productSearch";
 	}
 	
+	@RequestMapping("productInfo")
+	public String productInfo() {
+		return"product/productInfo";
+	}
 	
 }
