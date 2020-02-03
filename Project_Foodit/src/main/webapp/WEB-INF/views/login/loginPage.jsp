@@ -15,6 +15,7 @@ if( flag == "2" ){
 	alert("아이디 패스워드 오류입니다.");
 }
 </script>
+
 <div class="loginWrap">
 	<div class="loginBox">
 		<h1 class="loginTit nbgB">로그인</h1>
@@ -40,24 +41,48 @@ if( flag == "2" ){
 		</div>
 		<div id="loginM" class="loginCont nbg">
 			<form id="ml" method="post"> 
-				<div class="inputArea">
-					<input type="text" name="id" id="mId" placeholder="아이디" /> 
-				</div>
-				<div class="inputArea">
-					<input type="password" name="pw" id="mPw" placeholder="비밀번호" /> 
-				</div>
-				<div class="cfWrap">
-					<div class="chkWrap">
-						<input type="checkbox" name="isChecked" id="isChecked"/>
-						<label for="isChecked">
-							<span class="txt">아이디 저장</span>
-						</label> 
+			<c:choose>
+				<c:when test="${ cookie.loginCookie ne null }">
+					<div class="inputArea">
+						<input type="text" name="id" id="mId" value="${ cookie.loginCookie.getValue() }" placeholder="아이디" /> 
 					</div>
-					<div class="find">
-						<a href="#">아이디 찾기</a>
-						<a href="#">비밀번호 찾기</a>
+					<div class="inputArea">
+						<input type="password" name="pw" id="mPw" placeholder="비밀번호" /> 
 					</div>
-				</div>
+					<div class="cfWrap">
+						<div class="chkWrap">
+							<input type="checkbox" name="isChecked" id="isChecked" checked/>
+							<label for="isChecked">
+								<span class="txt">아이디 저장</span>
+							</label> 
+						</div>
+						<div class="find">
+							<a href="#">아이디 찾기</a>
+							<a href="#">비밀번호 찾기</a>
+						</div>
+					</div>
+				</c:when>
+				<c:otherwise>
+					<div class="inputArea">
+						<input type="text" name="id" id="mId" placeholder="아이디" /> 
+					</div>
+					<div class="inputArea">
+						<input type="password" name="pw" id="mPw" placeholder="비밀번호" /> 
+					</div>
+					<div class="cfWrap">
+						<div class="chkWrap">
+							<input type="checkbox" name="isChecked" id="isChecked"/>
+							<label for="isChecked">
+								<span class="txt">아이디 저장</span>
+							</label> 
+						</div>
+						<div class="find">
+							<a href="#">아이디 찾기</a>
+							<a href="#">비밀번호 찾기</a>
+						</div>
+					</div>
+				</c:otherwise>
+			</c:choose>
 				<!-- onclick="mLogin(this.form)" > -->
 				<div class="btn_wrap"> 
 					<button type="submit" class="loginBtn" > 
@@ -65,6 +90,15 @@ if( flag == "2" ){
 					</button>
 				</div>
 			</form>
+<!-- 			<div> -->
+<!-- 				<form action="/28_captcha/check.do"> -->
+<!-- 					메시지 입력 <input type="text" name="input" required /> <br /> -->
+<%-- 					<img src="upload/${tempname }" alt="캡차이미지" />  --%>
+<!-- 					<input type="button" value="새로 고침" onclick="location.href='/28_captcha/getImage.do'" /> -->
+<!-- 					<br /><br /> -->
+<!-- 					<input type="submit" value="전송" /> -->
+<!-- 				</form> -->
+<!-- 			</div> -->
 		</div>
 		<div id="loginNm" class="loginCont nbg" style="display:none">
 			<form method="post" id="nl">
