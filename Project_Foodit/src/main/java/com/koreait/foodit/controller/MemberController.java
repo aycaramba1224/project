@@ -77,7 +77,7 @@ public class MemberController {
 	
 	@RequestMapping("memLogin")
 	public String memLogin (HttpSession session, RedirectAttributes rtts, HttpServletRequest request, 
-						   Cookie cookie, HttpServletResponse response, Model model) {
+						    HttpServletResponse response, Model model) {
 		String urlPath = "";
 		MemberDao mDao = sqlSession.getMapper(MemberDao.class);
 		String id = request.getParameter("id");
@@ -94,8 +94,8 @@ public class MemberController {
 			session.setAttribute("mDto", idPwCheckResult);
 			urlPath = "redirect:index";
 			// 쿠키 설정.
-			if( isChecked != null ) {    // 아이디 저장을 체크했을 경우.      
-				cookie = new Cookie("loginCookie", session.getId());
+			if( isChecked != null ) {    // 아이디 저장을 체크했을 경우.
+				Cookie cookie = new Cookie("loginCookie", session.getId());
 				cookie.setMaxAge(60 * 60 * 24 * 3);  // 쿠키 유효기간은 3일로 설정.
 				response.addCookie(cookie);
 			} else {    // 아이디 기억하기를 체크하지 않았다면
