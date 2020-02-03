@@ -4,20 +4,40 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.koreait.foodit.dao.CartDao">
-	
-	<select id="cartList" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT
-	</select>
-	
-	<select id="cartView" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT WHERE PRO_NO = #{pro_no}	
-	</select>
-	
-	
-	
-	
+  
+ 	<select id="cartList" resultType="com.koreait.foodit.dto.CartDto">
+ 		SELECT
+			CART.CART_NO, CART.CART_ID, CART.PRODUCT_NO, CART.CART_AMOUNT,
+			PRODUCT.PRODUCT_NO, PRODUCT.PRODUCT_PRICE, PRODUCT.PRODUCT_NAME
+		FROM 
+			CART INNER JOIN PRODUCT ON CART.PRODUCT_NO = PRODUCT.PRODUCT_NO    		  
+ 	</select> 
+  
 	<insert id="cartInsert">
-		INSERT INTO CART (CART_NO, ID, PRO_NO, CART_AMOUNT) VALUES ( CART_SEQ.NEXTBAL, #{param2}, #{param3}, #{param4})
-	</insert>
+	 	INSERT INTO
+	 		CART (CART_NO, CART_ID, PRODUCT_NO, CART_AMOUNT) 
+	 	VALUES 
+	 		(cart_seq.nextval, #{param1}, #{param2}, #{param3}) 
+	</insert> 
+	
+	<delete id="cartDelete">
+		DELETE FROM CART WHERE CART_NO = #{param1}
+	</delete>
+	
+	<update id="cartUpdate">
+		UPDATE CART SET CART_AMOUNT = CART_AMOUNT + #{param1} 
+		WHERE PRODUCT_NO = #{param2 }
+	</update>
+	
+	<select id="cartCount" resultType="int">
+		SELECT COUNT(*) FROM CART WHERE PRODUCT_NO = #{param1}
+	</select>
+	
+	 <select id="sumMoney" resultType="int"> 
+		SELECT NVL(SUM(PRODUCT_PRICE*CART_AMOUNT),0)
+			FROM CART,PRODUCT
+		WHERE CART.PRODUCT_NO = PRODUCT.PRODUCT_NO   
+	</select>
+	 
 
 </mapper>

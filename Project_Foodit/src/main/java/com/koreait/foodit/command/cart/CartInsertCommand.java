@@ -14,21 +14,33 @@ public class CartInsertCommand implements CartCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-		
-		CartDao cartDao = sqlSession.getMapper(CartDao.class);
-		
-		Map<String, Object> map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		
-		int cart_no = Integer.parseInt(request.getParameter("cart_no"));
-		String id = request.getParameter("id");
-		int pro_no = Integer.parseInt(request.getParameter("pro_no"));
-		int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));
-		
+	
+	CartDao cartDao = sqlSession.getMapper(CartDao.class);
+	 
+	Map<String, Object> map = model.asMap();
+	HttpServletRequest request = (HttpServletRequest) map.get("request"); 
+		 
+	String cart_id = request.getParameter("cart_id");
+	int product_no = Integer.parseInt(request.getParameter("product_no"));		
+	int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));	
+	
+	
+	 
+	int count = cartDao.cartCount(product_no);
+	
+	if(count == 0) {
 		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("cartInsertResult", cartDao.cartInsert(cart_no, id, pro_no, cart_amount));	 
-
-		redirectAttributes.addFlashAttribute("isCartInsert", "yes");
+		redirectAttributes.addFlashAttribute("cartInsertResult", cartDao.cartInsert(cart_id, product_no, cart_amount));
+	} else {
+		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
+		redirectAttributes.addFlashAttribute("cartUpdate", cartDao.cartUpdate(product_no, cart_amount));
+	} 
+	
+	
+	
+	 /*
+	RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
+	redirectAttributes.addFlashAttribute("cartInsertResult", cartDao.cartInsert(cart_id, product_no, cart_amount));*/
+ 
 	}
-
 }

@@ -2,15 +2,17 @@ package com.koreait.foodit.dao;
 
 import java.util.ArrayList;
 
-import com.koreait.foodit.dto.ProductDto;
+import com.koreait.foodit.dto.CartDto;
 
-public interface CartDao {
-
-	public ArrayList<ProductDto> cartList();
+public interface CartDao { 
+ 	
+	public ArrayList<CartDto> cartList();
 	
+	public int cartInsert (String cart_id, int product_no, int cart_amount);  	 
 	
-	public ArrayList<ProductDto> cartView(int pro_no);
+	public int cartDelete(int cart_no);
 	
-	public int cartInsert (int cart_no, String id, int pro_no, int cart_amount);
-	
+	public int cartUpdate(int cart_amount, int product_no );
+	public int cartCount(int product_no);
+	public int sumMoney();
 }

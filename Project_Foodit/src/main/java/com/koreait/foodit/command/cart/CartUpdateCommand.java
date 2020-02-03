@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 import com.koreait.foodit.dao.CartDao;
 
-public class CartViewCommand implements CartCommand {
+public class CartUpdateCommand implements CartCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -17,13 +17,12 @@ public class CartViewCommand implements CartCommand {
 		CartDao cartDao = sqlSession.getMapper(CartDao.class);
 		
 		Map<String, Object> map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest)map.get("request");
+		HttpServletRequest request = (HttpServletRequest) map.get("request"); 
 		
-		int pro_no = Integer.parseInt(request.getParameter("pro_no"));
+		int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));
+		int product_no = Integer.parseInt(request.getParameter("product_no"));
 		
-		
-		model.addAttribute("cartView", cartDao.cartView(pro_no));
-		model.addAttribute("cartViewSize", cartDao.cartView(pro_no).size());
+		model.addAttribute("cartUpdate", cartDao.cartUpdate(product_no, cart_amount));
 		
 	}
 
