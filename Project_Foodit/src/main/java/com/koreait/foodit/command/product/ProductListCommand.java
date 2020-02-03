@@ -12,6 +12,7 @@ public class ProductListCommand implements ProductCommand {
 		
 		ProductDao productDao = sqlSession.getMapper(ProductDao.class);
 		
+	 
 		model.addAttribute("productList", productDao.productList());
 		model.addAttribute("productListSize", productDao.productList().size());
 

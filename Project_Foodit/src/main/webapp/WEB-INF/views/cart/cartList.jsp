@@ -10,9 +10,24 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">	 
+$(document).ready(function() {
+  
+	// 체크 되어 있는 값 추출
+
+	$("#selectDelete_btn").click(function() {
+		var test = $("input[name=chBox]:checked").val();
+		if( test ==""){
+			alert("선택된 상품이 없습니다.");
+		} else {
+			alert("선택!");
+		}
+		
+
+		});
+
+	});
 	
-	 
- 	
+});
 </script>
 </head>
 <body>
@@ -51,7 +66,37 @@
 						<label for="allCheck">총 <!-- 처리예정 --> / ${cartListSize }개</label> 
 					</td> 
 					<td colspan="4">
-						<input type="button" value="선택 삭제" onclick="selectDelete">
+						<input type="button" value="선택 삭제" id="selectDelete_btn"  >
+					<!-- 	<script>
+							 $("#selectDelete_btn").click(function(){
+							  var confirm_val = confirm("정말 삭제하시겠습니까?");
+							  
+							  if(confirm_val) {
+							   var checkArr = new Array();
+							    
+							   $("input[class='chBox']:checked").each(function(){
+							    checkArr.push($(this).attr("data-cartNum"));
+							   });
+							    
+							   $.ajax({
+							    url : "cartDelete",
+							    type : "post",
+							    data : { chbox : checkArr },
+							    success : function(){
+							     location.href = "cartList";
+							    }
+							   });
+							  } 
+							 });
+						</script> -->
+												
+						
+						
+						
+						
+						
+						
+						
 						 
 					</td>
 				</tr>
@@ -60,7 +105,7 @@
 				 <c:forEach var="cartList" items="${cartList }" >
 				<tr>
 					<td>
-						<input type="checkbox" name="chBox" class="chBox" checked="checked" />	
+						<input type="checkbox" name="chBox" class="chBox" checked="checked"/>	
 						<script>
 							 $(".chBox").click(function(){
 							  $("#allCheck").prop("checked", false);
