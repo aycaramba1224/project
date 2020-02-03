@@ -23,7 +23,14 @@
 <link rel="shortcut icon" href="#" type="image/x-icon">
 <link href="<c:url value="/resources/bootstrap/css/datepicker3.css" />" type="text/css" rel="stylesheet" >
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-
+<script type="text/javascript" src="resources/js/common.js"></script>
+<script type="text/javascript">
+// logout alert
+var isLogout = "${isLogout}"
+if(isLogout == "yes"){
+	alert("로그아웃 되었습니다.");
+}
+</script>
 </head>
 <body>
 	<div id="container">
@@ -31,12 +38,22 @@
 			<div class="gnbWrap">
 				<div class="gnbUtil">
 					<div class="utilWrap nbg">
+					<c:if test="${ sessionScope.mDto eq null }">
 						<ul>
 							<li><a href="/foodit/sbm02">회원가입</a></li>
 							<li><a href="/foodit/sbmr">로그인</a></li>
 							<li><a href="">고객행복센터</a></li>
 							<li><a href="">배송지역검색</a></li>
 						</ul>
+					</c:if>
+					<c:if test="${ sessionScope.mDto ne null }">
+						<ul>
+							<li>${ sessionScope.mDto.name }님</li>
+							<li><a href="/foodit/logout">로그아웃</a></li>
+							<li><a href="">고객행복센터</a></li>
+							<li><a href="">배송지역검색</a></li>
+						</ul>
+					</c:if>
 					</div>
 				</div>
 				<div class="gnbMenu">

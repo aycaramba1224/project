@@ -21,4 +21,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ID = #{param1}	
 	</select>
 
+	<select id="memLogin" resultType="com.koreait.foodit.dto.MemberDto">
+		SELECT
+			*
+		FROM
+			MEMBER
+		WHERE
+			ID = #{param1} AND PW = #{param2} 
+	</select>
 </mapper>

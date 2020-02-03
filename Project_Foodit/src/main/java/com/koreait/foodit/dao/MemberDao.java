@@ -10,4 +10,5 @@ public interface MemberDao {
 					String post, String road);
 	
 	public MemberDto idCheck(String id); 
+	public MemberDto memLogin(String id, String pw);
 }
