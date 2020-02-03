@@ -14,7 +14,7 @@ import com.koreait.foodit.command.product.ProductDeleteCommand;
 import com.koreait.foodit.command.product.ProductInsertCommand;
 import com.koreait.foodit.command.product.ProductListCommand;
 import com.koreait.foodit.command.product.ProductModifyCommand;
-import com.koreait.foodit.command.product.ProductSearchResultCommand;
+import com.koreait.foodit.command.product.ProductSearchCommand;
 import com.koreait.foodit.command.product.ProductViewCommand;
 
 @Controller
@@ -25,11 +25,11 @@ public class ProductController {
 	private ProductCommand productCommand;
 	
 	@RequestMapping("productList")
-	public String productList(Model model) {
+	public String productList(Model model) {	
 		productCommand = new ProductListCommand();
 		productCommand.execute(sqlSession, model);
 		return "product/productList";
-	}
+	} 
 	
 	@RequestMapping("productInsertPage")
 	public String productInsertPage() {
@@ -48,11 +48,18 @@ public class ProductController {
 
 	@RequestMapping("productView")
 	public String productView(HttpServletRequest request, Model model) {
-		
 		model.addAttribute("request", request);
 		productCommand = new ProductViewCommand();
 		productCommand.execute(sqlSession, model);
 		return "product/productView";
+	}
+	
+	@RequestMapping("productModifyPage")
+	public String productModifyPage(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		productCommand = new ProductViewCommand();
+		productCommand.execute(sqlSession, model);
+		return "product/productModifyPage";
 	}
 	
 	@RequestMapping("productModify")
@@ -72,12 +79,13 @@ public class ProductController {
 		productCommand.execute(sqlSession, model);
 		return "redirect:/productList";
 	}
+	
 	@RequestMapping("productSearchResult")
 	public String dynamic(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
-		productCommand = new ProductSearchResultCommand();
+		productCommand = new ProductSearchCommand();
 		productCommand.execute(sqlSession, model);
-		return "product/productList";
+		return "product/productSearchResult";
 	}
 	
 	@RequestMapping("productSearch")
@@ -85,5 +93,5 @@ public class ProductController {
 		return"product/productSearch";
 	}
 	
-
+	
 }

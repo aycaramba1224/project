@@ -1,20 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>상품 목록</title>
-<script type="text/javascript">
-	var isProductModify = "${isProductModify}";
-	if(isProductModify == "yes"){
-		var modifyResult = "${modifyResult}";
-		if(modifyResult == 0){
-			alert("상품 수정이 실패하였습니다.");
-		} else {
-			alert("상품 수정이 성공하였습니다.");
-		}
-	} 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
+	<jsp:param value="FOODIT 메뉴" name="title"/>
+</jsp:include>
+
+<script type="text/javascript"> 
 	var isProductInsert = "${isProductInsert}";
 	if(isProductInsert == "yes"){
 		var insertResult = "${insertResult}";
@@ -23,59 +16,37 @@
 		} else {
 			alert("상품 등록이 성공하였습니다.");
 		}
-	}
-	var isProductDelete = "${isProductDelete}";
-	if(isProductDelete == "yes"){
-		var deleteResult ="${deleteResult}";
-		if(deleteResult == 0 ){
-			alert("상품 삭제가 실패하였습니다.");
-		} else {
-			alert("상품 삭제가 성공하였습니다.");	
-		}
-	}	
+	} 
 </script>
-</head>
-<body>
-
+ 
+ 	 FOODIT 메뉴 
+ 	
+ 	<div id="메뉴바">
+ 		<a>높은 가격 순</a> | <a>낮은 가격순</a> | <a>인기메뉴순</a> | <a>만족도순</a> 
+ 	</div>
+ 	
 	<div id="wrap">	
-		<table border="1">
-		<c:choose>
-			<c:when test="${productListSize eq 0 }">
-				등록된 상품이 없습니다. 
-			</c:when>
-			<c:otherwise>
-			<tbody>
-		 		<tr>
-					<td>상품번호 </td> <!-- 상품번호대신 썸네일 이미지로 대체예정 -->
-					<td>상품명 </td>	
-					<td>상품금액</td>				 			
-				</tr>
-	 		 	<c:forEach var="productDto" items="${productList }">  
-				<tr>					
-					<td>${productDto.product_no }</td>
-					<td><a href="productView?product_no=${productDto.product_no}">${productDto.product_name}</a></td>
-					<td>${productDto.product_price }</td>					
-				</tr>
-				 </c:forEach>  
-				<!--------- 관리자만 보이는 부분  (처리예정)--------->
-				<tr>
-					<td colspan="3">총 상품 개수 : ${productListSize }개</td>
-				</tr>		
-				<!---------------------------------------->		
-			</tbody>
-				</c:otherwise>
-			</c:choose>
-			<!--------- 관리자만 보이는 부분  (처리예정)--------->
-			<tfoot>
-				<tr>
-					<td colspan="3">	
-						<input type="button" value="상품등록" onclick="location.href='productInsertPage'"/>
-					</td>					
-				</tr>
-			</tfoot>
-			<!---------------------------------------->		
-		</table>	
+		 <!-- 관리자만 보이는 부분  (처리예정) -->
+		 <input type="button" value="상품등록" onclick="location.href='productInsertPage'"/>
+		 <!--------------------------->
+			 
+		 <ul style="list-style-type:none;">		 
+		 <c:forEach var="productDto" items="${productList }" >		 
+		 	<li  style="float:left;" >		 	
+			 	<div id="목록">
+			 		<a href="productView?product_no=${productDto.product_no}">
+				 		<div id="제품">
+					 		<p> 썸네일이미지 </p> 
+					 		<p> ${productDto.product_name} </p> 
+					 		<p> <fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원  </p> 
+					 		<p> 별점 &nbsp;|&nbsp; 리뷰글수 </p> 
+					 		<p> 찜하기  &nbsp;|&nbsp; <input type="button" value="장바구니 담기" onclick="goCart(this.form)"/> </p> 
+				 		</div>		 		
+			 		</a>		 		
+			 	</div>		 	
+		 	</li>		  
+		 </c:forEach>
+		 </ul>		 
 	</div>
+	
 
-</body>
-</html>

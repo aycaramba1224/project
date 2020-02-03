@@ -1,111 +1,103 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<title>productView</title>
+<title>상품 상세 보기</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-	function productRemove(){
-		var check = confirm("정말 삭제할까요?");
-		if (check) {
-			location.href="productDelete?product_no=${productDto.product_no }";		
-		}
-	}	
+	function productModify(f){
+		f.action = "productModifyPage?product_no=${productDto.product_no }";
+		f.submit();	
+	}
+	
 	function goCart(f){
 		var check2 = confirm("상품이 장바구니에 담겼습니다. 장바구니로 이동하시겠습니까?");
 		if (check2) {
 			f.action="cartView?product_no=${productDto.product_no }";
 			f.submit();
 		}
-	} 
+	} 	
 </script>
 </head>
 <body>
 	<div id="wrap">
-		<h3>상품 보기</h3>
-		<form action="productModify" method="POST">
-		<input type="hidden" name="product_no" value="${productDto.product_no }"/>
-			<table border="1" style="width:500px;">				
+		<form action="productModify" method="POST">		
+		<input type="hidden" name="product_no" value="${productDto.product_no }">
+		<!-- 관리자만 보이는 부분  (처리예정)-->
+			<input type="button" value="수정/삭제" onclick="productModify(this.form)"/>			 
+		<!--------------------------->
+		
+			<table border="1" style="width:600px;"> <!-- 테이블 사이즈 향후 수정예정 -->				
 				<tbody>
 					<tr>
-						<td>상품번호</td>
-						<td>${productDto.product_no }</td>
+						<td rowspan ="7">썸네일이미지</td>
 					</tr>
 					<tr>
-						<td>상품명</td>
-						<td><input type="text" name="product_name" value="${productDto.product_name }"/></td>
-					</tr>
-					<tr>
-						<td>상품가격</td>
-						<td><input type="text" name="product_price" value="${productDto.product_price }"/></td>
-					</tr>
-					<tr>
-						<td>상품내용</td>
-						<!--★ 사진 업로드 기능 추가예정 ★-->
-						<td><textarea rows="10" cols="10" name="product_content" >${productDto.product_content }</textarea></td>
-					</tr>
-					<tr>
-						<td>상품재고</td>
-						<td><input type="text" name="product_stock" value="${productDto.product_stock }"/></td>
-					</tr>
-					<tr>
-						<td>상품맛</td>
-						<td>						
-							<select name="product_taste">
-								<option value="${productDto.product_taste }">${productDto.product_taste}</option>
-								<option value="선택">==========</option>
-								<option value="매콤한맛">매콤한맛</option>
-								<option value="짭짤한맛">짭짤한맛</option>
-								<option value="담백한맛">담백한맛</option>
-								<option value="이국적인맛">이국적인맛</option>
-								<option value="얼큰한맛">얼큰한맛</option>
-							</select>					
-						</td>
-					</tr>					
-				</tbody>
-				<tfoot>
-					<tr>
-						<td>구매수량</td>
 						<td>
+							${productDto.product_name } <br/>
+							원산지 : 상품정보 참조
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원
+						</td>
+					</tr>
+					<tr>
+						<td>
+							배송비 : 3만원 이상 구매 시 무료 배송
+						</td>
+					</tr>
+					<tr>
+						<td>
+							${productDto.product_name } &nbsp;&nbsp;
+							
 							<button type="button" class="minus" >-</button>
-							<input type="number" class="cartCount" name="cartCount" min="1" max="${productDto.pro_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
+							<input type="number" class="cart_amount" name="cart_amount" min="1" max="${productDto.product_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
 							<button type="button" class="plus" >+</button> &nbsp;&nbsp;
 							<script type="text/javascript"> 
 							// 구매 수량 플러스
 							$(".plus").click(function(){
-								var num = $(".cartCount").val();
+								var num = $(".cart_amount").val();
 								var plusNum = Number(num) + 1;
 								if(plusNum >= 11) {	
 									alert("최대 구매 가능 수량은 10개 입니다.");// 최대 구매가능 상품은 10개로 제한함(alert위치 파악중)
-									$(".cartCount").val(num);
+									$(".cart_amountt").val(num);
 								} else {
-									$(".cartCount").val(plusNum);  									
+									$(".cart_amount").val(plusNum);  									
 								}								
 							});
-
 							// 구매 수량 마이너스
 							$(".minus").click(function(){
-								var num = $(".cartCount").val();
+								var num = $(".cart_amount").val();
 								var minusNum = Number(num) - 1;							 
 								if(minusNum <= 0) {
-									$(".cartCount").val(num);
+									$(".cart_amount").val(num);
 								} else {
-									$(".cartCount").val(minusNum);          
+									$(".cart_amount").val(minusNum);          
 								}
 							});							
-							</script>							
-							
+							</script>	
+						</td>								
+					</tr>
+					<tr>
+						<td>
+							수량 <!-- 처리예정 --> 
+						</td>
+					</tr>					
+					<tr>
+						<td>
 							 <input type="button" value="장바구니 담기" onclick="goCart(this.form)"/>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2">
-							<input type="button" value="상품 목록" onclick="location.href='productList'"/>
-						<!-- 관리자만 보이는 부분  (처리예정)-->
-							<input type="submit" value="상품 수정" />
-							<input type="button" value="상품 삭제" onclick="productRemove()"/>
-						<!-- 관리자만 보이는 부분  (처리예정)-->	
-						</td>					
+						<td colspan="2">메뉴바(상세설명, 상품정보, 리뷰, 배송/반품/문의)</td>
 					</tr>
-				</tfoot>
+					<tr>
+						<td colspan="2">
+						상품내용 ${productDto.product_content }
+						</td>
+					</tr>
+				</tbody>
 			</table>	
 		</form>
 	</div>

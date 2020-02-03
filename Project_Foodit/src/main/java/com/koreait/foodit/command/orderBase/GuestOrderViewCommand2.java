@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import com.koreait.foodit.dao.OrderBaseDao;
 
 
-public class OrderBaseViewCommand implements OrderBaseCommand {
+public class GuestOrderViewCommand2 implements OrderBaseCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -19,7 +19,7 @@ public class OrderBaseViewCommand implements OrderBaseCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		int order_no =Integer.parseInt(request.getParameter("order_no"));
-		model.addAttribute("orderBaseDto",orderBDao.orderList_view(order_no));
+		model.addAttribute("orderBaseDto",orderBDao.guestorderList_view(order_no));
 		
 	}
 

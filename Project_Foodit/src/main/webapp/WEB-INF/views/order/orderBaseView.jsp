@@ -6,16 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-function orderDelete(){
+<script type="text/javascript">
+function orderDelete(f){
 	if (confirm("정말 삭제할까요?")) {
-		location.href='orderBaseDelete?order_name=${orderBaseDto.order_name}';
+		location.href='orderBaseDelete?order_no=${orderBaseDto.order_no}';
 	}
 }
-orderBaseDelete
 //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
+function sample4_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
             // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
@@ -72,21 +70,27 @@ orderBaseDelete
 
 
 </script>
+
 </head>
 <body>
-	<form  method="post" action="orderListModify">
+	<form method="post" action="orderListModify" name="f">
+	       <h1>주문자 정보</h1>
 			<table border="1">
 				<tbody>
 					<tr>
-				        
 						<td>주문번호
-						 <!--  
-							${orderBaseDto.order_id }
-							<input type="hidden" name="order_id" value="${orderBaseDto.order_id }"/>
-						 -->
+							${orderBaseDto.order_no }
+							<input type="hidden" name="order_no" value="${orderBaseDto.order_no }"/>
 						</td>
 					</tr>
-					
+					  
+					 <tr>
+					 <td>주문비밀번호
+					 ${orderBaseDto.guest_pw }
+					 <input type="hidden" name="guest_pw" value="${orderBaseDto.guest_pw}"/>
+					 </td>
+					 </tr>
+					 
 					<tr>
 						<td>주문자이름
 						<input type="text" name="order_name" value="${orderBaseDto.order_name}"/>
@@ -94,24 +98,52 @@ orderBaseDelete
 					</tr>
 					
 					<tr>
+						<td>휴대폰
+						<input type="text" name="order_phone" value="${orderBaseDto.order_phone}"/>-
+						<input type="text" name="order_phone2" value="${orderBaseDto.order_phone2}"/>-
+						<input type="text" name="order_phone3" value="${orderBaseDto.order_phone3}"/>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>이메일
+						<input type="text" name="order_email" value="${orderBaseDto.order_email}"/>
+						<input type="text" name="order_email2" value="${orderBaseDto.order_email2}"/>
+						</td>
+					</tr>
+
+					</tbody>
+					</table>
+					 <h1>상품정보</h1>
+					<h1>배송정보</h1>
+					<table border="1">
+					<tbody>
+					 <tr>
+						<td>배송자이름
+						<input type="text" name="delivery_name" value="${orderBaseDto.delivery_name}"/>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>배송자휴대폰
+						<input type="text" name="delivery_phone" value="${orderBaseDto.delivery_phone}"/>-
+						<input type="text" name="delivery_phone2" value="${orderBaseDto.delivery_phone2}"/>-
+						<input type="text" name="delivery_phone3" value="${orderBaseDto.delivery_phone3}"/>
+						</td>
+					</tr>
+				
+					<tr>
 						<td>우편번호
 				<input type="text" id="sample4_postcode" placeholder="우편번호" name="order_post" value="${orderBaseDto.order_post}" />
 			    <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br></td>
 					</tr>
 					
 					<tr>
-				<td>주소
-		      <input type="text" id="sample4_roadAddress" placeholder="주소"  name="order_road1" size="70"value="${orderBaseDto.order_road1}" />
-		      </td>
+				    <td>주소
+		           <input type="text" id="sample4_roadAddress" placeholder="주소"  name="order_road1" size="70"value="${orderBaseDto.order_road1}" />
+		          </td>
 					</tr>
-					<tr>
-					<td>주문자 휴대폰번호
-					<!-- 
-						<input type="text" name="order_phone" value="${orderBaseDto.order_phone}" />
-						-->
-					</td>
-					</tr>
-					
+				
 					<tr>
 					<td>
 					  ${OrderBaseDto.orderDate}
@@ -119,17 +151,19 @@ orderBaseDelete
 					</tr>
 					
 					<tr>
-						<td colspan="2">
-	
+						<td colspan="5">
 						    <input type="button" value="주문 정보보기" onclick="location.href='orderBaseList'" />
 						    <input type="submit" value="주문정보 수정" />
 							<input type="button" value="주문정보 삭제" onclick="orderDelete()" />
 						</td>
 					</tr>
-				</tbody>
-			</table>
+					</tbody>
+					</table>
+				
+		
 		</form>
-	
+	<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+  
 
 </body>
 </html>

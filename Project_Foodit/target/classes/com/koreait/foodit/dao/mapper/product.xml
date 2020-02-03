@@ -17,8 +17,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE 
 			PRODUCT 
 		SET 
-			PRODUCT_NAME = #{param1}, PRODUCT_PRICE = #{param2}, PRODUCT_CONTENT = #{param3},
-		 	PRODUCT_STOCK = #{param4}, PRODUCT_TASTE = #{param5} WHERE PRODUCT_NO = #{param6}
+			PRODUCT_NAME = #{param1}, PRODUCT_PRICE = #{param2}, PRODUCT_TASTE = #{param3}, 
+			PRODUCT_STOCK = #{param4}, PRODUCT_CONTENT = #{param5} 
+		WHERE PRODUCT_NO = #{param6}
 	</update>
 	
 	<insert id="productInsert">

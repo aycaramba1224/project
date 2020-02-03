@@ -62,7 +62,7 @@ if(isLogout == "yes"){
 				 	</h1>
 				 	<ul class="gnbList nbgB">
 				 		<li><a href="">FOODIT 소개</a></li>
-				 		<li><a href=""><span class="red_dot">FOODIT 메뉴</span></a></li>
+				 		<li><a href="productList"><span class="red_dot">FOODIT 메뉴</span></a></li>
 				 		<li><a href="">리뷰</a></li>
 				 		<li><a href="">이벤트</a></li>
 				 		<li><a href="">MY푸딧</a></li>
