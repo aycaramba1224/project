@@ -1,5 +1,7 @@
 package com.koreait.foodit.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductDto {
 
 	private int product_no;
@@ -11,9 +13,12 @@ public class ProductDto {
 					product_img,
 					product_thumbImg;
 	
+	private MultipartFile product_imgFile, product_thumbImgFile;
+	
 	public ProductDto() { }
 	public ProductDto(int product_no, String product_name, String product_price, String product_content,
-			String product_stock, String product_taste, String product_img, String product_thumbImg) {
+			String product_stock, String product_taste, String product_img, String product_thumbImg,
+			MultipartFile product_imgFile, MultipartFile product_thumbImgFile) {
 		super();
 		this.product_no = product_no;
 		this.product_name = product_name;
@@ -23,8 +28,9 @@ public class ProductDto {
 		this.product_taste = product_taste;
 		this.product_img = product_img;
 		this.product_thumbImg = product_thumbImg;
+		this.product_imgFile = product_imgFile;
+		this.product_thumbImgFile = product_thumbImgFile;
 	}
-	
 	public int getProduct_no() {
 		return product_no;
 	}
@@ -73,5 +79,17 @@ public class ProductDto {
 	public void setProduct_thumbImg(String product_thumbImg) {
 		this.product_thumbImg = product_thumbImg;
 	}
-		 
+	public MultipartFile getProduct_imgFile() {
+		return product_imgFile;
+	}
+	public void setProduct_imgFile(MultipartFile product_imgFile) {
+		this.product_imgFile = product_imgFile;
+	}
+	public MultipartFile getProduct_thumbImgFile() {
+		return product_thumbImgFile;
+	}
+	public void setProduct_thumbImgFile(MultipartFile product_thumbImgFile) {
+		this.product_thumbImgFile = product_thumbImgFile;
+	}
+	 
 }

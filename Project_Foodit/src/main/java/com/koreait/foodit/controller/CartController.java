@@ -27,15 +27,7 @@ public class CartController {
 		cartCommand.execute(sqlSession, model);
 		return "cart/cartList";
 	}
-	 
-/*	@RequestMapping("cartInsert")  
-	public String cartInsert(HttpServletRequest request, RedirectAttributes redirectAttributes,  Model model) {
-		model.addAttribute("request", request);
-		model.addAttribute("redirectAttributes", redirectAttributes);
-		cartCommand = new CartInsertCommand();
-		cartCommand.execute(sqlSession, model);
-		return "redirect:/cartList";  
-	} */
+ 
 	
 	@RequestMapping("cartInsert")  
 	public String cartInsert(HttpServletRequest request, RedirectAttributes redirectAttributes,  Model model) {

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.command.product.ProductCommand;
@@ -37,8 +38,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("productInsert")
-	public String productInsert(RedirectAttributes redirectAttributes, HttpServletRequest request,
-								Model model	) {
+	public String productInsert(RedirectAttributes redirectAttributes, MultipartHttpServletRequest request, Model model) {
 		
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request);
@@ -91,12 +91,9 @@ public class ProductController {
 	
 	@RequestMapping("productSearch")
 	public String productSearch() {
-		return"product/productSearch";
+		return"product/productSearchResult";
 	}
 	
-	@RequestMapping("productInfo")
-	public String productInfo() {
-		return"product/productInfo";
-	}
+	
 	
 }

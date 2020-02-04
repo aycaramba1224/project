@@ -1,14 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>메뉴 찾기</title>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>        
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
+	<jsp:param value="FOODIT 메뉴찾기" name="title"/>
+</jsp:include> 
+
 <script type="text/javascript">
 	function searchMenu(f){
 		if(f.content.value==""){
 			alert("검색어를 입력해 주세요.");
+			return;
 		}		
 		f.action ="productSearchResult";
 		f.submit();
@@ -29,13 +30,17 @@
 				
 				<br/>			
 				<span>FOODIT의 모든 메뉴를 쉽고 빠르게 찾아볼 수 있습니다.</span>
+			 
 			</form>	 
 		</div>
-	 
 		
-		
-		
-		
+		<jsp:include page="/WEB-INF/views/product/productList2.jsp" />	 			
+	 	
+	 		
+	 		
+	 		 
+	  
+						 
 		
 		
 				

@@ -2,9 +2,9 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<%-- <jsp:include page="/WEB-INF/views/common/header.jsp" >
-	<jsp:param value="FOODIT 메뉴" name="title"/>
-</jsp:include>  --%>
+ <jsp:include page="/WEB-INF/views/common/header.jsp" >
+	<jsp:param value="# ${productDto.product_name} - FOODIT 메뉴" name="title"/>
+</jsp:include>   
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
@@ -37,7 +37,10 @@
 			<table border="1" style="width:1000px;"> <!-- 테이블 사이즈 향후 수정예정 -->				
 				<tbody>
 					<tr>
-						<td rowspan ="7">썸네일이미지</td>
+						<td rowspan ="7">
+							<!-- 본문 썸네일 이미지 사이즈 : 600x600   -->  
+							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" style="width:600px; height:600px;" />	 
+						</td>
 					</tr>
 					<tr>
 						<td>
@@ -102,32 +105,29 @@
 					</tr>
 					<tr>
 						<td colspan="2">
-						상품내용 ${productDto.product_content }
+							상품내용 ${productDto.product_content }
 						</td>
-					</tr>					 
-					<tr>
-						<td>
-							<div id="content">
-							
-							</div>						
-						</td>
-					</tr>
+					</tr>				 
+					 
 				</tbody>
 			</table>	
 		</form>
 
 	</div>
+	
+	
+	
 	<br/><br/>
 	<div id="detail">
-	
-		상세설명
- 
-	
-	</div>	
+		<!-- 본문 상세내용 이미지 사이즈 : 780x1272  -->  
+		<img alt="${productDto.product_img }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_img  }"style="width:780px; height:7500px;"/>	 
+ 	</div>	
+ 	
 	<br/><br/>
+	
 	<div id="info">
 	<span>상품정보</span> <br/>
-	<span>상품 코드 :${productDto.product_no} </span> <br/>
+	<span>상품 코드 : ${productDto.product_no} </span> <br/>
 	<span>FOODIT 상품정보는 전자상거래 등에서의 상품정보 제공 고시에 따라 작성되었습니다.</span>
 		<table style="width:1000px;">
 			<tbody>
@@ -194,17 +194,17 @@
 		
 	</div> 
 	<br/><br/>
-	<div id=" ">	<!-- 스크롤 위치 보는중   -->	
+	<div id="faq">	<!-- 스크롤 위치 보는중   -->	
 	배송/반품/문의		<!-- 삭제예정  -->
 	<br/>
-	<span id="faq">상품 관련 문의해 주세요.</span><br/>
-	<span>고객님의 질문에 정성껏 빠르게 답변해 드리겠습니다.<br/>
-	작성해주신 문의내역 및 답변은 MY푸딧 > 나의활동 > 1:1 문의 내역 메뉴에서 확인 가능합니다.</p></span>
+	<span>상품 관련 문의해 주세요.</span><br/>
+	<span>고객님의 질문에 정성껏 빠르게 답변해 드리겠습니다.<br/> </span>
+	<span>작성해주신 문의내역 및 답변은 MY푸딧 > 나의활동 > 1:1 문의 내역 메뉴에서 확인 가능합니다.<br/></span>
 	<input type="button" value="1:1문의" onclick=""/> <br/><br/>
 	
 	<h3><span>배송안내</span></h3> <!-- 클릭시 아래내용 나옴  -->
 	 
-	<table style="width:1000px;"  ">
+	<table style="width:1000px;">
 		<tr>
 			<td>배송지역</td>
 			<td>서울, 경기, 인천 (일부 지역 제외) 배송 가능 여부 확인</td>
@@ -255,8 +255,8 @@
 		<tr>
 			<td>교환/반품 불가 안내</td>
 			<td>한정 수량 판매 방식으로 교환 시 품절이 발생할 수 있어 교환은 불가합니다.<br/>
-				냉장･냉동･신선제품으로 시간이 경과되면 상품의 가치가 훼손되기 쉬우므로 제품의 하자 이외의 이유로(단순변심 등) 인한 교환/반품은 불가합니다.<br/>
-				
+				냉장･냉동･신선제품으로 시간이 경과되면 상품의 가치가 훼손되기 쉬우므로 제품의 하자 이외의 <br/>
+				 이유로(단순변심 등) 인한 교환/반품은 불가합니다.<br/>				
 				다음의 경우 교환/반품 신청기간 내에라도 취소/교환/반품이 불가합니다.<br/>
 				※포장을 개봉하거나 상품의 일부를 취식한 경우<br/>
 			            ※잘못된 보관 방법으로 변질된 경우<br/>
@@ -270,18 +270,16 @@
 			<td>반품 안내</td>
 			<td>제품의 하자 이외의 이유로 반품시에는 배송비가 부과됩니다.<br/>
 				 반품 배송비 : 박스당 6,000원(왕복)<br/>
-				단, 남은 결제금액이 택배비 무료 기준 금액 이상인 경우 3,000원(편도) 부과<br/>
-				 제품의 하자, 오배송 시 반품비 무료<br/><br/>
-				 배송된 제품에 하자가 있거나, 구성품 누락, 오배송 시 다음 절차에 따라 반품 신청이 가능합니다. (임의 반품 시, 처리불가)<br/>
-				① 배송된 제품과 배송 상태 확인 후 냉장/냉동보관<br/>
-				
-				② 문제사항 발견 시, 즉시 사진 촬영<br/>
-				
-				 사진만으로 제품 하자 판독이 어려운 경우 회수하여 검수 후, 처리 가능하므로 제품 보관<br/>
-				③ 고객행복센터로 사진을 첨부하여 문의<br/>
-				
+				 단, 남은 결제금액이 택배비 무료 기준 금액 이상인 경우 3,000원(편도) 부과<br/>
+				 제품의 하자, 오배송 시 반품비 무료<br/> 
+				 배송된 제품에 하자가 있거나, 구성품 누락, 오배송 시 다음 절차에 따라 반품 신청이 가능합니다.<br/>
+				 (임의 반품 시, 처리불가)<br/>
+				① 배송된 제품과 배송 상태 확인 후 냉장/냉동보관<br/>				
+				② 문제사항 발견 시, 즉시 사진 촬영<br/>				
+				    사진만으로 제품 하자 판독이 어려운 경우 회수하여 검수 후, 처리 가능하므로 제품 보관<br/>
+				③ 고객행복센터로 사진을 첨부하여 문의<br/>				
 				 FOODIT 사이트에서 [1:1문의]로 문의<br/>
-				 고객행복센터 1668-1920로 전화 (평일 8:00~17:00, 토요일 8:00~12:00 / 점심시간 12:00~13:00)
+				 고객행복센터 1668-1920로 전화 (평일 8:00~17:00, 토요일 8:00~12:00 / 점심시간 12:00~13:00)<br/>
 				 고객행복센터 1668-1920로 문자 발송(주문번호, 사진첨부, 문제사항 기재)<br/>
 				④ 문의 사항에 대해 내부 심사팀 확인<br/>				
 				⑤ 사진만으로 판독이 어려운 경우 회수 안내 및 심사 진행<br/>				
