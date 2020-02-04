@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,7 +82,23 @@ function passchk() {
 	 }
 	 return;
 	}
-
+	
+	
+	//회원일떄 결제하기
+	function memberbuy() {
+		 f.action = "memberbuy";
+		 f.submit();
+		 alert("주문성공했습니다!주문내역은 주문내역 페이지에서 확인해주세요");
+	}
+	
+	function guestOrder() {
+		
+		f.action = "orderInsert";
+		 f.submit();
+		 alert("주문성공했습니다!비회원주문내역은 비회원 주문내역 페이지에서 확인해주세요");
+	}
+	
+	
 </script>
 </head>
 <body>
@@ -90,17 +107,19 @@ function passchk() {
 	  <br />
 	  <h2>주문자</h2>
 	    <hr />
-		<form method="post" id ="f" action="orderInsert">
-		<!-- 
-			<div>
-			    <label>회원아이디</label>
-			    
-			</div>
-		 -->
-	                  <div>
+	    
+	    <!--비회원일떄  -->
+	   
+		<form method="post" id ="f" >
+			<c:choose>
+	        <c:when test="${ mDto eq null }">
+	          
+			    <input type="button" value="로그인" onclick="location.href='sbmr'" />
+			     
+			     	<div>
 	                    <label> 이름</label>   
 						<input type="text" name="order_name" id="order_name" />
-					  </div>
+					 </div>
 					  
 					   <div>
 					  	<label> 휴대폰 </label>
@@ -134,7 +153,7 @@ function passchk() {
 					      <input type="text" style="border-width: 0px" size="20" name="chk"
                           value="비밀번호를 입력하세요" readonly="readonly"/>
 					     </div>
-					     
+					   
 					    <h2>배송정보</h2>
 					    <div>
 	                    <label>이름</label>   
@@ -162,14 +181,10 @@ function passchk() {
 				    <div>
 				    <input type="text" id="sample4_roadAddress" name="order_road1" />
                    </div>
-				     
-				     <br />
-				   <div>
-				   상품정보(장바구니 정보가 들어가야함)
-				   </div>
-				    <br />
-				    
-               	 <h2>결제정보</h2>
+                   	
+               	  <!-- 비회원일떄보는 submit -->
+               	 <h2>상품정보</h2>
+	             	 <h2>결제정보</h2>
                	 <div>
                	 총 상품금액<input type="text" />
                	 </div>
@@ -180,17 +195,82 @@ function passchk() {
                	 <div>
                	 총 결제 금액<input type="text" />
                	 </div>
-               	
-	             <input type="submit" value="결제하기" />
+	             <input type="button" value="비회원결제하기" onclick="guestOrder()"/>
+	            
+			    </c:when>
+			</c:choose>
+			
+			    
+			    <!-- 회원일떄 -->
+			  
+			     <c:choose>
+		     <c:when test="${ mDto ne null }">
+			   <div>
+			   ${sessionScope.mDto.id }님의 회원정보
+			   </div>
+			  
+			   
+			   <div> 
+			    이름:<input type="text" name="order_name" value="${mDto.name}" />
+			    </div>
+			    
+			    <div>
+			  휴대폰<input type="text" name="order_phone" value="${mDto.phone}" />
+			  </div>
+			  <br />
+			  <div>
+	
+			  <input type="button" value="배송정보" onclick="location.href='mdeliverylistPage'" />
+			  </div>
+			  
+		               <div>
+		               <label>이름</label>   
+						<input type="text" name="delivery_name" id="delivery_name" />
+                        </div>
+                        
+                         <div>
+					  	<label>휴대폰</label>
+					  	<select name="delivery_phone">
+					  <option value="::선택::">::선택::</option>
+			          <option value="010">010</option>
+			          <option value="011">011</option>
+			          <option value="019">019</option>
+		               </select>
+		               <input type="text" name="delivery_phone2" class="delivery_phone2"/>
+		               <input type="text" name="delivery_phone3" class="delivery_phone3"/>
+		               </div>
+		  
+                        <div>
+                     <label>우편번호</label>
+					<input type="text" id="sample4_postcode" placeholder="우편번호" name="order_post" />
+			    	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+				      </div>
+				      
+				      <div>
+				       <label>주소</label>
+				    <input type="text" id="sample4_roadAddress" name="order_road1" />
+                   </div>
+				
+		     <!-- 회원일떄 보내는 button -->
+		            <h2>상품정보</h2>
+	             	 <h2>결제정보</h2>
+               	 <div>
+               	 총 상품금액<input type="text" />
+               	 </div>
+               	 <div>
+               	 총 배송비
+               	 <input type="text"  />
+               	 </div>
+               	 <div>
+               	 총 결제 금액<input type="text" />
+               	 </div>
+	             
+	             <input type="button" value="회원결제하기" onclick="memberbuy()">
+		   </c:when>
+			 </c:choose>
+			 
 	             <input type="button" value="취소하기" onclick="regCancel()" />
-	             <input type="button" value="주문정보리스트 보기" onclick="location.href='orderBaseList'"/>
                </form>
-               <div>
-               </div>
                 
-               
-         
-				  <input type="hidden" name="amount" value="${sum}"/> -->
-  
 </body>
 </html>

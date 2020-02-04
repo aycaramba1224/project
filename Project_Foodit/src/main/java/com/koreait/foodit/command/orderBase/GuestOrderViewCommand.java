@@ -10,7 +10,7 @@ import org.springframework.ui.Model;
 import com.koreait.foodit.dao.OrderBaseDao;
 
 
-public class GuestOrderViewCommand2 implements OrderBaseCommand {
+public class GuestOrderViewCommand implements OrderBaseCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
