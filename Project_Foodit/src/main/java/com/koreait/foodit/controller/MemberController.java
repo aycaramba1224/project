@@ -54,6 +54,18 @@ public class MemberController {
 	public String sbmFPRes() {
 		return "login/loginFindPWResult";
 	}
+	@RequestMapping("sbmf")
+	public String sbmf() {
+		return "login/myFooditHome";
+	}
+	@RequestMapping("memModiPage")
+	public String memModiPage() {
+		return "login/memModiPage";
+	}
+	@RequestMapping("memDelePage")
+	public String memDelePage() {
+		return "login/memDelePage";
+	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="join", produces="application/json")
 	@ResponseBody
@@ -158,6 +170,7 @@ public class MemberController {
 		memberCommand.execute(sqlSession, model);
 		return "redirect:sbmFIRes";
 	}
+	
 	@RequestMapping("findPw")
 	public String findPw(HttpServletRequest request, RedirectAttributes rtts, Model model) {
 		model.addAttribute("request", request);

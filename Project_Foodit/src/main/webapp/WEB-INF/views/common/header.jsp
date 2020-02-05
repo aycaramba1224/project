@@ -66,7 +66,12 @@ if(isLogout == "yes"){
 				 		<li><a href="productList"><span class="red_dot">FOODIT 메뉴</span></a></li>
 				 		<li><a href="">리뷰</a></li>
 				 		<li><a href="">이벤트</a></li>
-				 		<li><a href="">MY푸딧</a></li>
+				 		<c:if test="${ sessionScope.mDto eq null }">
+				 			<li><a href="/foodit/sbmr">MY푸딧</a></li>
+				 		</c:if>
+				 		<c:if test="${ sessionScope.mDto ne null }">
+				 			<li><a href="/foodit/sbmf">MY푸딧</a></li>
+				 		</c:if>
 				 	</ul>
 				 	<div class="gnbSide nbg">
 						<ul>
