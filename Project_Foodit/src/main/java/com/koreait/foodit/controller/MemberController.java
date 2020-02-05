@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.command.member.MemberCommand;
+import com.koreait.foodit.command.member.MemberFindIdCommand;
+import com.koreait.foodit.command.member.MemberFindPwCommand;
 import com.koreait.foodit.dao.MemberDao;
 import com.koreait.foodit.dto.MemberDto;
 
@@ -35,6 +37,22 @@ public class MemberController {
 	@RequestMapping("sbmr")
 	public String sbmr() {
 		return "login/loginPage";
+	}
+	@RequestMapping("sbmFI")
+	public String sbmFI() {
+		return "login/loginFindID";
+	}
+	@RequestMapping("sbmFP")
+	public String sbmFP() {
+		return "login/loginFindPw";
+	}
+	@RequestMapping("sbmFIRes")
+	public String sbmFIRes() {
+		return "login/loginFindIDResult";
+	}
+	@RequestMapping("sbmFPRes")
+	public String sbmFPRes() {
+		return "login/loginFindPWResult";
 	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="join", produces="application/json")
@@ -122,9 +140,6 @@ public class MemberController {
 				urlPath = "redirect:sbmr";
 			}
 		}
-		
-//		memberCommand = new MemberLoginCommand();
-//		memberCommand.execute(sqlSession, model);
 		return urlPath;
 	}
 	
@@ -133,5 +148,22 @@ public class MemberController {
 		session.invalidate(); // 세션 전체를 초기화
 		rtts.addFlashAttribute("isLogout", "yes");
         return "redirect:index"; // 로그아웃 후 index(메인 페이지)로 이동
+	}
+	
+	@RequestMapping("findId")
+	public String findId(HttpServletRequest request, RedirectAttributes rtts, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("rtts", rtts);
+		memberCommand = new MemberFindIdCommand();
+		memberCommand.execute(sqlSession, model);
+		return "redirect:sbmFIRes";
+	}
+	@RequestMapping("findPw")
+	public String findPw(HttpServletRequest request, RedirectAttributes rtts, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("rtts", rtts);
+		memberCommand = new MemberFindPwCommand();
+		memberCommand.execute(sqlSession, model);
+		return "redirect:sbmFPRes";
 	}
 }

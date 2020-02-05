@@ -1,0 +1,107 @@
+@charset "UTF-8";
+.findWrap{
+    padding: 70px 30px;
+}
+.findWrap .findBox{
+	max-width: 1200px;
+    margin: 0 auto;
+}
+.findBox .findTit{
+	text-align: center;
+	font-size: 40px;
+}
+.findBox .findFormWrap{
+	padding: 10px auto 20px 20px;
+    margin: 0 auto;
+    width: 527px;
+    padding: 45px;
+}
+.findBox .findFormWrap div:first-child{
+	margin-bottom: 20px;
+}
+.findFormWrap ul li {
+	margin-top: 10px;
+}
+.findFormWrap h3{
+	font-size: 24px;
+	line-height: 1.8;
+}
+.findFormWrap p{
+	font-size: 15px;
+}
+.findFormWrap .pointTxt{
+	color: #f30100;
+}
+.findWrap input[type=text]{
+	width: 93%;
+    height: 48px;
+    padding: 0 16px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+}
+.findWrap button[type=button]{
+	color: #101010;
+    border: 1px solid #bbbbbb;
+    background-color: #bbbbbb;
+    width: 99.5%;
+    height: 46px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 46px;
+    cursor: pointer;
+    font-family: "nbgB"; 
+}    
+.findButtonWrap ul li:first-child button{
+	border: 1px solid #BDD61A;
+    background-color: #BDD61A;
+}
+.resultWrap{
+	padding: 30px 30px 80px 30px;
+	max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.resultWrap .resultTit h1{
+	font-size: 40px;
+	font-family: "nbgB";
+	line-height: 2.5;
+}
+.resultWrap .resultTit p{
+	font-size: 16px;
+}
+.resultWrap .resultCont{
+    padding: 30px 10px;
+    background: #dcdcdc;
+    margin-top: 20px;
+    border-top: 1px solid #222;
+    background-color: #f8f8f8;
+}
+.resultCont .resultContWrap p{
+    font-family: "nbg";
+    line-height: 2.3;
+}
+.resultCont .resultContWrap #marsking{
+	color: #c35b00;
+}
+.resultCont .resultContWrap p:first-child{
+    font-size: 24px;
+}
+.resultCont .resultContWrap p:last-child{
+    font-size: 14px;
+    color: #848484;
+}
+.resultCont .resBtn{
+	padding-top: 30px;
+}
+.resultCont .resBtn #goPage{
+	color: #101010;
+    border: 1px solid #bbbbbb;
+    background-color: #bbbbbb;
+    width: 150px;
+    height: 35px;
+    text-align: center;
+    font-size: 15px;
+    line-height: 31px;
+    cursor: pointer;
+    font-family: "nbgB"; 
+}

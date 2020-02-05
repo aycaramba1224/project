@@ -29,4 +29,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 			ID = #{param1} AND PW = #{param2} 
 	</select>
+	
+	<select id="findId" resultType="com.koreait.foodit.dto.MemberDto">
+		SELECT
+			*
+		FROM
+			MEMBER
+		WHERE
+			NAME = #{param1} AND BIRTH = #{param2} AND PHONE LIKE '%-'||#{param3}
+	</select>
+	
+	<select id="findPw" resultType="com.koreait.foodit.dto.MemberDto">
+		SELECT
+			*
+		FROM
+			MEMBER
+		WHERE
+			ID = #{param1} AND BIRTH = #{param2} AND PHONE LIKE '%-'||#{param3}
+	</select>
+	
+	<update id="ranPw">
+		UPDATE
+			MEMBER
+		SET
+			PW = #{param1}
+		WHERE
+			ID = #{param2}
+	</update>
+	
 </mapper>

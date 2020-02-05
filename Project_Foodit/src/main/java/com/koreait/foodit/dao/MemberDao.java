@@ -11,4 +11,7 @@ public interface MemberDao {
 	
 	public MemberDto idCheck(String id); 
 	public MemberDto memLogin(String id, String pw);
+	public MemberDto findId(String name, String birth, String phone);
+	public MemberDto findPw(String id, String birth, String phone);
+	public int ranPw(String ranPw, String id);
 }
