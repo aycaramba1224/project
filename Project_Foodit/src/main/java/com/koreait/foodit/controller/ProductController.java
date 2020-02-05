@@ -31,6 +31,12 @@ public class ProductController {
 		productCommand.execute(sqlSession, model);
 		return "product/productList";
 	} 
+	@RequestMapping("HighPriceList")
+	public String HighPriceList(Model model) {	
+		productCommand = new ProductListCommand();
+		productCommand.execute(sqlSession, model);
+		return "product/HighPriceList";
+	} 
 	
 	@RequestMapping("productInsertPage")
 	public String productInsertPage() {
@@ -39,7 +45,6 @@ public class ProductController {
 	
 	@RequestMapping("productInsert")
 	public String productInsert(RedirectAttributes redirectAttributes, MultipartHttpServletRequest request, Model model) {
-		
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request);
 		productCommand = new ProductInsertCommand();
@@ -94,6 +99,9 @@ public class ProductController {
 		return"product/productSearchResult";
 	}
 	
-	
+	@RequestMapping("productMain")
+	public String productMain() {
+		return"product/productMain";
+	}
 	
 }

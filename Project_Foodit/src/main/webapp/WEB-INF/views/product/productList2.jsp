@@ -6,14 +6,11 @@
 
  	
 	<div id="wrap">	
-		<c:if test=" ">
-		 <!-- 관리자만 보이는 부분  (처리예정) -->
-		 <input type="button" value="상품등록" onclick="location.href='productInsertPage'"/>
-		 <!--------------------------->
-		</c:if>
+		 
 		<c:if test="${productListSize eq 0 }">
 			등록된 메뉴가 없습니다.
-		</c:if>	 
+		</c:if>
+		
 		 <ul style="list-style-type:none;">		 
 		 <c:forEach var="productDto" items="${productList }" >		 
 		 	<li  style="float:left; padding:20px;" >		 	
@@ -31,7 +28,13 @@
 		 	</li>		  
 		 </c:forEach>
 		 </ul>		 
-		 
+<!-- 		 [장바구니] 회원별 장바구니 처리 완료 / 비회원 장바구니 처리중 -> select문 두개로 나눠보자 
+
+
+
+[상품보기] 선택 삭제 / 메뉴 정렬 
+
+[상품등록] 이미지  -->
 		 
 	</div>
 	

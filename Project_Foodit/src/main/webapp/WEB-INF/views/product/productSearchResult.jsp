@@ -10,7 +10,8 @@
 		if(f.content.value==""){
 			alert("검색어를 입력해 주세요.");
 			return;
-		}		
+		}
+				
 		f.action ="productSearchResult";
 		f.submit();
 	}
@@ -30,19 +31,18 @@
 				
 				<br/>			
 				<span>FOODIT의 모든 메뉴를 쉽고 빠르게 찾아볼 수 있습니다.</span>
-			 
+			  			  
 			</form>	 
 		</div>
-		
-		<jsp:include page="/WEB-INF/views/product/productList2.jsp" />	 			
-	 	
-	 		
-	 		
-	 		 
-	  
-						 
-		
-		
+		<div id="검색결과" >
+
+			<jsp:include page="/WEB-INF/views/product/productList2.jsp">
+				<jsp:param name="productList" value="${param.productList }"/>
+				<jsp:param name="productListSize" value="${param.productListSize }"/>
+			</jsp:include>	 
+			 
+		</div>
+	  	<br/><br/>
 				
 	</div> 
 	

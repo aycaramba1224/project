@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
  <jsp:include page="/WEB-INF/views/common/header.jsp" >
@@ -15,7 +15,7 @@
 	} 
 
 	function addCart(f){
-		var check = confirm("상품이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
+		var check = confirm("'#${productDto.product_name}'이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
 		if (check) {
 			f.action ="cartInsert?product_no=${productDto.product_no }";	
 			f.submit();	
@@ -29,11 +29,13 @@
 	<div id="wrap">
  	
 		<form method="POST">
-		<input type="hidden" name="product_no" value="${productDto.product_no }">
-		<input type="hidden" name="cart_id" value="admin"/>
-		<!-- 관리자만 보이는 부분  (처리예정)-->
-		<input type="button" value="수정/삭제" onclick="productModify(this.form)"/> 
-		<!--------------------------->
+			<input type="hidden" name="product_no" value="${productDto.product_no }">	<!-- 상품 수정,삭제시에 이용하는 상품 번호 -->
+			<input type="hidden" name="cart_id" value="${mDto.id }">					<!-- 현재 로그인한 사용자의 id를 카트 사용자 id로 전달한다. -->
+		 
+		 	<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
+				<input type="button" value="수정/삭제" onclick="productModify(this.form)"/> 	 	
+		 	</c:if>
+		
 			<table border="1" style="width:1000px;"> <!-- 테이블 사이즈 향후 수정예정 -->				
 				<tbody>
 					<tr>
@@ -92,11 +94,6 @@
 					</tr>
 					<tr>
 						<td>
-							수량 <!-- 처리예정 --> 
-						</td>
-					</tr>					
-					<tr>
-						<td>
 							 <input type="button"  value="장바구니 담기" onclick="addCart(this.form)"/>
 						</td>
 					</tr>
@@ -107,8 +104,7 @@
 						<td colspan="2">
 							상품내용 ${productDto.product_content }
 						</td>
-					</tr>				 
-					 
+					</tr> 					 
 				</tbody>
 			</table>	
 		</form>

@@ -35,7 +35,7 @@
 		</c:if>
 	 	
 	 	<div id="메뉴바">
-	 		<a>신메뉴</a> | <a href=" ">높은 가격 순</a> | <a>낮은 가격순</a> | <a>만족도순</a> <!--처리예정 -->
+	 		<a href="productList">높은 가격 순</a> | <a>낮은 가격순</a> | <a>인기메뉴순</a> | <a>만족도순</a> <!--처리예정 -->
 	 	</div>
  	
 		<c:if test="${productListSize eq 0 }">
