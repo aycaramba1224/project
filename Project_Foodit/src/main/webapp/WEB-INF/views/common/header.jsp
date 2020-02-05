@@ -20,6 +20,7 @@
 <link href="<c:url value="/resources/css/common.css" />" type="text/css" rel="stylesheet" >
 <link href="<c:url value="/resources/css/join.css" />" type="text/css" rel="stylesheet" >
 <link href="<c:url value="/resources/css/login.css" />" type="text/css" rel="stylesheet" >
+<link href="<c:url value="/resources/css/find.css" />" type="text/css" rel="stylesheet" >
 <link rel="shortcut icon" href="#" type="image/x-icon">
 <link href="<c:url value="/resources/bootstrap/css/datepicker3.css" />" type="text/css" rel="stylesheet" >
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -65,7 +66,12 @@ if(isLogout == "yes"){
 				 		<li><a href="productList"><span class="red_dot">FOODIT 메뉴</span></a></li>
 				 		<li><a href="">리뷰</a></li>
 				 		<li><a href="">이벤트</a></li>
-				 		<li><a href="">MY푸딧</a></li>
+				 		<c:if test="${ sessionScope.mDto eq null }">
+				 			<li><a href="/foodit/sbmr">MY푸딧</a></li>
+				 		</c:if>
+				 		<c:if test="${ sessionScope.mDto ne null }">
+				 			<li><a href="/foodit/sbmf">MY푸딧</a></li>
+				 		</c:if>
 				 	</ul>
 				 	<div class="gnbSide nbg">
 						<ul>

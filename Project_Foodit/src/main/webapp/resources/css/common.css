@@ -371,3 +371,68 @@ a:visited {
     text-align: center;
 }
 
+/* common-myFooditLM */
+#myContainer{
+	width: 1180px;
+    height: 100%;
+    margin: 0 auto;
+}
+#content{
+	min-height: 900px;
+    padding: 72px 0 140px;
+}
+.myContent .leftMenu{
+	float: left;
+}
+.myContent .leftMenu h2.leftTit{
+    color: #101010;
+    font-size: 40px;
+    line-height: 56px;
+}
+.myContent .leftMenu dl.myMenu{
+	padding-top: 30px;
+}
+.myContent .leftMenu dl.myMenu dt{
+	color: #101010;
+    font-size: 20px;
+    line-height: 30px;
+    font-family: "nbgB";
+}
+.myContent .leftMenu dl.myMenu dd .menuList li{
+	padding-top: 8px;
+}
+.myContent .leftMenu dl.myMenu dd .menuList li a{
+	color: #606060;
+    font-size: 14px;
+    line-height: 22px;
+    font-family: "ngB";
+}
+.myContent .leftMenu dl.myMenu dd .menuList li a:hover{
+	color: #101010 !important;
+	text-decoration: underline;
+}
+.myContent .leftMenu dl.myMenu dd .menuList li a.on{
+	color: #101010 !important;
+	text-decoration: underline;
+}
+
+/* common-myFooditRC */
+.myContent .rightCont{
+	float: right;
+	width: 940px;
+}
+
+/* login-myFooditHome */
+.mainTop .topInfo{
+	padding: 0 24px;
+    background: linear-gradient(-90deg, #7AB600, #7AB600 45%, #E1EE06);
+    font-size: 0;
+}
+.mainTop .topInfo .name{
+	display: inline-block;
+    color: #101010;
+    font-size: 22px;
+    line-height: 64px;
+    vertical-align: middle;
+    font-family: "nbgB";
+}

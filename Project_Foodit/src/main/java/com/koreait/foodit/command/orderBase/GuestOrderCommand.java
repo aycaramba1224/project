@@ -18,6 +18,7 @@ public class GuestOrderCommand implements OrderBaseCommand {
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 		String guestquery = request.getParameter("guestquery");
 		String content = "%" + request.getParameter("content") + "%";
+		
 		String guestquery2 = request.getParameter("guestquery2");
 		String content2 = "%" + request.getParameter("content2") + "%";
 		model.addAttribute("guestList", orderBDao.guestOrder(guestquery, content));

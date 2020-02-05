@@ -6,13 +6,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="com.koreait.foodit.dao.ProductDao">
 
 	<select id="productList" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT ORDER BY PRODUCT_NO 
+		SELECT * FROM PRODUCT
 	</select>
 	
-	<select id="productView" parameterType="int" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{product_no}		
+	<select id="HighPriceList" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT ORDER BY PRODUCT_PRICE
 	</select>
 	
+	
+	
+	
+	<select id="productView" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{param1}		
+	</select>
+	
+	
+	<insert id="productInsert">
+		INSERT INTO 
+			PRODUCT (PRODUCT_NO, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_CONTENT, 
+					 PRODUCT_STOCK, PRODUCT_TASTE, PRODUCT_IMG, PRODUCT_THUMBIMG) 
+			VALUES 
+		(PRODUCT_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7})
+ 	</insert>
+ 	
 	<update id="productModify">
 		UPDATE 
 			PRODUCT 
@@ -21,14 +37,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			PRODUCT_STOCK = #{param4}, PRODUCT_CONTENT = #{param5} 
 		WHERE PRODUCT_NO = #{param6}
 	</update>
-	
-	<insert id="productInsert">
-		INSERT INTO 
-			PRODUCT (PRODUCT_NO, PRODUCT_NAME, PRODUCT_PRICE, 
-					PRODUCT_CONTENT, PRODUCT_STOCK, PRODUCT_TASTE) 
-			VALUES 
-		(PRODUCT_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5} )
-	</insert>
 
 	<delete id="productDelete">
 		DELETE FROM PRODUCT WHERE PRODUCT_NO = #{param1}
@@ -37,5 +45,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">
 		SELECT * FROM PRODUCT WHERE ${param1 } LIKE #{param2 } 
 	</select>
+
 	
 </mapper>

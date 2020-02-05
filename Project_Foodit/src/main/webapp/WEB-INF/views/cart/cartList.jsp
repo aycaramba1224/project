@@ -33,7 +33,7 @@
  		 	</c:if>    
  		
  		
- 		
+ 		"src/main/webapp/WEB-INF/views/order/order.jsp"
  		 	<c:choose>
 			<c:when test="${cartListSize eq 0 }">  
 				<span>장바구니에 담긴 메뉴가 없습니다.</span>  

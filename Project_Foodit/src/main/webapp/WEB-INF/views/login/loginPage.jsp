@@ -57,8 +57,8 @@ if( flag == "2" ){
 							</label> 
 						</div>
 						<div class="find">
-							<a href="#">아이디 찾기</a>
-							<a href="#">비밀번호 찾기</a>
+							<a href="sbmFI">아이디 찾기</a>
+							<a href="sbmFP">비밀번호 찾기</a>
 						</div>
 					</div>
 				</c:when>
@@ -77,8 +77,8 @@ if( flag == "2" ){
 							</label> 
 						</div>
 						<div class="find">
-							<a href="#">아이디 찾기</a>
-							<a href="#">비밀번호 찾기</a>
+							<a href="sbmFI">아이디 찾기</a>
+							<a href="sbmFP">비밀번호 찾기</a>
 						</div>
 					</div>
 				</c:otherwise>
@@ -90,15 +90,6 @@ if( flag == "2" ){
 					</button>
 				</div>
 			</form>
-<!-- 			<div> -->
-<!-- 				<form action="/28_captcha/check.do"> -->
-<!-- 					메시지 입력 <input type="text" name="input" required /> <br /> -->
-<%-- 					<img src="upload/${tempname }" alt="캡차이미지" />  --%>
-<!-- 					<input type="button" value="새로 고침" onclick="location.href='/28_captcha/getImage.do'" /> -->
-<!-- 					<br /><br /> -->
-<!-- 					<input type="submit" value="전송" /> -->
-<!-- 				</form> -->
-<!-- 			</div> -->
 		</div>
 		<div id="loginNm" class="loginCont nbg" style="display:none">
 			<form method="post" id="nl">

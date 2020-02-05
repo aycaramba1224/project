@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>비회원 주문 조회</title>
 <script>
- function guestSearch(f){
+ function guestSearch(){
 	 if(f.content2.value==""){
 		 alert("비회원주문번호를 입력해주세요");
 		 return false;
@@ -20,12 +20,14 @@
 	 f.action = "guestSearch";
 	 f.submit();
  }
+ 
+ 
 </script>
 </head>
 <body>
    <div>
     <h1>비회원 주문/배송조회</h1>
-    <form method="post">
+    <form method="post" name="f">
        
    
     <div>
@@ -37,9 +39,10 @@
     <input type="hidden" name="guestquery" value="guest_pw"/>
     <input type="password" placeholder="주문비밀번호를 입력해주세요" name="content" />
     </div>
-
-     <input type="button" value="비회원주문/배송조회" onclick="guestSearch(this.form)"/>
+      
+     <input type="button" value="비회원주문/배송조회" onclick="guestSearch()"/>
     </form>
     </div>
+    
 </body>
 </html>
