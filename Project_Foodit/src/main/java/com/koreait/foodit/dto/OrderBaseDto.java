@@ -21,10 +21,13 @@ public class OrderBaseDto {
     delivery_phone3   VARCHAR2(20) ,
     order_post      VARCHAR2(20)NOT NULL, 
     order_road1    VARCHAR2(50) NOT NULL,
-    amount     NUMBER,
-   orderDate   Date default sysdate,
+    cart_no         NUMBER, 
+    orderDate   Date default sysdate,
    primary key (order_no)
 );
+
+
+
 	*/
 	private String
 	        guest_pw,
@@ -41,13 +44,15 @@ public class OrderBaseDto {
 		    delivery_phone3,
 			order_post,
 			order_road1;
-	private int amount,order_no;
+	private int order_no;
 	private Date orderDate;
+    private int cart_no;  
 
 	public OrderBaseDto() {}
 
 	public OrderBaseDto(int order_no,String guest_pw, String id, String order_name, String order_phone,String order_phone2,String order_phone3 ,String order_email,
-		String order_email2,String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,String order_post, String order_road1, int amount, Date orderDate) {
+		String order_email2,String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,String order_post, String order_road1, Date orderDate,
+		int cart_no) {
 		super();
 		this.order_no = order_no;
 		this.guest_pw = guest_pw;
@@ -64,10 +69,21 @@ public class OrderBaseDto {
 		this.delivery_phone3=delivery_phone3;
 		this.order_post = order_post;
 		this.order_road1 = order_road1;
-		this.amount = amount;
 		this.orderDate = orderDate;
+		this.cart_no = cart_no;
 	}
       
+	
+
+
+	public int getCart_no() {
+		return cart_no;
+	}
+
+	public void setCart_no(int cart_no) {
+		this.cart_no = cart_no;
+	}
+
 	public String getDelivery_name() {
 		return delivery_name;
 	}
@@ -188,13 +204,7 @@ public class OrderBaseDto {
 		this.order_road1 = order_road1;
 	}
 
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
+	
 
 	public Date getOrderDate() {
 		return orderDate;

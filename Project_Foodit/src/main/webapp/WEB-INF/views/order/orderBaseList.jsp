@@ -7,16 +7,7 @@
 <meta charset="UTF-8">
 <title>주문내역 페이지</title>
 <script>
-
-var orderInsertResult = "${orderInsertResult}";
-if( orderInsertResult == "yes"){
-	var orderResult= "${orderResult}";
-	if(orderResult == 0){
-		alert("주문 정보 등록 실패.");
-	} else {
-		alert("주문정보 등록 성공.");
-	}
-}
+//비회원일떄!기본!
 
 var orderBaseModifyResult = "${orderBaseModifyResult}";
 if( orderBaseModifyResult == "yes"){
@@ -39,22 +30,21 @@ var orderDeleteResult = "${orderDeleteResult}";
 			
 		}
 	}
-
-
+ 
 
 </script>
 </head>
 <body>
-     
-     <h1>주문자 정보 페이지</h1>
+<h1>주문자 정보 페이지</h1>
+	        <form>
+ 		<c:choose>
+	        <c:when test="${ mDto eq null }">
       <table border="1">
- 
 			<tbody>
 					
 				<tr>
 			<th>주문번호</th>
-		    <!--<th>주문자아이디</th>-->
-		    <th>주문자 비밀번호</th>
+		    <th>주문자 비밀번호</th> 
 			<th>주문자이름</th>
 			<th>주문자 휴대폰</th>
 			<th>주문자 이메일</th>
@@ -63,9 +53,9 @@ var orderDeleteResult = "${orderDeleteResult}";
 		<c:if test="${ orderBaseListSize ne 0 }">
 			<c:forEach var="OrderBaseDto" items="${orderBaseList}">
 				<tr>
-				    <td><a href="orderbaseListview?order_no=${OrderBaseDto.order_no}">${OrderBaseDto.order_no}</a></td>
+				    <td>${OrderBaseDto.order_no}</td>
 				    <td>${OrderBaseDto.guest_pw}</td>
-					<td>${OrderBaseDto.order_name}</td>
+					<td><a href="orderbaseListview?order_name=${OrderBaseDto.order_name}">${OrderBaseDto.order_name}</a></td>
 					<td>${OrderBaseDto.order_phone}-${OrderBaseDto.order_phone2}-${OrderBaseDto.order_phone3}</td>
 					<td>${OrderBaseDto.order_email}@${OrderBaseDto.order_email2}</td>
 				</tr>
@@ -78,7 +68,7 @@ var orderDeleteResult = "${orderDeleteResult}";
 		</c:if>
 		</tbody>
    </table>
-    <h1>상품정보</h1>
+    
     <h1>배송정보</h1>
     <table border="1">
     <tbody>
@@ -89,6 +79,7 @@ var orderDeleteResult = "${orderDeleteResult}";
 			<th>주소</th>
 			<th>주문날짜</th>
 		   </tr>
+		   
 		   <c:if test="${ orderBaseListSize ne 0 }">
 			<c:forEach var="OrderBaseDto" items="${orderBaseList}">
 			
@@ -103,6 +94,7 @@ var orderDeleteResult = "${orderDeleteResult}";
 				</c:forEach>
 				
 		</c:if>
+		
 		
 		<c:if test="${orderBaseListSize eq 0 }">
 			<tr>
@@ -124,7 +116,8 @@ var orderDeleteResult = "${orderDeleteResult}";
 			 </tr>
 		</tfoot>
 		</table>
-		
-		
+		</c:when>
+		</c:choose>
+		</form>
 </body>
 </html>

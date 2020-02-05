@@ -41,7 +41,7 @@
 <body>
 
 	<div id="wrap">		
-		<form method="POST">
+		<form method="post" enctype="multipart/form-data">
 			<table border="1">				
 				<tbody> 
 					<tr>
@@ -75,6 +75,12 @@
 					</tr>					
 				</tbody>
 				<tfoot>
+					<tr>
+						<td colspan="2">
+							상품 썸네일 등록 <input type="file" name="product_thumbImg"/><br/>
+							상품 이미지 등록 <input type="file" name="product_img"/>
+						</td>
+					</tr>
 					<tr>
 						<td colspan="2">
 							<input type="button" value="상품등록" onclick="productInsert(this.form)"/>

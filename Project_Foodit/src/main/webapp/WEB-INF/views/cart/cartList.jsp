@@ -4,21 +4,25 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
     
     
-<%--  <jsp:include page="/WEB-INF/views/common/header.jsp" >
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="FOODIT 장바구니" name="title"/>
-</jsp:include>    --%>
+</jsp:include> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">	 
-	
-	 
- 	
+ 
 </script>
 </head>
 <body>
 	<span>장바구니</span> 
  
  	<div id="wrap">
+ 		<div id="로그인확인">
+	 	<c:if test="${ sessionScope.mDto eq null }">
+	 		로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.&nbsp;&nbsp;&nbsp;<input type="button" value="로그인" onclick="location.href='sbmr'"/>		 		
+	 	</c:if>
+ 		</div> <br/><br/>
+ 		
 	 <c:choose>
 		<c:when test="${cartListSize eq 0 }">  
 			<span>장바구니에 담긴 메뉴가 없습니다.</span>  
@@ -51,8 +55,8 @@
 						<label for="allCheck">총 <!-- 처리예정 --> / ${cartListSize }개</label> 
 					</td> 
 					<td colspan="4">
-						<input type="button" value="선택 삭제" onclick="selectDelete">
-						 
+						<input type="button" value="선택 삭제" id="selectDelete_btn"  >
+				 						 
 					</td>
 				</tr>
 			</thead>
@@ -60,7 +64,7 @@
 				 <c:forEach var="cartList" items="${cartList }" >
 				<tr>
 					<td>
-						<input type="checkbox" name="chBox" class="chBox" checked="checked" />	
+						<input type="checkbox" name="chBox" class="chBox" checked="checked"/>	
 						<script>
 							 $(".chBox").click(function(){
 							  $("#allCheck").prop("checked", false);
@@ -68,7 +72,7 @@
 						</script>								 
 					</td>
 					<td>
-						썸네일
+						<img alt="${cartList.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${cartList.product_thumbImg}" style="width:100; height:100px;" />
 					</td>		
 					<td>
 						 <a href="productView?product_no=${cartList.product_no}"> ${cartList.product_name }</a> <br/> 

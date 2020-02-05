@@ -21,8 +21,7 @@ public class ProductSearchCommand implements ProductCommand {
 		String query = request.getParameter("query");
 		String content = "%" + request.getParameter("content") + "%"; 
 		model.addAttribute("productList", productDao.productSearchResult(query, content));
-		model.addAttribute("productListSize",productDao. productSearchResult(query, content).size());
-
+		
 	}
 
 }

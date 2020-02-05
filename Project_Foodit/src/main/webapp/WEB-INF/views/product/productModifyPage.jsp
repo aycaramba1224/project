@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<title>productView</title>
+  <jsp:include page="/WEB-INF/views/common/header.jsp" >
+	<jsp:param value="FOODIT 관리자메뉴_상품수정/삭제" name="title"/>
+</jsp:include>   
+
+
+
+
+ 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	var isProductModify = "${isProductModify}";
@@ -41,11 +48,11 @@
 			<input type="button" value="상품 목록" onclick="location.href='productList'"/>
 		 
 		
-			<table border="1" style="width:600px;"> <!-- 테이블 사이즈 향후 수정예정 -->				
+			<table border="1"> <!-- 테이블 사이즈 향후 수정예정 -->				
 				<tbody>
 					<tr>
 						<td rowspan ="7">
-							썸네일이미지
+							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" style="width:600px; height:600px;" />	 
 						</td>
 					</tr>
 					<tr>
@@ -92,6 +99,12 @@
 							상품 번호 (수정불가) : ${productDto.product_no }
 						</td>
 					</tr>	
+					<tr>
+						<td>
+							<!-- 이미지 사이즈 조절 예정  -->
+							<img alt="${productDto.product_img }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_img  }"style="width:780px; height:1272px;"/>	 
+						</td>
+					</tr>
 				</tbody>
 			</table>	
 		</form>

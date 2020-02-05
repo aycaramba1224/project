@@ -16,10 +16,10 @@ public interface ProductDao {
 							 String product_stock, String product_content, int product_no);
 	
 	public int productInsert(String product_name, String product_price, String product_content,
-							String product_stock, String product_taste );	
+							String product_stock, String product_taste, String product_img, String product_thumbImg);	
 	
 	public int productDelete(int product_no);
 	
 	public ArrayList<ProductDto> productSearchResult(String query, String content);
-	
+	 
 }

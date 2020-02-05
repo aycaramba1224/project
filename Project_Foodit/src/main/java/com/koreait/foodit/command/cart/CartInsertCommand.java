@@ -24,7 +24,6 @@ public class CartInsertCommand implements CartCommand {
 	int product_no = Integer.parseInt(request.getParameter("product_no"));		
 	int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));	
 	
-	
 	 
 	int count = cartDao.cartCount(product_no);
 	
