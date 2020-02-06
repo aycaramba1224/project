@@ -17,11 +17,12 @@ public class ProductViewCommand implements ProductCommand {
 		ProductDao productDao = sqlSession.getMapper(ProductDao.class);
 		
 		Map<String, Object> map = model.asMap();
-		HttpServletRequest request = (HttpServletRequest)map.get("request");
+		HttpServletRequest request = (HttpServletRequest)map.get("request");	
 		
 		int product_no = Integer.parseInt(request.getParameter("product_no"));
 						
 		model.addAttribute("productDto", productDao.productView(product_no));
+		
 	}
 
 }

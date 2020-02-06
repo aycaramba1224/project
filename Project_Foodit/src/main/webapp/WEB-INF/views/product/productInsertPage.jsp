@@ -4,7 +4,6 @@
 	<jsp:param value="FOODIT 메뉴등록" name="title"/>
 </jsp:include> 
 
-
 <script type="text/javascript">
 	function productInsert(f){
 	 	if(f.product_name.value==""){
@@ -35,7 +34,6 @@
 		f.action = "productInsert";
 		f.submit();
 	}
-
 </script>
 </head>
 <body>
@@ -55,7 +53,7 @@
 					<tr>
 						<td>상품내용</td>
 						<!--★ 사이즈 변경예정 ★-->
-						<td><textarea rows="10" cols="10" name="product_content"></textarea></td>
+						<td><textarea rows="10" cols="50" name="product_content" placeholder="해쉬태그형식으로 작성 (ex.#닭가슴살)"></textarea></td>
 					</tr>
 					<tr>
 						<td>상품재고</td>
@@ -77,8 +75,8 @@
 				<tfoot>
 					<tr>
 						<td colspan="2">
-							상품 썸네일 등록 <input type="file" name="file_"/><br/>
-							상품 이미지 등록 <input type="file" name="file_"/>
+							상품 이미지 등록 <input type="file" name="file_"/><br/>
+							상품 썸네일 등록 <input type="file" name="file_"/>
 						</td>
 					</tr>
 					<tr>

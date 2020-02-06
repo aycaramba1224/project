@@ -9,7 +9,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.foodit.dao.ProductDao;
-import com.koreait.foodit.paging.Paging;
 
 public class ProductListPageCommand implements ProductCommand {
 

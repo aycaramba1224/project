@@ -6,9 +6,7 @@
 	<jsp:param value="# ${productDto.product_name} - FOODIT 메뉴" name="title"/>
 </jsp:include>   
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-
 	function productModify(f){
 		f.action = "productModifyPage?product_no=${productDto.product_no }";
 		f.submit();	
@@ -17,10 +15,19 @@
 	function addCart(f){
 		var check = confirm("'#${productDto.product_name}'이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
 		if (check) {
-				f.action ="cartInsert?product_no=${productDto.product_no }";	
-				f.submit();	
+			f.action ="cartInsert";	
+			f.submit();	
 		}	
 	}
+	function guestAddCart(f){
+		var check = confirm("'#${productDto.product_name}'이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
+		if (check) {
+			f.action ="guestCartInsert";	
+			f.submit();	
+		}	
+	}
+	
+	
 </script>
 </head>
 <body>
@@ -61,49 +68,35 @@
 					</tr>
 					<tr>
 						<td>
+							${productDto.product_content }
+						</td>
+					</tr>
+					<tr>
+						<td>
 							${productDto.product_name } &nbsp;&nbsp;
 							<button type="button" class="minus" >-</button>
 							<input type="number" class="cart_amount" name="cart_amount" min="1" max="${productDto.product_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
 							<button type="button" class="plus" >+</button> &nbsp;&nbsp;
 							<script type="text/javascript"> 
-							// 구매 수량 플러스
-							$(".plus").click(function(){
-								var num = $(".cart_amount").val();
-								var plusNum = Number(num) + 1;
-								if(plusNum >= 11) {	
-									alert("최대 구매 가능 수량은 10개 입니다.");// 최대 구매가능 상품은 10개로 제한함 
-									$(".cart_amountt").val(num);
-								} else {
-									$(".cart_amount").val(plusNum);  									
-								}								
-							});
-
-							// 구매 수량 마이너스
-							$(".minus").click(function(){
-								var num = $(".cart_amount").val();
-								var minusNum = Number(num) - 1;							 
-								if(minusNum <= 0) {
-									$(".cart_amount").val(num);
-								} else {
-									$(".cart_amount").val(minusNum);          
-								}
-							});							
+							
 							</script>	
 						</td>								
 					</tr>
 					<tr>
 						<td>
-							 <input type="button"  value="장바구니 담기" onclick="addCart(this.form)"/>
+						 <c:choose>
+							<c:when test="${mDto.id eq null }">
+								<input type="button"  value="안돼" onclick="guestAddCart(this.form)"/>							
+							</c:when>
+							<c:otherwise>
+								<input type="button"  value="장바구니 담기" onclick="addCart(this.form)"/>
+							</c:otherwise>
+						</c:choose> 
 						</td>
 					</tr>
 					<tr>
 						<td colspan="2"><a href="#detail">상세설명</a>&nbsp;|&nbsp;<a href="#info">상품정보</a>&nbsp;|&nbsp;<a href="#review">리뷰</a>&nbsp;|&nbsp;<a href="#faq">배송/반품/문의</a></td>
-					</tr>
-					<tr>
-						<td colspan="2">
-							상품내용 ${productDto.product_content }
-						</td>
-					</tr> 					 
+					</tr>					 					 
 				</tbody>
 			</table>	
 		</form>
@@ -291,5 +284,5 @@
 
 	</div>
 
-</body>
-</html>
+<script type="text/javascript" src="resources/js/product.js"></script>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

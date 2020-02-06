@@ -16,8 +16,7 @@
 		} else {
 			alert("상품 등록이 성공하였습니다.");
 		}
-	} 
- 
+	}  
 </script>
  
 	FOODIT 메뉴 
@@ -27,15 +26,9 @@
 			<input type="button" value="상품등록" onclick="location.href='productInsertPage'"/><br/><br/>   
 		</c:if>
 	 	
-	 	<div id="메뉴바">
-	 		<a>신메뉴</a> | <a href=" ">높은 가격 순</a> | <a>낮은 가격순</a> | <a>만족도순</a> <!--처리예정 -->
-	 	</div>
- 	
-		<c:if test="${productListSize eq 0 }">
-			등록된 메뉴가 없습니다.
-		</c:if>	 	
+	 	<jsp:include page="/WEB-INF/views/product/menuOrder.jsp"/>	<!-- 상품 정렬  -->	
 		
-		<c:forEach var="productDto" items="${productList }" >	
+		<c:forEach var="productDto" items="${productListOrder3 }" >	
 			<div id="목록" style="float:left; padding:20px;" >		
 				<ul style="list-style-type:none;">		 
 					<li>		 	
@@ -46,6 +39,7 @@
 									style="width:366px; height:366px;" /></span><br/>
 							<span> ${productDto.product_name} </span><br/>
 							<span> <fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원 </span><br/> 
+							<span> ${productDto.product_content } </span><br/>
 							<span> 별점 &nbsp;|&nbsp; 리뷰글수 </span> 
 						</a>		 	
 					</li>		  
@@ -53,16 +47,6 @@
 			</div>
 		</c:forEach> 
 		
-		<div>
-		 <c:forEach begin="${begin }" end="${end}" var="currentPage">
-		    <span>
-		     페이징 : currentPage  <a href="productListPage?currentPage=${currnetPage }">${currentPage}</a> 
-		   
-		 
-		  </span>
-		 </c:forEach>
-		</div>
-
 	</div>
 	
 	

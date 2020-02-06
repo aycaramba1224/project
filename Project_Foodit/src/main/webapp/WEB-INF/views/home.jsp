@@ -17,10 +17,9 @@
 		     
 		&nbsp;
 		<input type="button" value="상품 전체 목록" onclick="location.href='productList'" />	
-		<input type="button" value="상품 전체 목록" onclick="location.href='productMain'" />	
 		<input type="button" value="상품 검색" onclick="location.href='productSearch'" />	
 		&nbsp;	
-		<input type="button" value="장바구니" onclick="location.href='cartList'" />	
+		<input type="button" value="장바구니" onclick="location.href='cartMain'" />	
 				 
 		
 		&nbsp;

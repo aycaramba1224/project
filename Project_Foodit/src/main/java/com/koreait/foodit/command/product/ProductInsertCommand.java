@@ -29,7 +29,7 @@ public class ProductInsertCommand implements ProductCommand {
 		MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
 		 
 		String product_name = request.getParameter("product_name");
-		String product_price = request.getParameter("product_price");
+		int product_price = Integer.parseInt(request.getParameter("product_price"));
 		String product_content = request.getParameter("product_content");
 		String product_stock = request.getParameter("product_stock");
 		String product_taste = request.getParameter("product_taste");	 		
@@ -39,6 +39,10 @@ public class ProductInsertCommand implements ProductCommand {
 		List<MultipartFile> uploadFileList = request.getFiles("file_");
 		int size = uploadFileList.size();
 
+		boolean isFirst = true; // 처음이다
+		String product_img = null;
+		String product_thumbImg = null;
+		
 		if ( uploadFileList != null && size > 0 ) {
 			for (MultipartFile multiFile : uploadFileList) {
 				if ( !multiFile.isEmpty() ) {
@@ -47,6 +51,12 @@ public class ProductInsertCommand implements ProductCommand {
 					String saveFilename = null;
 					try {
 						saveFilename = originFilename.substring(0, originFilename.lastIndexOf(".")) + "_" + System.currentTimeMillis() + "." + extentionName;
+						if (isFirst) {
+							product_img = saveFilename;
+							isFirst= false;
+						} else {
+							product_thumbImg = saveFilename;
+						}
 						String realPath = request.getSession().getServletContext().getRealPath("/resources/upload");
 						File directory = new File(realPath);
 						if ( !directory.exists() ) {
@@ -54,17 +64,16 @@ public class ProductInsertCommand implements ProductCommand {
 						}
 						File saveFile = new File(realPath, saveFilename);
 						multiFile.transferTo(saveFile);
-						RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-						redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert(product_name, product_price, product_content, product_stock,
-								product_taste, saveFilename, saveFilename));
-						redirectAttributes.addFlashAttribute("isProductInsert", "yes");
-						 
 					} catch (Exception e) {
 						e.printStackTrace();
-					}
-				}
-			}
-		}		 
+					} // end try
+				} // end if
+			} // end for
+			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
+			redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert(product_name, product_price, product_content, 
+																						  product_stock, product_taste, product_img, product_thumbImg));
+			redirectAttributes.addFlashAttribute("isProductInsert", "yes");
+		} // end if 
  
 	}	
 	

@@ -16,15 +16,7 @@
 		} else {
 			alert("상품 등록이 성공하였습니다.");
 		}
-	} 
-	
-	function addCart(f){
-		var check = confirm("상품이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
-		if (check) {
-			f.action ="cartInsert?product_no=${productDto.product_no }";	
-			f.submit();	
-		}
-	}
+	}  
 </script>
  
 	FOODIT 메뉴 
@@ -34,32 +26,27 @@
 			<input type="button" value="상품등록" onclick="location.href='productInsertPage'"/><br/><br/>   
 		</c:if>
 	 	
-	 	<div id="메뉴바">
-	 		<a href="productList">높은 가격 순</a> | <a>낮은 가격순</a> | <a>인기메뉴순</a> | <a>만족도순</a> <!--처리예정 -->
-	 	</div>
- 	
-		<c:if test="${productListSize eq 0 }">
-			등록된 메뉴가 없습니다.
-		</c:if>	 
-		
-		
-		
-		<c:forEach var="productDto" items="${productList }" >	
+	 	<jsp:include page="/WEB-INF/views/product/menuOrder.jsp"/>	<!-- 상품 정렬  -->
+ 	 
+		<c:forEach var="productDto" items="${productListOrder4 }" >	
 			<div id="목록" style="float:left; padding:20px;" >		
 				<ul style="list-style-type:none;">		 
 					<li>		 	
 						<a href="productView?product_no=${productDto.product_no}">	 
 							<!-- 상품 목록 썸네일 이미지 사이즈 : 366x366  -->
-							<p> <img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" style="width:366px; height:366px;" /></p> 
-							<p> ${productDto.product_name} </p> 
-							<p> <fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원  </p> 
-							<p> 별점 &nbsp;|&nbsp; 리뷰글수 </p>	  	 
+							<span> <img alt="${productDto.product_thumbImg }" 
+									src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" 
+									style="width:366px; height:366px;" /></span><br/>
+							<span> ${productDto.product_name} </span><br/>
+							<span> <fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원 </span><br/> 
+							<span> ${productDto.product_content } </span><br/>
+							<span> 별점 &nbsp;|&nbsp; 리뷰글수 </span> 
 						</a>		 	
 					</li>		  
 				</ul>		 
 			</div>
 		</c:forEach> 
-		 
+		
 	</div>
 	
 	
