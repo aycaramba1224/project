@@ -12,22 +12,20 @@
 		f.submit();	
 	} 
 
-	function addCart(f){
+	function addCart(f){	// 회원 장바구니 담기
 		var check = confirm("'#${productDto.product_name}'이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
 		if (check) {
 			f.action ="cartInsert";	
 			f.submit();	
 		}	
 	}
-	function guestAddCart(f){
+	function guestAddCart(f){	// 비회원 장바구니 담기
 		var check = confirm("'#${productDto.product_name}'이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
 		if (check) {
 			f.action ="guestCartInsert";	
 			f.submit();	
 		}	
-	}
-	
-	
+	} 
 </script>
 </head>
 <body>
@@ -86,10 +84,10 @@
 						<td>
 						 <c:choose>
 							<c:when test="${mDto.id eq null }">
-								<input type="button"  value="안돼" onclick="guestAddCart(this.form)"/>							
+								<input type="button"  value="장바구니 담기" onclick="guestAddCart(this.form)"/>	<!-- 비회원 장바구니 담기 -->						
 							</c:when>
 							<c:otherwise>
-								<input type="button"  value="장바구니 담기" onclick="addCart(this.form)"/>
+								<input type="button"  value="장바구니 담기" onclick="addCart(this.form)"/>	<!-- 회원 장바구니 담기 -->
 							</c:otherwise>
 						</c:choose> 
 						</td>

@@ -24,6 +24,8 @@
 		
 		&nbsp;
 		<input type="button" value="faq" onclick="location.href='faqList'" />
+		<input type="button" value="공지사항" onclick="location.href='noticeList'" />
+		<input type="button" value="리뷰" onclick="location.href='reviewList'" />
 		
 		&nbsp;
 		<input type="button" value="관리자페이지" onclick="location.href='adminPage'" />

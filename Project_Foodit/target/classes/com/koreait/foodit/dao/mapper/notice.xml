@@ -3,6 +3,42 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace=" ">
+<mapper namespace="com.koreait.foodit.dao.NoticeDao">
+ <select id="noticeList" resultType="com.koreait.foodit.dto.NoticeDto">
+   SELECT * FROM NOTICE ORDER BY NOTICE_NO
+ </select>
 
+<select id="noticeView" resultType="com.koreait.foodit.dto.NoticeDto">
+     SELECT * 
+     FROM NOTICE 
+     WHERE NOTICE_NO = #{param1}
+ </select>
+ <insert id="noticeWrite">
+     INSERT INTO 
+     NOTICE (NOTICE_NO, NOTICE_DATE, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_IMG)
+     VALUES (NOTICE_SEQ.NEXTVAL, SYSDATE, #{param1}, #{param2}, #{param3})
+ </insert>
+ 
+<update id="noticeModify">
+      UPDATE NOTICE 
+      SET NOTICE_TITLE = #{param1},
+          NOTICE_CONTENT = #{param2}
+      WHERE    
+          NOTICE_NO = #{param3} 
+ </update>
+ 
+ 
+ <delete id="noticeDelete">
+     DELETE
+     FROM NOTICE
+     WHERE NOTICE_NO = #{param1}
+ </delete>
+ 
+ 
+ <select id="dynamicQueryList" resultType="com.koreait.foodit.dto.NoticeDto">
+      SELECT *
+      FROM NOTICE
+      WHERE ${param1} LIKE #{param2}
+</select>
+ 
 </mapper>

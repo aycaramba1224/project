@@ -19,7 +19,7 @@ public class FaqViewCommand implements FaqCommand {
 		Map<String, Object> map = model.asMap();
 		
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		model.addAttribute("fDto", fDao.view(Integer.parseInt(request.getParameter("faq_no"))));
+		model.addAttribute("fDto", fDao.faqView(Integer.parseInt(request.getParameter("faq_no"))));
 		
 		
 		

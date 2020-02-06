@@ -4,7 +4,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>FAQ VIEW</title>
+<script type="text/javascript">
+ function faqDelete() {
+     var check=confirm("삭제하시겠습니까?");
+     if(check) {
+         location.href="faqDelete?faq_no=${fDto.faq_no}";
+     }
+ } 
+</script>
 </head>
 <body>
 <div id="wrap"> 
@@ -12,29 +20,34 @@
             <table border="1">              
                 <tbody>
                     <tr>
-                        <td>글번호</td>
-                        <td>${faqDto.faq_no }
-                             <input type="hidden" name="faq_no" value="${faqDto.faq_no }"/>  
+                        <td>글 번호</td>
+                        <td>${fDto.faq_no }
+                             <input type="hidden" name="faq_no" value="${fDto.faq_no }"/>  
                         </td>
                     </tr>
                     <tr>
-                        <td>글제목</td>
-                        <td><input type="text" name="faq_name" value="${faqDto.faq_name }"/></td>
+                        <td>제목</td>
+                        <td><input type="text" name="faq_title" value="${fDto.faq_title }"/></td>
                     </tr>
                  
                     <tr>
-                        <td>글내용</td>
+                        <td>내용</td>
                         <!--★ 사이즈 변경예정 ★-->
-                        <td><textarea rows="10" cols="10" name="faq_content" >${faqDto.faq_content }</textarea></td>
+                        <td><textarea rows="10" cols="10" name="faq_content" >${fDto.faq_content }</textarea></td>
                     </tr>
-                             
+                    <tr>
+                        <td>항목</td>
+                        <td>${fDto.faq_category }
+                            <input type="hidden" name="faq_category" value="${fDto.faq_category }"/>
+                        </td>
+                    </tr>
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="2">
                         <!-- 관리자만 보이는 부분  (처리예정)-->
                             <input type="submit" value="게시글 수정" />
-                            <input type="button" value="게시글  삭제" onclick="faqRemove()"/>
+                            <input type="button" value="게시글 삭제" onclick="faqDelete()"/>
                         <!-- 관리자만 보이는 부분  (처리예정)--> 
                             <input type="button" value="게시글 목록" onclick="location.href='faqList'"/>
                         </td>                   

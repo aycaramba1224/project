@@ -21,11 +21,10 @@ public class FaqWriteCommand implements FaqCommand {
        HttpServletRequest request = (HttpServletRequest) map.get("request"); 
        String faq_title = request.getParameter("faq_title"); 
        String faq_content= request.getParameter("faq_content");
-	   String faq_id = request.getParameter("faq_id"); 
-       String classno = request.getParameter("classno");
+       String faq_category = request.getParameter("faq_category");
 	
        RedirectAttributes attributes = (RedirectAttributes) map.get("attributes");
-       attributes.addFlashAttribute("faqWriteRes", fDao.write(faq_title, faq_content, faq_id, classno));
+       attributes.addFlashAttribute("faqWriteRes", fDao.faqWrite(faq_title, faq_content, faq_category ));
        attributes.addFlashAttribute("isFaqWrite", "Yes"); 
        
        

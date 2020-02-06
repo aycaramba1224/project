@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>faq글 등록</title>
+<title>FAQ WRITE</title>
 <script type="text/javascript">
-	function faqWrite(f){
-		f.action="faqWrite";
-		f.submit();		
-	}
+    function faqWrite(f){
+        f.action="faqWrite";
+        f.submit();     
+    }
 </script>
 </head>
 <body>
@@ -18,16 +18,17 @@
             <table border="1">              
                 <tbody>
                     <tr>
-                        <td>글번호</td>
-                        <td><input type="text" name="faq_no"/></td>
-                    </tr>
-                    <tr>
                         <td>글제목</td>
                         <td><input type="text" name="faq_title"/></td>
                     </tr>
+                    <tr>
+                        <td>글내용</td>
+                        <!--★ 사이즈 변경예정 ★-->
+                        <td><textarea rows="10" cols="10" name="faq_content"></textarea></td>
+                    </tr>   
                     <tr>                   
                         <td>카테고리선택</td>
-                        <td><select name="classno">
+                        <td><select name="faq_category">
                           <option value="">카테고리선택</option>
                           <option value="배송">배송</option>
                           <option value="결제">결제</option>
@@ -38,11 +39,6 @@
                           <option value="기타">기타</option>
                         </select></td>
                     </tr>
-                    <tr>
-                        <td>글내용</td>
-                        <!--★ 사이즈 변경예정 ★-->
-                        <td><textarea rows="10" cols="10" name="faq_content"></textarea></td>
-                    </tr>   
                 </tbody>
                 <tfoot>
                     <tr>

@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 import com.koreait.foodit.dao.FaqDao;
 
-public class FaqQueryCommand implements FaqCommand {
+public class FaqSearchCommand implements FaqCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -22,8 +22,8 @@ public class FaqQueryCommand implements FaqCommand {
       String query = request.getParameter("query");
       
       String content = "%" + request.getParameter("content") + "%";
-		model.addAttribute("faqList", fDao.dynamicQueryList(query, content));
-		model.addAttribute("faqListCount", fDao.dynamicQueryList(query, content).size());
+		model.addAttribute("faqList", fDao.faqSearchResult(query, content));
+		model.addAttribute("faqListCount", fDao.faqSearchResult(query, content).size());
 	}
 
 }

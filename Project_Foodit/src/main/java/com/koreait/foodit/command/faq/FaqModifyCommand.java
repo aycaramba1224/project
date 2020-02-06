@@ -22,14 +22,13 @@ public class FaqModifyCommand implements FaqCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		String faq_title = request.getParameter("faq_title"); 
 		String faq_content = request.getParameter("faq_content"); 
-		String classno = request.getParameter("classno"); 
+		String faq_category = request.getParameter("faq_category"); 
 		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
 		
 		RedirectAttributes attributes = (RedirectAttributes) map.get("attributes");
-		attributes.addFlashAttribute("faqModifyRes", fDao.modify(faq_title, faq_content, classno, faq_no));
+		attributes.addFlashAttribute("faqModifyRes", fDao.faqModify(faq_title, faq_content, faq_category, faq_no));
 		attributes.addFlashAttribute("isFaqModify", "yes");
 		
 		
 	}
-
 }

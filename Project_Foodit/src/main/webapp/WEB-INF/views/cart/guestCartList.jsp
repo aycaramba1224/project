@@ -49,8 +49,7 @@
 <body>
 	
 	<span>장바구니</span>
- 	아이디 : ${cart_id }
-  
+ 
  	<div id="wrap">
  		 <div id="비로그인시 안내문">
  		   	<c:if test="${mDto.id eq null }">

@@ -45,7 +45,7 @@ if(isLogout == "yes"){
 						<ul>
 							<li><a href="/foodit/sbm02">회원가입</a></li>
 							<li><a href="/foodit/sbmr">로그인</a></li>
-							<li><a href="">고객행복센터</a></li>
+							<li><a href="faqList">고객행복센터</a></li>
 							<li><a href="">배송지역검색</a></li>
 						</ul>
 					</c:if>
@@ -53,7 +53,7 @@ if(isLogout == "yes"){
 						<ul>
 							<li>${ sessionScope.mDto.name }님</li>
 							<li><a href="/foodit/logout">로그아웃</a></li>
-							<li><a href="">고객행복센터</a></li>
+							<li><a href="faqList">고객행복센터</a></li>
 							<li><a href="">배송지역검색</a></li>
 						</ul>
 					</c:if>
@@ -66,7 +66,7 @@ if(isLogout == "yes"){
 				 	<ul class="gnbList nbgB">
 				 		<li><a href="">FOODIT 소개</a></li>
 				 		<li><a href="productList"><span class="red_dot">FOODIT 메뉴</span></a></li>
-				 		<li><a href="">리뷰</a></li>
+				 		<li><a href="reviewList">리뷰</a></li>
 				 		<li><a href="">이벤트</a></li>
 				 		<c:if test="${ sessionScope.mDto eq null }">
 				 			<li><a href="/foodit/sbmr">MY푸딧</a></li>

@@ -22,7 +22,7 @@ public class FaqDeleteCommand implements FaqCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
 		RedirectAttributes attributes = (RedirectAttributes)map.get("attribute");
-		attributes.addFlashAttribute("faqDeleteRes", fDao.delete(Integer.parseInt(request.getParameter("faq_no"))));
+		attributes.addFlashAttribute("faqDeleteRes", fDao.faqDelete(Integer.parseInt(request.getParameter("faq_no"))));
 		attributes.addFlashAttribute("isFaqDelete", "Yes"); 
 		
 		
