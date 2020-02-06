@@ -1,12 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<jsp:include page="/WEB-INF/views/common/myFooditLM.jsp" />
 
-</body>
-</html>
+<div class="deleWrap">
+	<div class="deleBox">
+		<div class="deleTit nbg">
+			<h2>회원탈퇴</h2>
+		</div>
+		<div class="deleCont ng">
+			<h3>FOOIT 서비스를 이용해주셔서 감사합니다.</h3>
+			<p>'회원탈퇴'버튼을 선택해주세요.</p>
+		</div>
+		<form id="df">
+			<input type="hidden" value="${ sessionScope.mDto.id }" name="id" />
+		</form>
+		<div class="delBtn">
+			<button type="button" id="delBtnSend" >회원탈퇴</button>
+		</div>
+	</div>
+</div>
+<script type="text/javascript" src="resources/js/memberOpe.js"></script>
+<!-- bootstrap calendar-->
+<script type="text/javascript" src="resources/bootstrap/js/bootstrap-datepicker.js"></script>
+<script type="text/javascript" src="resources/bootstrap/js/bootstrap-datepicker.kr.js"></script>
+
+<%@ include file="/WEB-INF/views/common/myFooditRC.jsp" %>

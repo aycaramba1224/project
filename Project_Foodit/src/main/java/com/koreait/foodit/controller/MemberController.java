@@ -66,6 +66,10 @@ public class MemberController {
 	public String memDelePage() {
 		return "login/memDelePage";
 	}
+	@RequestMapping("memModiMove")
+	public String memModiMove() {
+		return "login/memModi";
+	}
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value="join", produces="application/json")
 	@ResponseBody
@@ -143,14 +147,12 @@ public class MemberController {
 			}
 		} else { // 로그인 실패.
 			if( idCheckResult == null ) { // 일치하는 아이디가 없을 때
-				rtts.addFlashAttribute("flag", "1");	// 	
-				rtts.addFlashAttribute("idCheckResult", idCheckResult);
+				rtts.addFlashAttribute("flag", "1");		
 				urlPath = "redirect:sbmr";
-			} else { // 아이디 비밀번호 틀렸을 때 
+			} else {  // 아이디 비밀번호 틀렸을 때 
 				rtts.addFlashAttribute("flag", "2");
-				rtts.addFlashAttribute("idPwCheckResult", idPwCheckResult);
 				urlPath = "redirect:sbmr";
-			}
+			} 
 		}
 		return urlPath;
 	}
@@ -179,4 +181,52 @@ public class MemberController {
 		memberCommand.execute(sqlSession, model);
 		return "redirect:sbmFPRes";
 	}
+	
+	@RequestMapping("memModiPw")
+	public String memModiPw(HttpServletRequest request, RedirectAttributes rtts, Model model) {
+		String urlPath = "";
+		MemberDao mDao = sqlSession.getMapper(MemberDao.class);
+		String pw = request.getParameter("pw");
+		MemberDto pwCheckResult = mDao.memModiPw(pw);
+		if( pwCheckResult != null ) {
+			urlPath = "redirect:memModiMove";
+		} else {
+			rtts.addFlashAttribute("flag", "1");
+			urlPath = "redirect:memModiPage";
+		}
+		return urlPath;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="memModi", produces="application/json")
+	@ResponseBody
+	public String memModi(@RequestParam("id") String id, @RequestParam("pw") String pw, @RequestParam("phone") String phone,
+						  @RequestParam("email") String email, @RequestParam("birth") String birth) {
+		MemberDao mDao = sqlSession.getMapper(MemberDao.class);
+		int result = mDao.memModi(pw, phone, email, birth, id);
+		JSONObject obj = new JSONObject();
+		if(result > 0) {
+			obj.put("result", "SUCCESS");
+		} else {
+			obj.put("result", "FAIL");
+		}
+		return obj.toJSONString();
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping(value="memDel", produces="application/json")
+	@ResponseBody
+	public String memDel(@RequestParam("id") String id, HttpSession session) {
+		MemberDao mDao = sqlSession.getMapper(MemberDao.class);
+		int result = mDao.memDel(id);
+		JSONObject obj = new JSONObject();
+		if(result > 0) {
+			obj.put("result", "SUCCESS");
+			session.invalidate(); // 세션 전체를 초기화
+		} else {
+			obj.put("result", "FAIL");
+		}
+		return obj.toJSONString();
+	}
+	
 }

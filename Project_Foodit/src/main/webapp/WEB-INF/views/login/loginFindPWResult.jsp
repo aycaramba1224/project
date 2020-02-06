@@ -32,5 +32,9 @@
 		</div>
 	</div>
 </div>
-
+<script>
+setInterval(function (){
+	window.location.href="sbmr";
+}, 5000);
+</script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

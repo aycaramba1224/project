@@ -35,7 +35,7 @@ $(function(){
 					//var obj = eval( jsonObj );
 					if( regExpId.test($("#mId").val()) ){
 						if( obj["result"] == "YES" ){
-							$("#etId").text("이미 사용중이거나 탈퇴한 아이디입니다.");
+							$("#etId").text("이미 사용중인 아이디입니다.");
 							$("#etId").attr("class", "warning");
 						} else {
 							$("#etId").empty();
@@ -134,7 +134,7 @@ $(function(){
 			}
 		}
 	});
-	$("#mBirth").keyup(function(){
+	$("#mBirth").blur(function(){
 		if( $("#mBirth").val() == "" ){
 			$("#etBirth").text("필수 항목입니다.");
 			$("#etBirth").attr("class", "warning");
@@ -293,77 +293,14 @@ $(function(){
 	});// end click
 	
 	/* 폼 css */
-	$("span", "tbody").each(function(index){
+	$("span", "tbody").each(function(){
 		$(this).addClass("inputWrap");
-		$(this).addClass("w" + index);
 	});
 	// 포커스 처리
-	$("#mId").focus(function(){ 
-		$(".w0").addClass("gang");
-	});
-	$("#mPw").focus(function(){
-		$(".w1").addClass("gang");
-	});
-	$("#mPwC").focus(function(){
-		$(".w2").addClass("gang");
-	});
-	$("#mName").focus(function(){
-		$(".w3").addClass("gang");
-	});
-	$("#mPhone").focus(function(){
-		$(".w4").addClass("gang");
-	});
-	$("#mEmail").focus(function(){
-		$(".w5").addClass("gang");
-	});
-	$("#mBirth").focus(function(){
-		$(".w6").addClass("gang");
-	});
-	$("#mPost").focus(function(){
-		$(".w7").addClass("gang");
-	});
-	$("#mRoad").focus(function(){
-		$(".w8").addClass("gang");
-	});
-	$("#mDetail").focus(function(){
-		$(".w9").addClass("gang");
-	});
-	$("#mExtra").focus(function(){
-		$(".w10").addClass("gang");
-	});
-	
-	$("#mId").blur(function(){ 
-		$(".w0").removeClass("gang");
-	});
-	$("#mPw").blur(function(){
-		$(".w1").removeClass("gang");
-	});
-	$("#mPwC").blur(function(){
-		$(".w2").removeClass("gang");
-	});
-	$("#mName").blur(function(){
-		$(".w3").removeClass("gang");
-	});
-	$("#mPhone").blur(function(){
-		$(".w4").removeClass("gang");
-	});
-	$("#mEmail").blur(function(){
-		$(".w5").removeClass("gang");
-	});
-	$("#mBirth").blur(function(){
-		$(".w6").removeClass("gang");
-	});
-	$("#mPost").blur(function(){
-		$(".w7").removeClass("gang");
-	});
-	$("#mRoad").blur(function(){
-		$(".w8").removeClass("gang");
-	});
-	$("#mDetail").blur(function(){
-		$(".w9").removeClass("gang");
-	});
-	$("#mExtra").blur(function(){
-		$(".w10").removeClass("gang");
+	var target = $(".inputWrap");
+	target.focusin(function(){ 
+		$(this).addClass("gang");
+		target.not($(this)).removeClass("gang");
 	});
 	
 	/* bootstrap datepicker */

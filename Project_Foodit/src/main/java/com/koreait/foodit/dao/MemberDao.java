@@ -14,4 +14,7 @@ public interface MemberDao {
 	public MemberDto findId(String name, String birth, String phone);
 	public MemberDto findPw(String id, String birth, String phone);
 	public int ranPw(String ranPw, String id);
+	public MemberDto memModiPw(String pw);
+	public int memModi(String pw, String phone, String email, String birth, String id);
+	public int memDel(String id);
 }

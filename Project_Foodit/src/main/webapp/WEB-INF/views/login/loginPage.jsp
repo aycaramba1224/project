@@ -8,14 +8,14 @@
 <script type="text/javascript">
 // controller의 결과 값에따른 alert
 var flag = "${flag}";
+var nonId = "${ mDto.role eq 'nothing' }"
 if( flag == "1" ){
-	alert("일치하는 회원정보가 없습니다.");
+	alert("일치하는 아이디가 없습니다.");
 }
 if( flag == "2" ){
 	alert("아이디 패스워드 오류입니다.");
 }
 </script>
-
 <div class="loginWrap">
 	<div class="loginBox">
 		<h1 class="loginTit nbgB">로그인</h1>

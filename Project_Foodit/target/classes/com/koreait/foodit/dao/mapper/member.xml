@@ -18,8 +18,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM
 			MEMBER
 		WHERE
-			ID = #{param1}	
+			ID = #{param1}
 	</select>
+	
 
 	<select id="memLogin" resultType="com.koreait.foodit.dto.MemberDto">
 		SELECT
@@ -56,5 +57,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 			ID = #{param2}
 	</update>
+	
+	<select id="memModiPw" resultType="com.koreait.foodit.dto.MemberDto">
+		SELECT
+			*
+		FROM
+			MEMBER
+		WHERE
+			PW = #{param1} 
+	</select>
+	
+	<update id="memModi">
+		UPDATE
+			MEMBER
+		SET
+			PW = #{param1}, PHONE = #{param2}, 
+			EMAIL = #{param3}, BIRTH = #{param4}
+		WHERE
+			ID = #{param5}
+	</update>
+	
+	<delete id="memDel">
+		DELETE		
+		FROM
+			MEMBER
+		WHERE
+			ID = #{param1}
+	</delete>
 	
 </mapper>
