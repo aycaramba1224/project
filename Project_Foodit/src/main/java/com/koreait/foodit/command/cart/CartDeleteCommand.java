@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.dao.CartDao;
 
@@ -20,11 +19,9 @@ public class CartDeleteCommand implements CartCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
 
-		int cart_no = Integer.parseInt(request.getParameter("cart_no"));
+		int cart_no = Integer.parseInt(request.getParameter("cart_no"));	// 카트번호(PK)를 통해서 일치하는 카트 번호 삭제
 	 
-		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-		redirectAttributes.addFlashAttribute("deleteResult",cartDao.cartDelete(cart_no));
-		redirectAttributes.addFlashAttribute("isProductDelete", "yes");
+		model.addAttribute("cartDelete", cartDao.cartDelete(cart_no));
 	
 	}
 

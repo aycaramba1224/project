@@ -10,7 +10,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			CART.CART_NO, CART.CART_ID, CART.PRODUCT_NO, CART.CART_AMOUNT,
 			PRODUCT.PRODUCT_NO, PRODUCT.PRODUCT_PRICE, PRODUCT.PRODUCT_NAME, PRODUCT.PRODUCT_THUMBIMG
 		FROM 
-			CART INNER JOIN PRODUCT ON CART.PRODUCT_NO = PRODUCT.PRODUCT_NO    		  
+			CART INNER JOIN PRODUCT ON CART.PRODUCT_NO = PRODUCT.PRODUCT_NO    	
+		WHERE CART.CART_ID = #{param1}   
  	</select> 
   
 	<insert id="cartInsert">
@@ -25,19 +26,55 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</delete>
 	
 	<update id="cartUpdate">
-		UPDATE CART SET CART_AMOUNT = CART_AMOUNT + #{param1} 
-		WHERE PRODUCT_NO = #{param2 }
+		UPDATE CART SET CART_AMOUNT = CART_AMOUNT + #{param2} 
+		WHERE PRODUCT_NO = #{param1 }
 	</update>
 	
 	<select id="cartCount" resultType="int">
 		SELECT COUNT(*) FROM CART WHERE PRODUCT_NO = #{param1}
 	</select>
 	
-	 <select id="sumMoney" resultType="int"> 
-		SELECT NVL(SUM(PRODUCT_PRICE*CART_AMOUNT),0)
+	<select id="sumMoney" resultType="int"> 
+		SELECT NVL(SUM(PRODUCT_PRICE*CART_AMOUNT),0)	<!--금액과 상품갯수를 곱한값과 0을더해서 0이 나오는 것을 검색한다. -->
+       													<!--아무것도 담지 않았을때를 확인하는 것이다. -->
 			FROM CART,PRODUCT
-		WHERE CART.PRODUCT_NO = PRODUCT.PRODUCT_NO   
+		WHERE CART.PRODUCT_NO = PRODUCT.PRODUCT_NO  and cart.cart_id = #{id} <!-- 아이디가 같을때 장바구니 금액처리  -->
 	</select>
+	
+	<!-- 비회원 장바구니  -->
+	
+	<select id="guestCartList" resultType="com.koreait.foodit.dto.CartDto">
+ 		SELECT
+			CART.CART_NO, CART.CART_ID, CART.PRODUCT_NO, CART.CART_AMOUNT,
+			PRODUCT.PRODUCT_NO, PRODUCT.PRODUCT_PRICE, PRODUCT.PRODUCT_NAME, PRODUCT.PRODUCT_THUMBIMG
+		FROM 
+			CART INNER JOIN PRODUCT ON CART.PRODUCT_NO = PRODUCT.PRODUCT_NO		
+		 
+ 	</select>  	
+ 	
+	<insert id="guestCartInsert">
+	 	INSERT INTO
+	 		CART (CART_NO, CART_ID, PRODUCT_NO, CART_AMOUNT) 
+	 	VALUES 
+	 		(cart_seq.nextval, #{param1}, #{param2}, #{param3} ) 
+	</insert> 
+	
+<!-- 	<select id="guestSumMoney" resultType="int"> 
+		SELECT NVL(SUM(PRODUCT_PRICE*CART_AMOUNT),0)	금액과 상품갯수를 곱한값과 0을더해서 0이 나오는 것을 검색한다.
+       													아무것도 담지 않았을때를 확인하는 것이다.
+			FROM CART,PRODUCT
+		WHERE CART.PRODUCT_NO = PRODUCT.PRODUCT_NO  and cart.cart_id = #{id} 아이디가 같을때 장바구니 금액처리 
+	</select> -->
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
+ 	
 	 
 
 </mapper>

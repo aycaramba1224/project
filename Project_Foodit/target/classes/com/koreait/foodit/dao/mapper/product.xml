@@ -5,14 +5,43 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.foodit.dao.ProductDao">
 
-	<select id="productList" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT ORDER BY PRODUCT_NO 
+	<select id="productList" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 상품 기본 리스트  -->
+		SELECT * FROM PRODUCT  
 	</select>
 	
-	<select id="productView" parameterType="int" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{product_no}		
+	<select id="productListOrder1" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 신메뉴순 정렬 리스트 -->
+		SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC
 	</select>
 	
+	<select id="productListOrder2" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 가격 내림 차순 정렬 리스트 (높은가격 순) -->
+		SELECT * FROM PRODUCT ORDER BY PRODUCT_PRICE DESC
+	</select>
+	
+	<select id="productListOrder3" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 가격 오름 차순 정렬 리스트 (낮은가격 순) -->
+		SELECT * FROM PRODUCT ORDER BY PRODUCT_PRICE  
+	</select>
+	
+	<select id="productListOrder4" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 만족도순 정렬 리스트 (임시로 재고순으로 넣음) -->
+		SELECT * FROM PRODUCT ORDER BY CAST (PRODUCT_STOCK AS NUMBER)
+	</select>
+	
+	
+	
+	
+	
+	<select id="productView" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{param1}		
+	</select>
+	
+	
+	<insert id="productInsert">
+		INSERT INTO 
+			PRODUCT (PRODUCT_NO, PRODUCT_NAME, PRODUCT_PRICE, PRODUCT_CONTENT, 
+					 PRODUCT_STOCK, PRODUCT_TASTE, PRODUCT_IMG, PRODUCT_THUMBIMG) 
+			VALUES 
+		(PRODUCT_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, #{param6}, #{param7})
+ 	</insert>
+ 	
 	<update id="productModify">
 		UPDATE 
 			PRODUCT 
@@ -21,21 +50,29 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			PRODUCT_STOCK = #{param4}, PRODUCT_CONTENT = #{param5} 
 		WHERE PRODUCT_NO = #{param6}
 	</update>
-	
-	<insert id="productInsert">
-		INSERT INTO 
-			PRODUCT (PRODUCT_NO, PRODUCT_NAME, PRODUCT_PRICE, 
-					PRODUCT_CONTENT, PRODUCT_STOCK, PRODUCT_TASTE) 
-			VALUES 
-		(PRODUCT_SEQ.NEXTVAL, #{param1}, #{param2}, #{param3}, #{param4}, #{param5} )
-	</insert>
 
 	<delete id="productDelete">
 		DELETE FROM PRODUCT WHERE PRODUCT_NO = #{param1}
 	</delete>
 	
-	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">
+	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">	<!-- 메뉴찾기  -->
 		SELECT * FROM PRODUCT WHERE ${param1 } LIKE #{param2 } 
+	</select>
+
+	<select id="productCount" resultType="int">		<!-- productList 총 게시물 수   -->
+		SELECT COUNT(*) FROM PRODUCT
+	</select>
+	
+	<select id="productListPage" parameterType="Map" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT
+			*
+		FROM
+			(SELECT
+				ROWNUM R_NUM, A.*
+			FROM
+				(SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC ) A)
+		WHERE
+			R_NUM BETWEEN #{begin} AND #{end}
 	</select>
 	
 </mapper>

@@ -1,10 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>상품 등록</title>
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
+	<jsp:param value="FOODIT 메뉴등록" name="title"/>
+</jsp:include> 
+
 <script type="text/javascript">
 	function productInsert(f){
 	 	if(f.product_name.value==""){
@@ -35,7 +34,6 @@
 		f.action = "productInsert";
 		f.submit();
 	}
-
 </script>
 </head>
 <body>
@@ -50,12 +48,12 @@
 					</tr>
 					<tr>
 						<td>상품가격</td>
-						<td><input type="text" name="product_price" placeholder=",사용 금지 "/></td>
+						<td><input type="text" name="product_price" placeholder="콤마(,) 사용 금지 "/></td>
 					</tr>
 					<tr>
 						<td>상품내용</td>
 						<!--★ 사이즈 변경예정 ★-->
-						<td><textarea rows="10" cols="10" name="product_content"></textarea></td>
+						<td><textarea rows="10" cols="50" name="product_content" placeholder="해쉬태그형식으로 작성 (ex.#닭가슴살)"></textarea></td>
 					</tr>
 					<tr>
 						<td>상품재고</td>
@@ -77,8 +75,8 @@
 				<tfoot>
 					<tr>
 						<td colspan="2">
-							상품 썸네일 등록 <input type="file" name="product_thumbImg"/><br/>
-							상품 이미지 등록 <input type="file" name="product_img"/>
+							상품 이미지 등록 <input type="file" name="file_"/><br/>
+							상품 썸네일 등록 <input type="file" name="file_"/>
 						</td>
 					</tr>
 					<tr>

@@ -107,6 +107,19 @@ function passchk() {
 	  <br />
 	  <h2>주문자</h2>
 	    <hr />
+<<<<<<< HEAD
+		<form method="post" id ="f" action="orderInsert">
+		<!-- 
+			<div>
+			    <label>회원아이디</label>
+			    
+			</div>
+		 -->
+		 
+		상품 합계 금액 :  ${sumMoney }
+		 
+	                  <div>
+=======
 	    
 	    <!--비회원일떄  -->
 	   
@@ -117,6 +130,7 @@ function passchk() {
 			    <input type="button" value="로그인" onclick="location.href='sbmr'" />
 			     
 			     	<div>
+>>>>>>> branch 'master' of https://github.com/aycaramba1224/project
 	                    <label> 이름</label>   
 						<input type="text" name="order_name" id="order_name" />
 					 </div>
@@ -181,12 +195,26 @@ function passchk() {
 				    <div>
 				    <input type="text" id="sample4_roadAddress" name="order_road1" />
                    </div>
+<<<<<<< HEAD
+				     
+				     <br />
+				   <div>
+				   상품정보(장바구니 정보가 들어가야함)
+				   상품명 : <input type="text" name ="prodcut_name" value="${product_name }"/>
+				   </div>
+				    <br />
+				    
+               	 <h2>결제정보</h2>
+=======
                    	
                	  <!-- 비회원일떄보는 submit -->
                	 <h2>상품정보</h2>
 	             	 <h2>결제정보</h2>
+>>>>>>> branch 'master' of https://github.com/aycaramba1224/project
                	 <div>
-               	 총 상품금액<input type="text" />
+               	 총 상품금액: 
+               	 ${sumMoney }
+               	 <input type="text" name="sumMoney" value="${sumMoney }"/>
                	 </div>
                	 <div>
                	 총 배송비

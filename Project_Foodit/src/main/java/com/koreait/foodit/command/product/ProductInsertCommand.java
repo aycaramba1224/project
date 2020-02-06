@@ -1,5 +1,6 @@
 package com.koreait.foodit.command.product;
 
+import java.util.List;
 import java.util.Map;
 import java.io.File;
 
@@ -28,57 +29,51 @@ public class ProductInsertCommand implements ProductCommand {
 		MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
 		 
 		String product_name = request.getParameter("product_name");
-		String product_price = request.getParameter("product_price");
+		int product_price = Integer.parseInt(request.getParameter("product_price"));
 		String product_content = request.getParameter("product_content");
 		String product_stock = request.getParameter("product_stock");
 		String product_taste = request.getParameter("product_taste");	 		
 		
 		
 		// 이미지 업로드 
-		MultipartFile product_imgFile = request.getFile("product_img");  
-		MultipartFile product_thumbImgFile = request.getFile("product_thumbImg");  
-	
-		String originFilename = product_imgFile.getOriginalFilename();
-		String originFilename2 = product_thumbImgFile.getOriginalFilename();
-		
-		String extentionName = originFilename.substring(originFilename.lastIndexOf(".") + 1, originFilename.length());
-		String extentionName2 = originFilename2.substring(originFilename2.lastIndexOf(".") + 1, originFilename2.length());
-		
-		String imgSaveFilename = null;
-		String thumbImgSaveFilename = null;
-		
-		try { 
-			
-			imgSaveFilename = originFilename.substring(0, originFilename.lastIndexOf(".")) + "_" + "detail" + "." + extentionName;
-			thumbImgSaveFilename = originFilename2.substring(0, originFilename2.lastIndexOf(".")) + "_" + "thumbnail"+ "." + extentionName2;
-			
-			// 업로드 할 파일이 저장될 경로(/resources/upload)를 알아낸다.
-			String realPath = request.getSession().getServletContext().getRealPath("/resources/upload");	
-			String realPath2 = request.getSession().getServletContext().getRealPath("/resources/upload");	
-			 
-			File directory = new File(realPath);  
-			if ( !directory.exists() ) {
-				directory.mkdirs(); 
-			}			
-			File directory2 = new File(realPath2);  
-			if ( !directory2.exists() ) {
-				directory2.mkdirs(); 
-			}			
+		List<MultipartFile> uploadFileList = request.getFiles("file_");
+		int size = uploadFileList.size();
 
-			File saveFile = new File(realPath, imgSaveFilename);
-			product_imgFile.transferTo(saveFile);
-			
-			File saveFile2 = new File(realPath2, thumbImgSaveFilename);
-			product_thumbImgFile.transferTo(saveFile2);			
-			 
+		boolean isFirst = true; // 처음이다
+		String product_img = null;
+		String product_thumbImg = null;
+		
+		if ( uploadFileList != null && size > 0 ) {
+			for (MultipartFile multiFile : uploadFileList) {
+				if ( !multiFile.isEmpty() ) {
+					String originFilename = multiFile.getOriginalFilename();
+					String extentionName = originFilename.substring(originFilename.lastIndexOf(".") + 1, originFilename.length());
+					String saveFilename = null;
+					try {
+						saveFilename = originFilename.substring(0, originFilename.lastIndexOf(".")) + "_" + System.currentTimeMillis() + "." + extentionName;
+						if (isFirst) {
+							product_img = saveFilename;
+							isFirst= false;
+						} else {
+							product_thumbImg = saveFilename;
+						}
+						String realPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+						File directory = new File(realPath);
+						if ( !directory.exists() ) {
+							directory.mkdirs();
+						}
+						File saveFile = new File(realPath, saveFilename);
+						multiFile.transferTo(saveFile);
+					} catch (Exception e) {
+						e.printStackTrace();
+					} // end try
+				} // end if
+			} // end for
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-			redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert(product_name, product_price, product_content, product_stock,
-					product_taste, imgSaveFilename, thumbImgSaveFilename));
+			redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert(product_name, product_price, product_content, 
+																						  product_stock, product_taste, product_img, product_thumbImg));
 			redirectAttributes.addFlashAttribute("isProductInsert", "yes");
-				
-		} catch (Exception e) {
-			e.printStackTrace();
-		}		
+		} // end if 
  
 	}	
 	

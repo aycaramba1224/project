@@ -1,13 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-    
+
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
+    <jsp:param value="FOODIT 메뉴" name="title"/>
+</jsp:include>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>faq목</title>
+<title>FAQ LIST</title>
 <script type="text/javascript">
 
 var isFaqModify = "${isFaqModify}";
@@ -37,38 +43,27 @@ if(isFaqDelete == "yes"){
         alert("게시글 삭제가 성공하였습니다.");   
     }
 }   
-
-
 </script>
-
 </head>
 <body>
   <div id="wrap">
-        <h3>faq</h3>
-    <!--    <div id="search">
-            <form action="dynamicQuery" method="POST">
-                검색 
-                <select name="query">
-                    <option value="PRO_NO">게시글번호</option>
-                    <option value="PRO_NAME">게시글명</option>
-                    <option value="PRO_TASTE">맛</option>
-                </select>
-                <input type="text" name="content"/>
-                <input type="submit" value="검색">
-            </form> 
-        </div> -->
+        <br/>
+        <h1>고객행복센터</h1>
+        <hr/>
+        <br/>
+      
         <table border="1">
             <thead>
                 <tr>
-                    <td>글번</td>
+                    <td>글번호</td>
                     <td>글제목</td>
                     <td>항목</td>                           
                 </tr>
             </thead>
             <tbody>
-                <c:if test="${faqListSize eq 0 }">
+                <c:if test="${faqListCount eq 0 }">
                 <tr>
-                    <td colspan="3">등록된 이 없습니다.</td>                  
+                    <td colspan="3">등록된 글이 없습니다.</td>                  
                 </tr>               
                 </c:if>
                 <c:forEach var="faqDto" items="${faqList }">
@@ -79,7 +74,7 @@ if(isFaqDelete == "yes"){
                 </tr>
                 </c:forEach>
                 <tr>
-                    <td colspan="3">총 글개수 : ${faqListSize }개</td>
+                    <td colspan="3">총 글개수 : ${faqListCount }개</td>
                 </tr>               
             </tbody>
             <tfoot>
@@ -90,8 +85,10 @@ if(isFaqDelete == "yes"){
                     </td>                   
                 </tr>
             </tfoot>
-    	  <!--  관리자만 보이는 부분  (처리예정)  -->
+          <!--  관리자만 보이는 부분  (처리예정)  -->
         </table>    
     </div>
 </body>
 </html>
+
+

@@ -5,11 +5,6 @@
 	<jsp:param value="FOODIT 관리자메뉴_상품수정/삭제" name="title"/>
 </jsp:include>   
 
-
-
-
- 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	var isProductModify = "${isProductModify}";
 	if(isProductModify == "yes"){
@@ -91,7 +86,7 @@
 					<tr>
 						<td>
 							상품내용 :${productDto.product_content } <br />
-							<input type="text" name="product_content" value="${productDto.product_content }" />
+							<textarea name="product_content" ></textarea> 
 						</td>
 					</tr>
 					<tr>
