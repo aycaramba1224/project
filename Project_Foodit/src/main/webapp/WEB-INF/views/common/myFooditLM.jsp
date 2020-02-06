@@ -3,8 +3,6 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="MY푸딧" name="title"/>
 </jsp:include>
-<div id="myContainer">
-	<div id="content" class="myContent">
 		<div class="leftMenu">
 			<h2 class="leftTit nbgB">MY푸딧</h2>
 			<dl class="myMenu">

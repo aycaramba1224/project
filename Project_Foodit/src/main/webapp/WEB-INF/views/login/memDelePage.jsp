@@ -4,7 +4,7 @@
 
 <div class="deleWrap">
 	<div class="deleBox">
-		<div class="deleTit nbg">
+		<div class="deleTit nbgB">
 			<h2>회원탈퇴</h2>
 		</div>
 		<div class="deleCont ng">
