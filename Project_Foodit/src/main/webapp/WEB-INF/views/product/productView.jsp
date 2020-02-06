@@ -17,10 +17,9 @@
 	function addCart(f){
 		var check = confirm("'#${productDto.product_name}'이 장바구니에 담겼습니다.장바구니로 이동하시겠습니까?");
 		if (check) {
-			f.action ="cartInsert?product_no=${productDto.product_no }";	
-			f.submit();	
-		}
-		
+				f.action ="cartInsert?product_no=${productDto.product_no }";	
+				f.submit();	
+		}	
 	}
 </script>
 </head>

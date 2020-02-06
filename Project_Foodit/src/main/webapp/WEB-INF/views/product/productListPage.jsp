@@ -55,6 +55,16 @@
 			</div>
 		</c:forEach> 
 		
+		<div>
+		 <c:forEach begin="${begin }" end="${end}" var="currentPage">
+		    <span>
+		     페이징 : currentPage  <a href="productListPage?currentPage=1">${currentPage}</a> 
+		   
+		 
+		  </span>
+		 </c:forEach>
+		</div>
+
 	</div>
 	
 	

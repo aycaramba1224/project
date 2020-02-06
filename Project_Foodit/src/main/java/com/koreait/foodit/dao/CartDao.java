@@ -7,8 +7,10 @@ import com.koreait.foodit.dto.CartDto;
 public interface CartDao { 
  	
 	public ArrayList<CartDto> cartList(String cart_id);
+	public ArrayList<CartDto> guestCartList();
 	
 	public int cartInsert (String cart_id, int product_no, int cart_amount);  	 
+	public int GuestCartInsert (int product_no, int cart_amount);  	 
 	
 	public int cartDelete(int cart_no);
 	

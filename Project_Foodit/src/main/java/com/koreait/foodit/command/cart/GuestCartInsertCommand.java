@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.dao.CartDao;
 
-public class CartInsertCommand implements CartCommand {
+public class GuestCartInsertCommand implements CartCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -21,19 +21,19 @@ public class CartInsertCommand implements CartCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request"); 
 			 
-		String cart_id = request.getParameter("cart_id");
-		
+		 
 		int product_no = Integer.parseInt(request.getParameter("product_no"));		
 		int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));	
+		
 		 
 		int count = cartDao.cartCount(product_no);	// 동일한 상품번호를 가진 상품 수량 
 		
 		if(count == 0) {	// 동일한 상품번호가 없는 경우 insert한다.
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-			redirectAttributes.addFlashAttribute("cartInsert", cartDao.cartInsert(cart_id, product_no, cart_amount));
+			redirectAttributes.addFlashAttribute("cartInsert", cartDao.GuestCartInsert(product_no, cart_amount));
 		} else {			// 동일한 상품번호가 있는 경우 수량을 update한다.
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-			redirectAttributes.addFlashAttribute("cartUpdate", cartDao.cartUpdate(product_no, cart_amount));
+			redirectAttributes.addFlashAttribute("cartUpdate", cartDao.GuestCartInsert(product_no, cart_amount));
 		} 
  
 	}

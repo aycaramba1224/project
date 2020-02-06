@@ -10,9 +10,8 @@ public class ProductListCommand implements ProductCommand {
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 		
-		ProductDao productDao = sqlSession.getMapper(ProductDao.class);
-		
-	 
+		ProductDao productDao = sqlSession.getMapper(ProductDao.class);		
+		 
 		model.addAttribute("productList", productDao.productList());
 		model.addAttribute("productListSize", productDao.productList().size());
 

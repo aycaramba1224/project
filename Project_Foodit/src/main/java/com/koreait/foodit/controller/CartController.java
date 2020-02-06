@@ -39,7 +39,17 @@ public class CartController {
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		cartCommand = new CartInsertCommand();
 		cartCommand.execute(sqlSession, model);
-		return "redirect:/cartList";  
+		/*return "redirect:/cartList";*/
+		return "redirect:/test";
+	}  
+	@RequestMapping("guestCartInsert")  
+	public String GuestCartInsert(HttpServletRequest request, RedirectAttributes redirectAttributes,  Model model) {
+		
+		model.addAttribute("request", request);
+		model.addAttribute("redirectAttributes", redirectAttributes);
+		cartCommand = new CartInsertCommand();
+		cartCommand.execute(sqlSession, model);
+		return "redirect:/guestCartList";  
 	}  
 	  
 
@@ -51,7 +61,10 @@ public class CartController {
 		return "redirect:/cartList";
 	}
  
- 
+	@RequestMapping("test")
+	public String test(){
+		return "cart/test";
+	}
 	
 }
 

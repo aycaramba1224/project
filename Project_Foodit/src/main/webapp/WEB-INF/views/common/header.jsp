@@ -80,7 +80,7 @@ if(isLogout == "yes"){
 									<span class="txt">장바구니</span>
 									<span class="num" id="headerCartCount">
 										<!-- 장바구니 갯수 카운트 넣을 것.(0 지우고 작업하세요.) -->
-										 0
+										 ${cartListSize }
 									</span>
 								</a>
 							</li>

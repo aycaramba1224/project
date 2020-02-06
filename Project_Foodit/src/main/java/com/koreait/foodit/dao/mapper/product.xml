@@ -42,9 +42,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		DELETE FROM PRODUCT WHERE PRODUCT_NO = #{param1}
 	</delete>
 	
-	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">
+	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">	<!-- 메뉴찾기  -->
 		SELECT * FROM PRODUCT WHERE ${param1 } LIKE #{param2 } 
 	</select>
 
+	<select id="productCount" resultType="int">		<!-- productList 총 게시물 수   -->
+		SELECT COUNT(*) FROM PRODUCT
+	</select>
+	
+	<select id="productListPage" parameterType="Map" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT
+			*
+		FROM
+			(SELECT
+				ROWNUM R_NUM, A.*
+			FROM
+				(SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC ) A)
+		WHERE
+			R_NUM BETWEEN #{begin} AND #{end}
+	</select>
 	
 </mapper>
