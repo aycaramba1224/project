@@ -96,4 +96,6 @@ if(isLogout == "yes"){
 				</div>
 			</div>
 		</div>
-		<div id="main">
+		<div id="myContainer">
+			<div id="content" class="myContent">
+				<div id="main">

@@ -28,8 +28,10 @@
 <script>
 	var maskingId = "${mDto.id}";
 	var pattern = /.{2}$/; // 정규식
-	maskingId = maskingId.replace(pattern, "**");
-	document.getElementById("marsking").innerText = maskingId + "님";
+	if ( maskingId ){
+		maskingId = maskingId.replace(pattern, "**");
+		document.getElementById("marsking").innerText = maskingId + "님";
+	}
 	setInterval(function (){
 		window.location.href="sbmr";
 	}, 5000);

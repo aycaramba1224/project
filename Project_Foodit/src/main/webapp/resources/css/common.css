@@ -436,3 +436,12 @@ a:visited {
     vertical-align: middle;
     font-family: "nbgB";
 }
+
+/* common-design */
+.singleTit{
+	padding-bottom: 36px;
+    color: #101010;
+    font-size: 40px;
+    line-height: 56px;
+    border-bottom: 4px solid #202020;
+}

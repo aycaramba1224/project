@@ -18,9 +18,8 @@
 		}
 	}  
 </script>
- 
-	FOODIT 메뉴 
-	<div id="wrap">	
+	<div id="pd_wrap">	
+	<h2 class="singleTit nbgB">FOODIT 메뉴</h2> 
  	 
 		<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
 			<input type="button" value="상품등록" onclick="location.href='productInsertPage'"/><br/><br/>   
