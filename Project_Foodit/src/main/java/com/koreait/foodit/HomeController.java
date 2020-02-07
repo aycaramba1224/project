@@ -38,7 +38,7 @@ public class HomeController {
 	
 	}
 	
-	@RequestMapping("/index") 
+	@RequestMapping("/main") 
 	public String index() { // main test용 index 경우
 		return "index";
 	}

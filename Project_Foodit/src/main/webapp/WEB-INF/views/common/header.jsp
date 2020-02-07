@@ -23,6 +23,7 @@
 <link href="<c:url value="/resources/css/find.css" />" type="text/css" rel="stylesheet" >
 <link href="<c:url value="/resources/css/myInfo.css" />" type="text/css" rel="stylesheet" >
 <link href="<c:url value="/resources/css/cart.css" />" type="text/css" rel="stylesheet" >
+<link href="<c:url value="/resources/css/menuSearch.css" />" type="text/css" rel="stylesheet" >
 <link rel="shortcut icon" href="#" type="image/x-icon">
 <link href="<c:url value="/resources/bootstrap/css/datepicker3.css" />" type="text/css" rel="stylesheet" >
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>

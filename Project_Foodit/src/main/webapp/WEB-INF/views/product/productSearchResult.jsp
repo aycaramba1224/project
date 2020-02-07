@@ -16,36 +16,39 @@
 		f.submit();
 	}
 </script>
-</head>
-<body>
 
-	<div id="wrap">
-		메뉴찾기
+	<div id="menuSearchWrap">
+		<div class="menuSearchTit">
+			<h2>메뉴찾기</h2>
+		</div>
 		
-		<div id="검색박스">
-			<form method="POST">
-				<input type="hidden" name="query" value="product_name"/>			
-				<input type="text" name="content" placeholder="메뉴를 검색해 주세요."/>
-				<input type="button" value="검색" onclick="searchMenu(this.form)"> <!-- 돋보기 아이콘으로 대체 예정  -->
-				
-				<br/>			
-				<span>FOODIT의 모든 메뉴를 쉽고 빠르게 찾아볼 수 있습니다.</span>
-			  			  
-			</form>	 
+		<div class="menuSearchBox">
+			<div class="schWrap">
+				<div class="formInputWrap">
+					<form method="POST">
+						<input type="hidden" name="query" value="product_name"/>			
+						<input type="text" class="txt" name="content" placeholder="메뉴명으로 검색해 주세요."/>
+						<button type="button" class="ico">
+							<span class="hide">입력 삭제</span>
+						</button>
+						<button type="button" class="srchBtn" value="검색" onclick="searchMenu(this.form)">
+							<span class="hide">검색</span>
+						</button>
+						<p class="pInfo">FOODIT의 모든 메뉴를 쉽고 빠르게 찾아볼 수 있습니다.</p>
+					</form>	 
+				</div>
+			</div>
+		</div>
+		<div class="menuSearchList">
+			<h3>판매중</h3>
 		</div>
 		<div id="검색결과" >
-
 			<jsp:include page="/WEB-INF/views/product/searchResult.jsp">
 				<jsp:param name="productList" value="${param.productList }"/>
 				<jsp:param name="productListSize" value="${param.productListSize }"/>
 			</jsp:include>	 
 			 
 		</div> 
-		
-	  	<br/><br/>
-		
-				
 	</div> 
+	<script type="text/javascript" src="resources/js/menuSearch.js" ></script>
 	
-</body>
-</html>
