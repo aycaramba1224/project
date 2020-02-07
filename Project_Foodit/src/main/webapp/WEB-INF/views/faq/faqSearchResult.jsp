@@ -83,22 +83,14 @@ if(isFaqDelete == "yes"){
         </div>
        <br/>
        <c:if test="${mDto.role == 'admin' }">    
-           <input type="button" value="FAQ등록" onclick="location.href='faqWritePage'"/>  
+           <input type="button" value="리뷰등록" onclick="location.href='faqWritePage'"/>  
        </c:if>
         <br/>
-        <c:if test="${faqListCount eq 0 }">
-          <tr>
-            <td colspan="3">등록된 글이 없습니다.</td>                  
-          </tr>               
-        </c:if>
-       <c:forEach var="faqDto" items="${faqList }">
-        <tr>                    
-           <td>${faqDto.faq_no }</td>
-           <td><a href="faqView?faq_no=${faqDto.faq_no}">${faqDto.faq_title}</a></td>
-        </tr>
-       </c:forEach>   
+       <div id="검색결과" >
 
-
-
-
-                       
+			<jsp:include page="/WEB-INF/views/faq/searchResult.jsp">
+				<jsp:param name="faqList" value="${param.faqList }"/>
+				<jsp:param name="faqListSize" value="${param.faqListSize }"/>
+			</jsp:include>	 
+			 
+		</div> 

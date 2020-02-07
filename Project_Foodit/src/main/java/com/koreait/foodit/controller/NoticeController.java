@@ -52,7 +52,7 @@ public class NoticeController {
 			return "notice/noticeWritePage";
 		}
 		
-	 @RequestMapping(value="noticeWrite", method = RequestMethod.POST)
+	 @RequestMapping("noticeWrite")
 		public String noticeWrite(RedirectAttributes attributes,
 				               HttpServletRequest request, 
 				               Model model) {

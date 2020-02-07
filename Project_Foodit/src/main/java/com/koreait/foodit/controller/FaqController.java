@@ -17,6 +17,7 @@ import com.koreait.foodit.command.faq.FaqModifyCommand;
 import com.koreait.foodit.command.faq.FaqSearchCommand;
 import com.koreait.foodit.command.faq.FaqViewCommand;
 import com.koreait.foodit.command.faq.FaqWriteCommand;
+import com.koreait.foodit.command.product.ProductSearchCommand;
 
 @Controller
 public class FaqController {
@@ -32,7 +33,14 @@ public class FaqController {
 		faqCommand.execute(sqlSession, model);
 		return "faq/faqList";
 	}
-
+	
+	@RequestMapping("faqSearchResult")
+	public String dynamic(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		faqCommand  = new FaqSearchCommand();
+		faqCommand.execute(sqlSession, model);
+		return "faq/faqSearchResult";
+	}
 
 	
 	@RequestMapping("faqView")
