@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>비회원 주문 조회</title>
+     
+      <jsp:include page="/WEB-INF/views/common/header.jsp" >
+	    <jsp:param value="비회원 주문/배송" name="title"/>
+      </jsp:include>
+      
+    
 <script>
  function guestSearch(){
 	 if(f.content2.value==""){
@@ -23,8 +24,7 @@
  
  
 </script>
-</head>
-<body>
+
    <div>
     <h1>비회원 주문/배송조회</h1>
     <form method="post" name="f">
@@ -41,8 +41,28 @@
     </div>
       
      <input type="button" value="비회원주문/배송조회" onclick="guestSearch()"/>
+     <input type="button" value="비회원 주문번호 찾기" onclick="location.href='guestnoSerachPage'" />
     </form>
     </div>
-    
-</body>
-</html>
+      
+        <!-- 비회원 주문번 찾호,비밀번호 찾은 내용  -->
+					 <br />
+					 <c:choose>
+					  <c:when test="${orderBaseDto ne null }">
+    			<div>
+             <p>정보를 확인하시고 잘 작성해주세요</p>
+            <br />
+						<div>주문번호:
+							${orderBaseDto.order_no }
+						</div>
+					  
+					 <div>
+					주문비밀번호:
+					 ${orderBaseDto.guest_pw }
+					 </div>
+					 
+				</div>
+          </c:when>
+          </c:choose>
+     
+       <%@ include file="/WEB-INF/views/common/footer.jsp" %>

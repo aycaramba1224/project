@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta  charset="UTF-8">
-<title>Insert title here</title>
+
+	 <jsp:include page="/WEB-INF/views/common/header.jsp" >
+	    <jsp:param value="바회원 주문배송/조회결과페이지" name="title"/>
+      </jsp:include>
+      
 <style type="text/css">
     h1{
     text-align: center;
@@ -100,7 +100,7 @@
 					</div>
 					<div class="pro-order">
 					
-					
+
 					</div>
 					<div class="del-div">
 					<h1>배송정보</h1>
@@ -136,16 +136,11 @@
 		              ${orderBaseDto.order_road1}
 		          </td>
 					</tr>
-				 <!-- 
-					<tr>
-					<td>
-					  ${OrderBaseDto.orderDate}
-					</td>
-					</tr>
-					-->
 					</tbody>
 					</table>
 					</form>
+					
+					
+					
 
-</body>
-</html>
+	 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

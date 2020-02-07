@@ -11,10 +11,9 @@
 	
 	 <input type="button" value="비회원 주문/배송 조회하기" onclick="location.href='guestSearchPage'" />
 	 <input type="button" value="주문하기" onclick="location.href='orderInsertPage'"/>
-	  <input type="button" value="회원주문내역" onclick="location.href='memberOrderlistPage'" />	 
-	  <input type="button" value="비회원주문내역" onclick="location.href='orderBaseList'" />	 
-		
-		     
+	  <input type="button" value="회원주문내역" onclick="location.href='memberOrderlistPage'" />
+	 
+	  
 		&nbsp;
 		<input type="button" value="상품 전체 목록" onclick="location.href='productList'" />	
 		<input type="button" value="상품 검색" onclick="location.href='productSearch'" />	

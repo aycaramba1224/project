@@ -2,6 +2,7 @@ package com.koreait.foodit.dao;
 
 import java.util.ArrayList;
 
+import com.koreait.foodit.dto.MemberDto;
 import com.koreait.foodit.dto.OrderBaseDto;
 
 
@@ -18,8 +19,11 @@ public interface OrderBaseDao {
 	*/
 	//비회원 관련
 	public ArrayList<OrderBaseDto> guestOrder(String guestquery ,String content);
+	public ArrayList<OrderBaseDto> findno(String guestquery ,String content);
 	public ArrayList<OrderBaseDto> guest_noOrder(String guestquery2 ,String content2);
 	public OrderBaseDto guestorderList_view(int order_no);
+	
+
 	
 	
 	

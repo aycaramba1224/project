@@ -1,20 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<style>
+ 	<jsp:include page="/WEB-INF/views/common/header.jsp" >
+	    <jsp:param value="회원 배송지 목록" name="title"/>
+      </jsp:include>
+	<style>
+	
+	 .contaniner {
+	  border: 1px solid black;
+	  width: 800px;
+	}
+	</style>
 
- .contaniner {
-  border: 1px solid black;
-  width: 800px;
-}
-</style>
-</head>
-<body>
        
            <c:choose>
 		     <c:when test="${ mDto ne null }">
@@ -33,6 +30,8 @@
 			<c:forEach var="OrderBaseDto" items="${memberBaseList}">
 				    <div class="contaniner">
 			      
+			       
+			       
 			         <div>
 			                 배송자이름:
 				    <input type="text" name="delivery_name" value="${OrderBaseDto.delivery_name}">
@@ -65,5 +64,4 @@
        </form>
    </c:when>
    </c:choose>
-</body>
-</html>
+ 	<%@ include file="/WEB-INF/views/common/footer.jsp" %>

@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},
  #{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13})
 </insert>
+
 <select id="orderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
  SELECT * FROM ORDER_BASE ORDER BY ORDER_NO
 </select>
@@ -54,9 +55,12 @@ INSERT INTO ORDER_BASE (DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PH
 VALUES (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 </insert>
 
+
 <select id="memberDeliveryList" resultType="com.koreait.foodit.dto.OrderBaseDto">
-SELECT * FROM ORDER_BASE ORDER BY DELIVERY_NAME
+SELECT * FROM ORDER_BASE ORDER BY ORDER_NAME
 </select>
+
+
 
 <insert id="deliveryeInsert">
 INSERT INTO ORDER_BASE (DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PHONE3,ORDER_POST,ORDER_ROAD1)
@@ -84,6 +88,10 @@ VALUES (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 		 	
 </select>
 
-
+<select id="findno" resultType="com.koreait.foodit.dto.OrderBaseDto">
+		 SELECT * FROM ORDER_BASE WHERE ${param1} LIKE #{param2}
+</select>
+	
+	
  	
 </mapper>

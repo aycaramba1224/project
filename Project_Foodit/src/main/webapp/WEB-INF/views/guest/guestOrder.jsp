@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  
+   <jsp:include page="/WEB-INF/views/common/header.jsp" >
+	    <jsp:param value="바회원 주문배송/조회 중간 결과페이지" name="title"/>
+      </jsp:include>
 <style type="text/css">
 *{
    margin:0;
    padding:0;
    }
-    h1{
+    h1,p{
     text-align: center;
     margin-bottom: 20px;
     }
@@ -52,6 +51,8 @@
 <body>
 		<form method="post"  name="f">
 	       <h1>주문자 정보</h1>
+       <p>주무번호을 클릭하세요.자세한정보 확인이 가능합니다.</p>
+       <hr />
 			<table border="1">
 			<c:if test="${ guest_noListSize ne 0 }">
 			<c:if test="${ guestListSize ne 0 }">
@@ -89,12 +90,26 @@
 		
 				</c:if>
 		</c:if>	
-	</table>
-		</form>
 		
-		
-		
-				
-
-</body>
-</html>
+ </table>
+ </form>
+ 
+      <form>
+            
+			<c:forEach var="OrderBaseDto" items="${guestOrderList}">
+             <h1>주문시 이름</h1>
+     			<p>이름을 클릭하세요.자세한정보 확인이 가능합니다.</p>
+			   <div> <a href="guestnameview?order_name=${OrderBaseDto.order_name}">
+			    {OrderBaseDto.order_name }</a></div>
+			</c:forEach>
+			
+			
+ 	     <c:if test="${ guestOrderListSize eq 0 }">
+ 	                    정보없음
+			</c:if>
+	</form>
+          
+          
+         
+   
+     

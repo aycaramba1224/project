@@ -1,43 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>주문내역 페이지</title>
-<script>
-//비회원일떄!기본!
 
-var orderBaseModifyResult = "${orderBaseModifyResult}";
-if( orderBaseModifyResult == "yes"){
-	var orderModifyResult= "${orderModifyResult}";
-	if(orderModifyResult == 0){
-		alert("주문 정보 수정 실패.");
-	} else {
-		alert("주문정보 수정성공.");
-	}
-}
-
-
-var orderDeleteResult = "${orderDeleteResult}";
- if( orderDeleteResult == "yes"){
-		var deleteResult = "${deleteResult}";
-		if(deleteResult== 0){
-			alert("주문정보 삭제 실패.");
-		} else {
-			alert("주문정보 삭제 성공.");
+	<jsp:include page="/WEB-INF/views/common/header.jsp" >
+	    <jsp:param value="주문/배송 목록페이지" name="title"/>
+      </jsp:include>
+	
+	
+	<!--회원 주문내역/비회원 주문내역 정렬 해야됨-->
+	
+	
 			
-		}
-	}
- 
+	<h1>주문자 정보 페이지</h1>
+	
 
-</script>
-</head>
-<body>
-<h1>주문자 정보 페이지</h1>
 	        <form>
  		<c:choose>
+	           
+	           
 	        <c:when test="${ mDto eq null }">
       <table border="1">
 			<tbody>
@@ -50,7 +30,7 @@ var orderDeleteResult = "${orderDeleteResult}";
 			<th>주문자 이메일</th>
 			</tr>
 		
-		<c:if test="${ orderBaseListSize ne 0 }">
+		
 			<c:forEach var="OrderBaseDto" items="${orderBaseList}">
 				<tr>
 				    <td>${OrderBaseDto.order_no}</td>
@@ -60,7 +40,7 @@ var orderDeleteResult = "${orderDeleteResult}";
 					<td>${OrderBaseDto.order_email}@${OrderBaseDto.order_email2}</td>
 				</tr>
 			</c:forEach>
-		</c:if>
+		
 			<c:if test="${orderBaseListSize eq 0 }">
 			<tr>
 				<td colspan="5">저장된 주문정보가 없습니다.</td>
@@ -68,6 +48,8 @@ var orderDeleteResult = "${orderDeleteResult}";
 		</c:if>
 		</tbody>
    </table>
+   
+   <br />
     
     <h1>배송정보</h1>
     <table border="1">
@@ -80,7 +62,8 @@ var orderDeleteResult = "${orderDeleteResult}";
 			<th>주문날짜</th>
 		   </tr>
 		   
-		   <c:if test="${ orderBaseListSize ne 0 }">
+        
+		   <c:if test="${ mDto eq null }">
 			<c:forEach var="OrderBaseDto" items="${orderBaseList}">
 			
 				<tr>
@@ -108,16 +91,43 @@ var orderDeleteResult = "${orderDeleteResult}";
 				전체 주문에대한정보(${orderBaseListSize })개&nbsp;&nbsp;
 		     </th>
 		     </tr>
-		     <tr>
 		     
-		     <th>
-			 <input type="button" value="주문하기페이지로" onclick="location.href='orderInsertPage'"/>
-			 </th>
-			 </tr>
+		  
+		  
+			<c:forEach var="OrderBaseDto" items="${memberBaseList}">
+			 <div>
+			   배송자이름:
+		           ${OrderBaseDto.delivery_name}
+		       </div>
+		       <div>
+		        배송자 전화번호:
+				 ${OrderBaseDto.delivery_phone}-${OrderBaseDto.delivery_phone2}-${OrderBaseDto.delivery_phone3}
+				 
+				 </div>
+				 
+				 <div>
+				 배송 우편번호주소:
+				   ${OrderBaseDto.order_post}
+				   </div>
+				   
+				   <div>
+				   배송 주소:
+					${OrderBaseDto.order_road1}
+					</div>
+					
+					<div>
+					주문날짜:
+					${OrderBaseDto.orderDate}
+					</div>
+			</c:forEach>
+		
+		     
 		</tfoot>
 		</table>
 		</c:when>
+
 		</c:choose>
-		</form>
-</body>
-</html>
+		</form> 
+	
+	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+	 <script type="text/javascript" src="resources/js/order.js"></script>
