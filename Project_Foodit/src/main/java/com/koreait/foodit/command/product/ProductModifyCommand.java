@@ -72,21 +72,6 @@ public class ProductModifyCommand implements ProductCommand {
 			redirectAttributes.addFlashAttribute("isProductModify", "yes");	 
 		} // end if 
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		int product_no =  Integer.parseInt(request.getParameter("product_no"));
-		
-	 
-
 	}
 
 }

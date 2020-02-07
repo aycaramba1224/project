@@ -17,6 +17,16 @@
 			alert("상품 등록이 성공하였습니다.");
 		}
 	}  
+	var isProductModify = "${isProductModify}";
+	if(isProductModify == "yes"){
+		var modifyResult = "${modifyResult}";
+		if(isProductModify == 0){
+			alert("상품 등록이 실패하였습니다.");
+		} else {
+			alert("상품 등록이 성공하였습니다.");
+		}
+	}  
+
 </script>
 	<div id="pd_wrap">	
 	<h2 class="singleTit nbgB">FOODIT 메뉴</h2> 
@@ -31,9 +41,9 @@
 			등록된 메뉴가 없습니다.
 		</c:if>	 		
 		
-		<div id="목록" style="float:left; padding:20px;" >		
+				<c:forEach var="productDto" items="${productList }" >	<!-- 가로정렬을 위해 임시 이렇게 설정했습니다. -->
+		<div style="float:left; padding:20px; width:366px;" >		
 			<ul style="list-style-type:none;">		 
-				<c:forEach var="productDto" items="${productList }" >	
 					<li>		 	
 						<a href="productView?product_no=${productDto.product_no}">	 
 							<!-- 상품 목록 썸네일 이미지 사이즈 : 366x366  -->
@@ -46,9 +56,9 @@
 							<span> 별점 &nbsp;|&nbsp; 리뷰글수 </span> 
 						</a>		 	
 					</li>		  
-				</c:forEach> 
 			</ul>		 
 		</div>
+			</c:forEach> 
 		
 	</div>
 	

@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.dao.CartDao;
-import com.koreait.foodit.dto.MemberDto;
 
 public class GuestCartInsertCommand implements CartCommand {
 
@@ -22,13 +21,12 @@ public class GuestCartInsertCommand implements CartCommand {
 		 
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request"); 
-		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();		
 		
-		String cart_id = session.getId();
+		String cart_id = session.getId();			// 비회원의 경우에는 임시로  세션아이디를 부여해줌
 		int product_no = Integer.parseInt(request.getParameter("product_no"));		
 		int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));
-		
-		System.out.println("임시아이디 :" + cart_id);
+	 
 		session.setAttribute("cart_id", cart_id);
 		 
 		int count = cartDao.cartCount(product_no);	// 동일한 상품번호를 가진 상품 수량 

@@ -20,38 +20,11 @@ if( isCartDelete == "yes"){
 		alert("메뉴 삭제가 실패하였습니다.");
 	}
 }  
-   
-/*   	$(function(){	
-		$("#selectDelete_btn").click(function(){
-			var confirm_val = confirm("선택한 메뉴를 삭제하시겠습니까?");
-			if(confirm_val){
-				var checkArr = new Array();	
-				$("input[name='chBox']:checked").each(function(){					 
-					checkArr.push($(this).attr("data-cartNo"));
-				});
-				$.ajax({
-					url : "cartDelete",
-					type : "post",
-					data : { chbox : checkArr },
-					success : function(){
-					location.href = "cartList";
-					},	
-					error : function(){
-						alert("실패!");
-					}
-				});
-			} 
-		});
-  	}); */
-  	
-  	/* function selectDelete(){
-  		var check = confirm("선택한 메뉴를 삭제하시겠습니까?");
-  		var select = "input[name='chBox']:checked";
-  		if(check){
-  			location.href="cartDelete?cart_no=${cart_no}";
-  			
-  		}
-  	} */
+
+function goLogin(f){
+ 	f.action = "sbmr?cart_id=${cart_id}";
+	f.submit();  
+}
  
 </script>
 </head>
@@ -61,32 +34,36 @@ if( isCartDelete == "yes"){
 	 	<div class="cartTitWrap">
 			<h2 class="cartTit">장바구니</h2>
 	 	</div>
-	 	 
+	 	<form method="POST" action ="orderInsertPage">	
 	   	<c:if test="${mDto.id eq null }">
 			<div class="nomem_login">
 	 				<p>로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.</p>
-	 				<button type="button" onclick="location.href='sbmr'">로그인</button>		 		 
+	 				<button type="button" onclick="goLogin(this.form)">로그인</button>		 		 
 			</div> 		 
-	 	</c:if>    
-		
+	 	</c:if>    	
+	 		
 		<c:choose>
 			<c:when test="${guestCartListSize eq 0 }">  
-		<div class="detail">
-			<div class="detail_info">
-				<div class="no_data">
-					<span class="ico"></span>
-					<p>장바구니에 담긴 메뉴가 없습니다.</p>
-					<span>다양한 맛을 가진 메뉴를 확인해 보세요.</span>
-					<a href="productList" class="rec_link">
-						<span>메뉴보러 가기</span>
-					</a>
-				</div>
-			</div>
-		</div> 		  
+				<div class="detail">
+					<div class="detail_info">
+						<div class="no_data">
+							<span class="ico"></span>
+							<p>장바구니에 담긴 메뉴가 없습니다.</p>
+							<span>다양한 맛을 가진 메뉴를 확인해 보세요.</span>
+							<a href="productList" class="rec_link">
+								<span>메뉴보러 가기</span>
+							</a>
+						</div>
+					</div>
+				</div> 		  
 			</c:when>
 			<c:otherwise>
-				<form method="POST" action ="orderInsertPage">					 
 				
+				
+					
+				아이디 : ${cart_id }
+					<input type="hidden" name="cart_id" value="${cart_id }"/>
+				 
 					<table border="1" style="width:500px;">
 						<thead>
 							<tr>
@@ -99,10 +76,12 @@ if( isCartDelete == "yes"){
 								<td colspan="4">
 									<input type="button" value="선택 삭제" id="selectDelete_btn" onclick="selectDelete()"/>	
 								</td> 
-							</tr>
+							</tr>							
 						</thead>
 						<tbody>
 							<c:forEach var="gc" items="${guestCartList }" >
+							<input type="hidden" name="cart_no" value="${gc.cart_no }"/>
+							 카트번호 :${gc.cart_no }  
 							<tr>
 								<td>
 									<input type="checkbox" name="chBox" class="chBox" checked="checked" data-cartNo = "${gc.cart_no }"/>	<!-- 개별 선택 체크 박스  -->
@@ -116,8 +95,8 @@ if( isCartDelete == "yes"){
 									<fmt:formatNumber value="${gc.product_price}" pattern="#,###,###" />원  
 								</td>					
 								<td>						 
-									${gc.cart_amount } 
-								</td>
+									${gc.cart_amount }
+								</td>														
 								<td>
 									<fmt:formatNumber value= "${gc.product_price * gc.cart_amount }" pattern="#,###,###" />원
 								</td>
@@ -147,9 +126,9 @@ if( isCartDelete == "yes"){
 							</tr>
 						</tfoot>
 					</table>
-				</form>
-			</c:otherwise>
-		</c:choose>  		
+				</c:otherwise>
+			</c:choose>  		
+		</form>
 	</div>
 	
 <script type="text/javascript" src="resources/js/cart.js"></script>	

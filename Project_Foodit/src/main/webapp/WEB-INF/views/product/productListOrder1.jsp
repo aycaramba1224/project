@@ -19,13 +19,13 @@
 	}  
 </script>
  
-	FOODIT 메뉴 
-	<div id="wrap">	
+	<div id="pd_wrap">	
+		<h2 class="singleTit nbgB">FOODIT 메뉴</h2> 
  	 
 		<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
 			<input type="button" value="상품등록" onclick="location.href='productInsertPage'"/><br/><br/>   
 		</c:if>
-	 	
+	 	 
 	 	<jsp:include page="/WEB-INF/views/product/menuOrder.jsp"/>	<!-- 상품 정렬  -->
  	 
  	 	<c:if test="${productListOrder1Size eq 0 }">
@@ -33,7 +33,7 @@
 		</c:if>	
  	 
 		<c:forEach var="productDto" items="${productListOrder1 }" >	
-			<div id="목록" style="float:left; padding:20px;" >		
+			<div style="float:left; padding:20px; width:366px;" >				
 				<ul style="list-style-type:none;">		 
 					<li>		 	
 						<a href="productView?product_no=${productDto.product_no}">	 

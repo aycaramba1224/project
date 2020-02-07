@@ -34,7 +34,7 @@
 </script>
 </head>
 <body>
-	<div id="wrap">
+	<div>
 		<form action="productModify" method="POST" enctype="multipart/form-data">		
 		<input type="hidden" name="product_no" value="${productDto.product_no }">
 		 
@@ -43,11 +43,12 @@
 			<input type="button" value="상품 목록" onclick="location.href='productList'"/>
 		 
 		
-			<table border="1"> <!-- 테이블 사이즈 향후 수정예정 -->				
+			<table border="1">  		
 				<tbody>
 					<tr>
 						<td rowspan ="8">
-							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" style="width:600px; height:600px;" />	 
+							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" 
+							style="width:550px; height:550px;" />	 
 						</td>
 					</tr>
 					<tr>
@@ -86,7 +87,7 @@
 					<tr>
 						<td>
 							상품내용 :${productDto.product_content } <br />
-							<textarea name="product_content" ></textarea> 
+							<textarea name="product_content" >${productDto.product_content }</textarea> 
 						</td>
 					</tr>
 					<tr>
@@ -104,7 +105,8 @@
 						<td>
 							<!-- 이미지 사이즈 조절 예정  -->
 							상세이미지 <br/>
-							<img alt="${productDto.product_img }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_img  }"style="width:780px; height:1272px;"/>	 
+							<img alt="${productDto.product_img }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_img  }"
+							 style="width:1000px; height:5716px;"/>	 
 						</td>
 					</tr>
 				</tbody>

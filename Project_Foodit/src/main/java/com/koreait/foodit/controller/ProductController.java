@@ -37,6 +37,18 @@ public class ProductController {
 		return "product/productList";
 	} 
 	
+	@RequestMapping("indexList")
+	public String indexList(Model model) {	
+		productCommand = new ProductListCommand();
+		productCommand.execute(sqlSession, model);
+		return "redirect:/productList";
+	} 
+	
+	
+	
+	
+	
+	
 	@RequestMapping("productListOrder1")			// 가격 내림 차순 정렬 리스트 (높은가격 순)
 	public String productListOrder1(Model model) {	
 		productCommand = new ProductListOrder1Command();
@@ -136,4 +148,5 @@ public class ProductController {
 		productCommand.execute(sqlSession, model);
 		return "product/productListPage";
 	}
+
 }

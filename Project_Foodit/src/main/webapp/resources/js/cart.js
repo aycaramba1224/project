@@ -3,13 +3,13 @@ $(function(){
 	$("#allCheck").click(function(){
 	 var chk = $("#allCheck").prop("checked");
 	 if(chk) {
-	  $(".chBox").prop("checked", true);
+	  $("#chBox").prop("checked", true);
 	 } else {
-	  $(".chBox").prop("checked", false);
+	  $("#chBox").prop("checked", false);
 	 }
 	});
 	// 개별 선택 체크 박스 해제 시 
-	$(".chBox").click(function(){
+	$("#chBox").click(function(){
 		$("#allCheck").prop("checked", false);
 	});
 	

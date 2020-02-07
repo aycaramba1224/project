@@ -80,9 +80,6 @@ public class CartController {
 		return "redirect:/guestCartList";
 	}
 	
-	
-	
-	
 	// 장바구니 메인 
 	@RequestMapping("cartMain")
 	public String cartMain() {

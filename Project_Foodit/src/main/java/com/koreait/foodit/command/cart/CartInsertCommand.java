@@ -25,7 +25,7 @@ public class CartInsertCommand implements CartCommand {
 		
 		int product_no = Integer.parseInt(request.getParameter("product_no"));		
 		int cart_amount = Integer.parseInt(request.getParameter("cart_amount"));	
-		 
+	 
 		int count = cartDao.cartCount(product_no);	// 동일한 상품번호를 가진 상품 수량 		
 		if(count == 0) {	// 동일한 상품번호가 없는 경우 insert한다.
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");

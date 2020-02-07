@@ -53,7 +53,7 @@
 					<tr>
 						<td>상품내용</td>
 						<!--★ 사이즈 변경예정 ★-->
-						<td><textarea rows="10" cols="50" name="product_content" placeholder="해쉬태그형식으로 작성 (ex.#닭가슴살)"></textarea></td>
+						<td><textarea rows="10" cols="50" name="product_content"></textarea></td>
 					</tr>
 					<tr>
 						<td>상품재고</td>

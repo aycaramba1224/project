@@ -30,7 +30,7 @@
 </head>
 <body>
 
-	<div id="wrap">
+	<div>
  	
 		<form method="POST">
 			<input type="hidden" name="product_no" value="${productDto.product_no }">	<!-- 상품 수정,삭제시에 이용하는 상품 번호 -->
@@ -44,8 +44,9 @@
 				<tbody>
 					<tr>
 						<td rowspan ="7">
-							<!-- 본문 썸네일 이미지 사이즈 : 600x600   -->  
-							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" style="width:600px; height:600px;" />	 
+							<!-- 본문 썸네일 이미지 사이즈 : 550 x 550 -->  
+							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" 
+							style="width:550px; height:550px;" />	 
 						</td>
 					</tr>
 					<tr>
@@ -71,7 +72,6 @@
 					</tr>
 					<tr>
 						<td>
-							${productDto.product_name } &nbsp;&nbsp;
 							<button type="button" class="minus" >-</button>
 							<input type="number" class="cart_amount" name="cart_amount" min="1" max="${productDto.product_stock}" value="1" readonly="readonly" style="width:30px; border:none;"/>
 							<button type="button" class="plus" >+</button> &nbsp;&nbsp;
@@ -93,7 +93,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2"><a href="#detail">상세설명</a>&nbsp;|&nbsp;<a href="#info">상품정보</a>&nbsp;|&nbsp;<a href="#review">리뷰</a>&nbsp;|&nbsp;<a href="#faq">배송/반품/문의</a></td>
+						<td colspan="2"><a href="#detail">상세설명</a>&nbsp; &nbsp;<a href="#review">리뷰</a>&nbsp; &nbsp;<a href="#faq">배송/반품/문의</a></td>
 					</tr>					 					 
 				</tbody>
 			</table>	
@@ -105,76 +105,13 @@
 	
 	<br/><br/>
 	<div id="detail">
-		<!-- 본문 상세내용 이미지 사이즈 : 780x1272  -->  
-		<img alt="${productDto.product_img }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_img  }"style="width:780px; height:7500px;"/>	 
+		<!-- 본문 상세내용 이미지 사이즈 : 1000x5716  -->  
+		<img alt="${productDto.product_img }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_img  }"
+		style="width:1000px; height:5716px;"/>	 
  	</div>	
  	
-	<br/><br/>
-	
-	<div id="info">
-	<span>상품정보</span> <br/>
-	<span>상품 코드 : ${productDto.product_no} </span> <br/>
-	<span>FOODIT 상품정보는 전자상거래 등에서의 상품정보 제공 고시에 따라 작성되었습니다.</span>
-		<table style="width:1000px;">
-			<tbody>
-				<tr>
-					<td>본상품구성</td>
-					<td>상세 별도 표기</td>
-				</tr>	
-				<tr>
-					<td>주원료/원산지</td>
-					<td>상세 별도 표기</td>
-				</tr>	
-				<tr>
-					<td>원재료 및 함량</td>
-					<td>상세 별도 표기</td>
-				</tr>	
-				<tr>
-					<td>식퓸의 유형</td>
-					<td>상세 별도 표기</td>
-				</tr>	
-				<tr>
-					<td>제조연월일, 유통기한 또는 품질유지 기한</td>
-					<td>구성품 내 표시사항 참고 </td>
-				</tr>	
-				<tr>
-					<td>생산자 및 소재지(수입품의 경우 생산자, 수입자 및 제조국)</td>
-					<td>상세 별도 표기</td>
-				</tr>	
-				<tr>
-					<td>포장단위별 용량(중량), 수량</td>
-					<td>상세 별도 표기</td>
-				</tr>	
-				<tr>
-					<td>영양성분</td>
-					<td>해당사항 없음</td>
-				</tr>	
-				<tr>
-					<td>유전자재조합식품에 해당하는 경우의 표시</td>
-					<td>해당사항 없음</td>
-				</tr>	
-				<tr>
-					<td>영유아식 또는 체중조절식품 등에 해당하는 경우 표시광고사전심의필 유무 및 부작용 발생 가능성</td>
-					<td>해당사항 없음</td>
-				</tr>	
-				<tr>
-					<td>수입식품에 해당하는 경우 “식품위생법에 따른 수입신고를 필함”의 문구</td>
-					<td>식품위생법에 따른 수입신고를 필함</td>
-				</tr>	
-				<tr>
-					<td>소비자상담 관련 전화번호</td>
-					<td>1668-1920</td>
-				</tr>	
-				<tr>
-					<td colspan="2">${productDto.product_name } 제품 정보</td>					 
-				</tr>	
-				<tr>
-					<td>제품 정보 이미지 추가 예정</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<br/><br/>
+	<br/><br/>	
+	 
 	<div id="review">
 		리뷰 페이지
 		

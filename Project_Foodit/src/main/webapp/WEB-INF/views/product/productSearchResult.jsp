@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<div id="wrap">
+	<div>
 		메뉴찾기
 		
 		<div id="검색박스">
@@ -33,7 +33,7 @@
 			  			  
 			</form>	 
 		</div>
-		<div id="검색결과" >
+		<div>
 
 			<jsp:include page="/WEB-INF/views/product/searchResult.jsp">
 				<jsp:param name="productList" value="${param.productList }"/>
@@ -43,7 +43,7 @@
 		</div> 
 		
 	  	<br/><br/>
-		
+	 
 				
 	</div> 
 	

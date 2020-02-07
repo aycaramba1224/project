@@ -11,41 +11,50 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">	 
  
-var isCartDelete = "${isCartDelete}";
-if( isCartDelete == "yes"){
-	var cartDeleteResult = "${insertResult}";
-	if( cartDeleteResult == 0){
-		alert("메뉴 삭제가 성공하였습니다.");
-	} else {
-		alert("메뉴 삭제가 실패하였습니다.");
-	}
-}  
-   function selectDelete(){
-	   var check ="${paramValues.chBox[0]}";
-	   var check2 ="${paramValues.chBox[1]}";
-	   alert("check", check);
-	   
+	var isCartDelete = "${isCartDelete}";
+	if( isCartDelete == "yes"){
+		var cartDeleteResult = "${insertResult}";
+		if( cartDeleteResult == 0){
+			alert("메뉴 삭제가 성공하였습니다.");
+		} else {
+			alert("메뉴 삭제가 실패하였습니다.");
+		}
+	}  
+	
+   function selectDelete() {
+	   alert($("#chBox").val());
    }
   
 </script>
 </head>
 <body>
 	
-	<span>장바구니</span>
- 	
- 	<div id="wrap">
- 		 <div id="비로그인시 안내문">
- 		   	<c:if test="${mDto.id eq null }">
- 				로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.&nbsp;&nbsp;&nbsp;
- 				<input type="button" value="로그인" onclick="location.href='sbmr'"/>		 		 
- 		 	</c:if>    
- 		</div> 
- 		
-		<c:choose>
+	<div id="cartWrap">
+	 	<div class="cartTitWrap">
+			<h2 class="cartTit">장바구니</h2>
+	 	</div>
+	 	 
+	   	<c:if test="${mDto.id eq null }">
+			<div class="nomem_login">
+	 				<p>로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.</p>
+	 				<button type="button" onclick="location.href='sbmr'">로그인</button>		 		 
+			</div> 		 
+	 	</c:if>    
+	 			
+ 		<c:choose>
 			<c:when test="${cartListSize eq 0 }">  
-				<span>장바구니에 담긴 메뉴가 없습니다.</span>  
-				<p>다양한 맛을 가진 메뉴를 확인해 보세요.</p>  
-				<input type="button" value="메뉴보러가기" onclick="location.href='productList'"/>
+				<div class="detail">
+					<div class="detail_info">
+						<div class="no_data">
+							<span class="ico"></span>
+							<p>장바구니에 담긴 메뉴가 없습니다.</p>
+							<span>다양한 맛을 가진 메뉴를 확인해 보세요.</span>
+							<a href="productList" class="rec_link">
+								<span>메뉴보러 가기</span>
+							</a>
+						</div>
+					</div>
+				</div> 		  
 			</c:when>
 			<c:otherwise>
 				<form method="POST" action ="orderInsertPage">					 
@@ -65,10 +74,10 @@ if( isCartDelete == "yes"){
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="cartList" items="${cartList }" >
+							<c:forEach var="cartList" items="${cartList }" varStatus="k">
 							<tr>
 								<td><!-- 개별 선택 체크 박스  -->
-									<input type="checkbox" name="chBox" checked="checked" data-cartNo = "${cartList.cart_no }"/>	 
+									<input type="checkbox" name="chBox"  class ="chBox" id="chBox" value="${k.count }" checked="checked" data-cartNo = "${cartList.cart_no }"/>	 
 								</td>
 								<td>
 									<a href="productView?product_no=${cartList.product_no}"><img alt="${cartList.product_thumbImg }" 

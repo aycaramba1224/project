@@ -80,7 +80,7 @@ if(isFaqDelete == "yes"){
         </div>
        <br/>
        <c:if test="${mDto.role == 'admin' }">    
-           <input type="button" value="리뷰등록" onclick="location.href='faqWritePage'"/>  
+           <input type="button" value="FAQ등록" onclick="location.href='faqWritePage'"/>  
        </c:if>
         <br/>
         <c:if test="${faqListCount eq 0 }">
