@@ -1,8 +1,6 @@
 package com.koreait.foodit.dao;
 
 import java.util.ArrayList;
-
-import com.koreait.foodit.dto.MemberDto;
 import com.koreait.foodit.dto.OrderBaseDto;
 
 
@@ -11,18 +9,24 @@ public interface OrderBaseDao {
    //회원일떄 배송정보 관련	
 	public int memberdeInsert(String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,
 			String order_post,String order_road1);
-	public ArrayList<OrderBaseDto> memberDeliveryList();
+	public OrderBaseDto memberDeliveryList(String delivery_name,int order_no);
 	
 	/*아직 안됨..
 	public int deliveryeInsert(String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,
 			String order_post,String order_road1);
 	*/
 	//비회원 관련
-	public ArrayList<OrderBaseDto> guestOrder(String guestquery ,String content);
-	public ArrayList<OrderBaseDto> findno(String guestquery ,String content);
-	public ArrayList<OrderBaseDto> guest_noOrder(String guestquery2 ,String content2);
+	public OrderBaseDto guestOrder(int order_no,String guest_pw);
+	
 	public OrderBaseDto guestorderList_view(int order_no);
 	
+	public ArrayList<OrderBaseDto> findno(String guestquery ,String content);
+	
+	
+	//장바구니 관련
+	public ArrayList<OrderBaseDto> ordercartList();
+	// 장바구니 합계 금액 
+	//public int sumMoney(String id);
 
 	
 	
