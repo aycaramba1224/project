@@ -5,8 +5,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.foodit.dao.ReviewDao">
 
+	
+	<select id="totalCountReview" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			REVIEW
+	</select>
+
     <select id="reviewList" resultType="com.koreait.foodit.dto.ReviewDto">
-       SELECT * FROM REVIEW ORDER BY RE_NO
+       
+       
+       	SELECT
+			*
+		FROM
+			(SELECT
+				ROWNUM R_NUM, A.*
+			FROM
+				(SELECT * FROM REVIEW ORDER BY RE_NO) A)
+		WHERE
+			R_NUM BETWEEN #{param1} AND #{param2}
     </select>
 
     <select id="reviewView" resultType="com.koreait.foodit.dto.ReviewDto">

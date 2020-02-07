@@ -21,12 +21,16 @@ public class OrderBaseDto {
     delivery_phone3   VARCHAR2(20) ,
     order_post      VARCHAR2(20)NOT NULL, 
     order_road1    VARCHAR2(50) NOT NULL,
-    cart_no         NUMBER, 
     orderDate   Date default sysdate,
    primary key (order_no)
 );
-
-
+PRODUCT_NAME 
+PRODUCT_PRICE
+PRODUCT_THUMBIMG
+CART_ID
+CART_NO 
+CART_AMOUNT
+PRODUCT_NO
 
 	*/
 	private String
@@ -43,18 +47,22 @@ public class OrderBaseDto {
 		    delivery_phone2,
 		    delivery_phone3,
 			order_post,
-			order_road1;
-	private int order_no;
+			order_road1,
+			product_price,
+			product_thumbimg,
+			cart_id,product_name;
+	private int order_no,product_no;
 	private Date orderDate;
-    private int cart_no;  
+    private int cart_no,cart_amount;
 
 	public OrderBaseDto() {}
 
-	public OrderBaseDto(int order_no,String guest_pw, String id, String order_name, String order_phone,String order_phone2,String order_phone3 ,String order_email,
-		String order_email2,String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,String order_post, String order_road1, Date orderDate,
-		int cart_no) {
+	public OrderBaseDto(String guest_pw, String id, String order_name, String order_phone, String order_phone2,
+			String order_phone3, String order_email, String order_email2, String delivery_name, String delivery_phone,
+			String delivery_phone2, String delivery_phone3, String order_post, String order_road1, String product_price,
+			String product_thumbimg, String cart_id, String product_name, int order_no, int product_no, Date orderDate,
+			int cart_no, int cart_amount) {
 		super();
-		this.order_no = order_no;
 		this.guest_pw = guest_pw;
 		this.id = id;
 		this.order_name = order_name;
@@ -63,18 +71,71 @@ public class OrderBaseDto {
 		this.order_phone3 = order_phone3;
 		this.order_email = order_email;
 		this.order_email2 = order_email2;
-		this.delivery_name=delivery_name;
-		this.delivery_phone=delivery_phone;
-		this.delivery_phone2=delivery_phone2;
-		this.delivery_phone3=delivery_phone3;
+		this.delivery_name = delivery_name;
+		this.delivery_phone = delivery_phone;
+		this.delivery_phone2 = delivery_phone2;
+		this.delivery_phone3 = delivery_phone3;
 		this.order_post = order_post;
 		this.order_road1 = order_road1;
+		this.product_price = product_price;
+		this.product_thumbimg = product_thumbimg;
+		this.cart_id = cart_id;
+		this.product_name = product_name;
+		this.order_no = order_no;
+		this.product_no = product_no;
 		this.orderDate = orderDate;
 		this.cart_no = cart_no;
+		this.cart_amount = cart_amount;
 	}
-      
-	
 
+    
+	public String getProduct_price() {
+		return product_price;
+	}
+
+	public void setProduct_price(String product_price) {
+		this.product_price = product_price;
+	}
+
+	public String getProduct_thumbimg() {
+		return product_thumbimg;
+	}
+
+	public void setProduct_thumbimg(String product_thumbimg) {
+		this.product_thumbimg = product_thumbimg;
+	}
+
+	public String getCart_id() {
+		return cart_id;
+	}
+
+	public void setCart_id(String cart_id) {
+		this.cart_id = cart_id;
+	}
+
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
+	public int getProduct_no() {
+		return product_no;
+	}
+
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
+	}
+
+	public int getCart_amount() {
+		return cart_amount;
+	}
+
+	public void setCart_amount(int cart_amount) {
+		this.cart_amount = cart_amount;
+	}
 
 	public int getCart_no() {
 		return cart_no;

@@ -22,7 +22,7 @@
     <div id="wrap"> 
     
 	<span>리뷰</span>      
-     
+    <br/>
 	<c:if test="${mDto.role == 'admin' }">  <!-- 관리자만 보이는 부분   -->
 		<input type="button" value="리뷰등록" onclick="location.href='reviewWritePage'"/><br/><br/>   
 	</c:if> 
@@ -39,6 +39,7 @@
 					<!-- 리뷰 사진 가로 목록 썸네일 이미지 사이즈 : 500x370  -->
 					<span> <img alt="${reviewDto.re_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${reviewDto.re_thumbImg}" 
 							style="width:500px; height:370px;" /></span> 
+					<br/>
 					<span> ${reviewDto.re_product_name} </span><br/> 
 					<span> ${reviewDto.re_score } | ${reviewDto.re_id } </span>
 					<br/><br/>
@@ -48,12 +49,9 @@
 			</ul>        
 		</div>
 	</c:forEach> 
-        
-        
-        
-        
-        
-        
-         
     </div>
-    
+    <br />
+    ${pagingView }
+    <br />
+        
+        

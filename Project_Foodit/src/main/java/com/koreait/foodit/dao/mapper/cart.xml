@@ -41,36 +41,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE CART.PRODUCT_NO = PRODUCT.PRODUCT_NO  and cart.cart_id = #{id} <!-- 아이디가 같을때 장바구니 금액처리  -->
 	</select>
 	
-	<!-- 비회원 장바구니  -->
-	
+	<!-- 비회원 장바구니  -->	
 	<select id="guestCartList" resultType="com.koreait.foodit.dto.CartDto">
  		SELECT
 			CART.CART_NO, CART.CART_ID, CART.PRODUCT_NO, CART.CART_AMOUNT,
 			PRODUCT.PRODUCT_NO, PRODUCT.PRODUCT_PRICE, PRODUCT.PRODUCT_NAME, PRODUCT.PRODUCT_THUMBIMG
 		FROM 
 			CART INNER JOIN PRODUCT ON CART.PRODUCT_NO = PRODUCT.PRODUCT_NO		
-		 
- 	</select>  	
+		WHERE CART.CART_ID = #{param1}   		 
+	</select>  	
  	
 	<insert id="guestCartInsert">
 	 	INSERT INTO
 	 		CART (CART_NO, CART_ID, PRODUCT_NO, CART_AMOUNT) 
 	 	VALUES 
 	 		(cart_seq.nextval, #{param1}, #{param2}, #{param3} ) 
-	</insert> 
-	
-	<update id="cartLoginUpdate"> <!-- 비회원으로 장바구니에 상품을 담고 로그인을 한 경우  -->
-		UPDATE CART	SET CART_ID = #{param1} WHERE CART_NO = #{param2}
-	</update>
+	 </insert> 	
+ 
  	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
-	 
+ 	<update id="changeId"> <!-- 비회원이 상품을 장바구니에 담고 로그인 했을때 비회원에게 부여한 임시 아이디를 본래의 아이디로 업데이트 해준다. -->
+ 		UPDATE CART SET CART_ID = #{param1} WHERE CART_ID = #{param2}
+ 	</update>
 
 </mapper>

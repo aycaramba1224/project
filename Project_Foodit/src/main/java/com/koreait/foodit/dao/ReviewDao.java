@@ -7,7 +7,8 @@ import com.koreait.foodit.dto.ReviewDto;
 public interface ReviewDao {
 	
 	
-	public ArrayList<ReviewDto> reviewList();
+	public ArrayList<ReviewDto> reviewList(int begin, int end);
+	public int totalCountReview();
 	
 	public ReviewDto reviewView(int re_no); 
 	

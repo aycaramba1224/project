@@ -17,10 +17,15 @@
 	}
 </script>
 
+<<<<<<< HEAD
 	<div id="menuSearchWrap">
 		<div class="menuSearchTit">
 			<h2>메뉴찾기</h2>
 		</div>
+=======
+	<div>
+		메뉴찾기
+>>>>>>> 7babdc86326918bdd429191eebf49953c8634da8
 		
 		<div class="menuSearchBox">
 			<div class="schWrap">
@@ -42,13 +47,25 @@
 		<div class="menuSearchList">
 			<h3>판매중</h3>
 		</div>
+<<<<<<< HEAD
 		<div id="검색결과" >
+=======
+		<div>
+
+>>>>>>> 7babdc86326918bdd429191eebf49953c8634da8
 			<jsp:include page="/WEB-INF/views/product/searchResult.jsp">
 				<jsp:param name="productList" value="${param.productList }"/>
 				<jsp:param name="productListSize" value="${param.productListSize }"/>
 			</jsp:include>	 
 			 
 		</div> 
+<<<<<<< HEAD
+=======
+		
+	  	<br/><br/>
+	 
+				
+>>>>>>> 7babdc86326918bdd429191eebf49953c8634da8
 	</div> 
 	<script type="text/javascript" src="resources/js/menuSearch.js" ></script>
 	

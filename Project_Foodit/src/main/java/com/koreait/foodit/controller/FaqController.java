@@ -15,9 +15,9 @@ import com.koreait.foodit.command.faq.FaqDeleteCommand;
 import com.koreait.foodit.command.faq.FaqListCommand;
 import com.koreait.foodit.command.faq.FaqModifyCommand;
 import com.koreait.foodit.command.faq.FaqSearchCommand;
+import com.koreait.foodit.command.faq.FaqSelectCommand;
 import com.koreait.foodit.command.faq.FaqViewCommand;
 import com.koreait.foodit.command.faq.FaqWriteCommand;
-import com.koreait.foodit.command.product.ProductSearchCommand;
 
 @Controller
 public class FaqController {
@@ -33,15 +33,6 @@ public class FaqController {
 		faqCommand.execute(sqlSession, model);
 		return "faq/faqList";
 	}
-	
-	@RequestMapping("faqSearchResult")
-	public String dynamic(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		faqCommand  = new FaqSearchCommand();
-		faqCommand.execute(sqlSession, model);
-		return "faq/faqSearchResult";
-	}
-
 	
 	@RequestMapping("faqView")
 	public String view(HttpServletRequest request, Model model) {
@@ -83,8 +74,6 @@ public class FaqController {
 		return "redirect:faqList";
 	}
 	
-	
-	
 	@RequestMapping("faqDelete")
 	public String faqDelete(RedirectAttributes attributes,
 			             HttpServletRequest request,
@@ -104,7 +93,14 @@ public class FaqController {
 		return "faq/faqList";
 	}
 	
+	@RequestMapping (value="faqSelect", method= {RequestMethod.POST,RequestMethod.GET} )
+	public String faqSelect(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+        faqCommand = new FaqSelectCommand(); 
+        faqCommand.execute(sqlSession, model);
+        return "faq/faqSelectList";
 	
+	}
 	
 	
 }

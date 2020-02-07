@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 </select>
 	 
 	 <select id="faqSelect" resultType="com.koreait.foodit.dto.FaqDto">
-	  	SELECT * FROM FAQ ORDER BY FAQ_CATEGORY = #{param1}
+	  	SELECT * FROM FAQ WHERE FAQ_CATEGORY = #{param1}
 	 </select> 
 	 
 	 <update id="faqModify">

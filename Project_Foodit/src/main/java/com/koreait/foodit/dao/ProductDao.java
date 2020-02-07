@@ -28,7 +28,5 @@ public interface ProductDao {
 	// 페이징 처리 	
 	public int productCount(); 
 	public ArrayList<ProductDto> productListPage(int begin, int end);
-	
-
 	 
 }

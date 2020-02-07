@@ -20,6 +20,11 @@
         }
     }
 
+    function noticeModify(f) {
+    	f.action = "noticeModifyPage?notice_no=${nDto.notice_no}";
+    	f.submit();
+    }
+    
 
 </script>
 </head>
@@ -31,21 +36,23 @@
             <a href="faqList">FAQ</a> <a href="noticeList">공지사항</a> 
         </div>        
         
-        <form action="noticeModify" method="POST">
+        <form method="POST">
             <div id="title">
                 <a>${nDto.notice_title }</a><br/>
                 <a>${nDto.notice_date }</a>
             </div>
             <div id="content">
                 <a>${nDto.notice_content }</a>
+              <img alt="${nDto.notice_img }" src="${pageContext.request.contextPath }/resources/upload/${nDto.notice_img }"/>
               <img alt="${nDto.notice_img }" src="${pageContext.request.contextPath }/resources/upload/${nDto.notice_img }"style="width:780px; height:750px;"/>
+
             </div>
             <div id="goList">
                 <a href="noticeList">목록</a>
             </div>
                 <c:if test="${mDto.role == 'admin' }">    
                     <input type="button" value="공지사항삭제" onclick="noticeDelete()"/>  
-                    <input type="submit" value="공지사항수정" />
+                    <input type="button" value="공지사항수정" onclick="noticeModify(this.form)"/>
                 </c:if> 
         </form>
     </div>

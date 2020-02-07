@@ -16,13 +16,13 @@ public class FaqDeleteCommand implements FaqCommand {
 	public void execute(SqlSession sqlSession, Model model) {
 
 		FaqDao fDao = sqlSession.getMapper(FaqDao.class); 
-		
 		Map<String, Object> map = model.asMap();
-		
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
-		RedirectAttributes attributes = (RedirectAttributes)map.get("attribute");
-		attributes.addFlashAttribute("faqDeleteRes", fDao.faqDelete(Integer.parseInt(request.getParameter("faq_no"))));
+		int faq_no = Integer.parseInt(request.getParameter("faq_no"));
+		
+		RedirectAttributes attributes = (RedirectAttributes)map.get("attributes");
+		attributes.addFlashAttribute("faqDeleteRes", fDao.faqDelete(faq_no));
 		attributes.addFlashAttribute("isFaqDelete", "Yes"); 
 		
 		

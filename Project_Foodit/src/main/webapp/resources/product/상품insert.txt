@@ -1,0 +1,15 @@
+상품 insert SQL
+
+SET DEFINE OFF;
+insert into product values (product_seq.nextval, '매콤 닭가슴살 야채 볶음밥 & 부드러운 오믈렛 8팩', 39200, '부드러운 오믈렛에 사르르 녹아요', '500', '담백한맛', null, null);
+insert into product values (product_seq.nextval, '계란야채 곤약 볶음밥 & 갈비맛 빅볼 닭가슴살 6팩', 35400, '균형잡힌 구성으로 제대로 된 한끼!', '300', '짭짤한맛', null, null);
+insert into product values (product_seq.nextval, '귀리 곤약밥 & 코코넛 닭가슴살 커리 8팩', 39200, '부드럽고 깊은 맛의 코코넛 커리로 특별하게', '200', '이국적인맛', null, null);
+insert into product values (product_seq.nextval, '현미 곤약밥 & 고구마치즈롤 스테이크 12팩', 58800, '고소한 치즈와 달콤한 고구마가 쏙쏙!', '100', '담백한맛', null, null);
+insert into product values (product_seq.nextval, '삼색나물과 단호박솥밥 & 두부 닭가슴살 스테이크 8팩', 39200, '담백하고 고소한 별미 도시락', '123', '담백한맛',null, null);
+insert into product values (product_seq.nextval, '버섯듬뿍 닭가슴살 스테이크 & 다섯가지 야채 12팩', 56400, '언제 어디서든 고급스럽게 즐겨요', '250', '담백한맛',null, null);
+insert into product values (product_seq.nextval, '매콤야채 빅볼 닭가슴살 & 다섯가지 야채 도시락 12팩', 56400, '닭가슴살과 야채가 만나 가볍고 든든해요!', '120', '매콤한맛',null, null);
+insert into product values (product_seq.nextval, '무청시래기 표고버섯 솥밥 & 매콤 닭가슴살 스테이크 16팩', 76800, '	아이부터 어른까지 누구나 맛있게', '400', '담백한맛',null, null);
+
+
+예시)
+insert into product values (product_seq.nextval, '이미지테스트', 900000, 'test', '500', '이국적인맛',null, null);

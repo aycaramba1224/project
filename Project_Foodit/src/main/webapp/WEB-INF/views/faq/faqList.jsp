@@ -70,17 +70,7 @@ if(isFaqDelete == "yes"){
                 <input type="button" value="검색" onclick="faqSearch(this.form)"> <!-- 돋보기 아이콘으로 대체 예정  -->
             </form>  
         </div>      
-        <div id="항목선택">
-            <ul>
-               <li><a href="#">전체</a></li>
-               <li><a href="#">배송</a></li>
-               <li><a href="#">결제/영수증</a></li>
-               <li><a href="#">주문</a></li>
-               <li><a href="#">취소/반품</a></li>
-               <li><a href="#">회원</a></li>
-               <li><a href="#">기타</a></li>
-            </ul>
-        </div>
+      	<jsp:include page="/WEB-INF/views/faq/faqOrder.jsp"/>   <!-- 카테고리 정렬 -->
        <br/>
        <c:if test="${mDto.role == 'admin' }">    
            <input type="button" value="FAQ등록" onclick="location.href='faqWritePage'"/>  
@@ -95,9 +85,9 @@ if(isFaqDelete == "yes"){
         <tr>                    
            <td>${faqDto.faq_no }</td>
            <td><a href="faqView?faq_no=${faqDto.faq_no}">${faqDto.faq_title}</a></td>
-        </tr>
+        </tr><br/>
        </c:forEach>   
-
+</div>
 
 
 
