@@ -8,7 +8,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.foodit.dao.FaqDao;
 import com.koreait.foodit.dao.NoticeDao;
 
 public class NoticeModifyCommand implements NoticeCommand {

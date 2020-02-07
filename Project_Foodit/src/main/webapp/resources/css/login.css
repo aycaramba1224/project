@@ -1,7 +1,4 @@
 @charset "UTF-8";
-.loginWrap{
-    padding: 70px 30px;
-}
 .loginWrap .loginBox{
 	max-width: 1200px;
     margin: 0 auto;

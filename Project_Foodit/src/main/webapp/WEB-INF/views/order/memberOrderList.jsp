@@ -25,20 +25,45 @@
  
      <h1>주문자 정보 페이지</h1>
 	       <c:choose>
-	        <c:when test="${ mDto ne null }">
-    		 ${sessionScope.mDto.id }님의 주문정보<br/>
-			
-			 <div>
-			 주문자이름:
-			 ${mDto.name}
-			 </div>
-			 
-			 <div>
-			주문자 휴대폰:
-			${mDto.phone}
-			</div>
-	     </c:when>
+	        <c:when test="${mODto ne null }" >
+	         <div>
+                주문번호: ${mODto.order_no }
+        </div>
+        
+        <div>
+                비밀번호:${mODto.guest_pw }
+            
+         </div>
+         <div>주문자이름: ${mODto.order_name } </div>
+		<div>주문자 휴대폰:${mODto.order_phone }-
+						${mODto.order_phone2 }-
+						${mODto.order_phone3 }</div>
+	    <div>주문자 이메일:${mODto.order_email } @ ${mODto.order_email2}</div>
+        
+         <h1>배송정보</h1>
+         
+         
+         <div>이름:${mODto.delivery_name}</div>
+	     <div>휴대폰번호:${mODto.delivery_phone}-
+	     	 ${mODto.delivery_phone2}-
+	    	 ${mODto.delivery_phone3}
+	     </div>
 	     
+		<div>
+		   우편번호:${mODto.order_post}
+		
+		</div>
+		
+		<div>
+		주소: ${mODto.order_road1}
+		</div>
+		
+		<div>
+		 주문날짜: ${mODto.orderDate }
+	    </div>
+         
+	        
+	     </c:when>
 	      <c:when test="${ mDto eq null }">
 	           <script>
 	           alert("로그인 후 이용해 주세요 ");
@@ -51,15 +76,6 @@
 			<br />
 			<!-- 검색으로 처리 -->
 			      
-			   <form method="post" action="memberOrderSearch">
-	          <c:if test="${ mDto ne null }">
-	          
-	          <input type="hidden" name="guestquery" value="order_name"/>
-              <input type="text" placeholder="이름를 입력해주세요" name="content" />
-             <input type="submit"value="확인" />
-    
-		       </c:if>
-			</form>
 		</div>
 
 </body>

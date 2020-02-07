@@ -9,46 +9,6 @@
 </jsp:include>
 
 
-
-<script type="text/javascript">
-
-var isFaqModify = "${isFaqModify}";
-if(isFaqModify == "yes"){
-    var faqModifyRes = "${faqModifyRes}";
-    if(faqModifyRes == 0){
-        alert("게시글 수정이 실패하였습니다.");
-    } else {
-        alert("게시글 수정이 성공하였습니다.");
-    }
-} 
-    var isFaqInsert = "${isFaqInsert}";
-if(isFaqInsert == "yes"){
-    var faqInsertRes = "${faqInsertRes}";
-    if(faqInsertRes == 0){
-        alert("게시글 등록이 실패하였습니다.");
-    } else {
-        alert("게시글 등록이 성공하였습니다.");
-    }
-}
-var isFaqDelete = "${isFaqDelete}";
-if(isFaqDelete == "yes"){
-    var faqDeleteRes ="${faqDeleteRes}";
-    if(faqDeleteRes == 0 ){
-        alert("게시글 삭제가 실패하였습니다.");
-    } else {
-        alert("게시글 삭제가 성공하였습니다.");   
-    }
-}  
- function faqSearch(f) {
-	 if(f.content.value==""){
-		alert("검색어를 입력해 주세요.");
-		return;
-	 }				
-	 
-	 f.action = "faqSearchResult"; 
-	 f.submit();
-
- }
 </script>
 <style type="text/css">
 	#faqWrap ul li {list-style-type: none; float:left; margin-left:20px;}
@@ -85,10 +45,9 @@ if(isFaqDelete == "yes"){
         <tr>                    
            <td>${faqDto.faq_no }</td>
            <td><a href="faqView?faq_no=${faqDto.faq_no}">${faqDto.faq_title}</a></td>
-        </tr><br/>
+        </tr>
        </c:forEach>   
-</div>
-
+     </div>
 
 
                        

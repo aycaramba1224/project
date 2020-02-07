@@ -10,6 +10,10 @@ public interface FaqDao {
    public int faqModify(String faq_title, String faq_content, String faq_category, int faq_no);
    public int faqWrite(String faq_title, String faq_content,  String faq_category);
    public int faqDelete(int faq_no);
+   
+   // FAQ 검색
    public ArrayList<FaqDto> faqSearchResult(String query, String content);
-   public ArrayList<FaqDto> faqSelect(); 
+   
+   // FAQ 카테고리 정렬 
+   public ArrayList<FaqDto> faqSelect(String faq_category); 
 }

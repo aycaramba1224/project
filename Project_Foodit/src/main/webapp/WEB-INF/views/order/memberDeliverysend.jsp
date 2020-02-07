@@ -10,7 +10,7 @@
          <form method="post" id ="f">
 					    <div>
 	                    <label>이름</label>   
-						<input type="text" name="delivery_name" id="delivery_name" />
+						<input type="text" name="delivery_name" />
                         </div>
                         
                          <div>

@@ -1,11 +1,8 @@
 @charset "UTF-8";
-.findWrap{
-    padding: 70px 30px;
-}
 .findWrap .findBox{
 	max-width: 1200px;
     margin: 0 auto;
-}
+} 
 .findBox .findTit{
 	text-align: center;
 	font-size: 40px;

@@ -1,10 +1,12 @@
 $(function(){
 	// 탭 선택에 따른 내용 표시
 	$('label[for="loginMenu01"]').click(function(){
+		$("#loginMenu01").attr("checked", "checked");
 		$("#loginM").css("display","block");
 		$("#loginNm").css("display","none");
 	});
 	$('label[for="loginMenu02"]').click(function(){
+		$("#loginMenu02").attr("checked", "checked");
 		$("#loginM").css("display","none");
 		$("#loginNm").css("display","block");
 	});
@@ -40,6 +42,6 @@ $(function(){
 	$("input:text[numberOnly]").on("keyup", function() { // input 영역 숫자만 입력 가능하게 
 	    $(this).val($(this).val().replace(/[^0-9]/g,""));
 	});
-
-
 });
+
+

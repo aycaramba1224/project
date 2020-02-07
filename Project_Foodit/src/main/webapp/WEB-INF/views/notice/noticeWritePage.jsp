@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>faq글 등록</title>
+<title>공지사항 등록</title>
 <script type="text/javascript">
   function noticeWrite(f) {
       f.action="noticeWrite";
@@ -14,7 +14,7 @@
 </head>
 <body>
 <div id="wrap">
-        <h3>상품 등록</h3>
+        <h3>공지사항 등록</h3>
         <form method="POST" enctype="multipart/form-data">
             <table border="1">              
                 <tbody>

@@ -5,12 +5,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.foodit.dao.OrderBaseDao">
 
+
 <insert id ="orderInsert">
  INSERT INTO ORDER_BASE (ORDER_NO,GUEST_PW,ORDER_NAME,ORDER_PHONE,ORDER_PHONE2,ORDER_PHONE3,
  ORDER_EMAIL,ORDER_EMAIL2,DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PHONE3,ORDER_POST,ORDER_ROAD1)
  VALUES 
  (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},
  #{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13})
+
 </insert>
 
 <select id="orderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
@@ -57,10 +59,18 @@ VALUES (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 
 
 <select id="memberDeliveryList" resultType="com.koreait.foodit.dto.OrderBaseDto">
-SELECT * FROM ORDER_BASE ORDER BY ORDER_NAME
-</select>
+   SELECT 
+         order_no,
+	     order_name,order_phone,order_phone2,order_phone3,order_email,order_email2,
+	     delivery_name,delivery_phone,delivery_phone2,delivery_phone3,order_post,order_road1,
+	     orderDate
+ FROM 
+ ORDER_BASE 
+ WHERE
 
+ DELIVERY_NAME = #{param1} AND ORDER_NO = #{param2}
 
+</select> 
 
 <insert id="deliveryeInsert">
 INSERT INTO ORDER_BASE (DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PHONE3,ORDER_POST,ORDER_ROAD1)
@@ -68,30 +78,37 @@ VALUES (#{param1},#{param2},#{param3},#{param4},#{param5},#{param6})
 </insert>
 
 
-
-
 <select id="guestorderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="int">
 	
- SELECT * FROM ORDER_BASE WHERE ORDER_NO= #{order_no}
+ SELECT * FROM ORDER_BASE WHERE ORDER_NO = {param1}
 	
 </select>
 
 <select id="guestOrder" resultType="com.koreait.foodit.dto.OrderBaseDto">
     
-     SELECT * FROM ORDER_BASE WHERE ${param1} LIKE #{param2}
-		 	
+  SELECT 
+	     order_no,guest_pw,
+	     order_name,order_phone,order_phone2,order_phone3,order_email,order_email2,
+	     delivery_name,delivery_phone,delivery_phone2,delivery_phone3,order_post,order_road1,
+	     orderDate
+   FROM
+    ORDER_BASE
+	WHERE
+ 		ORDER_NO = #{param1} AND GUEST_PW = #{param2}
 </select>
 
-<select id="guest_noOrder" resultType="com.koreait.foodit.dto.OrderBaseDto">
-    
-     SELECT * FROM ORDER_BASE WHERE ${param1} LIKE #{param2}
-		 	
+<select id="ordercartList" resultType="com.koreait.foodit.dto.OrderBaseDto">
+ 
+ SELECT 
+	  O.ID,O.NAME
+	  C.CART_NO, C.CART_ID, C.PRODUCT_NO, C.CART_AMOUNT
+      P.PRODUCT_PRICE, P.PRODUCT_NAME, P.PRODUCT_THUMBIMG,P.PRODUCT_NO
+   
+ FROM 
+     ORDER_BASE O, CART C ,PRODUCT P
+ WHERE
+    O.ID = C.CART_ID  AND C.PRODUCT_NO = P.PRODUCT_NO
+ 
 </select>
-
-<select id="findno" resultType="com.koreait.foodit.dto.OrderBaseDto">
-		 SELECT * FROM ORDER_BASE WHERE ${param1} LIKE #{param2}
-</select>
-	
-	
- 	
+   
 </mapper>

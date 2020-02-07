@@ -30,13 +30,13 @@
                         <td>카테고리선택</td>
                         <td><select name="faq_category">
                           <option value="">카테고리선택</option>
-                          <option value="배송">배송</option>
-                          <option value="결제">결제</option>
-                          <option value="주문">주문</option>
-                          <option value="취소/반품">취소/반품</option>
-                          <option value="리뷰">리뷰</option>
-                          <option value="회원">회원</option>
-                          <option value="기타">기타</option>
+                          <option value="delievery">배송</option>
+                          <option value="payment">결제</option>
+                          <option value="order">주문</option>
+                          <option value="ret">취소/반품</option>
+                          <option value="review">리뷰</option>
+                          <option value="member">회원</option>
+                          <option value="etc">기타</option>
                         </select></td>
                     </tr>
                 </tbody>

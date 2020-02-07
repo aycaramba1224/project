@@ -52,7 +52,7 @@ public class NoticeController {
 			return "notice/noticeWritePage";
 		}
 		
-	 @RequestMapping(value="noticeWrite", method = RequestMethod.POST)
+	 @RequestMapping("noticeWrite")
 		public String noticeWrite(RedirectAttributes attributes,
 				               HttpServletRequest request, 
 				               Model model) {
@@ -64,6 +64,12 @@ public class NoticeController {
 			return "redirect:/noticeList";
 		}
 		
+	
+	 @RequestMapping("noticeModifyPage")
+	 	public String noticeModifyPage() {
+		 return "notice/noticeModifyPage";
+	 }
+	 
 	 @RequestMapping(value="noticeModify", method=RequestMethod.POST)
 		public String noticeModify(RedirectAttributes attributes,
 				                HttpServletRequest request,
