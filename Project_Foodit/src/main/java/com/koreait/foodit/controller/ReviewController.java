@@ -26,7 +26,8 @@ public class ReviewController {
 	private ReviewCommand reviewCommand; 
 	
 	@RequestMapping("reviewList")
-	public String reviewList(Model model) {
+	public String reviewList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
 		reviewCommand = new ReviewListCommand();
 		reviewCommand.execute(sqlSession, model);
 		return "review/reviewList";

@@ -20,6 +20,11 @@
         }
     }
 
+    function noticeModify(f) {
+    	f.action = "noticeModifyPage?notice_no=${nDto.notice_no}";
+    	f.submit();
+    }
+    
 
 </script>
 </head>
@@ -31,7 +36,7 @@
             <a href="faqList">FAQ</a> <a href="noticeList">공지사항</a> 
         </div>        
         
-        <form action="noticeModify" method="POST">
+        <form method="POST">
             <div id="title">
                 <a>${nDto.notice_title }</a><br/>
                 <a>${nDto.notice_date }</a>
@@ -45,7 +50,7 @@
             </div>
                 <c:if test="${mDto.role == 'admin' }">    
                     <input type="button" value="공지사항삭제" onclick="noticeDelete()"/>  
-                    <input type="submit" value="공지사항수정" />
+                    <input type="button" value="공지사항수정" onclick="noticeModify(this.form)"/>
                 </c:if> 
         </form>
     </div>

@@ -15,5 +15,5 @@ public interface FaqDao {
    public ArrayList<FaqDto> faqSearchResult(String query, String content);
    
    // FAQ 카테고리 정렬 
-   public ArrayList<FaqDto> faqSelect(); 
+   public ArrayList<FaqDto> faqSelect(String faq_category); 
 }

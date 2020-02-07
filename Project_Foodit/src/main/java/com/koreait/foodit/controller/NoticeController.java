@@ -64,6 +64,12 @@ public class NoticeController {
 			return "redirect:/noticeList";
 		}
 		
+	
+	 @RequestMapping("noticeModifyPage")
+	 	public String noticeModifyPage() {
+		 return "notice/noticeModifyPage";
+	 }
+	 
 	 @RequestMapping(value="noticeModify", method=RequestMethod.POST)
 		public String noticeModify(RedirectAttributes attributes,
 				                HttpServletRequest request,
