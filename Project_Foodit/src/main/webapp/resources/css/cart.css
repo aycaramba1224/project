@@ -1,0 +1,48 @@
+@charset "UTF-8";
+#cartWrap .cartTitWrap .cartTit{
+	padding-bottom: 16px;
+    color: #101010;
+    font-size: 40px;
+    line-height: 56px;
+    font-family: "nbgB";
+}
+#cartWrap .nomem_login{
+    margin-top: 40px;
+    padding: 19px 31px;
+    border: 1px solid #ccc;
+    font-family: "nbg";
+}
+#cartWrap .nomem_login:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+#cartWrap .nomem_login p{
+    float: left;
+    margin-top: 9px;
+    font-size: 18px;
+    line-height: 37px;
+    color: #606060;
+}
+#cartWrap .nomem_login button[type=button]{
+	float: right;
+    width: 240px;
+    color: #101010;
+    border: 1px solid #BDD61A;
+    background-color: #BDD61A;
+    height: 48px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 46px;
+    cursor: pointer;
+}
+#cartWrap .detail{
+	margin-top: 56px;
+}
+#cartWrap .detail .no_data{
+	margin-top: 40px;
+    text-align: center;
+    border-top: 2px solid #202020;
+}
+ 
+
