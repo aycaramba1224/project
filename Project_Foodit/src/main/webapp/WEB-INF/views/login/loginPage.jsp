@@ -6,6 +6,10 @@
 	<jsp:param value="로그인" name="title"/>
 </jsp:include>
 <script type="text/javascript">
+window.onpageshow = function(event){ // 뒤로가기 접근 시 탭 초기화
+	if( event.persisted || (window.performance && window.performance.navigation.type == 2) )	
+	  window.location.reload(true);
+}
 // controller의 결과 값에따른 alert
 var flag = "${flag}";
 var nonId = "${ mDto.role eq 'nothing' }"
@@ -23,7 +27,7 @@ if( flag == "2" ){
 			<ul>
 				<li>
 					<div class="radMenu">
-						<input type="radio" id="loginMenu01" name="loginChk" checked />
+						<input type="radio" id="loginMenu01" name="loginChk" checked/>
 						<label for="loginMenu01">
 							<span class="txt">회원 로그인</span>
 						</label>
