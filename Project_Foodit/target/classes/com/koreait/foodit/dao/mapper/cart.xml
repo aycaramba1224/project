@@ -59,13 +59,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 		(cart_seq.nextval, #{param1}, #{param2}, #{param3} ) 
 	</insert> 
 	
-<!-- 	<select id="guestSumMoney" resultType="int"> 
-		SELECT NVL(SUM(PRODUCT_PRICE*CART_AMOUNT),0)	금액과 상품갯수를 곱한값과 0을더해서 0이 나오는 것을 검색한다.
-       													아무것도 담지 않았을때를 확인하는 것이다.
-			FROM CART,PRODUCT
-		WHERE CART.PRODUCT_NO = PRODUCT.PRODUCT_NO  and cart.cart_id = #{id} 아이디가 같을때 장바구니 금액처리 
-	</select> -->
- 	
+	<update id="cartLoginUpdate"> <!-- 비회원으로 장바구니에 상품을 담고 로그인을 한 경우  -->
+		UPDATE CART	SET CART_ID = #{param1} WHERE CART_NO = #{param2}
+	</update>
  	
  	
  	

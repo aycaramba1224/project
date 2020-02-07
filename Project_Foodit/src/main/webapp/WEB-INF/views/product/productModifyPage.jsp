@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-  <jsp:include page="/WEB-INF/views/common/header.jsp" >
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="FOODIT 관리자메뉴_상품수정/삭제" name="title"/>
-</jsp:include>   
+</jsp:include>  
 
 <script type="text/javascript">
 	var isProductModify = "${isProductModify}";
@@ -35,7 +35,7 @@
 </head>
 <body>
 	<div id="wrap">
-		<form action="productModify" method="POST">		
+		<form action="productModify" method="POST" enctype="multipart/form-data">		
 		<input type="hidden" name="product_no" value="${productDto.product_no }">
 		 
 			<input type="submit" value="상품 수정" />
@@ -46,7 +46,7 @@
 			<table border="1"> <!-- 테이블 사이즈 향후 수정예정 -->				
 				<tbody>
 					<tr>
-						<td rowspan ="7">
+						<td rowspan ="8">
 							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" style="width:600px; height:600px;" />	 
 						</td>
 					</tr>
@@ -95,8 +95,15 @@
 						</td>
 					</tr>	
 					<tr>
+						<td colspan="2">
+							상품 이미지 등록 <input type="file" name="file_2"/><br/>
+							상품 썸네일 등록 <input type="file" name="file_2"/>
+						</td>
+					</tr>
+					<tr>
 						<td>
 							<!-- 이미지 사이즈 조절 예정  -->
+							상세이미지 <br/>
 							<img alt="${productDto.product_img }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_img  }"style="width:780px; height:1272px;"/>	 
 						</td>
 					</tr>

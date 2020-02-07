@@ -12,7 +12,8 @@ public class ProductListOrder1Command implements ProductCommand {
 		 
 		ProductDao productDao = sqlSession.getMapper(ProductDao.class);		
 		 
-		model.addAttribute("productListOrder1", productDao.productListOrder1());		
+		model.addAttribute("productListOrder1", productDao.productListOrder1());	
+		model.addAttribute("productListOrder1Size", productDao.productListOrder1().size());
 	}
 
 }

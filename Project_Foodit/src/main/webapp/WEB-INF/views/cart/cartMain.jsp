@@ -12,12 +12,12 @@
 			<h2 class="cartTit">장바구니</h2>
 	 	</div>
 	 	 
-		<div class="nomem_login">
- 		   	<c:if test="${mDto.id eq null }">
- 				<p>로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.</p>
- 				<button type="button" onclick="location.href='sbmr'">로그인</button>		 		 
- 		 	</c:if>    
-		</div> 		 
+	   	<c:if test="${mDto.id eq null }">
+			<div class="nomem_login">
+	 				<p>로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.</p>
+	 				<button type="button" onclick="location.href='sbmr'">로그인</button>		 		 
+			</div> 		 
+	 	</c:if>    
 		
 		<div class="detail">
 			<div class="detail_info">

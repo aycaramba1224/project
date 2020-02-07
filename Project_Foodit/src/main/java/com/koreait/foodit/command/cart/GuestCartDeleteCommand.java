@@ -10,7 +10,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.dao.CartDao;
 
-public class CartDeleteCommand implements CartCommand {
+public class GuestCartDeleteCommand implements CartCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {

@@ -14,7 +14,7 @@ public class ProductListCommand implements ProductCommand {
 		
 		model.addAttribute("productList", productDao.productList());
 		model.addAttribute("productListSize", productDao.productList().size());
-
+	
 	}
 
 }

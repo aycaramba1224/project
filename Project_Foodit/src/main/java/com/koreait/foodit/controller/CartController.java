@@ -14,6 +14,7 @@ import com.koreait.foodit.command.cart.CartCommand;
 import com.koreait.foodit.command.cart.CartDeleteCommand;
 import com.koreait.foodit.command.cart.CartInsertCommand;
 import com.koreait.foodit.command.cart.CartListCommand;
+import com.koreait.foodit.command.cart.GuestCartDeleteCommand;
 import com.koreait.foodit.command.cart.GuestCartInsertCommand;
 import com.koreait.foodit.command.cart.GuestCartListCommand;
 
@@ -34,16 +35,17 @@ public class CartController {
 	}
 	
 	@RequestMapping("cartInsert")  
-	public String cartInsert(HttpServletRequest request, RedirectAttributes redirectAttributes,  Model model) {
-		model.addAttribute("request", request);
+	public String cartInsert(RedirectAttributes redirectAttributes, HttpServletRequest request, Model model) {
 		model.addAttribute("redirectAttributes", redirectAttributes);
+		model.addAttribute("request", request);
 		cartCommand = new CartInsertCommand();
 		cartCommand.execute(sqlSession, model);
 		return "redirect:/cartList";
 	} 
 	
 	@RequestMapping("cartDelete")
-	public String cartDelete(HttpServletRequest request, Model model) {
+	public String cartDelete(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
+		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request);
 		cartCommand = new CartDeleteCommand();
 		cartCommand.execute(sqlSession, model);
@@ -61,13 +63,24 @@ public class CartController {
 	}
   
 	@RequestMapping("guestCartInsert")  
-	public String guestCartInsert(HttpServletRequest request, RedirectAttributes redirectAttributes,  Model model) {
-		model.addAttribute("request", request);
+	public String guestCartInsert(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
 		model.addAttribute("redirectAttributes", redirectAttributes);
+		model.addAttribute("request", request);
 		cartCommand = new GuestCartInsertCommand();
 		cartCommand.execute(sqlSession, model);
 		return "redirect:/guestCartList";
 	} 
+	
+	@RequestMapping("guestCartDelete")
+	public String guestCartDelete(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
+		model.addAttribute("redirectAttributes", redirectAttributes);
+		model.addAttribute("request", request);
+		cartCommand = new GuestCartDeleteCommand();
+		cartCommand.execute(sqlSession, model);
+		return "redirect:/guestCartList";
+	}
+	
+	
 	
 	
 	// 장바구니 메인 

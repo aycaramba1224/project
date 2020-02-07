@@ -28,6 +28,10 @@
 	 	
 	 	<jsp:include page="/WEB-INF/views/product/menuOrder.jsp"/>	<!-- 상품 정렬  -->	
 		
+		<c:if test="${productListOrder3Size eq 0 }">
+			등록된 메뉴가 없습니다.
+		</c:if>	
+		
 		<c:forEach var="productDto" items="${productListOrder3 }" >	
 			<div id="목록" style="float:left; padding:20px;" >		
 				<ul style="list-style-type:none;">		 

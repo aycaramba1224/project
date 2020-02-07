@@ -78,20 +78,48 @@ if(isLogout == "yes"){
 				 	</ul>
 				 	<div class="gnbSide nbg">
 						<ul>
-							<li class="sideCart">							
-									<a href="cartMain">
+							<li class="sideCart">		
+							 	<c:choose>
+							 		<c:when test="${ mDto.id ne null }">
+							 			<a href="cartList">							 
 									<span class="txt">장바구니</span>
 									<span class="num" id="headerCartCount">
+										<!-- 장바구니 갯수 카운트 넣을 것.(0 지우고 작업하세요.) -->
 										<c:choose>
-											<c:when test="${cartListSize eq null }">
-												0
+											<c:when test="${cartListSize eq null}">
+												0	
 											</c:when>
 											<c:otherwise>
 												${cartListSize }
 											</c:otherwise>
-										</c:choose>
+										</c:choose>										
 									</span>
-								</a>								 							
+								</a>	
+							 		</c:when>
+							 		<c:otherwise>
+							 			<c:choose> 
+							 				<c:when test="${guestCartListSize eq null}"> 
+							 					<a href="cartMain">
+							 				</c:when>
+							 				<c:otherwise>
+							 					<a href="guestCartList">	
+							 				</c:otherwise>
+							 			</c:choose>							 
+									<span class="txt">장바구니</span>
+									<span class="num" id="headerCartCount">
+										<!-- 장바구니 갯수 카운트 넣을 것.(0 지우고 작업하세요.) -->
+										<c:choose>
+											<c:when test="${guestCartListSize eq null}">
+												0
+											</c:when>
+											<c:otherwise>
+												${guestCartListSize }
+											</c:otherwise>
+										</c:choose>										
+									</span>
+								</a>	
+							 		</c:otherwise>
+							 	</c:choose>									 							 							
 							</li>
 							<li class="sideFind">
 								<a href="productSearch">

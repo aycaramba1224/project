@@ -23,4 +23,6 @@ public interface CartDao {
 	public int guestCartInsert (String cart_id, int product_no, int cart_amount); 
 	public int guestSumMoney();
 	
+	public CartDto cartLoginUpdate(String cart_id, int cart_no);
+	
 }

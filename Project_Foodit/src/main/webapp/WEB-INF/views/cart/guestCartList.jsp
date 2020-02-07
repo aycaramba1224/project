@@ -4,13 +4,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
     
     
-<jsp:include page="/WEB-INF/views/common/header.jsp" >
+ <jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="FOODIT 장바구니" name="title"/>
 </jsp:include> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">	 
+<script type="text/javascript">
 
+var isCartDelete = "${isCartDelete}";
+if( isCartDelete == "yes"){
+	var cartDeleteResult = "${insertResult}";
+	if( cartDeleteResult == 0){
+		alert("메뉴 삭제가 성공하였습니다.");
+	} else {
+		alert("메뉴 삭제가 실패하였습니다.");
+	}
+}  
    
 /*   	$(function(){	
 		$("#selectDelete_btn").click(function(){
@@ -48,21 +57,32 @@
 </head>
 <body>
 	
-	<span>장바구니</span>
- 
- 	<div id="wrap">
- 		 <div id="비로그인시 안내문">
- 		   	<c:if test="${mDto.id eq null }">
- 				로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.&nbsp;&nbsp;&nbsp;
- 				<input type="button" value="로그인" onclick="location.href='sbmr'"/>		 		 
- 		 	</c:if>    
- 		</div> 
- 		
+ 	<div id="cartWrap">
+	 	<div class="cartTitWrap">
+			<h2 class="cartTit">장바구니</h2>
+	 	</div>
+	 	 
+	   	<c:if test="${mDto.id eq null }">
+			<div class="nomem_login">
+	 				<p>로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.</p>
+	 				<button type="button" onclick="location.href='sbmr'">로그인</button>		 		 
+			</div> 		 
+	 	</c:if>    
+		
 		<c:choose>
 			<c:when test="${guestCartListSize eq 0 }">  
-				<span>장바구니에 담긴 메뉴가 없습니다.</span>  
-				<p>다양한 맛을 가진 메뉴를 확인해 보세요.</p>  
-				<input type="button" value="메뉴보러가기" onclick="location.href='productList'"/>
+		<div class="detail">
+			<div class="detail_info">
+				<div class="no_data">
+					<span class="ico"></span>
+					<p>장바구니에 담긴 메뉴가 없습니다.</p>
+					<span>다양한 맛을 가진 메뉴를 확인해 보세요.</span>
+					<a href="productList" class="rec_link">
+						<span>메뉴보러 가기</span>
+					</a>
+				</div>
+			</div>
+		</div> 		  
 			</c:when>
 			<c:otherwise>
 				<form method="POST" action ="orderInsertPage">					 
@@ -101,8 +121,8 @@
 								<td>
 									<fmt:formatNumber value= "${gc.product_price * gc.cart_amount }" pattern="#,###,###" />원
 								</td>
-								<td>
-									<input type="button" value="x" onclick="location.href='cartDelete?cart_no=${gc.cart_no}'"/> 
+								<td>									
+									<input type="button" value="x" onclick="location.href='guestCartDelete?cart_no=${gc.cart_no}'"/> 
 								</td>
 							</tr>
 								</c:forEach>  
@@ -130,7 +150,7 @@
 				</form>
 			</c:otherwise>
 		</c:choose>  		
-	</div> 
+	</div>
 	
 <script type="text/javascript" src="resources/js/cart.js"></script>	
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

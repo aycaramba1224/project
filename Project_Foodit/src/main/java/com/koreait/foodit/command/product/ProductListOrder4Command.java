@@ -13,6 +13,7 @@ public class ProductListOrder4Command implements ProductCommand {
 		ProductDao productDao = sqlSession.getMapper(ProductDao.class);		
 		 
 		model.addAttribute("productListOrder4", productDao.productListOrder4());
+		model.addAttribute("productListOrder4Size", productDao.productListOrder4().size());
 		 
 	}
 

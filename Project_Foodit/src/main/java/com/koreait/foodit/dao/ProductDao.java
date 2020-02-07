@@ -11,7 +11,7 @@ public interface ProductDao {
 	public ProductDto productView(int product_no);	
 	public ProductDto productModifyPage(int product_no);	
 	public int productModify(String product_name, int product_price, String product_taste, 
-							 String product_stock, String product_content, int product_no);	
+							 String product_stock, String product_content, String product_img, String product_thumbImg, int product_no);	
 	public int productInsert(String product_name, int product_price, String product_content,
 							String product_stock, String product_taste, String product_img, String product_thumbImg);		
 	public int productDelete(int product_no);

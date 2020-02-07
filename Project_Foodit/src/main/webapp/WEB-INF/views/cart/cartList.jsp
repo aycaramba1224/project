@@ -10,40 +10,23 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">	 
-
-   
-/*   	$(function(){	
-		$("#selectDelete_btn").click(function(){
-			var confirm_val = confirm("선택한 메뉴를 삭제하시겠습니까?");
-			if(confirm_val){
-				var checkArr = new Array();	
-				$("input[name='chBox']:checked").each(function(){					 
-					checkArr.push($(this).attr("data-cartNo"));
-				});
-				$.ajax({
-					url : "cartDelete",
-					type : "post",
-					data : { chbox : checkArr },
-					success : function(){
-					location.href = "cartList";
-					},	
-					error : function(){
-						alert("실패!");
-					}
-				});
-			} 
-		});
-  	}); */
-  	
-  	/* function selectDelete(){
-  		var check = confirm("선택한 메뉴를 삭제하시겠습니까?");
-  		var select = "input[name='chBox']:checked";
-  		if(check){
-  			location.href="cartDelete?cart_no=${cart_no}";
-  			
-  		}
-  	} */
  
+var isCartDelete = "${isCartDelete}";
+if( isCartDelete == "yes"){
+	var cartDeleteResult = "${insertResult}";
+	if( cartDeleteResult == 0){
+		alert("메뉴 삭제가 성공하였습니다.");
+	} else {
+		alert("메뉴 삭제가 실패하였습니다.");
+	}
+}  
+   function selectDelete(){
+	   var check ="${paramValues.chBox[0]}";
+	   var check2 ="${paramValues.chBox[1]}";
+	   alert("check", check);
+	   
+   }
+  
 </script>
 </head>
 <body>
@@ -70,8 +53,8 @@
 					<table border="1" style="width:500px;">
 						<thead>
 							<tr>
-								<td>
-									<input type="checkbox" name="allCheck" id="allCheck" checked="checked" /> <!-- 전체 선택 체크박스   -->																	 
+								<td><!-- 전체 선택 체크박스   -->	
+									<input type="checkbox" name="allCheck" id="allCheck" checked="checked" />  														 
 								</td>
 								<td>
 									<label for="allCheck">총 <!-- 처리예정 --> / ${cartListSize }개</label> 
@@ -84,8 +67,8 @@
 						<tbody>
 							<c:forEach var="cartList" items="${cartList }" >
 							<tr>
-								<td>
-									<input type="checkbox" name="chBox" class="chBox" checked="checked" data-cartNo = "${cartList.cart_no }"/>	<!-- 개별 선택 체크 박스  -->
+								<td><!-- 개별 선택 체크 박스  -->
+									<input type="checkbox" name="chBox" checked="checked" data-cartNo = "${cartList.cart_no }"/>	 
 								</td>
 								<td>
 									<a href="productView?product_no=${cartList.product_no}"><img alt="${cartList.product_thumbImg }" 

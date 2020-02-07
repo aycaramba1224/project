@@ -95,7 +95,7 @@ public class ProductController {
 	}
 	
 	@RequestMapping("productModify")
-	public String modify(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {		
+	public String modify(RedirectAttributes redirectAttributes, MultipartHttpServletRequest request, Model model) {		
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request);
 		productCommand = new ProductModifyCommand();

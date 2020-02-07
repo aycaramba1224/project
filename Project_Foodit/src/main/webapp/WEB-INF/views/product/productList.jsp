@@ -31,9 +31,9 @@
 			등록된 메뉴가 없습니다.
 		</c:if>	 		
 		
-		<c:forEach var="productDto" items="${productList }" >	
-			<div id="목록" style="float:left; padding:20px;" >		
-				<ul style="list-style-type:none;">		 
+		<div id="목록" style="float:left; padding:20px;" >		
+			<ul style="list-style-type:none;">		 
+				<c:forEach var="productDto" items="${productList }" >	
 					<li>		 	
 						<a href="productView?product_no=${productDto.product_no}">	 
 							<!-- 상품 목록 썸네일 이미지 사이즈 : 366x366  -->
@@ -46,9 +46,9 @@
 							<span> 별점 &nbsp;|&nbsp; 리뷰글수 </span> 
 						</a>		 	
 					</li>		  
-				</ul>		 
-			</div>
-		</c:forEach> 
+				</c:forEach> 
+			</ul>		 
+		</div>
 		
 	</div>
 	

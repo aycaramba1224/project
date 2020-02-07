@@ -25,14 +25,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM PRODUCT ORDER BY CAST (PRODUCT_STOCK AS NUMBER)
 	</select>
 	
-	
-	
-	
-	
 	<select id="productView" resultType="com.koreait.foodit.dto.ProductDto">
 		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{param1}		
 	</select>
-	
 	
 	<insert id="productInsert">
 		INSERT INTO 
@@ -47,8 +42,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			PRODUCT 
 		SET 
 			PRODUCT_NAME = #{param1}, PRODUCT_PRICE = #{param2}, PRODUCT_TASTE = #{param3}, 
-			PRODUCT_STOCK = #{param4}, PRODUCT_CONTENT = #{param5} 
-		WHERE PRODUCT_NO = #{param6}
+			PRODUCT_STOCK = #{param4}, PRODUCT_CONTENT = #{param5}, PRODUCT_IMG = #{param6}, PRODUCT_THUMBIMG = #{param7}
+		WHERE PRODUCT_NO = #{param8}
 	</update>
 
 	<delete id="productDelete">
