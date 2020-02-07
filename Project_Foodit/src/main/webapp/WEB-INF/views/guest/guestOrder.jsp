@@ -14,102 +14,64 @@
     text-align: center;
     margin-bottom: 20px;
     }
-   table {
-    border-collapse: collapse;
-    margin:auto;
-    border-top: 1px solid #444444;
-    width:500px;
-    text-align:center;
-    border-radius:50px;
-    font-size: 20px;
-    text-decoration: none;
-   }
-   .td1 {
-  background-color:lightgray;
-  color:black;
    
-   }
-   td {
-   border-bottom: 1px solid #444444;
-    padding: 10px;
-   font-size:12px;
-   border-bottom: 1px solid #444444;
- }
-     .click-td1  a{
-      text-decoration: none;
-      }
-    .click-td1:hover{
-     background: darkgray;
-		color: white;
-    }
-    a:hover {
-		color: white;
-	   }
+  
+    
 
 </style>
 </head>
 <body>
 		<form method="post"  name="f">
+        
 	       <h1>주문자 정보</h1>
-       <p>주무번호을 클릭하세요.자세한정보 확인이 가능합니다.</p>
-       <hr />
-			<table border="1">
-			<c:if test="${ guest_noListSize ne 0 }">
-			<c:if test="${ guestListSize ne 0 }">
-			<c:forEach var="OrderBaseDto" items="${guestList}">
-			<c:forEach var="OrderBaseDto" items="${guest_noList}">
-			<tr>
-			<td class="td1">
-			비회원 주문번호
-			</td>
-			<td class="click-td1">
-	  <a href="guestOderListview?order_no=${OrderBaseDto.order_no}">${OrderBaseDto.order_no}</a>
-			</td>
-			</tr>
-			
-			<tr>
-			<td class="td1">
-			비회원 비밀번호
-			</td>
-			<td>
-			   ${OrderBaseDto.guest_pw}
-			</td>
-			</tr>
-					</tbody>
-			</c:forEach>
-			</c:forEach>
-			</c:if>
-			</c:if>
-			
-			<c:if test="${ guest_noListSize eq 0 }">
-			<c:if test="${guestListSize eq 0 }">
+      <c:choose>
+         <c:when test="${gDto ne null }" >
+        <div>
+                주문번호: ${gDto.order_no }
+        </div>
+        
+        <div>
+                비밀번호:${gDto.guest_pw }
+            
+         </div>
+         <div>주문자이름: ${gDto.order_name } </div>
+		<div>주문자 휴대폰:${gDto.order_phone }-
+						${gDto.order_phone2 }-
+						${gDto.order_phone3 }</div>
+	    <div>주문자 이메일:${gDto.order_email } @ ${gDto.order_email2}</div>
+        
+         <h1>배송정보</h1>
+         
+         
+         <div>이름:${gDto.delivery_name}</div>
+	     <div>휴대폰번호:${gDto.delivery_phone}-
+	     	 ${gDto.delivery_phone2}-
+	    	 ${gDto.delivery_phone3}
+	     </div>
+	     
+		<div>
+		   우편번호:${gDto.order_post}
 		
-			<tr>
-				<td colspan="5">저장된 주문정보가 없습니다.</td>
-			</tr>
+		</div>
 		
-				</c:if>
-		</c:if>	
+		<div>
+		주소: ${gDto.order_road1}
+		</div>
 		
- </table>
+		<div>
+		 주문날짜: ${gDto.orderDate }
+	    </div>
+         
+		</c:when>
+         </c:choose>
+         <br />
+         
+         <c:if test="${gDto eq null }" >
+           <script>
+               alert("해당정보와 일치하는 정보가 없습니다.");
+               location.href="sbmr";
+           </script>
+         </c:if>
+         
  </form>
  
-      <form>
-            
-			<c:forEach var="OrderBaseDto" items="${guestOrderList}">
-             <h1>주문시 이름</h1>
-     			<p>이름을 클릭하세요.자세한정보 확인이 가능합니다.</p>
-			   <div> <a href="guestnameview?order_name=${OrderBaseDto.order_name}">
-			    {OrderBaseDto.order_name }</a></div>
-			</c:forEach>
-			
-			
- 	     <c:if test="${ guestOrderListSize eq 0 }">
- 	                    정보없음
-			</c:if>
-	</form>
-          
-          
-         
-   
-     

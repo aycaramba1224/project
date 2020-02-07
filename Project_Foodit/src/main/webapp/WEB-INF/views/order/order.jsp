@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
         <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
         
         <jsp:include page="/WEB-INF/views/common/header.jsp" >
 	    <jsp:param value="주문페이지" name="title"/>
@@ -24,26 +25,26 @@
 			     
 			     	<div>
 	                    <label> 이름</label>   
-						<input type="text" name="order_name" id="order_name" />
+						<input type="text" name="order_name" />
 					 </div>
 					  
 					   <div>
 					  	<label> 휴대폰 </label>
-					  	<select name="order_phone" class="order_phone">
+					  	<select name="order_phone">
 					  <option value="::선택::">::선택::</option>
 			          <option value="010">010</option>
 			          <option value="011">011</option>
 			          <option value="019">019</option>
 		               </select>
-		               <input type="text" name="order_phone2" class="order_phone"/>
-		               <input type="text" name="order_phone3" class="order_phone"/>
+		               <input type="text" name="order_phone2" />
+		               <input type="text" name="order_phone3" />
 		               </div>
 		              
 						
 				<label>이메일</label>
-					<input type="text" id="order_email" name="order_email" />
+					<input type="text"  name="order_email" />
 					 @ 
-					<input type="text" id="order_email2" list="domain" name="order_email2" placeholder="직접 입력" />
+					<input type="text"  list="domain" name="order_email2" placeholder="직접 입력" />
 					<datalist id="domain">
 						<option value="naver.com">naver.com</option>
 						<option value="hanmail.net">hanmail.net</option>
@@ -53,9 +54,9 @@
 					 
 					     <div>
 					     <label>주문비밀번호</label>
-					     <input type="password" name="guest_pw" class="guest_pw"/>
+					     <input type="password" name="guest_pw"/>
 					     <label>주문비밀번호 확인</label> 
-					     <input type="password" name="guest_pw2" class="guest_pw" onblur="passchk(this.form)" />
+					     <input type="password" name="guest_pw2"  onblur="passchk(this.form)" />
 					      <input type="text" style="border-width: 0px" size="20" name="chk"
                           value="비밀번호를 입력하세요" readonly="readonly"/>
 					     </div>
@@ -63,7 +64,7 @@
 					    <h2>배송정보</h2>
 					    <div>
 	                    <label>이름</label>   
-						<input type="text" name="delivery_name" id="delivery_name" />
+						<input type="text" name="delivery_name" />
                         </div>
                         
                          <div>
@@ -74,8 +75,8 @@
 			          <option value="011">011</option>
 			          <option value="019">019</option>
 		               </select>
-		               <input type="text" name="delivery_phone2" class="delivery_phone2"/>
-		               <input type="text" name="delivery_phone3" class="delivery_phone3"/>
+		               <input type="text" name="delivery_phone2" />
+		               <input type="text" name="delivery_phone3" />
 		               </div>
 		  
                         <div>
@@ -91,15 +92,7 @@
                	  <!-- 비회원일떄보는 submit -->
                	 <h2>상품정보</h2>
                	  <div>
-               	  <c:choose>
-	        <c:when test="${ CartSession eq null }">
-	            ${CartSession.product_no}
-	            ${CartSession.cart_id}
-	            ${CartSession.cart_amount}
-	           
-	        
-	        </c:when>
-	        </c:choose>
+               	  
                	 </div>
                	 
                	 
@@ -127,14 +120,15 @@
 			   <div>
 			   ${sessionScope.mDto.id }님의 회원정보
 			   </div>
-			  
-			   
+			  <div>
+			   아이디:${mDto.id }
+			   </div>
 			   <div> 
-			    이름:<input type="text" name="order_name" value="${mDto.name}" />
+			    이름:${mDto.name}
 			    </div>
 			    
 			    <div>
-			  휴대폰<input type="text" name="order_phone" value="${mDto.phone}" />
+			  휴대폰:${mDto.phone}
 			  </div>
 			  <br />
 			  <div>
@@ -172,16 +166,28 @@
 				
 		     <!-- 회원일떄 보내는 button -->
 		            <h2>상품정보</h2>
+		            <c:forEach var="orderCartList" items="${orderCartList }" >
+		              ${orderCartList.cart_no }
+		           <img alt="${orderCartList.product_thumbImg }" 
+				src="${pageContext.request.contextPath }/resources/upload/${orderCartList.product_thumbImg}" style="width:100; height:100px;" />
+		            
+		            ${orderCartList.product_name }
+		            ${orderCartList.cart_amount } 
+		            
+		           <fmt:formatNumber value= "${cartList.product_price * cartList.cart_amount }" pattern="#,###,###" />원
+		           
+		            </c:forEach>
 	             	 <h2>결제정보</h2>
                	 <div>
-               	 총 상품금액<input type="text" />
-               	 </div>
-               	 <div>
-               	 총 배송비
-               	 <input type="text"  />
-               	 </div>
-               	 <div>
-               	 총 결제 금액<input type="text" />
+               	   <div>
+               	   <!--  
+						총 상품금액&nbsp;&nbsp;&nbsp;&nbsp;총 배송비&nbsp;&nbsp;&nbsp;&nbsp;총  결제예정금액<br/>			
+						<fmt:formatNumber value= "${sumMoney}" pattern="#,###,###" />원&nbsp;&nbsp; + &nbsp;&nbsp;	
+						<fmt:formatNumber value= "${fee }" pattern="#,###,###" />원&nbsp;&nbsp;	= &nbsp;&nbsp;	
+						<fmt:formatNumber value= "${sumMoney + fee }" pattern="#,###,###" />원 <br/>
+									
+								</div>
+								-->
                	 </div>
 	             
 	             <input type="button" value="회원결제하기" onclick="memberbuy()">

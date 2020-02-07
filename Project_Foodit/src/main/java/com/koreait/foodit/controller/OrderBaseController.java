@@ -1,15 +1,13 @@
 package com.koreait.foodit.controller;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import com.koreait.foodit.command.orderBase.GuestOrderCommand;
-import com.koreait.foodit.command.orderBase.GuestOrderViewCommand;
 import com.koreait.foodit.command.orderBase.GuestSearchNoCommand;
 import com.koreait.foodit.command.orderBase.MemberDeliveryCommand;
 import com.koreait.foodit.command.orderBase.MemberDeliveryListCommand;
@@ -19,10 +17,7 @@ import com.koreait.foodit.command.orderBase.OrderBaseInsertCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseListCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseModifyCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseViewCommand;
-
-
-
-
+import com.koreait.foodit.command.orderBase.OrderCartListCommand;
 
 @Controller
 public class OrderBaseController {
@@ -30,6 +25,18 @@ public class OrderBaseController {
 	 private SqlSession sqlSession;
 	 private OrderBaseCommand orderBaseCommand;
 	 
+	 //장바구니 관련
+	 
+	 
+	 
+	 //주문정보입력하는 페이지(장바구니 내역이 들어가 있어야함
+	 @RequestMapping("orderInsertPage")
+	 public String orderInsertPage(HttpServletRequest request,Model model) {
+		 model.addAttribute("request", request);
+		 orderBaseCommand = new OrderCartListCommand();
+		 orderBaseCommand.execute(sqlSession, model);
+		 return "order/order";
+	 }
 	 
 	 //회원일떄 보내는 
 	 //배송지 등록등 
@@ -69,6 +76,7 @@ public class OrderBaseController {
 		 return "order/memberOrderViewPage";
 		}
 	 
+	 /*경로 수정예정*/
 	 @RequestMapping("memberbuy")
 	 public String memberbuyInsert(HttpServletRequest request, Model model) {
 		 model.addAttribute("request", request);
@@ -77,81 +85,23 @@ public class OrderBaseController {
 		 return "home";
 	 }
 	
-	   //등록 되어 있는 배송목록 자세히 보기에서 order페이지로 정보를 보내주는
-	 /*
-	  @RequestMapping("memberorderPagesend")
-	  public String memberorderPagesend(RedirectAttributes redirectAttributes,HttpSession session,HttpServletRequest request, Model model) {
-		  session = request.getSession();
-		session.getAttribute("mDto");
-		  model.addAttribute("request", request);
-		  model.addAttribute("redirectAttributes",redirectAttributes);
-		  orderBaseCommand = new DeliveryCommand();
-		  orderBaseCommand.execute(sqlSession, model);
-		  return "redirect:/order";
-	  }
-	  */
-	  
-	 /*
-	  * redirect 는 mapping 한 번 더 확인 
-	  */
-	 
-	 //배송정보 관련 여기까지
-	 
+
 	 //비회원 주문/배송조회
-	 @RequestMapping("guestSearchPage")
-	 public String guestSearchPage(Model model) {
-		 return "guest/guestSearchPage";
-	 }
+	
 	 
 	 @RequestMapping("guestSearch")
 		public String guestSearch(HttpServletRequest request,Model model) {
 		    model.addAttribute("request", request);
-			orderBaseCommand = new GuestOrderCommand();
+		    orderBaseCommand = new GuestOrderCommand();
 			orderBaseCommand.execute(sqlSession, model);
 			return "guest/guestOrder";
 		}
 	 
-	 @RequestMapping("guestOderListview")
-		public String guestOderListview(HttpServletRequest request,Model model) {
-		 model.addAttribute("request", request);
-			orderBaseCommand = new GuestOrderViewCommand();
-			orderBaseCommand.execute(sqlSession, model);
-			return "guest/guestOrderView";
-		}
-	 
-	 @RequestMapping("guestnoSerachPage")
-	 public String guestnoSerachPage() {
-		 return "guest/guestOrderNumSearch";
-	 }
-	 
-	 @RequestMapping("order_noSearch")
-		public String guestorder_noSearch(HttpServletRequest request,Model model) {
-		 model.addAttribute("request", request);
-		 //model.addAttribute("redirectAttributes",redirectAttributes);
-			orderBaseCommand = new GuestSearchNoCommand();
-			orderBaseCommand.execute(sqlSession, model);
-			//return "riderect:/guestOrderNumSearch";
-			return "guest/guestOrder";
-		}
-	
-	 @RequestMapping("guestnameview")
-		public String guestnamevie(HttpServletRequest request,Model model) {
-		 model.addAttribute("request", request);
-			orderBaseCommand = new OrderBaseViewCommand();
-			orderBaseCommand.execute(sqlSession, model);
-			return "guest/guestSearchPage";
-		}
-	 
-	//주문정보입력하는 페이지
-	 @RequestMapping("orderInsertPage")
-	 public String orderInsertPage() {
-		 return "order/order";
-	 }
+
 	 
 	 @RequestMapping("orderInsert")
-		public String orderInsert(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
+		public String orderInsert(HttpServletRequest request, Model model) {
 		   model.addAttribute("request", request);
-			model.addAttribute("redirectAttributes",redirectAttributes);
 			orderBaseCommand = new OrderBaseInsertCommand();
 			orderBaseCommand.execute(sqlSession, model);
 			return "home";
