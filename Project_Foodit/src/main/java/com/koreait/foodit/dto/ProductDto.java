@@ -4,14 +4,14 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDto {
 
-	private int product_no;
-	private String 	product_name,
-					product_price,
-					product_content,
-					product_stock,
-					product_taste,
-					product_img,
-					product_thumbImg;
+	private int product_no;				// 상품 번호 (SEQ, PK)
+	private String 	product_name,		// 상품명
+					product_price,		// 상품 금액
+					product_content,	// 상품 설명
+					product_stock,		// 상품 재고
+					product_taste,		// 상품 맛
+					product_img,		// 상품 이미지(상세 이미지)
+					product_thumbImg;	// 상품 썸네일
 	
 	private MultipartFile product_imgFile, product_thumbImgFile;
 	

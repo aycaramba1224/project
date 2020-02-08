@@ -25,6 +25,7 @@ public class CartController {
 	private SqlSession sqlSession;
 	private CartCommand cartCommand;
 
+	// 기본 CRUD
 	@RequestMapping("cartList") 
 	public String cartList(HttpServletRequest request, Model model, HttpSession session) {
 		model.addAttribute("request", request);
@@ -80,7 +81,7 @@ public class CartController {
 		return "redirect:/guestCartList";
 	}
 	
-	// 장바구니 메인 
+	// 장바구니 메인 페이지
 	@RequestMapping("cartMain")
 	public String cartMain() {
 		return "cart/cartMain";

@@ -2,13 +2,13 @@ package com.koreait.foodit.dto;
 
 public class CartDto {
 	
-	private int cart_no, 
-				product_no, 
-				product_price, 
-				cart_amount;
-    private String cart_id, 
-				   product_name, 
-				   product_thumbImg; 
+	private int cart_no, 				// 장바구니 번호 (SEQ, PK)
+				product_no, 			// 상품 번호
+				product_price, 			// 상품 금액
+				cart_amount;			// 장바구니에 담긴 수량
+    private String cart_id, 			// 장바구니 이용고객의 ID
+				   product_name, 		// 상품명
+				   product_thumbImg; 	// 상품 썸네일
     
 	public CartDto() { }
 	public CartDto(int cart_no, int product_no, int product_price, int cart_amount, String cart_id, String product_name,
