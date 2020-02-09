@@ -73,8 +73,11 @@ if(isNoticeDelete == "Yes"){
             </tfoot>
         </table>    
     </div>
-   <!-- 페이징처리 예정 -->
-
+   	<!-- 페이징처리 예정 -->
+	<br />
+    ${pagingView }
+    <br />
+        
 
 
 </body>

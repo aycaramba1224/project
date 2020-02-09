@@ -7,7 +7,8 @@ import com.koreait.foodit.dto.NoticeDto;
 
 public interface NoticeDao {
 
-	
+	public ArrayList<NoticeDto> noticeList(int begin, int end);
+	public int totalCountReview();
 	
 	public ArrayList<NoticeDto> noticeList();
     public NoticeDto noticeView(int notice_no);

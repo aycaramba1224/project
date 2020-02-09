@@ -12,7 +12,7 @@ public class Paging {
 	int totalPage = 0; // 전체 페이지 개수
 	int beginPageOfBlock = 0; // 블록의 시작 페이지 번호
 	int endPageOfBlock = 0; // 블록의 끝 페이지 번호
-	int pagePerBlock = 3; // 한 블록에 표시할 페이지 개수
+	int pagePerBlock = 10; // 한 블록에 표시할 페이지 개수
 	
 	// 전체 레코드 개수와 한 페이지에 표시할 레코드 개수를 알면
 	// 전체 페이지 개수를 알 수 있다.
