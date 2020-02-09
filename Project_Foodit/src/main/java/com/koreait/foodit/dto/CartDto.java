@@ -2,18 +2,19 @@ package com.koreait.foodit.dto;
 
 public class CartDto {
 	
-	private int cart_no, 				// 장바구니 번호 (SEQ, PK)
-				product_no, 			// 상품 번호
-				product_price, 			// 상품 금액
-				cart_amount;			// 장바구니에 담긴 수량
-    private String cart_id, 			// 장바구니 이용고객의 ID
-				   product_name, 		// 상품명
-				   product_thumbImg; 	// 상품 썸네일
-    
+	private int cart_no, 
+				product_no, 
+				product_price, 
+				cart_amount;
+    private String cart_id, 
+				   product_name, 
+				   product_thumbImg; 
+    private int order_no;
 	public CartDto() { }
-	public CartDto(int cart_no, int product_no, int product_price, int cart_amount, String cart_id, String product_name,
+	public CartDto(int order_no,int cart_no, int product_no, int product_price, int cart_amount, String cart_id, String product_name,
 			String product_thumbImg) {
 		super();
+		this.order_no = order_no;
 		this.cart_no = cart_no;
 		this.product_no = product_no;
 		this.product_price = product_price;
@@ -21,6 +22,14 @@ public class CartDto {
 		this.cart_id = cart_id;
 		this.product_name = product_name;
 		this.product_thumbImg = product_thumbImg;
+	}
+	
+	
+	public int getOrder_no() {
+		return order_no;
+	}
+	public void setOrder_no(int order_no) {
+		this.order_no = order_no;
 	}
 	public int getCart_no() {
 		return cart_no;

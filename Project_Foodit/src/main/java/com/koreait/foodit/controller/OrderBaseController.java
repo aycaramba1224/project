@@ -7,17 +7,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.foodit.command.orderBase.DeliveryInsertCommand;
 import com.koreait.foodit.command.orderBase.GuestOrderCommand;
-import com.koreait.foodit.command.orderBase.GuestSearchNoCommand;
-import com.koreait.foodit.command.orderBase.MemberDeliveryCommand;
 import com.koreait.foodit.command.orderBase.MemberDeliveryListCommand;
+import com.koreait.foodit.command.orderBase.MemberOderBuyCommand;
+import com.koreait.foodit.command.orderBase.MemberOrderListCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseDeleteCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseInsertCommand;
-import com.koreait.foodit.command.orderBase.OrderBaseListCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseModifyCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseViewCommand;
-import com.koreait.foodit.command.orderBase.OrderCartListCommand;
+
 
 @Controller
 public class OrderBaseController {
@@ -26,18 +26,7 @@ public class OrderBaseController {
 	 private OrderBaseCommand orderBaseCommand;
 	 
 	 //장바구니 관련
-	 
-	 
-	 
-	 //주문정보입력하는 페이지(장바구니 내역이 들어가 있어야함
-	 @RequestMapping("orderInsertPage")
-	 public String orderInsertPage(HttpServletRequest request,Model model) {
-		 model.addAttribute("request", request);
-		 orderBaseCommand = new OrderCartListCommand();
-		 orderBaseCommand.execute(sqlSession, model);
-		 return "order/order";
-	 }
-	 
+	
 	 //회원일떄 보내는 
 	 //배송지 등록등 
 	 
@@ -57,35 +46,30 @@ public class OrderBaseController {
 	 @RequestMapping("memberdeliveryInsert")
 	 public String  memberdeliverylistPage(HttpServletRequest request,Model model ) {
 			model.addAttribute("request", request);
-			orderBaseCommand = new MemberDeliveryCommand();
+			orderBaseCommand = new DeliveryInsertCommand();
 			orderBaseCommand.execute(sqlSession, model);
 			return "order/order";
 		}
 	 
-	 //회원일떄 주문내역,결제하기
+	 
+	 //회원일떄 주문내역
 	 @RequestMapping("memberOrderlistPage")
-		public String memberOrderlistPage() {
+		public String memberOrderlistPage(HttpServletRequest request, Model model) {
+		 model.addAttribute("request", request);
+		 orderBaseCommand =  new MemberOrderListCommand();
+		 orderBaseCommand.execute(sqlSession, model);
 		 return "order/memberOrderList";
 		}
-	 
-	 @RequestMapping("memberOrderSearch")
-		public String memberOrderSearch(HttpServletRequest request, Model model) {
-		 model.addAttribute("request", request);
-		 orderBaseCommand = new GuestSearchNoCommand();
-		 orderBaseCommand.execute(sqlSession, model);
-		 return "order/memberOrderViewPage";
-		}
-	 
+	
 	 /*경로 수정예정*/
 	 @RequestMapping("memberbuy")
 	 public String memberbuyInsert(HttpServletRequest request, Model model) {
 		 model.addAttribute("request", request);
-		 orderBaseCommand = new MemberDeliveryCommand();
+		 orderBaseCommand = new MemberOderBuyCommand();
 		 orderBaseCommand.execute(sqlSession, model);
 		 return "home";
 	 }
 	
-
 	 //비회원 주문/배송조회
 	
 	 
@@ -97,22 +81,14 @@ public class OrderBaseController {
 			return "guest/guestOrder";
 		}
 	 
-
 	 
+	 //비회원 주문
 	 @RequestMapping("orderInsert")
 		public String orderInsert(HttpServletRequest request, Model model) {
 		   model.addAttribute("request", request);
 			orderBaseCommand = new OrderBaseInsertCommand();
 			orderBaseCommand.execute(sqlSession, model);
 			return "home";
-		}
-	 
-	 @RequestMapping("orderBaseList")
-		public String oderListPage(HttpServletRequest request,Model model ) {
-			model.addAttribute("request", request);
-			orderBaseCommand = new OrderBaseListCommand();
-			orderBaseCommand.execute(sqlSession, model);
-			return "order/orderBaseList";
 		}
 		
 	 /*

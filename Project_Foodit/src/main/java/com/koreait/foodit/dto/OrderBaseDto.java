@@ -49,7 +49,7 @@ PRODUCT_NO
 			order_post,
 			order_road1,
 			product_price,
-			product_thumbimg,
+			product_thumbImg,
 			cart_id,product_name;
 	private int order_no,product_no;
 	private Date orderDate;
@@ -60,7 +60,7 @@ PRODUCT_NO
 	public OrderBaseDto(String guest_pw, String id, String order_name, String order_phone, String order_phone2,
 			String order_phone3, String order_email, String order_email2, String delivery_name, String delivery_phone,
 			String delivery_phone2, String delivery_phone3, String order_post, String order_road1, String product_price,
-			String product_thumbimg, String cart_id, String product_name, int order_no, int product_no, Date orderDate,
+			String product_thumbImg, String cart_id, String product_name, int order_no, int product_no, Date orderDate,
 			int cart_no, int cart_amount) {
 		super();
 		this.guest_pw = guest_pw;
@@ -78,7 +78,7 @@ PRODUCT_NO
 		this.order_post = order_post;
 		this.order_road1 = order_road1;
 		this.product_price = product_price;
-		this.product_thumbimg = product_thumbimg;
+		this.product_thumbImg = product_thumbImg;
 		this.cart_id = cart_id;
 		this.product_name = product_name;
 		this.order_no = order_no;
@@ -97,12 +97,12 @@ PRODUCT_NO
 		this.product_price = product_price;
 	}
 
-	public String getProduct_thumbimg() {
-		return product_thumbimg;
+	public String getProduct_thumbImg() {
+		return product_thumbImg;
 	}
 
-	public void setProduct_thumbimg(String product_thumbimg) {
-		this.product_thumbimg = product_thumbimg;
+	public void setProduct_thumbimg(String product_thumbImg) {
+		this.product_thumbImg = product_thumbImg;
 	}
 
 	public String getCart_id() {

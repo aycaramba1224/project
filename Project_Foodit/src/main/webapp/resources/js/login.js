@@ -37,7 +37,7 @@ $(function(){
 			$("#gPw").focus();
 			return false;
 		}
-		$("#nl").attr("action", "guestOderListview").submit();
+		$("#nl").attr("action", "guestSearch").submit();
 	});
 	$("input:text[numberOnly]").on("keyup", function() { // input 영역 숫자만 입력 가능하게 
 	    $(this).val($(this).val().replace(/[^0-9]/g,""));

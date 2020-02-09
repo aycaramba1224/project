@@ -17,6 +17,7 @@ import com.koreait.foodit.command.cart.CartListCommand;
 import com.koreait.foodit.command.cart.GuestCartDeleteCommand;
 import com.koreait.foodit.command.cart.GuestCartInsertCommand;
 import com.koreait.foodit.command.cart.GuestCartListCommand;
+import com.koreait.foodit.command.cart.OrderCartListCommand;
 
 @Controller
 public class CartController {
@@ -86,5 +87,15 @@ public class CartController {
 	public String cartMain() {
 		return "cart/cartMain";
 	}
+	
+	//주문하기 했을떄 cartList에 있는 값이 insert되야됨
+		//OrderCartInsertCommand안에 List 할 수 있는 Dao 도 같이 넣으면 됨
+		@RequestMapping("orderInsertPage")
+			public String orderInsertPage(HttpServletRequest request, Model model) {
+			model.addAttribute("request", request);
+			cartCommand = new OrderCartListCommand();
+			cartCommand.execute(sqlSession, model);
+			return "order/order";
+		}
 }
 

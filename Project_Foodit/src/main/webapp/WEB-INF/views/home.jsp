@@ -10,7 +10,7 @@
     
 	
 	 <input type="button" value="비회원 주문/배송 조회하기" onclick="location.href='guestSearchPage'" />
-	 <input type="button" value="주문하기" onclick="location.href='orderInsertPage'"/>
+	<!--   <input type="button" value="주문하기" onclick="location.href='orderInsertPage'"/>-->
 	  <input type="button" value="회원주문내역" onclick="location.href='memberOrderlistPage'" />
 	 
 	  
@@ -29,9 +29,7 @@
 		&nbsp;
 		<input type="button" value="관리자페이지" onclick="location.href='adminPage'" />
  
-		&nbsp;
-		<input type="button" value="메인페이지" onclick="location.href='main'" />
-		
-		
+
+
 </body>
 </html>
