@@ -1,30 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
-    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>       
     
 <jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="FOODIT 장바구니" name="title"/>
 </jsp:include> 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">	 
- 
+<script type="text/javascript">	  
 	var isCartDelete = "${isCartDelete}";
 	if( isCartDelete == "yes"){
 		var cartDeleteResult = "${insertResult}";
 		if( cartDeleteResult == 0){
-			alert("메뉴 삭제가 성공하였습니다.");
+			alert("메뉴가 삭제 되었습니다.");
 		} else {
-			alert("메뉴 삭제가 실패하였습니다.");
+			alert("메뉴가 삭제 되지않았습니다.");
 		}
 	}  
 	
-   function selectDelete() {
-	   alert($("#chBox").val());
-   }
-  
+	function selectDelete() {	      
+		if($('input:checkbox[name=chBox]:checked').length== 0){
+		  	alert("선택된 상품이 없습니다.")
+		  return;
+		} else{
+		 location.href ="cartDelete?cart_no=${cart_no}";     // 카트번호가 안넘어감    	 
+		} 
+	}
 </script>
 </head>
 <body>
@@ -57,27 +59,41 @@
 				</div> 		  
 			</c:when>
 			<c:otherwise>
-				<form method="POST" action ="orderInsertPage">					 
-				
-					<table border="1" style="width:500px;">
+				<form method="POST" action ="orderInsertPage">					
+					<table border="1" style="width:500px;">				
 						<thead>
 							<tr>
 								<td><!-- 전체 선택 체크박스   -->	
-									<input type="checkbox" name="allCheck" id="allCheck" checked="checked" />  														 
+									<input type="checkbox" name="allCheck" id="allCheck" checked="checked"/>		
+									 <script>
+										$("#allCheck").click(function(){
+											var chk = $("#allCheck").prop("checked");
+											if(chk) {
+											 	$(".chBox").prop("checked", true);
+											} else {
+											 	$(".chBox").prop("checked", false);
+											}
+										});
+									</script> 							 
 								</td>
 								<td>
 									<label for="allCheck">총 <!-- 처리예정 --> / ${cartListSize }개</label> 
 								</td> 
 								<td colspan="4">
-									<input type="button" value="선택 삭제" id="selectDelete_btn" onclick="selectDelete()"/>	
+									<input type="button" value="선택 삭제" class="selectDelete_btn" onclick="selectDelete()"/>
 								</td> 
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="cartList" items="${cartList }" varStatus="k">
+							<c:forEach var="cartList" items="${cartList }"  >
 							<tr>
 								<td><!-- 개별 선택 체크 박스  -->
-									<input type="checkbox" name="chBox"  class ="chBox" id="chBox" value="${k.count }" checked="checked" data-cartNo = "${cartList.cart_no }"/>	 
+									<input type="checkbox" name="chBox" class="chBox" checked="checked" />
+									<script>
+										$(".chBox").click(function(){
+											$("#allCheck").prop("checked", false);
+										});									
+									</script>  
 								</td>
 								<td>
 									<a href="productView?product_no=${cartList.product_no}"><img alt="${cartList.product_thumbImg }" 
@@ -122,7 +138,8 @@
 				</form>
 			</c:otherwise>
 		</c:choose>  		
-	</div> 
+	</div>  
+	
 	
 <script type="text/javascript" src="resources/js/cart.js"></script>	
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

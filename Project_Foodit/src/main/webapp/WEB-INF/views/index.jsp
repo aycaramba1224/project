@@ -28,9 +28,8 @@
 	</div> <br/>
 	
 	<div>
-		실시간 베스트	 <!-- 임시  -->
-		<jsp:include page="/WEB-INF/views/product/searchResult.jsp"/>
-			
+	  <jsp:include page="/WEB-INF/views/product/mainList.jsp"/>  
+	 
 	</div>	<br/>
 	
 	

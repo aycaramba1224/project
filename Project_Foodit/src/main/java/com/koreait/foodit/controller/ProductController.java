@@ -31,7 +31,8 @@ public class ProductController {
 		
 	// 기본 CRUD
 	@RequestMapping("productList")
-	public String productList(Model model) {	
+	public String productList(HttpServletRequest request, Model model) {	
+		model.addAttribute("request", request);
 		productCommand = new ProductListCommand();
 		productCommand.execute(sqlSession, model);
 		return "product/productList";
@@ -88,27 +89,31 @@ public class ProductController {
 	 
 	// 상품 정렬
 	@RequestMapping("productListOrder1")			// 가격 내림 차순 정렬 리스트 (높은가격 순)
-	public String productListOrder1(Model model) {	
+	public String productListOrder1(HttpServletRequest request, Model model) {	
+		model.addAttribute("request", request);
 		productCommand = new ProductListOrder1Command();
 		productCommand.execute(sqlSession, model);
 		return "product/productListOrder1";
 	}
 		
 	@RequestMapping("productListOrder2")			// 가격 내림 차순 정렬 리스트 (높은가격 순)
-	public String productListOrder2(Model model) {	
+	public String productListOrder2(HttpServletRequest request, Model model) {	
+		model.addAttribute("request", request);
 		productCommand = new ProductListOrder2Command();
 		productCommand.execute(sqlSession, model);
 		return "product/productListOrder2";
 	} 
 	@RequestMapping("productListOrder3")			// 가격 오름 차순 정렬 리스트 (낮은가격 순)
-	public String productListOrder3(Model model) {	
+	public String productListOrder3(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
 		productCommand = new ProductListOrder3Command();
 		productCommand.execute(sqlSession, model);
 		return "product/productListOrder3";
 	} 
 	
 	@RequestMapping("productListOrder4")			// 만족도순 정렬 리스트 (임시로 재고순으로 넣음)
-	public String productListOrder4(Model model) {	
+	public String productListOrder4(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
 		productCommand = new ProductListOrder4Command();
 		productCommand.execute(sqlSession, model);
 		return "product/productListOrder4";
@@ -129,16 +134,4 @@ public class ProductController {
 		return"product/productSearchResult";
 	}
  
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

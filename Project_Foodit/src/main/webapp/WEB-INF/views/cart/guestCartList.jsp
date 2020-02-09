@@ -10,19 +10,18 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
-
-var isCartDelete = "${isCartDelete}";
-if( isCartDelete == "yes"){
-	var cartDeleteResult = "${insertResult}";
-	if( cartDeleteResult == 0){
-		alert("메뉴 삭제가 성공하였습니다.");
-	} else {
-		alert("메뉴 삭제가 실패하였습니다.");
-	}
-}  
+	var isCartDelete = "${isCartDelete}";
+	if( isCartDelete == "yes"){
+		var cartDeleteResult = "${insertResult}";
+		if( cartDeleteResult == 0){
+			alert("메뉴가 삭제 되었습니다.");
+		} else {
+			alert("메뉴가 삭제 되지않았습니다.");
+		}
+	}  
 
 function goLogin(f){
- 	f.action = "sbmr?cart_id=${cart_id}";
+ 	f.action = "sbmr?cart_id=${cart_id}";	// 비회원의 임시아이디를 본래 아이디로 업데이트함
 	f.submit();  
 }
  
@@ -65,6 +64,16 @@ function goLogin(f){
 					<tr>
 						<td>
 							<input type="checkbox" name="allCheck" id="allCheck" checked="checked" /> <!-- 전체 선택 체크박스   -->																	 
+							<script> // 체크박스 전체 선택 및 전체 해제
+								$("#allCheck").click(function(){
+									var chk = $("#allCheck").prop("checked");
+									if(chk) {
+									 	$(".chBox").prop("checked", true);
+									} else {
+									 	$(".chBox").prop("checked", false);
+									}
+								});
+							</script> 						
 						</td>
 						<td>
 							<label for="allCheck">총 <!-- 처리예정 --> / ${guestCartListSize }개</label> 
@@ -79,6 +88,11 @@ function goLogin(f){
 					<tr>
 						<td>
 							<input type="checkbox" name="chBox" class="chBox" checked="checked" data-cartNo = "${gc.cart_no }"/>	<!-- 개별 선택 체크 박스  -->
+							<script>
+								$(".chBox").click(function(){
+									$("#allCheck").prop("checked", false);
+								});									
+							</script>  
 						</td>
 						<td>
 							<a href="productView?product_no=${gc.product_no}"><img alt="${gc.product_thumbImg }" 

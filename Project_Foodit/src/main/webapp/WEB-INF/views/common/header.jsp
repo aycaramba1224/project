@@ -63,7 +63,7 @@ if(isLogout == "yes"){
 				</div>
 				<div class="gnbMenu">
 				 	<h1 class="logo">
-				 	 	<a href="index">로고</a>
+				 	 	<a href="main">로고</a>
 				 	</h1>
 				 	<ul class="gnbList nbgB">
 				 		<li><a href="#" onclick="return false;">FOODIT 소개</a></li>

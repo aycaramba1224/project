@@ -53,8 +53,9 @@
 		
 	</div>
 	
-	
-	
+	<br />
+    ${pagingView }
+    <br /> 
 	
 	
 	
