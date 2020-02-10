@@ -13,6 +13,54 @@ $(function(){
 	$(".chBox").click(function(){
 		$("#allCheck").prop("checked", false);
 	});		
-	
-	
+		
 }); 
+
+
+
+//체크박스 선택 후 선택 삭제 (비회원)
+function gc_selectDelete() {	 
+	if($('input:checkbox[name=chBox]:checked').length== 0){
+		alert("선택된 상품이 없습니다.")
+		return;
+	} else {
+		var chk = confirm("상품을 삭제하시겠습니까?");			  
+		if(chk) {
+			var select = $('input:checkbox[name=chBox]:checked').val();	
+			var arr = new Array();
+			$("input[class=chBox]:checked").each(function(){
+				arr.push($(this).attr("cartNo"));					
+			});
+			for(var i = 0; i < arr.length; i++){
+				location.href="cartDelete?cart_no=" + arr[i]; 
+			}				
+		}
+	}		 
+					 
+}
+
+// 체크박스 선택 후 선택 삭제 (비회원)
+function selectDelete() {	 
+	if($('input:checkbox[name=chBox]:checked').length== 0){
+		alert("선택된 상품이 없습니다.")
+		return;
+	} else {
+		var chk = confirm("상품을 삭제하시겠습니까?");			  
+		if(chk) {
+			var select = $('input:checkbox[name=chBox]:checked').val();	
+			var arr = new Array();
+			$("input[class=chBox]:checked").each(function(){
+				arr.push($(this).attr("cartNo"));					
+			});
+			for(var i = 0; i < arr.length; i++){
+				location.href="guestCartDelete?cart_no=" + arr[i]; 
+			}				
+		}
+	}		 
+					 
+}
+
+
+
+
+

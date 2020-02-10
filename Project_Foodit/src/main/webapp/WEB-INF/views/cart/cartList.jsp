@@ -17,16 +17,8 @@
 		} else {
 			alert("메뉴가 삭제 되지않았습니다.");
 		}
-	}  
-	
-	function selectDelete() {	      
-		if($('input:checkbox[name=chBox]:checked').length== 0){
-		  	alert("선택된 상품이 없습니다.")
-		  return;
-		} else{
-		 location.href ="cartDelete?cart_no=${cart_no}";     // 카트번호가 안넘어감    	 
-		} 
-	}
+	}    
+		
 </script>
 </head>
 <body>
@@ -65,36 +57,20 @@
 							<tr>
 								<td><!-- 전체 선택 체크박스   -->	
 									<input type="checkbox" name="allCheck" id="allCheck" checked="checked"/>		
-									 <script>
-										$("#allCheck").click(function(){
-											var chk = $("#allCheck").prop("checked");
-											if(chk) {
-											 	$(".chBox").prop("checked", true);
-											} else {
-											 	$(".chBox").prop("checked", false);
-											}
-										});
-									</script> 							 
 								</td>
 								<td>
-									<label for="allCheck">총 <!-- 처리예정 --> / ${cartListSize }개</label> 
+									<label for="allCheck">총  <!-- 처리예정 --> / ${cartListSize }개</label> 
 								</td> 
 								<td colspan="4">
-									<input type="button" value="선택 삭제" class="selectDelete_btn" onclick="selectDelete()"/>
+									<button type="button" onclick="selectDelete()">선택 삭제</button> 
 								</td> 
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="cartList" items="${cartList }"  >
-							카트번호 : ${cartList.cart_no }
+							<c:forEach var="cartList" items="${cartList }"  >							
 							<tr>
 								<td><!-- 개별 선택 체크 박스  -->
-									<input type="checkbox" name="chBox" class="chBox" checked="checked" />
-									<script>
-										$(".chBox").click(function(){
-											$("#allCheck").prop("checked", false);
-										});									
-									</script>  
+									<input type="checkbox" name="chBox" class="chBox" checked="checked" cartNo="${cartList.cart_no }"/> <!-- 체크박스에 카트번호를 속성으로 넣는다. -->
 								</td>
 								<td>
 									<a href="productView?product_no=${cartList.product_no}"><img alt="${cartList.product_thumbImg }" 
@@ -111,10 +87,10 @@
 									<fmt:formatNumber value= "${cartList.product_price * cartList.cart_amount }" pattern="#,###,###" />원
 								</td>
 								<td>
-									<input type="button" value="x" onclick="location.href='cartDelete?cart_no=${cartList.cart_no}'"/> 
+									<button type="button" onclick="location.href='cartDelete?cart_no=${cartList.cart_no}'">x</button> 
 								</td>
 							</tr>
-								</c:forEach>  
+								</c:forEach>   
 							<tr> 
 								<td colspan="6">
 									총 상품금액&nbsp;&nbsp;&nbsp;&nbsp;총 배송비&nbsp;&nbsp;&nbsp;&nbsp;총  결제예정금액<br/>			
@@ -130,7 +106,7 @@
 						<tfoot>
 							<tr>
 								<td colspan="6">
-								<input type="button" value="선택 주문하기" onclick="location.href='orderInsertPage'" /> 
+								<button type="button" onclick="location.href='orderInsertPage'">선택 주문하기</button> 
 								<input type="submit" value="전체 주문하기" /> 
 								</td>
 							</tr>

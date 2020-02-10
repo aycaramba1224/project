@@ -20,23 +20,10 @@
 		}
 	}  
 
-	function goLogin(f){ 		// 비회원의 임시아이디를 본래 아이디로 업데이트함
+ 	function goLogin(f){ 		// 비회원의 임시아이디를 본래 아이디로 업데이트함
 	 	f.action = "sbmr?cart_id=${cart_id}";	 
 		f.submit();  
-	}
-	
-	function selectDelete() {	 // 체크박스 선택 후 선택 삭제      
-		if($('input:checkbox[name=chBox]:checked').length== 0){
-			alert("선택된 상품이 없습니다.")
-			return;
-		} else {
-			var chk = confirm("상품을 삭제하시겠습니까?");			  
-			if(chk) {
-				var select = $('input:checkbox[name=chBox]:checked').val();				
-				location.href="guestCartDelete?cart_no=" + select;			
-			}		 
-		}			
-	} 
+	}   
 </script>
 </head>
 <body>
@@ -83,16 +70,15 @@
 							<label for="allCheck">총 <!-- 처리예정 --> / ${guestCartListSize }개</label> 
 						</td> 
 						<td colspan="4">
-							<input type="button" value="선택 삭제" id="selectDelete_btn" onclick="selectDelete()"/>	
+							<button type="button" onclick="gc_selectDelete()">선택 삭제</button> 
 						</td> 
 					</tr>							
 				</thead>
 				<tbody>
-					<c:forEach var="gc" items="${guestCartList }" >	
-					카트번호 : ${gc.cart_no }				 
+					<c:forEach var="gc" items="${guestCartList }" >					 
 					<tr>
 						<td><!-- 개별 선택 체크 박스  -->
-							<input type="checkbox" name="chBox" class="chBox" checked="checked" value="${gc.cart_no }"/>	 
+							<input type="checkbox" name="chBox" class="chBox" checked="checked" cartNo="${gc.cart_no }"/>	<!-- 체크박스에 카트번호를 속성으로 넣는다. --> 
 						</td>
 						<td>
 							<a href="productView?product_no=${gc.product_no}"><img alt="${gc.product_thumbImg }" 
@@ -109,7 +95,7 @@
 							<fmt:formatNumber value= "${gc.product_price * gc.cart_amount }" pattern="#,###,###" />원
 						</td>
 						<td>									
-							<input type="button" value="x" onclick="location.href='guestCartDelete?cart_no=${gc.cart_no}'"/> 
+							<button type="button" onclick="location.href='guestCartDelete?cart_no=${gc.cart_no}'">x</button> 
 						</td>
 					</tr>
 						</c:forEach>  
@@ -128,8 +114,8 @@
 				<tfoot>
 					<tr>
 						<td colspan="6">
-						<input type="button" value="선택 주문하기(비회원)" onclick="location.href='guestorderPage'" /> 
-						<input type="submit" value="전체 주문하기(비회원)" /> 
+						<button type="button" onclick="location.href='guestorderPage'">선택 주문하기</button>  <!-- 비회원 선택 주문  -->
+						<input type="submit" value="전체 주문하기" /> 
 						</td>
 					</tr>
 				</tfoot>
