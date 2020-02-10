@@ -98,12 +98,10 @@ if( flag == "2" ){
 		<div id="loginNm" class="loginCont nbg" style="display:none">
 			<form method="post" id="nl">
 				<div class="inputArea">
-					<input type="hidden" name="guestquery2" value="order_no" />
-					<input type="text" name="content2" id="gNo" numberOnly placeholder="주문번호 입력" /> 
+					<input type="text" name="guest_no" id="gNo" numberOnly placeholder="주문번호 입력" /> 
 				</div>
 				<div class="inputArea">
-					<input type="hidden" name="guestquery" value="guest_pw" />
-					<input type="password" name="content" id="gPw" placeholder="주문 비밀번호 입력" /> 
+					<input type="password" name="guest_pw" id="gPw" placeholder="주문 비밀번호 입력" />  
 				</div>
 				<div class="btn_wrap"> 
 					<button type="button" class="loginBtn" onclick="nonLogin(this.form)" >

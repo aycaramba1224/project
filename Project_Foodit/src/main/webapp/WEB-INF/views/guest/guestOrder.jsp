@@ -1,24 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
   
    <jsp:include page="/WEB-INF/views/common/header.jsp" >
-	    <jsp:param value="바회원 주문배송/조회 중간 결과페이지" name="title"/>
+	    <jsp:param value="바회원 주문배송/조회  결과페이지" name="title"/>
       </jsp:include>
-<style type="text/css">
-*{
-   margin:0;
-   padding:0;
-   }
-    h1,p{
-    text-align: center;
-    margin-bottom: 20px;
-    }
-   
-  
-    
-
-</style>
 </head>
 <body>
 		<form method="post"  name="f">
@@ -27,7 +14,7 @@
       <c:choose>
          <c:when test="${gDto ne null }" >
         <div>
-                주문번호: ${gDto.order_no }
+                주문번호: ${gDto.guest_no }
         </div>
         
         <div>
@@ -40,6 +27,33 @@
 						${gDto.order_phone3 }</div>
 	    <div>주문자 이메일:${gDto.order_email } @ ${gDto.order_email2}</div>
         
+        <div>
+        <br />
+        <h1>상품정보</h1>
+         <div>
+		                장바구니 번호:  ${gDto.cart_no }
+		             </div>
+		           
+		            <div>
+		           <img alt="${gDto.product_thumbImg }" 
+					src="${pageContext.request.contextPath }/resources/upload/${gDto.product_thumbImg}" style="width:100; height:100px;" />
+					</div>
+					
+					<div>
+		          상품이름: ${gDto.product_name }
+		            </div>
+		          상품 금액: <fmt:formatNumber value="${gDto.product_price}" pattern="#,###,###" />원
+		            <div>
+		            총개수: ${gDto.cart_amount } 
+		            </div>
+		            
+		         <div>
+		         총 금액: <fmt:formatNumber value= "${gDto.product_price * gDto.cart_amount }" pattern="#,###,###" />원
+		           
+		           </div>       
+        
+        </div>
+        <br />
          <h1>배송정보</h1>
          
          

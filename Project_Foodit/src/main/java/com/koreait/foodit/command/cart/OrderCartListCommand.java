@@ -1,4 +1,6 @@
 package com.koreait.foodit.command.cart;
+
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
@@ -11,8 +13,6 @@ public class OrderCartListCommand implements CartCommand {
 	public void execute(SqlSession sqlSession, Model model) {
 		// TODO Auto-generated method stub
 		CartDao cDao = sqlSession.getMapper(CartDao.class);
-		//Map<String, Object> map = model.asMap();
-		//HttpServletRequest request = (HttpServletRequest) map.get("request"); 
 		
 		model.addAttribute("orderCartList", cDao.ordercartList());
 		model.addAttribute("orderCartListSize", cDao.ordercartList().size());

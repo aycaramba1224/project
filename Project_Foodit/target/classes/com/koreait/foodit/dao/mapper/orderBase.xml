@@ -73,36 +73,38 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
 	WHERE
     	 O.ORDER_NO = C.ORDER_NO
 	
-
-
 </select>
 
-<insert id="guest_order_no">
-INSERT INTO ORDER_BASE (ORDER_NO) VALUES (ORDER_BASE_SEQ.NEXTVAL)
 
-</insert>
 
 <insert id ="orderInsert">
- INSERT INTO ORDER_BASE (GUEST_PW,ORDER_NAME,ORDER_PHONE,ORDER_PHONE2,ORDER_PHONE3,
+ INSERT INTO ORDER_BASE (ORDER_NO,GUEST_NO,GUEST_PW,ORDER_NAME,ORDER_PHONE,ORDER_PHONE2,ORDER_PHONE3,
  ORDER_EMAIL,ORDER_EMAIL2,DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PHONE3,ORDER_POST,ORDER_ROAD1)
  VALUES 
- (#{param1},#{param2},#{param3},#{param4},
+ (ORDER_BASE_SEQ.NEXTVAL,GUEST_NO_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},
  #{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13})
 
 </insert>
 
-<select id="guestOrder" resultType="com.koreait.foodit.dto.OrderBaseDto">
+<select id="guestOrderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
     
   SELECT 
-	     order_no,guest_pw,
-	     order_name,order_phone,order_phone2,order_phone3,order_email,order_email2,
-	     delivery_name,delivery_phone,delivery_phone2,delivery_phone3,order_post,order_road1,
-	     orderDate
-   FROM
-    ORDER_BASE
+       O.GUEST_NO,O.GUEST_PW,O.ORDER_NAME,O.ORDER_PHONE,O.ORDER_PHONE2,O.ORDER_PHONE3,
+       O.ORDER_EMAIL,O.ORDER_EMAIL2,O.DELIVERY_NAME,O.DELIVERY_PHONE,
+       O.DELIVERY_PHONE2,O.DELIVERY_PHONE3,O.ORDER_POST,O.ORDER_ROAD1,
+       
+       C.CART_NO,C.GUEST_NO,C.CART_ID, C.PRODUCT_NO, C.CART_AMOUNT,
+       P.PRODUCT_PRICE, P.PRODUCT_NAME, P.PRODUCT_THUMBIMG,P.PRODUCT_NO
+ 
+  FROM 
+     	 CART C ,PRODUCT P,ORDER_BASE O
 	WHERE
- 		ORDER_NO = #{param1} AND GUEST_PW = #{param2}
+    	C.PRODUCT_NO = P.PRODUCT_NO AND O.GUEST_NO = C.GUEST_NO 
+    AND O.GUEST_NO = #{param1} AND O.GUEST_PW = #{param2}
+	
 </select>
+
+
 
 
    

@@ -1,18 +1,58 @@
-★★★★★MEMBER(회원) TABLE 생성 =====================================================================================
 
-CREATE TABLE MEMBER ( 
-ID VARCHAR2(20) NOT NULL PRIMARY KEY, 
-PW VARCHAR2(20) NOT NULL,
-NAME VARCHAR2(20) NOT NULL,
-PHONE VARCHAR2(20) NOT NULL,
-EMAIL VARCHAR2(20) NOT NULL,
-BIRTH VARCHAR2(20) NOT NULL,
-POST VARCHAR2(20) NOT NULL,
-ROAD VARCHAR2(50) NOT NULL,
-REG_DATE DATE NOT NULL,
-ROLE VARCHAR2(20) DEFAULT 'USER' NOT NULL );
+DB 수정사항
 
-★★★★★PRODUCT(상품) TABLE 생성 =====================================================================================
+쭉 DB에 해주시면 됩니당
+
+drop table order_base;
+drop SEQUENCE ORDER_BASE_SEQ;
+drop SEQUENCE GUEST_NO_SEQ;
+ CREATE TABLE order_base
+(
+    order_no NUMBER , 
+     guest_no NUMBER,
+    guest_pw VARCHAR2(20) ,
+    order_name    VARCHAR2(10) , 
+    order_phone   VARCHAR2(10) ,
+    order_phone2   VARCHAR2(10) ,
+    order_phone3   VARCHAR2(10) ,
+    order_email      VARCHAR2(20) , 
+    order_email2      VARCHAR2(20) ,
+    delivery_name     VARCHAR2(20),
+    delivery_phone   VARCHAR2(20) ,
+    delivery_phone2   VARCHAR2(20) ,
+    delivery_phone3   VARCHAR2(20) ,
+    order_post      VARCHAR2(20)NOT NULL, 
+    order_road1    VARCHAR2(50) NOT NULL,
+   orderDate   Date default sysdate,
+   primary key (order_no)
+);
+
+CREATE SEQUENCE ORDER_BASE_SEQ START WITH 1 increment by 1;
+CREATE SEQUENCE GUEST_NO_SEQ START WITH 1 increment by 1;
+
+
+drop table cart;
+drop SEQUENCE cart_SEQ
+drop SEQUENCE  cartorder_SEQ
+drop SEQUENCE  guestorder_SEQ
+
+CREATE TABLE cart
+( 
+   cart_no        NUMBER    NOT NULL primary key,
+    order_no    NUMBER,  
+    guest_no    NUMBER,
+    cart_id             VARCHAR2(200)    NULL, 
+    product_no         NUMBER          NULL, 
+    cart_amount    NUMBER          default 0 
+);
+
+CREATE SEQUENCE cart_SEQ START WITH 1 increment by 1;
+CREATE SEQUENCE  cartorder_SEQ START WITH 1 increment by 1;
+CREATE SEQUENCE  guestorder_SEQ START WITH 1 increment by 1;
+
+
+
+�쁾�쁾�쁾�쁾�쁾PRODUCT(�긽�뭹) TABLE �깮�꽦 =====================================================================================
 
 DROP TABLE PRODUCT;
 
@@ -29,7 +69,7 @@ CREATE TABLE PRODUCT (
 DROP SEQUENCE PRODUCT_SEQ;						
 CREATE SEQUENCE PRODUCT_SEQ START WITH 5002215 INCREMENT BY 1;
  
-★★★★★CART(장바구니) TABLE 생성 (BUY -> CART로 이름 변경 되었습니다.) =======================================================
+�쁾�쁾�쁾�쁾�쁾CART(�옣諛붽뎄�땲) TABLE �깮�꽦 (BUY -> CART濡� �씠由� 蹂�寃� �릺�뿀�뒿�땲�떎.) =======================================================
 
 DROP TABLE BUY;
 DROP SEQUENCE BUY_SEQ;
@@ -43,7 +83,7 @@ CREATE TABLE CART (
 DROP SEQUENCE CART_SEQ;
 CREATE SEQUENCE CART_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ FAQ 테이블 생성 ===============================================================================================
+�쁾�쁾�쁾�쁾�쁾 FAQ �뀒�씠釉� �깮�꽦 ===============================================================================================
 
 DROP TABLE FAQ;
  
@@ -56,7 +96,7 @@ CREATE TABLE FAQ (
 DROP SEQUENCE FAQ_SEQ;
 CREATE SEQUENCE FAQ_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ notice 테이블 생성 ===============================================================================================
+�쁾�쁾�쁾�쁾�쁾 notice �뀒�씠釉� �깮�꽦 ===============================================================================================
 
 DROP TABLE NOTICE;
 
@@ -70,7 +110,7 @@ CREATE TABLE NOTICE (
 DROP SEQUENCE NOTICE_SEQ;
 CREATE SEQUENCE NOTICE_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ REVIEW 테이블 생성 ===============================================================================================
+�쁾�쁾�쁾�쁾�쁾 REVIEW �뀒�씠釉� �깮�꽦 ===============================================================================================
 
 DROP TABLE REVIEW;
 
@@ -88,9 +128,7 @@ CREATE TABLE REVIEW (
 DROP SEQUENCE REVIEW_SEQ;
 CREATE SEQUENCE REVIEW_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ oder_base 테이블 생성 ===============================================================================================
-
-DROP TABLE ORDER_BASE; 
+�쁾�쁾�쁾�쁾�쁾 oder_base �뀒�씠釉� �깮�꽦 ===============================================================================================
 
 CREATE TABLE ORDER_BASE (
  ORDER_NO NUMBER , 

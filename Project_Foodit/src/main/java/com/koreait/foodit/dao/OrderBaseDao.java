@@ -20,12 +20,11 @@ public interface OrderBaseDao {
 
 	//비회원 관련
 	
-	public OrderBaseDto guestOrder(int order_no,String guest_pw);
-	public OrderBaseDto guestorderList_view(int order_no);
+	public OrderBaseDto guestOrderList(int guest_no,String guest_pw);
 	public int orderInsert(String guest_pw,String order_name,String order_phone,String order_phone2,String order_phone3,String order_email,String order_email2,
 			String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,
 			String order_post,String order_road1);
-	public int guest_order_no(int order_no);
+	
 
 	//장바구니 관련
 	public ArrayList<OrderBaseDto> ordercartList();

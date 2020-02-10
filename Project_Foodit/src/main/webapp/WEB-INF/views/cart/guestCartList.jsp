@@ -45,7 +45,7 @@
 	 	<div class="cartTitWrap">
 			<h2 class="cartTit">장바구니</h2>
 	 	</div>
-	 	<form method="POST" action ="orderInsertPage">	
+	 	<form method="POST" action ="guestorderPage">	
 		 
 	   	<c:if test="${mDto.id eq null }">
 			<div class="nomem_login">
@@ -128,7 +128,7 @@
 				<tfoot>
 					<tr>
 						<td colspan="6">
-						<input type="button" value="선택 주문하기(비회원)" onclick=" " /> 
+						<input type="button" value="선택 주문하기(비회원)" onclick="location.href='guestorderPage'" /> 
 						<input type="submit" value="전체 주문하기(비회원)" /> 
 						</td>
 					</tr>

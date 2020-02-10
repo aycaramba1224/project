@@ -130,7 +130,7 @@
 						<tfoot>
 							<tr>
 								<td colspan="6">
-								<input type="button" value="선택 주문하기" onclick=" " /> 
+								<input type="button" value="선택 주문하기" onclick="location.href='orderInsertPage'" /> 
 								<input type="submit" value="전체 주문하기" /> 
 								</td>
 							</tr>

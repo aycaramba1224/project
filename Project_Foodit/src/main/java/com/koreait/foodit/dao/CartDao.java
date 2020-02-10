@@ -24,6 +24,10 @@ public interface CartDao {
 		// ↓비회원이 상품을 장바구니에 담고 로그인 했을때 비회원에게 부여한 임시 아이디를 본래의 아이디로 업데이트 해준다.
 	public void changeId(String newId, String oldId);		
 	
-	//주문하기 페이지 관련
-		public ArrayList<CartDto> ordercartList();
+	
+//주문하기 페이지 관련 회원일떄
+public ArrayList<CartDto> ordercartList();
+
+//주문하기 페이지 비회원일 떄
+	public ArrayList<CartDto> guestordercartList();
 }

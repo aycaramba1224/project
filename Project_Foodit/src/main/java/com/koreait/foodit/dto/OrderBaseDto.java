@@ -7,6 +7,7 @@ public class OrderBaseDto {
     CREATE TABLE order_base
 (
     order_no NUMBER NOT NULL, 
+    guest_no NUMBER,
     guest_pw VARCHAR2(20) NOT NULL,
      id   VARCHAR2(20) ,
     order_name    VARCHAR2(10) NOT NULL, 
@@ -51,7 +52,7 @@ PRODUCT_NO
 			product_price,
 			product_thumbImg,
 			cart_id,product_name;
-	private int order_no,product_no;
+	private int order_no,product_no,guest_no;
 	private Date orderDate;
     private int cart_no,cart_amount;
 
@@ -61,8 +62,9 @@ PRODUCT_NO
 			String order_phone3, String order_email, String order_email2, String delivery_name, String delivery_phone,
 			String delivery_phone2, String delivery_phone3, String order_post, String order_road1, String product_price,
 			String product_thumbImg, String cart_id, String product_name, int order_no, int product_no, Date orderDate,
-			int cart_no, int cart_amount) {
+			int cart_no, int cart_amount,int guest_no) {
 		super();
+		this.guest_no = guest_no;
 		this.guest_pw = guest_pw;
 		this.id = id;
 		this.order_name = order_name;
@@ -89,6 +91,14 @@ PRODUCT_NO
 	}
 
     
+	public int getGuest_no() {
+		return guest_no;
+	}
+
+	public void setGuest_no(int guest_no) {
+		this.guest_no = guest_no;
+	}
+
 	public String getProduct_price() {
 		return product_price;
 	}
@@ -101,7 +111,7 @@ PRODUCT_NO
 		return product_thumbImg;
 	}
 
-	public void setProduct_thumbimg(String product_thumbImg) {
+	public void setProduct_thumbImg(String product_thumbImg) {
 		this.product_thumbImg = product_thumbImg;
 	}
 
