@@ -38,7 +38,7 @@ public class ProductInsertCommand implements ProductCommand {
 		// 이미지 업로드 
 		List<MultipartFile> uploadFileList = request.getFiles("file_");
 		int size = uploadFileList.size();
-
+		String realPath = null;
 		boolean isFirst = true; // 처음이다
 		String product_img = null;
 		String product_thumbImg = null;
@@ -57,7 +57,8 @@ public class ProductInsertCommand implements ProductCommand {
 						} else {
 							product_thumbImg = saveFilename;
 						}
-						String realPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+						realPath = request.getSession().getServletContext().getRealPath("/resources/upload");
+						System.out.println("리얼패스:" + realPath);
 						File directory = new File(realPath);
 						if ( !directory.exists() ) {
 							directory.mkdirs();
@@ -69,10 +70,12 @@ public class ProductInsertCommand implements ProductCommand {
 					} // end try
 				} // end if
 			} // end for
+			
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
 			redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert(product_name, product_price, product_content, 
 																						  product_stock, product_taste, product_img, product_thumbImg));
 			redirectAttributes.addFlashAttribute("isProductInsert", "yes");
+			redirectAttributes.addFlashAttribute("realPath", realPath);
 		} // end if 
  
 	}	

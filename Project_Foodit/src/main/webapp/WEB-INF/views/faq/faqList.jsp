@@ -37,7 +37,7 @@ if(isFaqDelete == "yes"){
         alert("게시글 삭제가 성공하였습니다.");   
     }
 }  
-function fn_faqSearch(f) {
+function faqSearch(f) {
 	if(f.content.value==""){
 		alert("검색어를 입력해 주세요.");
 		return;
@@ -67,11 +67,12 @@ function fn_faqSearch(f) {
 				<div class="schWrap">
 					<div class="formInputWrap">
 						<form method="post">
+							<input type="hidden" name="query" value="faq_title"/>            
 							<input type="text" class="txt" name="content" value="${ content }" placeholder="검색어를 입력해주세요."/>
 							<button type="button" class="ico">
 								<span class="hide">입력 삭제</span>
 							</button>
-							<button type="button" class="srchBtn" value="검색" onclick="fn_faqSearch(this.form)">
+							<button type="button" class="srchBtn" value="검색" onclick="faqSearch(this.form)">
 								<span class="hide">검색</span>
 							</button>
 						</form>  

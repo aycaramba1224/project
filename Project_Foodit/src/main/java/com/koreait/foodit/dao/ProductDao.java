@@ -28,7 +28,10 @@ public interface ProductDao {
 	// 페이징 처리 	
 	public int totalCountProduct();
 	
-	// 메인페이지 (실시간 베스트)
-	public ArrayList<ProductDto> mainList();
-	 
+	// 메인페이지 
+		// 실시간 베스트
+	public ArrayList<ProductDto> bestList();
+	 	// 맛추천
+	public ArrayList<ProductDto> recommendList(String product_taste);
+	
 }

@@ -38,7 +38,7 @@ public class ProductListOrder1Command implements ProductCommand {
 		int totalRecord = productDao.totalCountProduct();
 		
 		// ◀ 1 2 3 ▶ 생성 (pagingView)
-		String pagingView = Paging.getPaging("productList", nowPage, recordPerPage, totalRecord);
+		String pagingView = Paging.getPaging("productListOrder1", nowPage, recordPerPage, totalRecord);
 		
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("pagingView", pagingView);	

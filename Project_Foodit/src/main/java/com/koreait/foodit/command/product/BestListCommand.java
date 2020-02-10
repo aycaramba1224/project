@@ -5,14 +5,14 @@ import org.springframework.ui.Model;
 
 import com.koreait.foodit.dao.ProductDao;
 
-public class MainListCommand implements ProductCommand {
+public class BestListCommand implements ProductCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
 		
 		ProductDao productDao = sqlSession.getMapper(ProductDao.class);	
 		 	   
-		model.addAttribute("productList", productDao.mainList()); 
+		model.addAttribute("productList", productDao.bestList()); 
 	}
 
 }

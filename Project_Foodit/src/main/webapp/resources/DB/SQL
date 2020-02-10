@@ -1,3 +1,17 @@
+★★★★★MEMBER(회원) TABLE 생성 =====================================================================================
+
+CREATE TABLE MEMBER ( 
+ID VARCHAR2(20) NOT NULL PRIMARY KEY, 
+PW VARCHAR2(20) NOT NULL,
+NAME VARCHAR2(20) NOT NULL,
+PHONE VARCHAR2(20) NOT NULL,
+EMAIL VARCHAR2(20) NOT NULL,
+BIRTH VARCHAR2(20) NOT NULL,
+POST VARCHAR2(20) NOT NULL,
+ROAD VARCHAR2(50) NOT NULL,
+REG_DATE DATE NOT NULL,
+ROLE VARCHAR2(20) DEFAULT 'USER' NOT NULL );
+
 ★★★★★PRODUCT(상품) TABLE 생성 =====================================================================================
 
 DROP TABLE PRODUCT;
@@ -75,6 +89,8 @@ DROP SEQUENCE REVIEW_SEQ;
 CREATE SEQUENCE REVIEW_SEQ START WITH 1 INCREMENT BY 1;
 
 ★★★★★ oder_base 테이블 생성 ===============================================================================================
+
+DROP TABLE ORDER_BASE; 
 
 CREATE TABLE ORDER_BASE (
  ORDER_NO NUMBER , 

@@ -28,6 +28,7 @@
 		
 		&nbsp;
 		<input type="button" value="관리자페이지" onclick="location.href='adminPage'" />
+		<input type="button" value="메인페이지" onclick="location.href='main'" />
  
 
 

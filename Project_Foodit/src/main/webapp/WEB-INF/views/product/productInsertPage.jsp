@@ -67,7 +67,7 @@
 								<option value="짭짤한맛">짭짤한맛</option>
 								<option value="담백한맛">담백한맛</option>
 								<option value="이국적인맛">이국적인맛</option>
-								<option value="얼큰한맛">얼큰한맛</option>
+								<option value="상큼한맛">상큼한맛</option>
 							</select>					
 						</td>
 					</tr>					

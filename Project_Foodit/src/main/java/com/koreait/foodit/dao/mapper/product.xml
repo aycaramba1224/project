@@ -4,10 +4,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.koreait.foodit.dao.ProductDao">
-	<select id="totalCountProduct" resultType="int"> <!-- productList 총 게시물 수   -->
+
+	<!-- productList 총 게시물 수 (페이징 처리를 위함)   -->
+	<select id="totalCountProduct" resultType="int">  
 		SELECT 	COUNT(*) FROM PRODUCT
-	</select>
+	</select>	
 	
+	
+	<!--기본 CRUD -->	
 	<select id="productList"  resultType="com.koreait.foodit.dto.ProductDto">
 		SELECT
 			*
@@ -19,26 +23,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 			R_NUM BETWEEN #{param1} AND #{param2}
 	</select>  
-
-	<select id="productListOrder1" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 신메뉴순 정렬 리스트 -->
-		SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC
-	</select>
-	
-	<select id="productListOrder2" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 가격 내림 차순 정렬 리스트 (높은가격 순) -->
-		SELECT * FROM PRODUCT ORDER BY PRODUCT_PRICE DESC
-	</select>
-	
-	<select id="productListOrder3" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 가격 오름 차순 정렬 리스트 (낮은가격 순) -->
-		SELECT * FROM PRODUCT ORDER BY PRODUCT_PRICE  
-	</select>
-	
-	<select id="productListOrder4" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 만족도순 정렬 리스트 (임시로 재고순으로 넣음) -->
-		SELECT * FROM PRODUCT ORDER BY CAST (PRODUCT_STOCK AS NUMBER)
-	</select>
-	
-	<select id="productView" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{param1}		
-	</select>
 	
 	<insert id="productInsert">
 		INSERT INTO 
@@ -59,15 +43,46 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<delete id="productDelete">
 		DELETE FROM PRODUCT WHERE PRODUCT_NO = #{param1}
-	</delete>
+	</delete>	
 	
-	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">	<!-- 메뉴찾기  -->
+ 
+	
+	<!-- 상품 정렬 리스트    -->
+	<select id="productListOrder1" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 신메뉴순 정렬 리스트 -->
+		SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC
+	</select>
+	
+	<select id="productListOrder2" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 가격 내림 차순 정렬 리스트 (높은가격 순) -->
+		SELECT * FROM PRODUCT ORDER BY PRODUCT_PRICE DESC
+	</select>
+	
+	<select id="productListOrder3" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 가격 오름 차순 정렬 리스트 (낮은가격 순) -->
+		SELECT * FROM PRODUCT ORDER BY PRODUCT_PRICE  
+	</select>
+	
+	<select id="productListOrder4" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 만족도순 정렬 리스트 (임시로 재고순으로 넣음) -->
+		SELECT * FROM PRODUCT ORDER BY CAST (PRODUCT_STOCK AS NUMBER)
+	</select>
+	
+	<select id="productView" resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT * FROM PRODUCT WHERE PRODUCT_NO = #{param1}		
+	</select>	
+
+	
+	<!-- 메뉴찾기  -->
+	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">
 		SELECT * FROM PRODUCT WHERE PRODUCT_NAME LIKE #{param2 } 
 	</select>
- 
- 	<select id="mainList" resultType="com.koreait.foodit.dto.ProductDto">	<!-- 메인페이지 (실시간 베스트) 리스트  -->
+  
+ 	<!-- 메인페이지 (실시간 베스트) 리스트  -->
+ 	<select id="bestList" resultType="com.koreait.foodit.dto.ProductDto">	
 		SELECT * FROM PRODUCT  
 	</select>
+	
+	<!-- 메인페이지 (맛추천) 리스트  -->
+ 	<select id="recommendList" resultType="com.koreait.foodit.dto.ProductDto">
+ 		SELECT * FROM PRODUCT WHERE PRODUCT_TASTE = #{param1}
+ 	</select>
 	
 		
 </mapper>

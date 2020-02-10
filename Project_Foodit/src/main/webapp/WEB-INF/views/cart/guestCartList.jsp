@@ -20,11 +20,23 @@
 		}
 	}  
 
-function goLogin(f){
- 	f.action = "sbmr?cart_id=${cart_id}";	// 비회원의 임시아이디를 본래 아이디로 업데이트함
-	f.submit();  
-}
- 
+	function goLogin(f){ 		// 비회원의 임시아이디를 본래 아이디로 업데이트함
+	 	f.action = "sbmr?cart_id=${cart_id}";	 
+		f.submit();  
+	}
+	
+	function selectDelete() {	 // 체크박스 선택 후 선택 삭제      
+		if($('input:checkbox[name=chBox]:checked').length== 0){
+			alert("선택된 상품이 없습니다.")
+			return;
+		} else {
+			var chk = confirm("상품을 삭제하시겠습니까?");			  
+			if(chk) {
+				var select = $('input:checkbox[name=chBox]:checked').val();				
+				location.href="guestCartDelete?cart_no=" + select;			
+			}		 
+		}			
+	} 
 </script>
 </head>
 <body>
@@ -34,6 +46,7 @@ function goLogin(f){
 			<h2 class="cartTit">장바구니</h2>
 	 	</div>
 	 	<form method="POST" action ="orderInsertPage">	
+		 
 	   	<c:if test="${mDto.id eq null }">
 			<div class="nomem_login">
  				<p>로그인을 하시면 장바구니에 담긴 상품을 나중에도 확인하실 수 있습니다.</p>
@@ -58,22 +71,13 @@ function goLogin(f){
 			</c:when>
 			<c:otherwise>
 				 
-			<input type="hidden" name="cart_id" value="${cart_id }"/>		 
+			<input type="hidden" name="cart_id" value="${cart_id }"/>					 
+			 				 
 			<table border="1" style="width:500px;">
 				<thead>
 					<tr>
-						<td>
-							<input type="checkbox" name="allCheck" id="allCheck" checked="checked" /> <!-- 전체 선택 체크박스   -->																	 
-							<script> // 체크박스 전체 선택 및 전체 해제
-								$("#allCheck").click(function(){
-									var chk = $("#allCheck").prop("checked");
-									if(chk) {
-									 	$(".chBox").prop("checked", true);
-									} else {
-									 	$(".chBox").prop("checked", false);
-									}
-								});
-							</script> 						
+						<td><!-- 전체 선택 체크박스   -->		
+							<input type="checkbox" name="allCheck" id="allCheck" checked="checked" />  															 
 						</td>
 						<td>
 							<label for="allCheck">총 <!-- 처리예정 --> / ${guestCartListSize }개</label> 
@@ -84,15 +88,11 @@ function goLogin(f){
 					</tr>							
 				</thead>
 				<tbody>
-					<c:forEach var="gc" items="${guestCartList }" >					 
+					<c:forEach var="gc" items="${guestCartList }" >	
+					카트번호 : ${gc.cart_no }				 
 					<tr>
-						<td>
-							<input type="checkbox" name="chBox" class="chBox" checked="checked" data-cartNo = "${gc.cart_no }"/>	<!-- 개별 선택 체크 박스  -->
-							<script>
-								$(".chBox").click(function(){
-									$("#allCheck").prop("checked", false);
-								});									
-							</script>  
+						<td><!-- 개별 선택 체크 박스  -->
+							<input type="checkbox" name="chBox" class="chBox" checked="checked" value="${gc.cart_no }"/>	 
 						</td>
 						<td>
 							<a href="productView?product_no=${gc.product_no}"><img alt="${gc.product_thumbImg }" 
