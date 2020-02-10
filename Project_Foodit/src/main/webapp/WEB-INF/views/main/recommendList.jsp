@@ -7,13 +7,17 @@
  
  	 
 	 <div>
-	  <c:if test="${recommendList  }">
+	<%--   <c:if test="${recommendList  }">
 	 	 
-	 	</c:if> 
+	 	</c:if>  --%>
+	 	
+	 	
+	 	
 	 		 <a href="productView?product_no=5002255">	 
 	 	<table border="1">
 	 		<tr>
 	 			<td rowspan="3"> 
+	 			 
 		 			<img alt="매콤닭가슴살_1581310669052.jpg" src="/foodit/resources/upload/매콤닭가슴살_1581310669052.jpg" 
 					style="width:366px; height:366px;" />
 				</td>

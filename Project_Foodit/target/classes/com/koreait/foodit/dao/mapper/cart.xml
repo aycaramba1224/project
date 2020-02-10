@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 	INSERT INTO
 	 		CART (CART_NO,ORDER_NO,CART_ID,PRODUCT_NO,CART_AMOUNT) 
 	 	VALUES 
-	 		(cart_seq.nextval,cartorder_seq.nextval,#{param1}, #{param2}, #{param3}) 
+	 		(cart_seq.nextval, cartorder_seq.nextval, #{param1}, #{param2}, #{param3}) 
 	</insert> 
 	 
 	

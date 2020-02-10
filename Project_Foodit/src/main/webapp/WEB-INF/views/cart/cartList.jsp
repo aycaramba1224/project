@@ -86,6 +86,7 @@
 						</thead>
 						<tbody>
 							<c:forEach var="cartList" items="${cartList }"  >
+							카트번호 : ${cartList.cart_no }
 							<tr>
 								<td><!-- 개별 선택 체크 박스  -->
 									<input type="checkbox" name="chBox" class="chBox" checked="checked" />

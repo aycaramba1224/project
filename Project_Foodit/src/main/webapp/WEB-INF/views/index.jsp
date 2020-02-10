@@ -3,11 +3,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
 <jsp:include page="/WEB-INF/views/common/header.jsp" />
-<script>
-function recommend(){
-	location.href ="main";
 
-}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">	 
+
+
+$(function(){	
+	$('#selectBox').change(function() {
+		var state = jQuery('#selectBox option:selected').val();
+		if ( state == '짭짤한맛' ) {
+			$('.layer').show();
+		} else {
+			$('.layer').hide();
+		}
+	});
+});	
+
+
+ 
 
 </script>
 
@@ -20,8 +33,9 @@ function recommend(){
 	
 	<div> <!-- 맛추천  -->
 		
-		 	
-		<select	name="product_taste" >
+		
+	
+		<select	name="product_taste" id="selectBox">
 			<option value="매콤한맛">매콤한맛</option>
 			<option value="짭짤한맛">짭짤한맛</option>
 			<option value="담백한맛">담백한맛</option>
@@ -31,9 +45,11 @@ function recommend(){
 		 <h3> 메뉴  <br/> 추천 드려요.</h3>
 		 <span>
 		 	<a href="sbmr">로그인</a>하시면 고객님의 구매내역과 <br/>
-			맛취향에 따라 딱맞는 맛있는 메뉴를 추천드려요.
+			맛취향에 따라 딱맞는 맛있는 메뉴를 추천드려요.			 
 		</span>
-		 	
+	
+	<div class="layer">내용</div>
+		 
 	 <jsp:include page="/WEB-INF/views/main/recommendList.jsp"/> 
 	</div> <br/>
 	
