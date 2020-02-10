@@ -44,8 +44,6 @@
             <div id="content">
                 <a>${nDto.notice_content }</a>
               <img alt="${nDto.notice_img }" src="${pageContext.request.contextPath }/resources/upload/${nDto.notice_img }"/>
-              <img alt="${nDto.notice_img }" src="${pageContext.request.contextPath }/resources/upload/${nDto.notice_img }"style="width:780px; height:750px;"/>
-
             </div>
             <div id="goList">
                 <a href="noticeList">목록</a>

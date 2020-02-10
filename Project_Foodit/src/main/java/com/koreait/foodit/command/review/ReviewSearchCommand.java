@@ -20,7 +20,7 @@ public class ReviewSearchCommand implements ReviewCommand {
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		String query = request.getParameter("query"); 
 		String content = "%" + request.getParameter("content") + "%";
-		model.addAttribute("reviewList", rDao.reviewQuery(query, content));
+		model.addAttribute("reviewList", rDao.reviewSearchResult(query, content));
 		
 		
 		

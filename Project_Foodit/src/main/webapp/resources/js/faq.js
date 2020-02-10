@@ -11,7 +11,9 @@ $(function(){
 			data: "faq_category=" + $(this).attr('id'),
 			success: function(data){
 				$(".faqViewArea").empty();
+				$(".pageNavi").empty();
 				var result = "";
+				var pagingView = data.pagingView;
 				if( data["listSize"] > 0 ){
 					$.each(data.data, function(){
 						var title = this.faq_title;
@@ -54,7 +56,9 @@ $(function(){
 						result += "<p>" + "게시물이 존재하지 않습니다." + "</p>";
 						result += "</li>";
 				}
+				
 				$(".faqViewArea").append(result);
+				$(".pageNavi").append(pagingView);
 			},
 			error: function(){
 				alert("페이지의 정보를 불러오지 못했습니다.");
