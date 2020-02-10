@@ -32,10 +32,11 @@ public class NoticeController {
 		
 	 
 	 @RequestMapping("noticeList")
-	public String noticeList(Model model) {
-		noticeCommand = new NoticeListCommand(); 
+	public String noticeList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		 noticeCommand = new NoticeListCommand(); 
 		noticeCommand.execute(sqlSession, model);
-		return "notice/noticeList";
+		return "notice/noticeList"; 
 	}
 	 
 	 

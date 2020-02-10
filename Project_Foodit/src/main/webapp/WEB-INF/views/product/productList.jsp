@@ -41,7 +41,7 @@
 			등록된 메뉴가 없습니다.
 		</c:if>	 		
 		
-				<c:forEach var="productDto" items="${productList }" >	<!-- 가로정렬을 위해 임시 이렇게 설정했습니다. -->
+		<c:forEach var="productDto" items="${productList }" >	<!-- 가로정렬을 위해 임시 이렇게 설정했습니다. -->
 		<div style="float:left; padding:20px; width:366px;" >		
 			<ul style="list-style-type:none;">		 
 					<li>		 	
@@ -58,11 +58,13 @@
 					</li>		  
 			</ul>		 
 		</div>
-			</c:forEach> 
+		</c:forEach> 
 		
 	</div>
 	
-	
+ 	<br />
+    ${pagingView }
+    <br />  
 	
 	
 	

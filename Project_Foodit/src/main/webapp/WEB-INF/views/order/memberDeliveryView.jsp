@@ -23,14 +23,16 @@
 			    <div>
 			  휴대폰:${mDto.phone}
 			  </div>
-		  <form method="post" action="memberorderPagesend">
+		  <form method="post">
           
 			
           <h1>배송정보</h1>
-			<c:forEach var="OrderBaseDto" items="${memberBaseList}">
+			<c:forEach var="OrderBaseDto" items="${memberDeliveryList}">
 				    <div class="contaniner">
 			      
-			       
+			       <div>
+			            주문번호:{OrderBaseDto.order_no}
+			       </div>
 			       
 			         <div>
 			                 배송자이름:
@@ -53,14 +55,14 @@
 					주소
 				<input type="text" name ="order_road1" value="${OrderBaseDto.order_road1}"/>
 				   </div>
+				 
+				   
 				   
 				   </div>
 				</c:forEach>
 			
 	              <input type="button" value="신규배송정보등록" onclick="location.href='mdeliverysendPage'" />
-				 <!--  
-				<input type="submit" value="주문페이지에 등록" />
-				-->
+				 
        </form>
    </c:when>
    </c:choose>

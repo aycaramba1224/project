@@ -4,11 +4,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.koreait.foodit.dao.ProductDao">
-
-	<select id="productList" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 상품 기본 리스트  -->
-		SELECT * FROM PRODUCT  
+	<select id="totalCountProduct" resultType="int"> <!-- productList 총 게시물 수   -->
+		SELECT 	COUNT(*) FROM PRODUCT
 	</select>
 	
+	<select id="productList"  resultType="com.koreait.foodit.dto.ProductDto">
+		SELECT
+			*
+		FROM
+			(SELECT
+				ROWNUM R_NUM, A.*
+			FROM
+				(SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC ) A)
+		WHERE
+			R_NUM BETWEEN #{param1} AND #{param2}
+	</select>  
+
 	<select id="productListOrder1" resultType="com.koreait.foodit.dto.ProductDto"> <!-- 신메뉴순 정렬 리스트 -->
 		SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC
 	</select>
@@ -53,21 +64,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="productSearchResult" resultType="com.koreait.foodit.dto.ProductDto">	<!-- 메뉴찾기  -->
 		SELECT * FROM PRODUCT WHERE ${param1 } LIKE #{param2 } 
 	</select>
-
-	<select id="productCount" resultType="int">		<!-- productList 총 게시물 수   -->
-		SELECT COUNT(*) FROM PRODUCT
+ 
+ 	<select id="mainList" resultType="com.koreait.foodit.dto.ProductDto">	<!-- 메인페이지 (실시간 베스트) 리스트  -->
+		SELECT * FROM PRODUCT  
 	</select>
 	
-	<select id="productListPage" parameterType="Map" resultType="com.koreait.foodit.dto.ProductDto">
-		SELECT
-			*
-		FROM
-			(SELECT
-				ROWNUM R_NUM, A.*
-			FROM
-				(SELECT * FROM PRODUCT ORDER BY PRODUCT_NO DESC ) A)
-		WHERE
-			R_NUM BETWEEN #{begin} AND #{end}
-	</select>
 		
 </mapper>

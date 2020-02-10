@@ -22,7 +22,9 @@
 	        <c:when test="${ mDto eq null }">
 	          
 			    <input type="button" value="로그인" onclick="location.href='sbmr'" />
+			         
 			     
+			        
 			     	<div>
 	                    <label> 이름</label>   
 						<input type="text" name="order_name" />
@@ -92,7 +94,31 @@
                	  <!-- 비회원일떄보는 submit -->
                	 <h2>상품정보</h2>
                	  <div>
-               	  
+               	   <c:if test="${orderCartListSize ne null }" >
+		            <c:forEach var="oDto" items="${orderCartList }" >
+		             <div>
+		           장바구니 번호:  ${oDto.cart_no }
+		             </div>
+		           
+		            <div>
+		           <img alt="${oDto.product_thumbImg }" 
+					src="${pageContext.request.contextPath }/resources/upload/${oDto.product_thumbImg}" style="width:100; height:100px;" />
+					</div>
+					
+					<div>
+		          상품이름:  ${oDto.product_name }
+		            </div>
+		            <fmt:formatNumber value="${oDto.product_price}" pattern="#,###,###" />원
+		            <div>
+		            총개수: ${oDto.cart_amount } 
+		            </div>
+		            
+		            <div>
+		           <fmt:formatNumber value= "${oDto.product_price * oDto.cart_amount }" pattern="#,###,###" />원
+		           </div>
+		            </c:forEach>
+		            </c:if>
+		           
                	 </div>
                	 
                	 
@@ -129,12 +155,15 @@
 			    
 			    <div>
 			  휴대폰:${mDto.phone}
+			 
 			  </div>
 			  <br />
 			  <div>
 	
 			  <input type="button" value="배송정보" onclick="location.href='mdeliverylistPage'" />
 			  </div>
+			  
+			          
 			  
 		               <div>
 		               <label>이름</label>   
@@ -166,29 +195,32 @@
 				
 		     <!-- 회원일떄 보내는 button -->
 		            <h2>상품정보</h2>
-		            <c:forEach var="orderCartList" items="${orderCartList }" >
-		              ${orderCartList.cart_no }
-		           <img alt="${orderCartList.product_thumbImg }" 
-				src="${pageContext.request.contextPath }/resources/upload/${orderCartList.product_thumbImg}" style="width:100; height:100px;" />
-		            
-		            ${orderCartList.product_name }
-		            ${orderCartList.cart_amount } 
-		            
-		           <fmt:formatNumber value= "${cartList.product_price * cartList.cart_amount }" pattern="#,###,###" />원
+		            <c:if test="${orderCartListSize ne null }" >
+		            <c:forEach var="oDto" items="${orderCartList }" >
+		             <div>
+		                장바구니 번호:  ${oDto.cart_no }
+		             </div>
 		           
+		            <div>
+		           <img alt="${oDto.product_thumbImg }" 
+					src="${pageContext.request.contextPath }/resources/upload/${oDto.product_thumbImg}" style="width:100; height:100px;" />
+					</div>
+					
+					<div>
+		          상품이름:  ${oDto.product_name }
+		            </div>
+		            
+		            <div>
+		            총개수: ${oDto.cart_amount } 
+		            </div>
+		            
+		            <div>
+		           <fmt:formatNumber value= "${oDto.product_price * oDto.cart_amount }" pattern="#,###,###" />원
+		           </div>
 		            </c:forEach>
+		            </c:if>
+		           
 	             	 <h2>결제정보</h2>
-               	 <div>
-               	   <div>
-               	   <!--  
-						총 상품금액&nbsp;&nbsp;&nbsp;&nbsp;총 배송비&nbsp;&nbsp;&nbsp;&nbsp;총  결제예정금액<br/>			
-						<fmt:formatNumber value= "${sumMoney}" pattern="#,###,###" />원&nbsp;&nbsp; + &nbsp;&nbsp;	
-						<fmt:formatNumber value= "${fee }" pattern="#,###,###" />원&nbsp;&nbsp;	= &nbsp;&nbsp;	
-						<fmt:formatNumber value= "${sumMoney + fee }" pattern="#,###,###" />원 <br/>
-									
-								</div>
-								-->
-               	 </div>
 	             
 	             <input type="button" value="회원결제하기" onclick="memberbuy()">
 		   </c:when>

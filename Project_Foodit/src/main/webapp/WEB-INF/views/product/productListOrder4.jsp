@@ -3,9 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<jsp:include page="/WEB-INF/views/common/header.jsp" >
+ <jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="FOODIT 메뉴" name="title"/>
-</jsp:include> 
+</jsp:include>   
 
 <script type="text/javascript"> 
 	var isProductInsert = "${isProductInsert}";
@@ -53,8 +53,9 @@
 		
 	</div>
 	
-	
-	
+	<br />
+    ${pagingView }
+    <br /> 
 	
 	
 	

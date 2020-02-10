@@ -1,87 +1,110 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %> 
+    
 	<jsp:include page="/WEB-INF/views/common/header.jsp" >
 	    <jsp:param value="회원 주문내역페이지" name="title"/>
       </jsp:include>
 
-	<Style>
-	   .div1 {
-	     border: 1px solid black; 
-	     width: 500px;
-	   }
-	 .div2 {
-	     border: 1px solid black; 
-	       width: 500px;
-	   }
-	
-	</Style>
+</head>
+<body>
 
-
+<!-- 손을 봐야됨 -->
 		
 		<!-- 회원일떄 -->
      <div class="div1">
-     <form method="post">
- 
-     <h1>주문자 정보 페이지</h1>
-	       <c:choose>
-	        <c:when test="${mODto ne null }" >
-	         <div>
-                주문번호: ${mODto.order_no }
-        </div>
-        
-        <div>
-                비밀번호:${mODto.guest_pw }
-            
-         </div>
-         <div>주문자이름: ${mODto.order_name } </div>
-		<div>주문자 휴대폰:${mODto.order_phone }-
-						${mODto.order_phone2 }-
-						${mODto.order_phone3 }</div>
-	    <div>주문자 이메일:${mODto.order_email } @ ${mODto.order_email2}</div>
-        
-         <h1>배송정보</h1>
-         
-         
-         <div>이름:${mODto.delivery_name}</div>
-	     <div>휴대폰번호:${mODto.delivery_phone}-
-	     	 ${mODto.delivery_phone2}-
-	    	 ${mODto.delivery_phone3}
-	     </div>
-	     
-		<div>
-		   우편번호:${mODto.order_post}
-		
-		</div>
-		
-		<div>
-		주소: ${mODto.order_road1}
-		</div>
-		
-		<div>
-		 주문날짜: ${mODto.orderDate }
-	    </div>
-         
-	        
-	     </c:when>
-	      <c:when test="${ mDto eq null }">
-	           <script>
-	           alert("로그인 후 이용해 주세요 ");
-	           location.href="sbmr";
-	           </script>
-	           </c:when>
-			</c:choose>
-	    
-		</form>
-			<br />
-			<!-- 검색으로 처리 -->
-			      
-		</div>
-
-</body>
-</html>
-			
-
      
+   <form method="post">
+	       
+     <h1>회원정보</h1>
+      
+			 <c:choose>
+		     <c:when test="${ mDto ne null }">
+			   <div>
+			   ${sessionScope.mDto.id }님의 회원정보
+			   </div>
+			  <div>
+			   아이디:${mDto.id }
+			   </div>
+			   <div> 
+			    이름:${mDto.name}
+			    </div>
+			    
+			    <div>
+			  휴대폰:${mDto.phone}
+			  </div>
+			  
+			 
+			  <br />
+			      <h1>상품정보</h1>
+		            <c:forEach var="mOrderDto" items="${memberOrderList}" >
+		            
+		               <div>
+		                장바구니 번호:  ${mOrderDto.cart_no }
+		             </div>
+		           
+		            <div>
+		           <img alt="${mOrderDto.product_thumbImg }" 
+					src="${pageContext.request.contextPath }/resources/upload/${mOrderDto.product_thumbImg}" style="width:100; height:100px;" />
+					</div>
+					
+					<div>
+		          상품이름: ${mOrderDto.product_name }
+		            </div>
+		          상품 금액: <fmt:formatNumber value="${mOrderDto.product_price}" pattern="#,###,###" />원
+		            <div>
+		            총개수: ${mOrderDto.cart_amount } 
+		            </div>
+		            
+		         <div>
+		         총 금액: <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount }" pattern="#,###,###" />원
+		           
+		           </div>       
+		            
+		            <br />
+		            
+		            <h1>배송정보</h1>
+		            <div>
+		                       주문번호:${mOrderDto.order_no}
+		            </div>
+			       <div>
+			                 배송자이름:${mOrderDto.delivery_name}
+				    </div>
+				    
+				    <div>
+				           배송자휴대폰: ${mOrderDto.delivery_phone}-${mOrderDto.delivery_phone2}-
+				         ${mOrderDto.delivery_phone3}
+				         </div>
+				      
+				      <div>
+				          우편번호:
+				   ${mOrderDto.order_post}
+					</div>
+					
+					<div>
+					주소
+				${mOrderDto.order_road1}
+				   </div>
+				   	${mOrderDto.orderDate}
+			  
+			  
+			 
+			  </c:forEach>
+			  </c:when>
+			  </c:choose>
+			  
+			   <c:if test="${ mDto eq null }" >
+           <script>
+               alert("로그인 후 이용해주세요");
+               location.href="sbmr";
+           </script>
+           
+         </c:if>
+    </form>
+    </div>
+    
+    </body>
+    
       <%@ include file="/WEB-INF/views/common/footer.jsp" %>
    

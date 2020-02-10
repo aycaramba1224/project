@@ -90,7 +90,10 @@ if(isNoticeDelete == "Yes"){
 	<%-- 페이징 처리 예정--%>
 	<div class="pageNavi">
 		<%-- 여기에 작업 --%>	
+	    ${pagingView }
 	</div>
 </div>
+        
+>>>>>>> 3577ed79d5f3c9c4e43a9a7c9c1870619d206118
 
 

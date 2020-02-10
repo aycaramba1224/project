@@ -129,7 +129,7 @@ public class MemberController {
 			session.setAttribute("mDto", idPwCheckResult);
 		 	CartDao cartDao = sqlSession.getMapper(CartDao.class);				// 비회원이 상품을 장바구니에 담고 
 		 	cartDao.changeId(idPwCheckResult.getId(), session.getId());			// 로그인 했을때 비회원에게 부여한 임시 아이디를 본래의 아이디로 업데이트 해준다.
-			urlPath = "redirect:index";
+			urlPath = "redirect:main";
 			// 쿠키 설정.
 			if( isChecked != null ) {    // 아이디 저장을 체크했을 경우.
 				Cookie cookie = new Cookie("loginCookie", id);
@@ -164,7 +164,7 @@ public class MemberController {
 	public String logout(RedirectAttributes rtts, HttpSession session) {
 		session.invalidate(); // 세션 전체를 초기화
 		rtts.addFlashAttribute("isLogout", "yes");
-        return "redirect:index"; // 로그아웃 후 index(메인 페이지)로 이동
+        return "redirect:main"; // 로그아웃 후 main(메인 페이지)로 이동
 	}
 	
 	@RequestMapping("findId")

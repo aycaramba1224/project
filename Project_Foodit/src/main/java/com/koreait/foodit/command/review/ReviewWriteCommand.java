@@ -68,7 +68,7 @@ public class ReviewWriteCommand implements ReviewCommand {
 		   File saveFile2 = new File(realPath, thumbImgSaveFilename);
 		   re_thumbImg.transferTo(saveFile2);
 
-		   RedirectAttributes attributes = (RedirectAttributes)map.get("attributes");
+		   RedirectAttributes attributes = (RedirectAttributes)map.get("redirectAttributes");
 		   attributes.addFlashAttribute("reviewWriteRes", rDao.reviewWrite(re_id, re_product_name, re_content, re_pw, re_score, re_product_no, imgSaveFileName, thumbImgSaveFilename));
 		   attributes.addFlashAttribute("isReviewWrite", "Yes");
 		   

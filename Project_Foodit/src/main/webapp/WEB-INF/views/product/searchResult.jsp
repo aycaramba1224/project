@@ -32,7 +32,9 @@
 
 	</div>
 	
-	
+	<br />
+    ${pagingView }
+    <br />
 	
 	
 	
