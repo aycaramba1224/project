@@ -9,7 +9,7 @@
 				<dt>상품 정보</dt>
 				<dd>
 					<ul class="menuList">
-						<li><a href="productList" >상품목록</a></li>					 
+						<li><a href="productList" >상품목록(수정/삭제)</a></li>					 
 						<li><a href="productInsertPage" >상품등록</a></li>					 
 					</ul>
 				</dd>

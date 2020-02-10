@@ -4,12 +4,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
  
 
- 	
-	<div id="wrap">	
+  
+		 
+		 
+		 	<div class="detail">
+					<div class="detail_info">
+						<div class="no_data">
+							<span class="ico"></span>
 		 
 		<c:if test="${productListSize eq 0 }">
 			등록된 메뉴가 없습니다.
 		</c:if>
+		</div></div>
 		
 		 <c:forEach var="productDto" items="${productList }" >	
 			<div id="목록" style="float:left; padding:20px;" >		
@@ -37,9 +43,10 @@
     <br />
 	
 	
-	
-	
-	
+ 
+ 
+	  			  
+ 
 	
 	
  

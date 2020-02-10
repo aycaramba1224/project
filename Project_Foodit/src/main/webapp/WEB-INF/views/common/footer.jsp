@@ -8,7 +8,7 @@
 				<div class="footerCont">
 					<div class="ftL">
 						<div class="logo">
-							<a href="index">로고</a>
+							<a href="main">로고</a>
 						</div>
 						<p class="copy nbg">© FOODIT ALL RIGHTS RESERVED</p>
 					</div>

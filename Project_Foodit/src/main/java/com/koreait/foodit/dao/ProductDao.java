@@ -17,7 +17,7 @@ public interface ProductDao {
 	public int productDelete(int product_no);
 	
 	// 상품 검색 
-	public ArrayList<ProductDto> productSearchResult(String query, String content, int begin, int end);
+	public ArrayList<ProductDto> productSearchResult(String content, int begin, int end);
 	
 	// 상품 정렬 리스트  
 	public ArrayList<ProductDto> productListOrder1(int begin, int end); // 신메뉴순 정렬 리스트
@@ -28,7 +28,10 @@ public interface ProductDao {
 	// 페이징 처리 	
 	public int totalCountProduct();
 	
-	// 메인페이지 (실시간 베스트)
-	public ArrayList<ProductDto> mainList();
-	 
+	// 메인페이지 
+		// 실시간 베스트
+	public ArrayList<ProductDto> bestList();
+	 	// 맛추천
+	public ArrayList<ProductDto> recommendList(String product_taste);
+	
 }
