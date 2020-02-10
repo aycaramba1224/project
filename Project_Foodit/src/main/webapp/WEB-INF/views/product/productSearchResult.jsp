@@ -48,3 +48,4 @@
 	</div>  
 	<script type="text/javascript" src="resources/js/menuSearch.js" ></script>
 	
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

@@ -10,8 +10,8 @@
 
 $(function(){	
 	$('#selectBox').change(function() {
-		var state = jQuery('#selectBox option:selected').val();
-		if ( state == '짭짤한맛' ) {
+		var taste = jQuery('#selectBox option:selected').val();
+		if ( taste == '매콤한맛' ) {
 			$('.layer').show();
 		} else {
 			$('.layer').hide();
@@ -48,9 +48,11 @@ $(function(){
 			맛취향에 따라 딱맞는 맛있는 메뉴를 추천드려요.			 
 		</span>
 	
-	<div class="layer">내용</div>
+	<div class="layer">
+		<jsp:include page="/WEB-INF/views/main/recommendList.jsp"/>	
+	</div>
 		 
-	 <jsp:include page="/WEB-INF/views/main/recommendList.jsp"/> 
+	  
 	</div> <br/>
 	
 	<div> <!-- 실시간 베스트  -->

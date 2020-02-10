@@ -22,7 +22,7 @@ public class RecommendListCommand implements ProductCommand {
 		String product_taste = request.getParameter("product_taste");
 		
 		model.addAttribute("recommandList", productDao.recommendList(product_taste));
-
+		model.addAttribute("product_taste", product_taste);
 	}
 
 }

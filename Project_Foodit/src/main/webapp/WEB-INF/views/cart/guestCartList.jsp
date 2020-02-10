@@ -30,7 +30,7 @@
 			alert("선택된 상품이 없습니다.")
 			return;
 		} else {
-			var chk = confirm("상품을  삭제하시겠습니까?");			  
+			var chk = confirm("상품을 삭제하시겠습니까?");			  
 			if(chk) {
 				var select = $('input:checkbox[name=chBox]:checked').val();				
 				location.href="guestCartDelete?cart_no=" + select;			
