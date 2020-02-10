@@ -45,12 +45,8 @@
                 <tfoot>
                     <tr>
                         <td colspan="2">
-                        <!-- 관리자만 보이는 부분  (처리예정)-->
-                       	<c:if test="${mDto.role == 'admin' }">    
                             <input type="submit" value="게시글 수정" />
                             <input type="button" value="게시글 삭제" onclick="faqDelete()"/>
-       					</c:if>
-                        <!-- 관리자만 보이는 부분  (처리예정)--> 
                             <input type="button" value="게시글 목록" onclick="location.href='faqList'"/>
                         </td>                   
                     </tr>

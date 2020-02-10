@@ -575,6 +575,51 @@ input.txt{
     border: 0;
     cursor: pointer;
 }
-
+/* tabWrap */
+.tabWrap{
+	width: 100%;
+}
+.tabWrap .tabs{
+	position: relative;
+    width: 100%;
+    font-size: 0;
+}
+.tabWrap .tabs:after{
+	content: '';
+    display: table;
+    clear: both;
+}
+.tabWrap .tabs li{
+	display: inline-block;
+    width: initial;
+    text-align: center;
+    vertical-align: top;
+}
+.tabWrap .tabs li a{
+	display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0 12px;
+    white-space: nowrap;
+}
+.tabWrap .tabs li:first-child a{
+	padding-left: 0;
+}
+.tabWrap .tabs li a > span{
+	font-family: "nbg";
+	position: relative;
+    z-index: 1;
+    display: inline-block;
+    height: 41px;
+    color: #606060;
+    font-size: 24px;
+    line-height: 34px;
+    vertical-align: top;
+}
+.tabWrap .tabs li.on a > span{
+	font-family: "nbgB";
+	border-bottom: 3px solid #202020;
+    color: #101010;
+}
 
 

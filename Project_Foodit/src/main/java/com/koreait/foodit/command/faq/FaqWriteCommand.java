@@ -25,7 +25,7 @@ public class FaqWriteCommand implements FaqCommand {
 	
        RedirectAttributes attributes = (RedirectAttributes) map.get("attributes");
        attributes.addFlashAttribute("faqWriteRes", fDao.faqWrite(faq_title, faq_content, faq_category ));
-       attributes.addFlashAttribute("isFaqWrite", "Yes"); 
+       attributes.addFlashAttribute("isFaqWrite", "yes"); 
        
        
 	}

@@ -36,46 +36,61 @@ if(isNoticeDelete == "Yes"){
     }
 }   
 </script>
-</head>
-<body>
-  <div id="wrap">
-        <h1>고객행복센터</h1>
-        <hr/>
-        <div id="메뉴바">
-            <a href="faqList">FAQ</a>  <a href="noticeList">공지사항</a> 
-        </div>        
-        <table border="1">
+
+<div id="noticeWrap">
+	<h1>고객행복센터</h1>
+	<div class="tabWrap">
+		<ul class="tabs">
+			<li>
+				<a href="faqList"><span>FAQ</span></a>
+			</li>
+			<li class="on">
+				<a href="noticeList"><span>공지사항</span></a>
+			</li>
+		</ul> 
+	</div>  
+	<div class="noticeCont">
+        <table>
+        	<colgroup>
+        		<col width="10%">
+        		<col width="*">
+        		<col width="15%">
+        	</colgroup>
             <thead>
                 <tr>
-                    <td>번호</td>
-                    <td>제목</td>
-                    <td>등록일자</td>                           
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>등록일자</th>                           
                 </tr>
             </thead>
             <tbody>
                 <c:if test="${noticeListCount eq 0 }">
                   <tr>
-                    <td colspan="3">등록된 글이 없습니다.</td>                  
+                    <td colspan="3" class="noticeTit">등록된 글이 없습니다.</td>                  
                   </tr>               
                 </c:if>
                 <c:forEach var="noticeDto" items="${noticeList }">
                  <tr>                    
                     <td>${noticeDto.notice_no }</td>
-                    <td><a href="noticeView?notice_no=${noticeDto.notice_no}">${noticeDto.notice_title}</a></td>
+                    <td class="noticeTit"><a href="noticeView?notice_no=${noticeDto.notice_no}">${noticeDto.notice_title}</a></td>
                     <td>${noticeDto.notice_date }</td>
                  </tr>
                 </c:forEach>
             </tbody>
-            <tfoot>
-                 <c:if test="${mDto.role == 'admin' }">    
-                    <input type="button" value="공지사항등록" onclick="location.href='noticeWritePage'"/>  
-                 </c:if> 
-            </tfoot>
+            
         </table>    
-    </div>
-   <!-- 페이징처리 예정 -->
+	</div>
+	<%-- 관리자 권한에 따른 글 수정 권한 --%>
+	<%-- 관리자 페이지로 빼세요! --%>
+	<c:if test="${mDto.role == 'admin' }">    
+		<button type="button" onclick="location.href='noticeWritePage'">
+			공지사항등록
+		</button>  
+    </c:if> 
+	<%-- 페이징 처리 예정--%>
+	<div class="pageNavi">
+		<%-- 여기에 작업 --%>	
+	</div>
+</div>
 
 
-
-</body>
-</html>
