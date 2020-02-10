@@ -7,7 +7,7 @@
 </jsp:include> 
 
 <script type="text/javascript">
-	function searchMenu(f){
+	function fn_searchMenu(f){
 		if(f.content.value==""){
 			alert("검색어를 입력해 주세요.");
 			return;
@@ -25,12 +25,11 @@
 			<div class="schWrap">
 				<div class="formInputWrap">
 					<form method="POST">
-						<input type="hidden" name="query" value="product_name"/>			
 						<input type="text" class="txt" name="content" placeholder="메뉴명으로 검색해 주세요."/>
 						<button type="button" class="ico">
 							<span class="hide">입력 삭제</span>
 						</button>
-						<button type="button" class="srchBtn" value="검색" onclick="searchMenu(this.form)">
+						<button type="button" class="srchBtn" value="검색" onclick="fn_searchMenu(this.form)">
 							<span class="hide">검색</span>
 						</button>
 						<p class="pInfo">FOODIT의 모든 메뉴를 쉽고 빠르게 찾아볼 수 있습니다.</p>
@@ -49,3 +48,4 @@
 	</div>  
 	<script type="text/javascript" src="resources/js/menuSearch.js" ></script>
 	
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

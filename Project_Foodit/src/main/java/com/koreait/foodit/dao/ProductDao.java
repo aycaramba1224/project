@@ -17,7 +17,7 @@ public interface ProductDao {
 	public int productDelete(int product_no);
 	
 	// 상품 검색 
-	public ArrayList<ProductDto> productSearchResult(String query, String content, int begin, int end);
+	public ArrayList<ProductDto> productSearchResult(String content, int begin, int end);
 	
 	// 상품 정렬 리스트  
 	public ArrayList<ProductDto> productListOrder1(int begin, int end); // 신메뉴순 정렬 리스트

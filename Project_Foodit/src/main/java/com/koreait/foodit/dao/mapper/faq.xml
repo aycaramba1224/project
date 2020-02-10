@@ -41,7 +41,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	 </insert> 
 	 
 	 <select id="faqSearchResult" resultType="com.koreait.foodit.dto.FaqDto">
-	    SELECT * FROM FAQ WHERE ${param1} LIKE #{param2}
+	    SELECT * FROM FAQ WHERE FAQ_TITLE LIKE #{param1}
 	 </select> 
  
 </mapper>

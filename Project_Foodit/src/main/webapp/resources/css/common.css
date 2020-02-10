@@ -492,10 +492,10 @@ a:visited {
 .no_data .ico{
     display: block;
     width: 83px;
-    height: 80px;
+    height: 82px;
     margin: 0 auto 24px;
-    background: url(../images/iconset.png) -632px -1007px no-repeat;
-    background-size: 1500px 2094px;
+    background: url(../images/iconset.png) -632px -1065px no-repeat;
+    background-size: 1500px 2214px;
 }
 .rec_link span{
    	font-size: 14px;

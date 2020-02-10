@@ -19,7 +19,6 @@ public class ProductSearchCommand implements ProductCommand {
 		
 		Map<String, Object> map = model.asMap();		
 		HttpServletRequest request = (HttpServletRequest)map.get("request");		
-		String query = request.getParameter("query");
 		String content = "%" + request.getParameter("content") + "%"; 
 		
 		// 현재 페이지 번호 구하기 (파라미터로 전달)
@@ -44,8 +43,8 @@ public class ProductSearchCommand implements ProductCommand {
 		
 		model.addAttribute("currentPage", currentPage);
 		model.addAttribute("pagingView", pagingView);	 
-		model.addAttribute("productList", productDao.productSearchResult(query, content, begin, end));
-		model.addAttribute("productListSize", productDao.productSearchResult(query, content, begin, end).size());
+		model.addAttribute("productList", productDao.productSearchResult(content, begin, end));
+		model.addAttribute("productListSize", productDao.productSearchResult(content, begin, end).size());
 		
 	}
 

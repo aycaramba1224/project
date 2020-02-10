@@ -20,9 +20,8 @@ public class FaqSearchCommand implements FaqCommand {
       Map<String, Object> map = model.asMap();
       HttpServletRequest request = (HttpServletRequest)map.get("request");
       
-      String query = request.getParameter("query");
       String content = "%" + request.getParameter("content") + "%";
-      ArrayList<FaqDto> list = fDao.faqSearchResult(query, content);
+      ArrayList<FaqDto> list = fDao.faqSearchResult(content);
       for( int i = 0, len = list.size(); i < len ; i++ ) {
       	FaqDto fDto = list.get(i);
 			if( fDto.getFaq_category().equals("delievery") ){ 
