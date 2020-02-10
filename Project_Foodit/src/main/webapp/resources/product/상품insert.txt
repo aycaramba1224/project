@@ -1,4 +1,4 @@
-상품 insert SQL
+상품 insert SQL (총 20개 상품)
 
 SET DEFINE OFF;
 insert into product values (product_seq.nextval, '매콤 닭가슴살 야채 볶음밥 & 부드러운 오믈렛 8팩', 39200, '부드러운 오믈렛에 사르르 녹아요', '500', '담백한맛', null, null);
@@ -9,7 +9,21 @@ insert into product values (product_seq.nextval, '삼색나물과 단호박솥�
 insert into product values (product_seq.nextval, '버섯듬뿍 닭가슴살 스테이크 & 다섯가지 야채 12팩', 56400, '언제 어디서든 고급스럽게 즐겨요', '250', '담백한맛',null, null);
 insert into product values (product_seq.nextval, '매콤야채 빅볼 닭가슴살 & 다섯가지 야채 도시락 12팩', 56400, '닭가슴살과 야채가 만나 가볍고 든든해요!', '120', '매콤한맛',null, null);
 insert into product values (product_seq.nextval, '무청시래기 표고버섯 솥밥 & 매콤 닭가슴살 스테이크 16팩', 76800, '	아이부터 어른까지 누구나 맛있게', '400', '담백한맛',null, null);
+insert into product values (product_seq.nextval, '다섯가지 야채 새우 볶음밥 & 닭가슴살 6팩', 35400, '닭가슴살이 어우러진 정성으로 꽉 채운 도시락!', '380', '담백한맛',null, null);
+insert into product values (product_seq.nextval, '취나물 곤약밥 & 매콤 닭가슴살 불고기맛 스테이크 8팩', 39200, '고소한 밥에 매콤한 고기반찬', '480', '매콤한맛',null, null);
+insert into product values (product_seq.nextval, '부드러운 현미곤약 잡곡밥 & 리얼 카레큐브 8팩', 39200, '은은하게 매콤한 카레와 곤약잡곡밥', '470', '이국적인맛',null, null);
+insert into product values (product_seq.nextval, '계란야채 곤약 볶음밥 & 토마토소스 닭가슴살 슬라이스 6팩', 35400, '깊은 토마토 맛의 토마토 소스', '450', '이국적인맛',null, null);
+insert into product values (product_seq.nextval, '롤치즈 & 고구마큐브 토핑샐러드 6팩', 32400, 'with 이탈리안 드레싱', '350', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '닭가슴살 & 견과 샐러드 ', 19600, '크랜베리+아몬드+땅콩으로 식감 up', '360', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '리얼 쉬림프 샐러드 6팩', 32400, 'with 레몬 갈릭드레싱', '340', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '어니언 톡톡 콘샐러드 10팩', 22200, '식단에 즐거움을 더해주는 상큼 샐러드', '330', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '훈제 닭가슴살 샐러드', 19600, '은은한 훈제향의 부드러운 닭가슴살', '320', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '통단호박 크랜베리 콕콕 샐러드 10팩', 22200, '단호박 고유의 맛을 그대로~', '280', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '베지 송송 리얼포테이토 샐러드 10팩', 22200, '빵과 함께 먹으면 더 맛있어요!', '310', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '갈릭 케이준 치킨 샐러드 6팩', 32400, '	with 홀그레인 머스타드 드레싱', '290', '상큼한맛',null, null);
 
+
+★★Run SQL Command Line으로 한번에 입력하시고 사진은 관리자 로그인하셔서 상품명에 맞는 사진 넣으시면 됩니다.(이미지 - 상품명_info / 썸네일 - 상품명)
 
 예시)
 insert into product values (product_seq.nextval, '이미지테스트', 900000, 'test', '500', '이국적인맛',null, null);

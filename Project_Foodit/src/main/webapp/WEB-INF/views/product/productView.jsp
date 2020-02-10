@@ -45,7 +45,7 @@
 					<tr>
 						<td rowspan ="7">
 							<!-- 본문 썸네일 이미지 사이즈 : 550 x 550 -->  
-							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" 
+							<img alt="${productDto.product_thumbImg }" src="${realPath}/resources/upload/${productDto.product_thumbImg}" 
 							style="width:550px; height:550px;" />	 
 						</td>
 					</tr>
