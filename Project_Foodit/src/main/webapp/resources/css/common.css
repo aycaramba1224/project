@@ -190,9 +190,9 @@ a:visited {
     top: -5px;
     right: 0;
     width: 5px;
-    height: 6px;
+    height: 5px;
     background: #EE0700;
-    border-radius: 3px;
+    border-radius: 100px;
 }
 #header .gnbSide{
     position: absolute;
