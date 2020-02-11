@@ -9,15 +9,15 @@
 				<dt>상품 정보</dt>
 				<dd>
 					<ul class="menuList">
-						<li><a href="productList" >상품목록(수정/삭제)</a></li>					 
-						<li><a href="productInsertPage" >상품등록</a></li>					 
+						<li><a href="productList" >상품 관리</a></li>					 
+						<li><a href="productInsertPage" >상품 등록</a></li>					 
 					</ul>
 				</dd>
 			</dl>
 			<dl class="myMenu">
 				<dt>고객 정보</dt>
 				<dd>
-					<ul class="menuList">
+					<ul class="menuList"> <!-- 각자 파트 수정 부탁드립니다. -->
 						<li><a href="" >1:1 문의</a></li>
 						<li><a href="" >리뷰</a></li>
 						<li><a href="" >나의 맛취향</a></li>
@@ -28,11 +28,10 @@
 				<dt>게시판 정보</dt>
 				<dd>
 					<ul class="menuList">
-						<li><a href="" >1:1 문의</a></li>
-						<li><a href="reviewList" >리뷰목록</a></li>
-						<li><a href="noticeList" >공지사항 목록</a></li>
+					 	<li><a href="reviewList" >리뷰 관리</a></li>
+						<li><a href="noticeList" >공지사항 관리</a></li>
 						<li><a href="noticeWritePage" >공지사항 글쓰기</a></li>
-						<li><a href="faqList" >FAQ 목록</a></li>
+						<li><a href="faqList" >FAQ 관리</a></li>
 						<li><a href="faqWritePage" >FAQ 글쓰기</a></li>
 					</ul>
 				</dd>
