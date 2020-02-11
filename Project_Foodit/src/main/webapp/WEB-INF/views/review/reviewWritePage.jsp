@@ -19,7 +19,8 @@
                 <tbody> 
                     <tr>
                         <td>작성자</td>
-                        <td><input type="text" name="re_id" /></td>
+                        <td>${sessionScope.mDto.id }</td>
+                        <td><input type="hidden" name="re_id" value="${sessionScope.mDto.id  }" /></td>
                     </tr>
                     <tr>
                         <td>상품명</td>

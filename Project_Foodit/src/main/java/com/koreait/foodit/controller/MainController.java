@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.koreait.foodit.command.product.BestListCommand;
 import com.koreait.foodit.command.product.MenuListCommand;
 import com.koreait.foodit.command.product.ProductCommand;
+
  
 @Controller
 public class MainController {
@@ -42,9 +43,13 @@ public class MainController {
 	@RequestMapping("recommendList")
 	public String recommend(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
+ 
 	
 		productCommand = new MenuListCommand();
 		productCommand = new BestListCommand(); 
+ 
+		productCommand = new RecommendCommand();
+ 
 		productCommand.execute(sqlSession, model);
 		return "index";
 	}*/

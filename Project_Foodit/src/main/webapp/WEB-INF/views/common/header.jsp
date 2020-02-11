@@ -25,6 +25,7 @@
 <link href="<c:url value="/resources/css/cart.css" />" type="text/css" rel="stylesheet" >
 <link href="<c:url value="/resources/css/menuSearch.css" />" type="text/css" rel="stylesheet" >
 <link href="<c:url value="/resources/css/faq.css" />" type="text/css" rel="stylesheet" >
+<link href="<c:url value="/resources/css/product.css" />" type="text/css" rel="stylesheet" >
 <link rel="shortcut icon" href="#" type="image/x-icon">
 <link href="<c:url value="/resources/bootstrap/css/datepicker3.css" />" type="text/css" rel="stylesheet" >
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
@@ -71,7 +72,6 @@ if(isLogout == "yes"){
 				 		<li><a href="#" onclick="return false;">FOODIT 소개</a></li>
 				 		<li><a href="productList"><span class="red_dot">FOODIT 메뉴</span></a></li>
 				 		<li><a href="reviewList">리뷰</a></li>
-				 		<li><a href="">이벤트</a></li>
 				 		<c:choose>
 					 		<c:when test="${ sessionScope.mDto.role eq 'admin' }">
 					 			<li><a href="adminPage">관리자푸딧</a></li>
