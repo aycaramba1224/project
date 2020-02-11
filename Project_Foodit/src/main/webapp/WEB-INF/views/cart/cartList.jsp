@@ -59,7 +59,9 @@
 									<input type="checkbox" name="allCheck" id="allCheck" checked="checked"/>		
 								</td>
 								<td>
-									<label for="allCheck">총  <!-- 처리예정 --> / ${cartListSize }개</label> 
+									<label for="allCheck">
+										총 <span id="chkCount"></span> / ${cartListSize }개
+									</label> 
 								</td> 
 								<td colspan="4">
 									<button type="button" onclick="selectDelete()">선택 삭제</button> 

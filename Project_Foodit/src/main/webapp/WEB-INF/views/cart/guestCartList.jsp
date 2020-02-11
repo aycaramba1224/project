@@ -23,7 +23,7 @@
  	function goLogin(f){ 		// 비회원의 임시아이디를 본래 아이디로 업데이트함
 	 	f.action = "sbmr?cart_id=${cart_id}";	 
 		f.submit();  
-	}   
+	}    	
 </script>
 </head>
 <body>
@@ -67,7 +67,9 @@
 							<input type="checkbox" name="allCheck" id="allCheck" checked="checked" />  															 
 						</td>
 						<td>
-							<label for="allCheck">총 <!-- 처리예정 --> / ${guestCartListSize }개</label> 
+							<label for="allCheck">
+								총 <span id="chkCount"></span> / ${guestCartListSize }개
+							</label> 
 						</td> 
 						<td colspan="4">
 							<button type="button" onclick="gc_selectDelete()">선택 삭제</button> 
