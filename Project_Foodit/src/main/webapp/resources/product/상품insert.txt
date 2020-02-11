@@ -1,27 +1,28 @@
 상품 insert SQL (총 20개 상품)
 
 SET DEFINE OFF;
-insert into product values (product_seq.nextval, '갈비맛 빅볼 닭가슴살', 35400, '균형잡힌 구성으로 제대로 된 한끼!', '300', '짭짤한맛', null, null);
-insert into product values (product_seq.nextval, '레드퀴노아 갈릭 닭가슴살 볶음밥', 39200, '퀴노아,갈릭 닭가슴살 듬뿍', '320', '담백한맛',null, null);
-insert into product values (product_seq.nextval, '어니언 톡톡 콘샐러드', 22200, '입안 가득 상큼톡톡', '330', '상큼한맛',null, null);
-insert into product values (product_seq.nextval, '매콤 닭가슴살 야채 볶음밥', 39200, '부드러운 오믈렛과 함께', '500', '담백한맛', null, null);
-insert into product values (product_seq.nextval, '갈릭 케이준 치킨 샐러드', 32400, 'with 홀그레인 머스타드 드레싱', '290', '상큼한맛',null, null);
-insert into product values (product_seq.nextval, '코코넛 닭가슴살 커리', 39200, '코코넛 커리로 특별하게', '200', '이국적인맛', null, null);
-insert into product values (product_seq.nextval, '리얼 쉬림프 샐러드', 32400, 'with 레몬 갈릭드레싱', '340', '상큼한맛',null, null);
-insert into product values (product_seq.nextval, '버섯듬뿍 닭가슴살 스테이크', 56400, '언제 어디서든 고급스럽게 ', '250', '담백한맛',null, null);
-insert into product values (product_seq.nextval, '다섯가지 야채 새우 볶음밥', 35400, '새우, 닭가슴살, 야채 듬뿍', '380', '담백한맛',null, null);
-insert into product values (product_seq.nextval, '통단호박 크랜베리 콕콕 샐러드', 22200, '단호박 고유의 맛을 그대로', '280', '상큼한맛',null, null);
-insert into product values (product_seq.nextval, '삼색나물과 단호박솥밥', 39200, '담백하고 고소한 별미 도시락', '123', '담백한맛',null, null);
-insert into product values (product_seq.nextval, '매콤 닭가슴살 불고기맛 스테이크', 39200, '고소한 취나물 곤약밥', '480', '매콤한맛',null, null);
-insert into product values (product_seq.nextval, '롤치즈&고구마큐브 토핑샐러드', 32400, 'with 이탈리안 드레싱', '350', '상큼한맛',null, null);
-insert into product values (product_seq.nextval, '크랜베리 견과 샐러드 ', 19600, '크랜베리,아몬드,땅콩 듬뿍', '360', '상큼한맛',null, null);
-insert into product values (product_seq.nextval, '토마토소스 닭가슴살 슬라이스', 35400, '계란 야채 볶음밥과 함께', '450', '이국적인맛',null, null);
-insert into product values (product_seq.nextval, '무청시래기 표고버섯 솥밥', 35400, '매콤 닭가슴살 스테이크', '400', '담백한맛',null, null);
-insert into product values (product_seq.nextval, '고구마치즈롤 스테이크', 38300, '고소한 치즈가 쏙쏙!', '100', '담백한맛', null, null);
-insert into product values (product_seq.nextval, '현미 잡곡밥 & 리얼 카레큐브', 39200, '은은하게 매콤한 카레와 함께', '470', '이국적인맛',null, null);
-insert into product values (product_seq.nextval, '매콤야채 빅볼 닭가슴살', 34800, '프랑스산 웰빙 야채 듬뿍', '120', '매콤한맛',null, null);
-insert into product values (product_seq.nextval, '베지 송송 리얼포테이토 샐러드', 22200, '국내산 감자와 다양한 채소가 송송', '310', '상큼한맛',null, null);
+insert into product values (product_seq.nextval, '갈비맛 빅볼 닭가슴살', 35400, '균형잡힌 구성으로 제대로 된 한끼!', '300', 'salty', null, null);
+insert into product values (product_seq.nextval, '레드퀴노아 갈릭 닭가슴살 볶음밥', 39200, '퀴노아,갈릭 닭가슴살 듬뿍', '320', 'plain',null, null);
+insert into product values (product_seq.nextval, '어니언 톡톡 콘샐러드', 22200, '입안 가득 상큼톡톡', '330', 'fresh',null, null);
+insert into product values (product_seq.nextval, '매콤 닭가슴살 야채 볶음밥', 39200, '부드러운 오믈렛과 함께', '500', 'spicy', null, null);
+insert into product values (product_seq.nextval, '갈릭 케이준 치킨 샐러드', 32400, 'with 홀그레인 머스타드 드레싱', '290', 'fresh',null, null);
+insert into product values (product_seq.nextval, '코코넛 닭가슴살 커리', 39200, '코코넛 커리로 특별하게', '200', 'exotic', null, null);
+insert into product values (product_seq.nextval, '리얼 쉬림프 샐러드', 32400, 'with 레몬 갈릭드레싱', '340', 'fresh',null, null);
+insert into product values (product_seq.nextval, '버섯듬뿍 닭가슴살 스테이크', 56400, '언제 어디서든 고급스럽게 ', '250', 'plain',null, null);
+insert into product values (product_seq.nextval, '다섯가지 야채 새우 볶음밥', 35400, '새우, 닭가슴살, 야채 듬뿍', '380', 'salty',null, null);
+insert into product values (product_seq.nextval, '통단호박 크랜베리 콕콕 샐러드', 22200, '단호박 고유의 맛을 그대로', '280', 'fresh',null, null);
+insert into product values (product_seq.nextval, '삼색나물 단호박솥밥', 39200, '담백하고 고소한 별미 도시락', '123', 'plain',null, null);
+insert into product values (product_seq.nextval, '매콤 닭가슴살 불고기맛 스테이크', 39200, '고소한 취나물 곤약밥과 함께', '480', 'spicy',null, null);
+insert into product values (product_seq.nextval, '롤치즈 토핑샐러드', 32400, 'with 이탈리안 드레싱', '350', 'salty',null, null);
+insert into product values (product_seq.nextval, '크랜베리 견과 샐러드 ', 19600, '크랜베리,아몬드,땅콩 듬뿍', '360', 'fresh',null, null);
+insert into product values (product_seq.nextval, '토마토소스 닭가슴살 계란볶음밥', 35400, '계란 야채 볶음밥과 함께', '450', 'exotic',null, null);
+insert into product values (product_seq.nextval, '무청시래기 표고버섯 솥밥', 35400, '매콤 닭가슴살 스테이크', '400', 'plain',null, null);
+insert into product values (product_seq.nextval, '고구마치즈롤 스테이크', 38300, '고소한 치즈가 쏙쏙!', '100', 'plain', null, null);
+insert into product values (product_seq.nextval, '현미 잡곡밥 & 리얼 카레큐브', 39200, '은은하게 매콤한 카레와 함께', '470', 'exotic',null, null);
+insert into product values (product_seq.nextval, '매콤야채 빅볼 닭가슴살', 34800, '프랑스산 웰빙 야채 듬뿍', '120', 'spicy',null, null);
+insert into product values (product_seq.nextval, '베지 송송 리얼포테이토 샐러드', 22200, '국내산 감자와 다양한 채소가 송송', '310', 'fresh',null, null);
 
 
 ★★Run SQL Command Line으로 한번에 입력하시고 사진은 관리자 로그인하셔서 상품명에 맞는 사진 넣으시면 됩니다.(이미지 - 상품명_info / 썸네일 - 상품명)
  
+
