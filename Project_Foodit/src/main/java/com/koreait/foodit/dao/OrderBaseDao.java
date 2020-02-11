@@ -35,11 +35,11 @@ public interface OrderBaseDao {
 	
 	
 	
-	//주문정보 입력
-	public int orderListModify(String order_name,String order_phone,String order_phone2,String order_phone3,
-			String order_email,String order_email2,String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,
-			String order_post,String order_road1,int order_no);
-	public int orderBaseDelete(int order_no);
-	public OrderBaseDto orderList_view(String order_name);
+	//주문정보 내역 수정,삭제 등 
+	//public int orderListModify(String order_name,String order_phone,String order_phone2,String order_phone3,
+			//String order_email,String order_email2,String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,
+			//String order_post,String order_road1,int order_no);
+	//public int orderBaseDelete(int order_no);
+	//public OrderBaseDto orderList_view(String order_name);
 	
 }

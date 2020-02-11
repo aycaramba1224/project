@@ -51,7 +51,7 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
      	 CART C ,PRODUCT P,ORDER_BASE O
 	WHERE
     	C.PRODUCT_NO = P.PRODUCT_NO AND O.ORDER_NO = C.ORDER_NO
- 	 
+ 	
 </select>
  	 
 

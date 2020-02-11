@@ -1,11 +1,15 @@
- ★★★★★ oder_base 테이블 생성 ===============================================================================================
+ �쁾�쁾�쁾�쁾�쁾 oder_base �뀒�씠釉� �깮�꽦 ===============================================================================================
+ 
+ 회원 기본 정보 하나 넣어주세요
+ insert into order_base(order_no,delivery_name,delivery_phone,delivery_phone2,delivery_phone3,
+ order_post,order_road1) values (ORDER_BASE_SEQ.NEXTVAL,'wjstngus03','010','3565','6478','123-45','seloul');
  
 DROP TABLE ORDER_BASE;
 
 CREATE TABLE order_base (
  ORDER_NO NUMBER PRIMARY KEY,  
  GUEST_NO NUMBER,
- GUEST_PW VARCHAR2(20) ,
+ GUEST_PW VARCHAR2(20) UNIQUE,
  ORDER_NAME VARCHAR2(10) , 
  ORDER_PHONE VARCHAR2(10) ,
  ORDER_PHONE2 VARCHAR2(10) ,
@@ -25,7 +29,7 @@ DROP SEQUENCE GUEST_NO_SEQ;
 CREATE SEQUENCE ORDER_BASE_SEQ START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE GUEST_NO_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★CART(장바구니) TABLE 생성 (BUY -> CART로 이름 변경 되었습니다.) =======================================================
+�쁾�쁾�쁾�쁾�쁾CART(�옣諛붽뎄�땲) TABLE �깮�꽦 (BUY -> CART濡� �씠由� 蹂�寃� �릺�뿀�뒿�땲�떎.) =======================================================
 
 DROP TABLE CART;
 
@@ -45,8 +49,8 @@ CREATE SEQUENCE CART_SEQ START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE  CARTORDER_SEQ START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE  GUESTORDER_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★MEMBER(회원) TABLE 생성 =====================================================================================
-
+�쁾�쁾�쁾�쁾�쁾MEMBER(�쉶�썝) TABLE �깮�꽦 =====================================================================================
+drop table member;
 CREATE TABLE MEMBER ( 
 ID VARCHAR2(20) NOT NULL PRIMARY KEY, 
 PW VARCHAR2(20) NOT NULL,
@@ -59,7 +63,7 @@ ROAD VARCHAR2(50) NOT NULL,
 REG_DATE DATE NOT NULL,
 ROLE VARCHAR2(20) DEFAULT 'USER' NOT NULL );
 
-★★★★★PRODUCT(상품) TABLE 생성 =====================================================================================
+�쁾�쁾�쁾�쁾�쁾PRODUCT(�긽�뭹) TABLE �깮�꽦 =====================================================================================
 
 DROP TABLE PRODUCT;
 
@@ -76,7 +80,7 @@ CREATE TABLE PRODUCT (
 DROP SEQUENCE PRODUCT_SEQ;						
 CREATE SEQUENCE PRODUCT_SEQ START WITH 5002215 INCREMENT BY 1;
 
-★★★★★ FAQ 테이블 생성 ===============================================================================================
+�쁾�쁾�쁾�쁾�쁾 FAQ �뀒�씠釉� �깮�꽦 ===============================================================================================
 
 DROP TABLE FAQ;
  
@@ -89,7 +93,7 @@ CREATE TABLE FAQ (
 DROP SEQUENCE FAQ_SEQ;
 CREATE SEQUENCE FAQ_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ NOTICE 테이블 생성 ===============================================================================================
+�쁾�쁾�쁾�쁾�쁾 NOTICE �뀒�씠釉� �깮�꽦 ===============================================================================================
 
 DROP TABLE NOTICE;
 
@@ -103,7 +107,7 @@ CREATE TABLE NOTICE (
 DROP SEQUENCE NOTICE_SEQ;
 CREATE SEQUENCE NOTICE_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ REVIEW 테이블 생성 ===============================================================================================
+�쁾�쁾�쁾�쁾�쁾 REVIEW �뀒�씠釉� �깮�꽦 ===============================================================================================
 
 DROP TABLE REVIEW;
 

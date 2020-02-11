@@ -54,9 +54,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	
 	<insert id="guestCartInsert">
 	 	INSERT INTO
-	 		CART (CART_NO,GUEST_NO,CART_ID, PRODUCT_NO, CART_AMOUNT) 
+	 		CART (CART_NO,ORDER_NO,GUEST_NO,CART_ID, PRODUCT_NO, CART_AMOUNT) 
 	 	VALUES 
-	 		(cart_seq.nextval,guestorder_seq.nextval,#{param1}, #{param2}, #{param3} ) 
+	 		(cart_seq.nextval,cartorder_seq.nextval,guestorder_seq.nextval,#{param1}, #{param2}, #{param3} ) 
 	 </insert> 	
  
  	
@@ -76,23 +76,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      	 CART C ,PRODUCT P,ORDER_BASE O
 	WHERE
     	C.PRODUCT_NO = P.PRODUCT_NO AND O.ORDER_NO = C.ORDER_NO
- 	 
+    	
+ 	  AND C.CART_ID = #{param1}
  	 </select>
  	
  	<select id="guestordercartList" resultType="com.koreait.foodit.dto.CartDto">
  	  
  	  SELECT 
-      O.GUEST_NO,
-      C.CART_NO,C.GUEST_NO,C.CART_ID, C.PRODUCT_NO, C.CART_AMOUNT,
+      O.ORDER_NO,
+      C.CART_NO,C.ORDER_NO,C.CART_ID, C.PRODUCT_NO, C.CART_AMOUNT,
       P.PRODUCT_PRICE, P.PRODUCT_NAME, P.PRODUCT_THUMBIMG,P.PRODUCT_NO
  
   FROM 
      	 CART C ,PRODUCT P,ORDER_BASE O
 	WHERE
-    	C.PRODUCT_NO = P.PRODUCT_NO AND O.GUEST_NO = C.GUEST_NO
-    	
- 	     
- 	 
+    	C.PRODUCT_NO = P.PRODUCT_NO AND O.ORDER_NO = C.ORDER_NO
+  
+   AND C.CART_ID = #{param1}   
  	 </select>
  	
  	

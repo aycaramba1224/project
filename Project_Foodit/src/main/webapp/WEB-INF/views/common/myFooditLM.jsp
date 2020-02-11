@@ -9,9 +9,8 @@
 				<dt>나의 주문정보</dt>
 				<dd>
 					<ul class="menuList">
-						<li><a href="" >주문/배송 조회</a></li>
-						<li><a href="" >취소/반품 조회</a></li>
-						<li><a href="" >배송지 관리</a></li>
+						<li><a href="memberOrderlistPage" >주문/배송 조회</a></li>
+						<li><a href="mdeliverylistPage" >배송지 관리</a></li>
 					</ul>
 				</dd>
 			</dl>
