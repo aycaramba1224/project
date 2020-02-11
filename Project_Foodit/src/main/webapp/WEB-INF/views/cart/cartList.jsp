@@ -17,8 +17,7 @@
 		} else {
 			alert("메뉴가 삭제 되지않았습니다.");
 		}
-	}    
-		
+	}  
 </script>
 </head>
 <body>
@@ -119,6 +118,5 @@
 		</c:choose>  		
 	</div>  
 	
-	
-<script type="text/javascript" src="resources/js/cart.js"></script>	
+<script type="text/javascript" src="resources/js/cart.js"></script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

@@ -23,7 +23,8 @@
  	function goLogin(f){ 		// 비회원의 임시아이디를 본래 아이디로 업데이트함
 	 	f.action = "sbmr?cart_id=${cart_id}";	 
 		f.submit();  
-	}    	
+	}   	
+
 </script>
 </head>
 <body>
@@ -127,5 +128,5 @@
 		</form>
 	</div>
 	
-<script type="text/javascript" src="resources/js/cart.js"></script>	
+<script type="text/javascript" src="resources/js/cart.js"></script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
