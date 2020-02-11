@@ -53,7 +53,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        DELETE FROM REVIEW WHERE RE_NO = #{param1}
     </delete>
 
-    <select id="reviewQuery" resultType="com.koreait.foodit.dto.ReviewDto">
+    <select id="reviewSearchResult" resultType="com.koreait.foodit.dto.ReviewDto">
        SELECT * FROM REVIEW WHERE #{param1} LIKE #{param2}
     </select>
 

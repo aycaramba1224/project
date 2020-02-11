@@ -46,7 +46,6 @@ function faqSearch(f) {
 	f.submit();
 }
 
-
 </script>
 <div id="faqWrap">
 	<h1>고객행복센터</h1>
@@ -67,7 +66,7 @@ function faqSearch(f) {
 				<div class="schWrap">
 					<div class="formInputWrap">
 						<form method="post">
-							<input type="hidden" name="query" value="faq_title"/>            
+							<input type="hidden" name="currentPage" value="${currentPage}" />
 							<input type="text" class="txt" name="content" value="${ content }" placeholder="검색어를 입력해주세요."/>
 							<button type="button" class="ico">
 								<span class="hide">입력 삭제</span>
@@ -155,20 +154,18 @@ function faqSearch(f) {
 	 		</div>
 	 	</div>
 	</div>    
-	<%-- 관리자 권한에 따른 글 수정 권한 --%>
-	<%-- 관리자 페이지로 빼세요! --%>
+	<!-- 관리자 권한에 따른 글 수정 권한 -->
+	<!-- 관리자 페이지로 빼세요! -->
 	<c:if test="${mDto.role == 'admin' }">
 		<button type="button" onclick="location.href='faqWritePage'">
 			FAQ등록
 		</button>
 	</c:if>	
-	<%-- 페이징 처리 예정--%>
+	<!-- 페이징 처리 예정-->
 	<div class="pageNavi">
-		<%-- 여기에 작업 --%>	
+    	 ${pagingView }
 	</div>
 </div>
-
 <script type="text/javascript" src="resources/js/faq.js"></script>
-
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>
                        

@@ -10,7 +10,6 @@ public interface NoticeDao {
 	public ArrayList<NoticeDto> noticeList(int begin, int end);
 	public int totalCountReview();
 	
-	public ArrayList<NoticeDto> noticeList();
     public NoticeDto noticeView(int notice_no);
 	public int noticeModify(String notice_title, String notice_content,  int notice_no);
 	public int noticeWrite(String notice_title, String notice_content, String notice_img);

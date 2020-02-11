@@ -17,9 +17,9 @@ public class GuestOrderCommand implements OrderBaseCommand {
 		OrderBaseDao orderBDao = sqlSession.getMapper(OrderBaseDao.class);
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		int order_no = Integer.parseInt(request.getParameter("order_no"));
+		int guest_no = Integer.parseInt(request.getParameter("guest_no"));
 		String guest_pw = request.getParameter("guest_pw");
-		model.addAttribute("gDto", orderBDao.guestOrder(order_no, guest_pw));
+		model.addAttribute("gDto", orderBDao.guestOrderList(guest_no, guest_pw));
 		
 		 
 	}

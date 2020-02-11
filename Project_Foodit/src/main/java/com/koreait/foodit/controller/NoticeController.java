@@ -18,23 +18,18 @@ import com.koreait.foodit.command.notice.NoticeQueryCommand;
 import com.koreait.foodit.command.notice.NoticeViewCommand;
 import com.koreait.foodit.command.notice.NoticeWriteCommand;
 
-
- 
- 
-
-
- @Controller
+@Controller
 public class NoticeController {
 
 	 @Autowired
 	 private SqlSession sqlSession;
-	private   NoticeCommand noticeCommand;
+	 private NoticeCommand noticeCommand;
 		
 	 
-	 @RequestMapping("noticeList")
+	@RequestMapping("noticeList")
 	public String noticeList(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
-		 noticeCommand = new NoticeListCommand(); 
+		noticeCommand = new NoticeListCommand(); 
 		noticeCommand.execute(sqlSession, model);
 		return "notice/noticeList"; 
 	}

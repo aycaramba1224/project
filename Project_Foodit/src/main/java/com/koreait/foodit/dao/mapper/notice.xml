@@ -5,17 +5,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.foodit.dao.NoticeDao">
 
-<select id="totalCountReview" resultType="int">
+	<select id="totalCountReview" resultType="int">
 		SELECT
 			COUNT(*)
 		FROM
 			NOTICE
 	</select>
 
-
- <select id="noticeList" resultType="com.koreait.foodit.dto.NoticeDto">
-   SELECT * FROM NOTICE ORDER BY NOTICE_NO
- </select>
+	 <select id="noticeList" resultType="com.koreait.foodit.dto.NoticeDto">
+       	SELECT
+			*
+		FROM
+			(SELECT
+				ROWNUM R_NUM, A.*
+			FROM
+				(SELECT * FROM NOTICE ORDER BY NOTICE_NO) A)
+		WHERE
+			R_NUM BETWEEN #{param1} AND #{param2}
+	</select>
 
 <select id="noticeView" resultType="com.koreait.foodit.dto.NoticeDto">
      SELECT * 

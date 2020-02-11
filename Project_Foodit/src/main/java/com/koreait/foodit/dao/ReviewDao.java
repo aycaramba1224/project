@@ -20,7 +20,7 @@ public interface ReviewDao {
 	
 	public int reviewDelete(int re_no); 
 	
-	public ArrayList<ReviewDto> reviewQuery(String query, String content);
+	public ArrayList<ReviewDto> reviewSearchResult(String query, String content);
 
 	
 	

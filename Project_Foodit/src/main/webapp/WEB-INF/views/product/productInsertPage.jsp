@@ -75,7 +75,7 @@
 				<tfoot>
 					<tr>
 						<td colspan="2">
-							상품 이미지 등록 <input type="file" name="file_"/><br/>
+							상품 이미지 등록(-info) <input type="file" name="file_"/><br/>
 							상품 썸네일 등록 <input type="file" name="file_"/>
 						</td>
 					</tr>

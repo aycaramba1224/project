@@ -17,12 +17,29 @@
             alert("상품 등록이 성공하였습니다.");
         }
     }  
+    
+    function searchReview(f) {
+    	
+    }
+    
+    
 </script>
   
     <div id="wrap"> 
     
 	<span>리뷰</span>      
     <br/>
+	<form method="POST">
+		<input type="hidden" name="query" value="re_product_name"/>			
+		<input type="text" class="txt" name="content" placeholder="메뉴명으로 검색해 주세요."/>
+		<button type="button" class="icon">
+			<span class="hide">입력 삭제</span>
+		</button>
+		<button type="button" class="srchBtn" onclick="searchReview(this.form)">
+			<span class="hide">검색</span>
+		</button>
+		<p class="pInfo">FOODIT의 모든 리뷰를 쉽고 빠르게 찾아볼 수 있습니다.</p>
+	</form>	 
 	<c:if test="${mDto.role == 'admin' }">  <!-- 관리자만 보이는 부분   -->
 		<input type="button" value="리뷰등록" onclick="location.href='reviewWritePage'"/><br/><br/>   
 	</c:if> 
@@ -35,7 +52,7 @@
 		<div id="목록" style="float:left; padding:20px;" >        
 			<ul style="list-style-type:none;">       
 				<li>            
-					<a href="reviewView?re_no=${reviewDto.re_no}">   
+					<a href="#">   
 					<!-- 리뷰 사진 가로 목록 썸네일 이미지 사이즈 : 500x370  -->
 					<span> <img alt="${reviewDto.re_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${reviewDto.re_thumbImg}" 
 							style="width:500px; height:370px;" /></span> 

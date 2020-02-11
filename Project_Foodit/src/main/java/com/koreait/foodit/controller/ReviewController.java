@@ -83,11 +83,11 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("reviewSearchResult")
-	public String reviewQuery(HttpServletRequest request, Model model) {
+	public String reviewSearchResult(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
         reviewCommand = new ReviewSearchCommand();
         reviewCommand.execute(sqlSession, model);
-        return "review/reviewSearchResult";
+        return "review/reviewList";
 	}
 	
 	@RequestMapping("reviewSearch")
