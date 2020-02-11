@@ -20,6 +20,10 @@ public class MainController {
 	private SqlSession sqlSession;
 	private ProductCommand productCommand;
 	
+	@RequestMapping("slide")
+	public String slide () {
+		return "main/slide";
+	}
 	
 	// 실시간 베스트 리스트 
 	@RequestMapping("main")			 

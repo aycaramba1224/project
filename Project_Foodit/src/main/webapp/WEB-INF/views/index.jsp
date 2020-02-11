@@ -1,30 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>    
-<jsp:include page="/WEB-INF/views/common/header.jsp">
-	<jsp:param value="한끼도 특별하게, FOODIT" name="title"/>
-</jsp:include> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>   
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
+    <jsp:param value="한끼도 특별하게, FOODIT " name="title"/>
+</jsp:include>  
+ 
 
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script type="text/javascript">	 
+<script type="text/javascript">
+	// 맛추천
 	$(function(){
 		$('#selectBox').change(function() {	
 			var taste = $('#selectBox option:selected').val();			 
 			location.href="recommendList?product_taste=" + taste;			  
 		}); 		
 	});
-		
+ 
 </script>
 
-	<div>
- 		메인 이미지 슬라이드  	
- 	</div> 
+	<div> <!-- 이미지 슬라이드 -->
+	 	<%@ include file="/WEB-INF/views/main/slide.jsp" %>   
+	</div>
 	
-	
-	<div> <!-- 맛추천  -->		
+	 <div> <!-- 맛추천  -->		
 	
 		<select	name="product_taste" id="selectBox" >
 			<option value="spicy" selected="selected">매콤한맛</option>
@@ -57,8 +55,7 @@
 		</div>
 	  
 	</div>	
-	
-	<hr />
+	 
  	<div><!-- 실시간 베스트  -->	
 		<jsp:include page="/WEB-INF/views/main/bestList.jsp">
 			<jsp:param name="bestList" value="${param.bestList }"/>
@@ -67,13 +64,14 @@
 	</div>
 	
 	
-	<hr />
+	 
  	<div>
 		생생한 리뷰 
 	</div>   
 
-		 
-	<hr />
+	<div><!-- 가로 이미지   -->
+		<img alt="한끼도 특별하게, FOODIT" src="./resources/main/main1.jpg" style="width:100%; height:100%;">
+	</div>
 	<div> <!-- 푸딧 메뉴보기  -->
 		<jsp:include page="/WEB-INF/views/main/menuList.jsp">
 			<jsp:param name="menuList" value="${param.menuList }"/>
@@ -81,4 +79,4 @@
 	</div> 
 	 
 	 
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %> 
