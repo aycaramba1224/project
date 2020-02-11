@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 
 import com.koreait.foodit.dao.FaqDao;
-import com.koreait.foodit.paging.Paging;
+import com.koreait.foodit.paging.Paging2;
 
 public class FaqSelectCommand implements FaqCommand {
 
@@ -33,11 +33,11 @@ public class FaqSelectCommand implements FaqCommand {
        int begin = (nowPage - 1) * recordPerPage + 1;
        int end = begin + recordPerPage - 1;
        //전체 게시글 개수 구하기 
-       int totalRecord = fDao.totalCountReview();
        
        // ◀ 1 2 3 ▶ 생성 (pagingView)
-	   String pagingView = Paging.getPaging("faqList", nowPage, recordPerPage, totalRecord);
        String faq_category = request.getParameter("faq_category"); 
+       int totalRecord = fDao.selectTotalCount(faq_category);
+	   String pagingView = Paging2.getPaging("faqSelect?faq_category=" + faq_category, nowPage, recordPerPage, totalRecord);
       
        
        

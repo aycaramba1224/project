@@ -1,6 +1,6 @@
 package com.koreait.foodit.paging;
 
-public class Paging {
+public class Paging2 {
 	
 	public static String getPaging(String path, int nowPage, int recordPerPage, int totalRecord) {
 		
@@ -42,7 +42,7 @@ public class Paging {
 		if ( beginPageOfBlock < pagePerBlock ) {
 			sb.append("<span style='color: lightgray;'>◀</span>&nbsp;&nbsp;");
 		} else {
-			sb.append("<a href='" + path + "?currentPage=" + (beginPageOfBlock - 1) + "'>◀</a>&nbsp;&nbsp;");
+			sb.append("<a href='" + path + "&currentPage=" + (beginPageOfBlock - 1) + "'>◀</a>&nbsp;&nbsp;");
 		}
 		
 		// 페이지 번호 표시
@@ -53,7 +53,7 @@ public class Paging {
 			if ( page == nowPage ) {
 				sb.append("<span style='color: lightgray;'>" + page + "</span>&nbsp;&nbsp;");
 			} else {
-				sb.append("<a href='" + path + "?currentPage=" + (page) + "'>" + page + "</a>&nbsp;&nbsp;");
+				sb.append("<a href='" + path + "&currentPage=" + (page) + "'>" + page + "</a>&nbsp;&nbsp;");
 			}
 		}
 		
@@ -64,7 +64,7 @@ public class Paging {
 		if ( endPageOfBlock == totalPage ) {
 			sb.append("<span style='color: lightgray;'>▶</span>");
 		} else {
-			sb.append("<a href='" + path + "?currentPage=" + (endPageOfBlock + 1) + "'>▶</a>");
+			sb.append("<a href='" + path + "&currentPage=" + (endPageOfBlock + 1) + "'>▶</a>");
 		}
 		
 		return sb.toString();	

@@ -1,7 +1,6 @@
 package com.koreait.foodit.command.notice;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,37 +22,39 @@ public class NoticeWriteCommand implements NoticeCommand {
 	       MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
 	       String notice_title = request.getParameter("notice_title"); 
 	       String notice_content= request.getParameter("notice_content");
-           		
+           	
+			
 	    // 이미지 업로드 
-			List<MultipartFile> uploadFileList = request.getFiles("file_");
-			int size = uploadFileList.size();
 
-			if ( uploadFileList != null && size > 0 ) {
-				for (MultipartFile multiFile : uploadFileList) {
-					if ( !multiFile.isEmpty() ) {
-						String originFilename = multiFile.getOriginalFilename();
-						String extentionName = originFilename.substring(originFilename.lastIndexOf(".") + 1, originFilename.length());
-						String saveFilename = null;
-						try {
-							saveFilename = originFilename.substring(0, originFilename.lastIndexOf(".")) + "_" + System.currentTimeMillis() + "." + extentionName;
-							String realPath = request.getSession().getServletContext().getRealPath("/resources/upload");
-							File directory = new File(realPath);
-							if ( !directory.exists() ) {
-								directory.mkdirs();
-							}
-							File saveFile = new File(realPath, saveFilename);
-							multiFile.transferTo(saveFile);
-							RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-							redirectAttributes.addFlashAttribute("noticeWriteResult", nDao.noticeWrite(notice_title, notice_content, saveFilename));
-							redirectAttributes.addFlashAttribute("isNoticeInsert", "Yes");
-							 
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-					}
-				}
-			}		 
-	 
+	       MultipartFile product_imgFile = request.getFile("file_");  
+	       String originFilename = product_imgFile.getOriginalFilename();
+	       String extentionName = originFilename.substring(originFilename.lastIndexOf(".") + 1, originFilename.length());
+	       String imgSaveFilename = null;
+	       
+			try {
+			imgSaveFilename = originFilename.substring(0, originFilename.lastIndexOf(".")) + "_" + "detail" + "." + extentionName;
+
+			String realPath = request.getSession().getServletContext().getRealPath("/resources/upload");	
+
+			File directory = new File(realPath);  	
+						if ( !directory.exists() ) {	
+							directory.mkdirs(); 	
+						}			
+
+			File saveFile = new File(realPath, imgSaveFilename);			
+						product_imgFile.transferTo(saveFile);			
+
+			
+
+			} catch (Exception e) {								
+						e.printStackTrace();							
+					}			
+
+			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
+			redirectAttributes.addFlashAttribute("noticeWriteResult", nDao.noticeWrite(notice_title, notice_content, imgSaveFilename));
+			redirectAttributes.addFlashAttribute("isNoticeInsert", "Yes");
+			
+			
 		}	
 		
 	}

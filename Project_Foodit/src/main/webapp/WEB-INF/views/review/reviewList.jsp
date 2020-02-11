@@ -19,7 +19,12 @@
     }  
     
     function searchReview(f) {
-    	
+    	if(f.content.value==""){
+    		alert("검색어를 입력해 주세요.");
+    		return;
+    	}				
+    	f.action = "reviewSearchResult"; 
+    	f.submit();
     }
     
     
@@ -30,13 +35,12 @@
 	<span>리뷰</span>      
     <br/>
 	<form method="POST">
-		<input type="hidden" name="query" value="re_product_name"/>			
 		<input type="text" class="txt" name="content" placeholder="메뉴명으로 검색해 주세요."/>
-		<button type="button" class="icon">
-			<span class="hide">입력 삭제</span>
+		<button type="button" class="ico">
+			<span class>입력 삭제</span>
 		</button>
 		<button type="button" class="srchBtn" onclick="searchReview(this.form)">
-			<span class="hide">검색</span>
+			<span class>검색</span>
 		</button>
 		<p class="pInfo">FOODIT의 모든 리뷰를 쉽고 빠르게 찾아볼 수 있습니다.</p>
 	</form>	 
@@ -58,7 +62,24 @@
 							style="width:500px; height:370px;" /></span> 
 					<br/>
 					<span> ${reviewDto.re_product_name} </span><br/> 
-					<span> ${reviewDto.re_score } | ${reviewDto.re_id } </span>
+					<span> <c:if test="${ reviewDto.re_score eq 1}">
+			 			            ★
+					       </c:if>
+					<span> <c:if test="${ reviewDto.re_score eq 2}">
+			 			            ★★
+					       </c:if>
+					<span> <c:if test="${ reviewDto.re_score eq 3}">
+			 			            ★★★
+					       </c:if>
+					<span> <c:if test="${ reviewDto.re_score eq 4}">
+			 	    <span>★★★★</span>
+					       </c:if>
+					<span> <c:if test="${ reviewDto.re_score eq 5}">
+			 			            ★★★★★
+					       </c:if>
+					       
+					       
+					 | ${reviewDto.re_id } </span>
 					<br/><br/>
 					<span> ${reviewDto.re_content } </span>
 					</a>            
@@ -67,8 +88,7 @@
 		</div>
 	</c:forEach> 
     </div>
-    <br />
-    ${pagingView }
-    <br />
-        
+   <div class="pageNavi">
+     ${pagingView }
+   </div>
         

@@ -26,6 +26,7 @@ import com.koreait.foodit.command.faq.FaqWriteCommand;
 import com.koreait.foodit.dao.FaqDao;
 import com.koreait.foodit.dto.FaqDto;
 import com.koreait.foodit.paging.Paging;
+import com.koreait.foodit.paging.Paging2;
 
 @Controller
 public class FaqController {
@@ -133,7 +134,7 @@ public class FaqController {
 		} else {
 			list = fDao.faqSelect(faq_category, begin, end);
 			listSize = fDao.faqSelect(faq_category, begin, end).size();
-			pagingView = Paging.getPaging("faqSelect", nowPage, recordPerPage, selectRecord);
+			pagingView = Paging2.getPaging("faqSelect?faq_category=" + faq_category, nowPage, recordPerPage, selectRecord);
 		}
 		JSONObject obj = new JSONObject();
 		JSONArray jArray = new JSONArray();

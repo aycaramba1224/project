@@ -5,17 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.koreait.foodit.dao.ReviewDao">
 
-	
-	<select id="totalCountReview" resultType="int">
-		SELECT
-			COUNT(*)
-		FROM
-			REVIEW
-	</select>
-
     <select id="reviewList" resultType="com.koreait.foodit.dto.ReviewDto">
-       
-       
        	SELECT
 			*
 		FROM
@@ -26,6 +16,35 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE
 			R_NUM BETWEEN #{param1} AND #{param2}
     </select>
+	
+	<select id="totalCountReview" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			REVIEW
+	</select>
+
+    <select id="reviewSearchResult" resultType="com.koreait.foodit.dto.ReviewDto">
+       SELECT
+			*
+		FROM
+			(SELECT
+				ROWNUM R_NUM, A.*
+			FROM
+				(SELECT * FROM REVIEW WHERE RE_PRODUCT_NAME LIKE #{param1} ORDER BY RE_NO) A)
+		WHERE
+			R_NUM BETWEEN #{param2} AND #{param3}
+    </select>
+    
+   <select id="reviewSearchTotalCount" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM 
+			REVIEW
+		WHERE
+			RE_PRODUCT_NAME LIKE #{param1}
+	</select>
+
 
     <select id="reviewView" resultType="com.koreait.foodit.dto.ReviewDto">
        SELECT * FROM REVIEW WHERE RE_NO = #{param1}
@@ -53,10 +72,4 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        DELETE FROM REVIEW WHERE RE_NO = #{param1}
     </delete>
 
-    <select id="reviewSearchResult" resultType="com.koreait.foodit.dto.ReviewDto">
-       SELECT * FROM REVIEW WHERE #{param1} LIKE #{param2}
-    </select>
-
-
 </mapper>
-

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.koreait.foodit.command.notice.NoticeCommand;
@@ -49,12 +50,12 @@ public class NoticeController {
 		}
 		
 	 @RequestMapping("noticeWrite")
-		public String noticeWrite(RedirectAttributes attributes,
-				               HttpServletRequest request, 
+		public String noticeWrite(RedirectAttributes redirectattributes,
+				 				MultipartHttpServletRequest request , 
 				               Model model) {
 			
 			model.addAttribute("request", request);
-			model.addAttribute("attributes",attributes);
+			model.addAttribute("redirectAttributes",redirectattributes);
 			noticeCommand = new NoticeWriteCommand();
 			noticeCommand.execute(sqlSession, model);
 			return "redirect:/noticeList";
