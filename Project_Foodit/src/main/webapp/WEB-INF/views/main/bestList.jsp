@@ -7,11 +7,10 @@
  
 	<div id="pd_wrap">	
 	<h2 class="singleTit nbgB">실시간 베스트</h2> 
-	
-	<div style="float:left; padding:20px; width:366px;" >		
-			<c:forEach var="productDto" items="${productList }" begin="1" end="6">	<!-- 가로정렬을 위해 임시 이렇게 설정했습니다. -->
+	 
 		<ul style="list-style-type:none;">		 
-				<li>		 	
+			<c:forEach var="productDto" items="${bestList }" begin="1" end="6">	<!-- 가로정렬을 위해 임시 이렇게 설정했습니다. -->
+				<li style="float:left; padding:20px; width:400px;">		 	
 					<a href="productView?product_no=${productDto.product_no}">	 
 						<!-- 상품 목록 썸네일 이미지 사이즈 : 366x366  -->
 						<span> <img alt="${productDto.product_thumbImg }" 
@@ -21,13 +20,8 @@
 						<span> <fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원 </span><br/> 									
 					</a>		 	
 				</li>		  
+				</c:forEach> 		
 			</ul>
-				</c:forEach> 
-		
-		 
-		
-		
-		
-		</div>
+	 
 	</div>
 

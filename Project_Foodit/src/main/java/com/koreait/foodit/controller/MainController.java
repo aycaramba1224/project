@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.koreait.foodit.command.product.BestListCommand;
+import com.koreait.foodit.command.product.MenuListCommand;
 import com.koreait.foodit.command.product.ProductCommand;
-import com.koreait.foodit.command.product.RecommendListCommand;
  
 @Controller
 public class MainController {
@@ -29,14 +29,25 @@ public class MainController {
 		return "index";
 	}  
 	
+	// 푸딧 메뉴보기 
+	@RequestMapping("menuList")			 
+	public String menuList(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		productCommand = new MenuListCommand();
+		productCommand.execute(sqlSession, model);
+		return "index";
+	}  
+/*	
 	// 맛추천 리스트
 	@RequestMapping("recommendList")
-	public String recommendList(HttpServletRequest request, Model model) {
+	public String recommend(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
-		productCommand = new RecommendListCommand();
+	
+		productCommand = new MenuListCommand();
+		productCommand = new BestListCommand(); 
 		productCommand.execute(sqlSession, model);
-		return "main/recommendList";
-	}
+		return "index";
+	}*/
  
 
 }
