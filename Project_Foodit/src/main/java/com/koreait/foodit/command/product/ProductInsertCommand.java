@@ -75,7 +75,6 @@ public class ProductInsertCommand implements ProductCommand {
 			redirectAttributes.addFlashAttribute("insertResult", productDao.productInsert(product_name, product_price, product_content, 
 																						  product_stock, product_taste, product_img, product_thumbImg));
 			redirectAttributes.addFlashAttribute("isProductInsert", "yes");
-			redirectAttributes.addFlashAttribute("realPath", realPath);
 		} // end if 
  
 	}	

@@ -40,9 +40,9 @@ public class Paging {
 		// 1. 이전 버튼의 링크가 필요 없는 경우 : beginPageOfBlock < pagePerBlock
 		// 2. 이전 버튼의 링크가 필요한 경우
 		if ( beginPageOfBlock < pagePerBlock ) {
-			sb.append("<span style='color: lightgray;'>◀</span>&nbsp;&nbsp;");
+			sb.append("<span class='prevBtn'></span>");
 		} else {
-			sb.append("<a href='" + path + "?currentPage=" + (beginPageOfBlock - 1) + "'>◀</a>&nbsp;&nbsp;");
+			sb.append("<a class='prevBtn' href='" + path + "?currentPage=" + (beginPageOfBlock - 1) + "'></a>");
 		}
 		
 		// 페이지 번호 표시
@@ -51,9 +51,9 @@ public class Paging {
 		// 2. 페이지 번호의 링크가 필요한 경우
 		for ( int page = beginPageOfBlock; page <= endPageOfBlock; page++ ) {
 			if ( page == nowPage ) {
-				sb.append("<span style='color: lightgray;'>" + page + "</span>&nbsp;&nbsp;");
+				sb.append("<span class='ptPtxt'>" + page + "</span>");
 			} else {
-				sb.append("<a href='" + path + "?currentPage=" + (page) + "'>" + page + "</a>&nbsp;&nbsp;");
+				sb.append("<a href='" + path + "?currentPage=" + (page) + "'>" + page + "</a>");
 			}
 		}
 		
@@ -62,9 +62,9 @@ public class Paging {
 		// 1. 다음 버튼의 링크가 필요 없는 경우 : endPageOfBlock == totalPage
 		// 2. 다음 버튼의 링크가 필요한 경우
 		if ( endPageOfBlock == totalPage ) {
-			sb.append("<span style='color: lightgray;'>▶</span>");
+			sb.append("<span class='nextBtn'></span>");
 		} else {
-			sb.append("<a href='" + path + "?currentPage=" + (endPageOfBlock + 1) + "'>▶</a>");
+			sb.append("<a class='nextBtn' href='" + path + "?currentPage=" + (endPageOfBlock + 1) + "'></a>");
 		}
 		
 		return sb.toString();	

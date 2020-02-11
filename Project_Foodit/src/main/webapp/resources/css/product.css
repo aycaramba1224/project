@@ -1,0 +1,341 @@
+@charset "UTF-8";
+#pdWrap .sortList{
+	font-family: "nbgB";
+}
+#pdWrap .sortLwrap{
+    position: relative;
+    padding: 0 8px 0 9px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 0;
+    vertical-align: middle;
+    float: right;
+    bottom: 27px;
+}
+#pdWrap .sortList .sortLwrap a.on:before{
+    content: '';
+    zoom: 1;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin: -3px 2px 0 0;
+    background: url(../images/chk.png) no-repeat;
+    background-position: center;
+    background-size: 13px;
+    vertical-align: middle;
+}
+#pdWrap .menuListWrap{
+	padding-top: 32px;
+}
+#pdWrap .menuListWrap > ul{
+	margin: -11px 0 0 -92px;
+}
+#pdWrap .menuListWrap li{
+    float: left;
+    margin: 30px 0 0 93px;
+    min-height: 568px;
+}
+#pdWrap .menuListWrap .proModule{
+    width: 320px;
+   	min-height: 540px;
+}
+#pdWrap .menuListWrap .imgWrap{
+    height: 320px;
+    overflow: hidden;
+}
+.pdDetailWrap{
+	padding-top: 8px;
+	font-family: "nbg";
+}
+.pdDetailWrap .topInfo{
+    width: 1180px;
+    margin: 0 auto;
+}
+.pdDetailWrap .topInfo .pdLeftWrap{
+    float: left;
+    width: 550px;
+}
+.pdDetailWrap .pdLeftWrap .pdImgWrap{
+	padding-bottom: 24px;
+}
+.pdDetailWrap .pdLeftWrap .pdImgWrap > img{
+	width: 550px;
+}
+.pdDetailWrap .topInfo .pdRightWrap{
+    float: right;
+    width: 500px;
+}
+.pdDetailWrap .topInfo .pdRightWrap .pdRtit{
+	position: relative;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+}
+.pdDetailWrap .pdRightWrap .pdRtitWrap{
+	position: relative;
+    font-size: 0;
+    padding-bottom: 8px;
+}
+.pdDetailWrap .pdRtitWrap .pdRtitInfo{
+	font-family: "nbgB";
+}
+.pdDetailWrap .pdRtitWrap .pdRtitInfo > span{
+    display: block;
+    color: #101010;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 700;
+    word-break: break-all;
+}
+.pdDetailWrap .pdRtit .pdOrgin{
+	color: #101010;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 400;
+}
+.pdDetailWrap .pdRpriWrap{
+	padding-top: 10px;	
+}
+.pdDetailWrap .pdRpriWrap dl{
+	margin-top: 0;
+}
+.pdDetailWrap .pdRpriWrap dl:after{
+	content: '';
+    display: block;
+    clear: both;
+}
+.pdDetailWrap .pdRpriWrap dl dt{
+    float: left;
+    width: 140px;
+    color: #101010;
+    font-size: 15px;
+    line-height: 37px;
+}
+.pdDetailWrap .pdRpriWrap dl dd{
+	float: right;
+    width: 360px;
+    color: #101010;
+    font-size: 15px;
+    line-height: 23px;
+}
+.pdDetailWrap .pdRpriWrap dl dd .pdPrice{
+    display: inline-block;
+    font-size: 26px;
+    line-height: 38px;
+    font-weight: 700;
+    vertical-align: bottom;
+}
+.pdDetailWrap .pdSendWrap {
+	margin-top: 10px;
+    padding-top: 4px;
+    border-top: 1px solid #e0e0e0;
+}
+.pdDetailWrap .pdSendWrap dl{
+    margin-top: 6px;
+}
+.pdDetailWrap .pdSendWrap dl:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.pdDetailWrap .pdSendWrap dl dt{
+    float: left;
+    width: 140px;
+    color: #606060;
+    font-size: 13px;
+    line-height: 20px;
+}
+.pdDetailWrap .pdSendWrap dl dd{
+    float: right;
+    width: 360px;
+    color: #101010;
+    font-size: 13px;
+    line-height: 20px;
+}
+.pdDetailWrap .pdSendWrap dl dd span.stPrice{
+display: inline-block;
+    font-size: 13px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.pdDetailWrap .pdSendWrap dl dd span.stTxt{
+    display: inline-block;
+    margin-left: 4px;
+    color: #606060;
+    font-size: 12px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.pdDetailWrap .orderSendWrap dl dd{
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 2px solid #202020;
+}
+.pdDetailWrap .itemBoxWrap{
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 14px 20px 20px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 2px solid #202020;
+}
+.pdDetailWrap .itemBoxWrap .itemBox .itemInfo{
+	display: inline-block;
+    width: 210px;
+    color: #101010;
+    font-size: 15px;
+    line-height: 41px;
+    vertical-align: top;
+}
+.pdDetailWrap .itemBoxWrap .itemBox .itemQuantity{
+    display: inline-block;
+    padding: 0 9px;
+    vertical-align: top;
+    font-size: 0;
+}
+.pdDetailWrap .itemBoxWrap .itemPriceWrap{
+    float: right;
+    color: #101010;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: right;
+}
+.pdDetailWrap .cartSend{
+    margin-top: 16px;
+}
+.pdDetailWrap .cartSend dl{
+    font-size: 0;
+}
+.pdDetailWrap .cartSend dl:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.pdDetailWrap .cartSend dt{
+	font-family: "nbgB";
+    float: left;
+    padding-top: 12px;
+    color: #101010;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: left;
+}
+.pdDetailWrap .cartSend dd{
+	float: right;
+    color: #EE0700;
+    font-size: 32px;
+    line-height: 48px;
+    font-weight: 700;
+    text-align: right;
+}
+.pdDetailWrap .cartSend .cartSendBtnWrap{
+	padding-top: 10px;
+    font-size: 0;
+}
+.pdDetailWrap .cartSendBtnWrap .cartSendBtn{
+	float: right;
+    width: 500px;
+}
+.pdDetailWrap .cartSendBtnWrap .cartSendBtn button{
+	font-family: "nbgB";
+	width: 100%;
+    color: #101010;
+    border: 1px solid #BDD61A;
+    background-color: #BDD61A;
+    height: 64px;
+    font-size: 20px;
+    line-height: 27px;
+    cursor: pointer;
+}
+.pdDetailWrap .bottomInfo{
+    min-height: 716px;
+    position: relative;
+    margin-top: 120px;
+    min-width: 1180px;
+    padding-top: 64px;
+    clear: both;
+}
+.pdDetailWrap .bottomInfo .pdTabWrap{
+    position: relative;
+    margin-top: -64px;
+    width: 100%;
+}
+.pdDetailWrap .bottomInfo .pdTabWrap:before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+pdTabWrap .pdTabList{
+    position: relative;
+    width: 1180px;
+    margin: 0 auto;
+}
+.pdTabWrap .pdTabList .pdTab{
+	position: relative;
+    width: 100%;
+    font-size: 0;
+    height: 64px;
+}
+.pdTabWrap .pdTabList .pdTab:before{
+	content: '';
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.pdTabWrap .pdTabList .pdTab:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.pdTabWrap .pdTabList .pdTab li{
+    display: inline-block;
+    width: initial;
+    text-align: center;
+    vertical-align: top;
+}
+.pdTabWrap .pdTabList .pdTab li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    white-space: nowrap;
+}
+.pdTabWrap .pdTabList .pdTab li a > span{
+   	position: relative;
+    z-index: 1;
+    display: inline-block;
+	width: 195px;
+    height: 64px;
+    color: #101010;
+    font-size: 20px;
+    line-height: 64px;
+    vertical-align: top;
+}
+.pdTabWrap .pdTabList .pdTab li.on a > span{
+    border-bottom: 3px solid #202020;
+    font-family: "nbgB";
+}
+
+.bottomInfo #detail{
+    position: relative;
+    width: 1180px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+.bottomInfo #detail{
+    position: relative;
+    width: 1180px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+
+

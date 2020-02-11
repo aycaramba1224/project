@@ -176,7 +176,7 @@ a:visited {
 
 #header .gnbList li a{
 	display: inline-block;
-    padding: 0 22px;
+    padding: 0 32px;
     color: #101010;
     font-size: 22px;
     line-height: 32px;
@@ -621,5 +621,219 @@ input.txt{
 	border-bottom: 3px solid #202020;
     color: #101010;
 }
-
-
+/* proModule + etc(mtElps) */
+.mtElps{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.proModule{
+	margin: 0;
+}
+.proModule:first-child{
+	margin-top: 0;
+}
+.proModule a{
+	display: block;
+}
+.proModule .imgWrap img{
+	display: block;
+    width: 100%;
+}
+.menuListWrap .imgWrap{
+	text-align: center;
+    position: relative;
+}
+.proModule .txtWrap{
+	position: relative;
+    padding: 16px 0 0;
+}
+.proModule .txtWrap .contInfo{
+	font-size: 0;
+}
+.proModule .txtWrap .contInfo .contTxt{
+	font-family: "nbg";
+    display: block;
+    color: #101010;
+    font-size: 17px;
+    word-break: break-all;
+}
+.proModule .txtWrap .titInfo{
+	font-size: 0;
+}
+.proModule .txtWrap .titInfo .titTxt{
+    position: relative;
+    display: inline-block;
+    color: #606060;
+    font-size: 13px;
+    line-height: 20px;
+    vertical-align: middle;
+}
+.proModule .txtWrap .priceInfo{
+	padding-top: 8px;
+    font-size: 0;
+}
+.proModule .txtWrap .priceInfo .priceTxt{
+	font-family: "nbg";
+    display: inline-block;
+    color: #101010;
+    font-size: 18px;
+    line-height: 27px;
+    vertical-align: middle;
+}
+.proModule .txtWrap .priceInfo .priceNum{
+	display: inline-block;
+    vertical-align: top;
+}
+.proModule .txtWrap .priceInfo .wonTxt{
+	letter-spacing: 0;
+}
+.proModule .txtWrap .etcInfo{
+    font-size: 0;
+    line-height: 0;
+    padding: 8px 0 0;
+}
+.proModule .txtWrap .etcInfo .reviewNum{
+    display: inline-block;
+    color: #606060;
+    font-size: 14px;
+    line-height: 16px;
+    vertical-align: middle;
+}
+.proModule .txtWrap .etcInfo .reviewNum:before{
+	content: '';
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    margin: -2px 10px 0;
+    background-color: #e0e0e0;
+    vertical-align: middle;
+}
+.ratingWrap{
+	display: inline-block;
+    vertical-align: top;
+}
+.ratingWrap .ratingStar{
+	padding: 0;
+	vertical-align: middle;
+}
+.ratingWrap .ratingStar span{
+    display: block;
+    width: 88px;
+    height: 16px;
+    /* 단순히 별 이미지만 불러오기 */
+/*     background: url(../images/iconset.png) -114px -262px no-repeat; */
+/*     background-size: 800px 800px; */
+}
+.ratingWrap .ratingStar span{
+/* 	
+	width: 88%; 
+	(20%에 한개씩 점수가 채워 집니다.)
+*/
+}
+/* pageNavi */
+.pageNavi{
+	padding-top: 56px;
+    font-size: 0;
+    text-align: center;
+    clear: both;
+}
+.pageNavi .pagingWrap{
+	font-family: "nbgB";
+	display: inline-block;
+    padding: 0 20px;
+    vertical-align: middle;
+}
+.pageNavi .pagingWrap a{
+	display: inline-block;
+    min-width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #606060;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: top;
+}
+.pageNavi .pagingWrap a:hover{
+	border-bottom: 1px solid #202020;
+}
+.pageNavi .pagingWrap span{
+    display: inline-block;
+    min-width: 40px;
+    height: 40px;
+    background-color: #fff;
+    color: #606060;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 40px;
+    vertical-align: top;
+}
+.pageNavi .pagingWrap span.ptPtxt{
+	background-color: #202020;
+    color: #fff;
+}
+/* cartBox */
+.cartBox{
+	display: inline-block;
+    position: relative;
+    width: 96px;
+    height: 32px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+}
+.btn_amount.minus{
+	left: 0;
+}
+.btn_amount.minus:before{
+	content: '';
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: url(../images/minus.png) no-repeat;
+    background-position: center;
+    background-size: 13px;
+    vertical-align: middle;
+}
+.btn_amount{
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    cursor: pointer;
+}
+.cart_amount{
+	font-family: "nbgB";
+    display: inline-block;
+    font-size: 16px;
+    line-height: 30px;
+    color: #101010;
+    text-align: right;
+    border: 0;
+    z-index: 0;
+    cursor: default;
+}
+.btn_amount.plus{
+    right: 0;
+}
+.btn_amount.plus{
+	content: '';
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    width: 32px;
+    height: 32px;
+    background: url(../images/plus.png) no-repeat;
+    background-position: center;
+    background-size: 13px;
+    vertical-align: middle;
+}
