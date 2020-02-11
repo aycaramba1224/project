@@ -17,8 +17,7 @@
 		} else {
 			alert("메뉴가 삭제 되지않았습니다.");
 		}
-	}    
-		
+	}  
 </script>
 </head>
 <body>
@@ -99,8 +98,8 @@
 									<fmt:formatNumber value= "${sumMoney}" pattern="#,###,###" />원&nbsp;&nbsp; + &nbsp;&nbsp;	
 									<fmt:formatNumber value= "${fee }" pattern="#,###,###" />원&nbsp;&nbsp;	= &nbsp;&nbsp;	
 									<fmt:formatNumber value= "${sumMoney + fee }" pattern="#,###,###" />원 <br/>
-									<c:if test="${fee >= 30000 }"> <!-- 30,000원 이상 구매시 무료배송 -->
-										${30000-sumMoney }원 더 구매시 무료배송 해드려요.
+									<c:if test="${sumMoney < 30000 }"> <!-- 30,000원 이상 구매시 무료배송 -->
+										<fmt:formatNumber value= "${30000-sumMoney }" pattern="#,###,###" />원 더 구매시 무료배송 해드려요.
 									</c:if>
 								</td>
 							</tr>
@@ -119,6 +118,5 @@
 		</c:choose>  		
 	</div>  
 	
-	
-<script type="text/javascript" src="resources/js/cart.js"></script>	
+<script type="text/javascript" src="resources/js/cart.js"></script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

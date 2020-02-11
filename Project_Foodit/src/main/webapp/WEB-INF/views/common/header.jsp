@@ -72,12 +72,17 @@ if(isLogout == "yes"){
 				 		<li><a href="productList"><span class="red_dot">FOODIT 메뉴</span></a></li>
 				 		<li><a href="reviewList">리뷰</a></li>
 				 		<li><a href="">이벤트</a></li>
-				 		<c:if test="${ sessionScope.mDto eq null }">
-				 			<li><a href="sbmr">MY푸딧</a></li>
-				 		</c:if>
-				 		<c:if test="${ sessionScope.mDto ne null }">
-				 			<li><a href="sbmr">MY푸딧</a></li>
-				 		</c:if>
+				 		<c:choose>
+					 		<c:when test="${ sessionScope.mDto.role eq 'admin' }">
+					 			<li><a href="adminPage">관리자푸딧</a></li>
+					 		</c:when>
+					 		<c:when test="${ sessionScope.mDto ne null }">
+					 			<li><a href="sbmf">MY푸딧</a></li>
+					 		</c:when>
+					 		<c:otherwise>
+					 			<li><a href="sbmr">MY푸딧</a></li>
+					 		</c:otherwise>				 		
+				 		</c:choose>				 		
 				 	</ul>
 				 	<div class="gnbSide nbg">
 						<ul>
