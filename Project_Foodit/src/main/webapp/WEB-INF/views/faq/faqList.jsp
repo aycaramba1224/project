@@ -67,7 +67,7 @@ function faqSearch(f) {
 					<div class="formInputWrap">
 						<form method="post">
 							<input type="hidden" name="currentPage" value="${currentPage}" />
-							<input type="text" class="txt" name="content" value="${ content }" placeholder="검색어를 입력해주세요."/>
+							<input type="text" class="txt" name="faq_content" value="${ faq_content }" placeholder="검색어를 입력해주세요."/>
 							<button type="button" class="ico">
 								<span class="hide">입력 삭제</span>
 							</button>

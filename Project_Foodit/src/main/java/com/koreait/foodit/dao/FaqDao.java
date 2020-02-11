@@ -7,12 +7,13 @@ import com.koreait.foodit.dto.FaqDto;
 public interface FaqDao {
    
    public ArrayList<FaqDto>faqList(int begin, int end);
+   public int totalCountReview();
    // FAQ 카테고리 정렬 
    public ArrayList<FaqDto> faqSelect(String faq_category, int begin, int end); 
-   public int totalCountReview();
-   public int selectTotalCount(String faq_content);
-   public ArrayList<FaqDto> faqSearchResult(String content, int begin, int end);
-   
+   public int selectTotalCount(String faq_category);
+
+   public ArrayList<FaqDto> faqSearchResult(String faq_content, int begin, int end);
+   public int faqSearchTotalCount(String faq_content);
    
    
    public FaqDto faqView(int faq_no);

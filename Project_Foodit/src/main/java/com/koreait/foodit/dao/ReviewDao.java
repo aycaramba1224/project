@@ -10,6 +10,10 @@ public interface ReviewDao {
 	public ArrayList<ReviewDto> reviewList(int begin, int end);
 	public int totalCountReview();
 	
+	public ArrayList<ReviewDto> reviewSearchResult(String content, int begin, int end);
+	public int reviewSearchTotalCount(String content); 
+	
+	
 	public ReviewDto reviewView(int re_no); 
 	
 	public int reviewWrite(String re_id, String re_product_name, String re_content, 
@@ -20,7 +24,6 @@ public interface ReviewDao {
 	
 	public int reviewDelete(int re_no); 
 	
-	public ArrayList<ReviewDto> reviewSearchResult(String query, String content);
 
 	
 	

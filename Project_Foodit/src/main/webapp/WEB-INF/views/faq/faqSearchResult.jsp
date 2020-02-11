@@ -94,3 +94,6 @@ if(isFaqDelete == "yes"){
 			</jsp:include>	 
 			 
 		</div> 
+	<div class="pageNavi">
+    	 ${pagingView }
+	</div>

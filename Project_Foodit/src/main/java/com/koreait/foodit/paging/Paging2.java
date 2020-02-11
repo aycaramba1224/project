@@ -1,6 +1,6 @@
 package com.koreait.foodit.paging;
 
-public class Paging {
+public class Paging2 {
 	
 	public static String getPaging(String path, int nowPage, int recordPerPage, int totalRecord) {
 		
@@ -40,9 +40,9 @@ public class Paging {
 		// 1. 이전 버튼의 링크가 필요 없는 경우 : beginPageOfBlock < pagePerBlock
 		// 2. 이전 버튼의 링크가 필요한 경우
 		if ( beginPageOfBlock < pagePerBlock ) {
-			sb.append("<span class='prevBtn'></span>");
+			sb.append("<span style='color: lightgray;'>◀</span>&nbsp;&nbsp;");
 		} else {
-			sb.append("<a class='prevBtn' href='" + path + "?currentPage=" + (beginPageOfBlock - 1) + "'></a>");
+			sb.append("<a href='" + path + "&currentPage=" + (beginPageOfBlock - 1) + "'>◀</a>&nbsp;&nbsp;");
 		}
 		
 		// 페이지 번호 표시
@@ -51,9 +51,9 @@ public class Paging {
 		// 2. 페이지 번호의 링크가 필요한 경우
 		for ( int page = beginPageOfBlock; page <= endPageOfBlock; page++ ) {
 			if ( page == nowPage ) {
-				sb.append("<span class='ptPtxt'>" + page + "</span>");
+				sb.append("<span style='color: lightgray;'>" + page + "</span>&nbsp;&nbsp;");
 			} else {
-				sb.append("<a href='" + path + "?currentPage=" + (page) + "'>" + page + "</a>");
+				sb.append("<a href='" + path + "&currentPage=" + (page) + "'>" + page + "</a>&nbsp;&nbsp;");
 			}
 		}
 		
@@ -62,9 +62,9 @@ public class Paging {
 		// 1. 다음 버튼의 링크가 필요 없는 경우 : endPageOfBlock == totalPage
 		// 2. 다음 버튼의 링크가 필요한 경우
 		if ( endPageOfBlock == totalPage ) {
-			sb.append("<span class='nextBtn'></span>");
+			sb.append("<span style='color: lightgray;'>▶</span>");
 		} else {
-			sb.append("<a class='nextBtn' href='" + path + "?currentPage=" + (endPageOfBlock + 1) + "'></a>");
+			sb.append("<a href='" + path + "&currentPage=" + (endPageOfBlock + 1) + "'>▶</a>");
 		}
 		
 		return sb.toString();	

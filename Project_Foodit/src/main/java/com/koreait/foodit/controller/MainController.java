@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.koreait.foodit.command.product.BestListCommand;
 import com.koreait.foodit.command.product.ProductCommand;
-import com.koreait.foodit.command.product.RecommendListCommand;
+import com.koreait.foodit.command.product.RecommendCommand;
  
 @Controller
 public class MainController {
@@ -33,7 +33,7 @@ public class MainController {
 	@RequestMapping("recommendList")
 	public String recommendList(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
-		productCommand = new RecommendListCommand();
+		productCommand = new RecommendCommand();
 		productCommand.execute(sqlSession, model);
 		return "main/recommendList";
 	}
