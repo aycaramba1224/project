@@ -1,5 +1,7 @@
 package com.koreait.foodit.dao;
 
+import java.util.ArrayList;
+
 import com.koreait.foodit.dto.MemberDto;
 
 public interface MemberDao {
@@ -17,4 +19,5 @@ public interface MemberDao {
 	public MemberDto memModiPw(String pw);
 	public int memModi(String pw, String phone, String email, String birth, String id);
 	public int memDel(String id);
+	public ArrayList<MemberDto> adminMemberList();
 }

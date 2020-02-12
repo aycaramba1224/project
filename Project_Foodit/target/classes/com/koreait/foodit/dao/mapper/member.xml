@@ -85,4 +85,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			ID = #{param1}
 	</delete>
 	
+	<select id="adminMemberList" resultType="com.koreait.foodit.dto.MemberDto">
+		SELECT 
+			*
+		FROM
+			MEMBER
+		ORDER BY REG_DATE DESC
+	</select>
+	
 </mapper>

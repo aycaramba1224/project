@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.koreait.foodit.command.member.MemberAdminSearchListCommand;
 import com.koreait.foodit.command.member.MemberCommand;
 import com.koreait.foodit.command.member.MemberFindIdCommand;
 import com.koreait.foodit.command.member.MemberFindPwCommand;
@@ -215,21 +216,13 @@ public class MemberController {
 		}
 		return obj.toJSONString();
 	}
-	
-	@SuppressWarnings("unchecked")
-	@RequestMapping(value="memDel", produces="application/json")
-	@ResponseBody
-	public String memDel(@RequestParam("id") String id, HttpSession session) {
-		MemberDao mDao = sqlSession.getMapper(MemberDao.class);
-		int result = mDao.memDel(id);
-		JSONObject obj = new JSONObject();
-		if(result > 0) {
-			obj.put("result", "SUCCESS");
-			session.invalidate(); // 세션 전체를 초기화
-		} else {
-			obj.put("result", "FAIL");
-		}
-		return obj.toJSONString();
+
+	@RequestMapping("adminMemberList")
+	public String adminMemberList(Model model) {
+		memberCommand = new MemberAdminSearchListCommand();
+		memberCommand.execute(sqlSession, model);
+		return "admin/adminMemberList";
 	}
+	
 	
 }

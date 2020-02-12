@@ -4,7 +4,7 @@
 	<jsp:param value="관리자페이지" name="title"/>
 </jsp:include>
 		<div class="leftMenu">
-			<h2 class="leftTit nbgB">관리자페이지</h2>
+			<h2 class="leftTit nbgB reSize">관리자페이지</h2>
 			<dl class="myMenu">
 				<dt>상품 정보</dt>
 				<dd>
@@ -18,9 +18,9 @@
 				<dt>고객 정보</dt>
 				<dd>
 					<ul class="menuList">
-						<li><a href="" >1:1 문의</a></li>
-						<li><a href="" >리뷰</a></li>
-						<li><a href="" >나의 맛취향</a></li>
+						<li><a href="">고객 리뷰 관리</a></li>
+						<li><a href="adminMemberList">고객 목록 조회</a></li>
+						
 					</ul>
 				</dd>
 			</dl>
@@ -28,7 +28,6 @@
 				<dt>게시판 정보</dt>
 				<dd>
 					<ul class="menuList">
-						<li><a href="" >1:1 문의</a></li>
 						<li><a href="reviewList" >리뷰목록</a></li>
 						<li><a href="noticeList" >공지사항 목록</a></li>
 						<li><a href="noticeWritePage" >공지사항 글쓰기</a></li>
@@ -37,8 +36,7 @@
 					</ul>
 				</dd>
 			</dl>
+		</div>
 		<div class="rightCont">
 		
-				</div>
-	</div>
-<%@ include file="/WEB-INF/views/common/footer.jsp" %>
+		

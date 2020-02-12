@@ -1,0 +1,43 @@
+@charset "UTF-8";
+.reSize{
+	font-size: 35px !important;
+}
+/* adminMemberList */
+.adminListWrap .adminArea{
+	max-width: 1200px;
+    margin: 0 auto;
+}
+.adminArea .adminListTit{
+	font-family: "ngB";
+	text-align: center;
+	font-size: 30px;
+}
+.adminArea .adminListCont{
+	margin: 0 auto;
+}
+.adminArea .adminListCont table{
+	width: 100%;
+	margin-top: 25px;
+	box-sizing: border-box;
+	border-collapse: collapse;
+	
+}
+.adminListCont th{
+	font-family: "ngB";
+	background-color: #50b41d;
+	font-size: 15px;
+	color: #fff;
+}
+.adminListCont td{
+	font-family: "ng";
+	font-size: 15px;
+}
+.adminListCont tr, .adminListCont th, .adminListCont td{
+	padding: 15px;
+}
+.adminListCont tr:nth-child(odd) {
+	background: #f0f0f0;
+}
+.adminListCont tr:nth-child(even) {
+    background: #cfcfcf;
+}

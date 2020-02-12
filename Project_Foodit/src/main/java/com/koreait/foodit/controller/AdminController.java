@@ -8,7 +8,7 @@ public class AdminController {
 
 	@RequestMapping("adminPage")
 	public String adminPage() {
-		return "admin/adminPage";
+		return "admin/adminPageLmenu";
 	}
 	
 }

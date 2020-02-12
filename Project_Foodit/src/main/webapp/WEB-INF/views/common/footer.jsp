@@ -37,13 +37,12 @@
 					<div class="ftR">
 						<div class="ftCont">
 							<dl>
-								<dt class="ng">고객행복센터</dt>
-								<dd class="ngB">
-									1688-1920
-									<a href="" class="btnFtLink">
-										1:1 문의
-									</a>
-								</dd>
+								<dt class="ngB">고객행복센터</dt>
+								<dd class="ng">1688-1920</dd>
+							</dl>
+							<dl>
+								<dt class="ngB">이메일 문의</dt>
+								<dd class="ng">foodit@food.com</dd>
 							</dl>
 						</div>
 					</div>

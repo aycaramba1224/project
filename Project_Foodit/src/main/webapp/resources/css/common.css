@@ -356,31 +356,19 @@ a:visited {
     padding-top: 31px;
 }
 #footer .footerWrap .ftR dt{
-	float: left;
+    float: left;
     padding-right: 6px;
     color: #fff;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 24px;
+    width: 90px;
 }
 #footer .footerWrap .ftR dd{
     float: left;
     color: #fff;
-    font-size: 17px;
+    font-size: 14px;
     line-height: 24px;
 }
-#footer .footerWrap .ftR .btnFtLink{
-    display: block;
-    position: absolute;
-    top: 63px;
-    width: 88px;
-    height: 32px;
-    border: 1px solid #ccc;
-    color: #fff;
-    font-size: 13px;
-    line-height: 30px;
-    text-align: center;
-}
-
 /* common-myFooditLM */
 #myContainer{
 	width: 1150px;
