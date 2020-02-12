@@ -19,6 +19,7 @@ import com.koreait.foodit.command.cart.GuestCartInsertCommand;
 import com.koreait.foodit.command.cart.GuestCartListCommand;
 import com.koreait.foodit.command.cart.GuestOrderCartListCommand;
 import com.koreait.foodit.command.cart.GuestSelectOrderCommand;
+import com.koreait.foodit.command.cart.MemberselectorderCommand;
 import com.koreait.foodit.command.cart.OrderCartListCommand;
 
 @Controller
@@ -116,5 +117,17 @@ public class CartController {
 				cartCommand.execute(sqlSession, model);
 				return "redirect:guestorderPage";
 			}
+		//회원 선택 주문
+		@RequestMapping("memberselectorder")
+		public String memberselectOrder(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		model.addAttribute("redirectAttributes", redirectAttributes);
+		//cartCommand = new MemberselectorderCommand();
+		cartCommand.execute(sqlSession, model);
+		return "redirect:/order";
+		}
+		
 }
+
+
 

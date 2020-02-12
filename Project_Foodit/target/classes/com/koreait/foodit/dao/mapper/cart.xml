@@ -82,11 +82,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	       
  	 </update>
  	 
+ 	 
+ 	 <insert id="membercart_no">
+ 	 
+ 	 INSERT INTO CART (CART_NO) VAUELS (cart_seq.nextval)
+ 	 
+ 	 </insert>
+ 	 
+ 	 <insert id="guestSelectOrder">
+ 	 
+ 	 INSERT INTO CART (CART_ID,CART_NO) VAUELS (#{param1},cart_seq.nextval)
+ 	 
+ 	 </insert>
+ 	 
  	 <update id = "guestcartUPdate">
  	 
  	 UPDATE CART C SET C.ORDER_NO = (SELECT MAX(O.ORDER_NO) FROM ORDER_BASE O)  WHERE C.ORDER_NO IS NULL 
  	  
- 	 
  	 </update>
  	
  	<select id="guestordercartList" resultType="com.koreait.foodit.dto.CartDto">
@@ -98,13 +110,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE CART.CART_ID = #{param1}  
  	   
  	 </select>
- 	 
- 	 <insert id="guestSelectOrder">
- 	 	INSERT INTO CART VALUES ( #{param1} ) WHERE CART_ID = #{param2}
- 	 </insert>
- 	 
- 	 
- 	 
  	
  	
 

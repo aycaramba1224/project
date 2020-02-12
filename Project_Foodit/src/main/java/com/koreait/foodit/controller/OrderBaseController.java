@@ -42,12 +42,12 @@ public class OrderBaseController {
 	 
 	  //관리자
 	 
-	 @RequestMapping("adminGuestOrderList")
+	 @RequestMapping("adminOrderList")
 		public String  adminGuestOrderList(HttpServletRequest request, Model model) {
 		 model.addAttribute("request", request);
 		 orderBaseCommand =  new AdminguestorderListCommand();
 		 orderBaseCommand.execute(sqlSession, model);
-		 return "order/adminGuestOrderList";
+		 return "order/adminOrderList";
 		}
 	
 	 

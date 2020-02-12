@@ -21,10 +21,10 @@
 			     <c:choose>
 		     <c:when test="${ mDto ne null }">
 			   <div>
-			   ${sessionScope.mDto.id }님의 회원정보
+			   ${sessionScope.mDto.id}님의 회원정보
 			   </div>
 			  <div>
-			   아이디:${mDto.id }
+			   아이디:${mDto.id}
 			   </div>
 			   <div> 
 			    이름:${mDto.name}
