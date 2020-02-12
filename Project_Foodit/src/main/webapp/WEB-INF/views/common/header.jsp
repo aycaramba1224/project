@@ -41,6 +41,9 @@ var isLogout = "${isLogout}"
 if(isLogout == "yes"){
 	alert("로그아웃 되었습니다.");
 }
+if ( window.location.pathname == '/foodit/main' ) { 
+	document.write( '<style>#content{padding: 0;}#myContainer{width:100%;}</style>' ); 
+}
 
 </script>
 </head>
@@ -55,7 +58,6 @@ if(isLogout == "yes"){
 							<li><a href="sbm02">회원가입</a></li>
 							<li><a href="sbmr">로그인</a></li>
 							<li><a href="faqList">고객행복센터</a></li>
-							<li><a href="">배송지역검색</a></li>
 						</ul>
 					</c:if>
 					<c:if test="${ sessionScope.mDto ne null }">
@@ -69,10 +71,9 @@ if(isLogout == "yes"){
 				</div>
 				<div class="gnbMenu">
 				 	<h1 class="logo">
-				 	 	<a href="main"><img alt="FOODIT" src="./resources/images/logo-small.png"></a>
+				 	 	<a href="main"><img alt="FOODIT" src="./resources/images/headerLogo.png"></a>
 				 	</h1>
 				 	<ul class="gnbList nbgB">
-				 		<li><a href="#" onclick="return false;">FOODIT 소개</a></li>
 				 		<li><a href="productList"><span class="red_dot">FOODIT 메뉴</span></a></li>
 				 		<li><a href="reviewList">리뷰</a></li>
 				 		<c:choose>

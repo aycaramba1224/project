@@ -94,9 +94,6 @@
 				</c:forEach> 
 			</ul>		 
 		</div>
-		<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
-			<button type="button" class="adminBtn" onclick="location.href='productInsertPage'">상품등록</button>   
-		</c:if>
 	</div>
 	
 	<div class="pageNavi">

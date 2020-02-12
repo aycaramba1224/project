@@ -9,7 +9,7 @@
 					<div class="ftL">
 						<div class="logo">
 							<a href="main">
-								<img alt="FOODIT" src="./resources/images/logo-green.png">							
+								<img alt="FOODIT" src="./resources/images/footerLogo.png">							
 							</a>
 						</div>
 						<p class="copy nbg">© FOODIT ALL RIGHTS RESERVED</p>

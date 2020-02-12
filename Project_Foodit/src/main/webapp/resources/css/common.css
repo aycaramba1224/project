@@ -172,21 +172,22 @@ a:visited {
 	position: absolute;
 	left: 40px;
     top: 25px;
-    border: 1px solid #000;
 }
 #header .gnbMenu .logo a{
     display: block;
-    width: 100px;
-    height: 30px;	
-    line-height: 30px;	
+    width: 100%;
+    line-height: 30px;
+}
+#header .gnbMenu .logo a > img{
+	width: 151px;
 }
 #header .gnbList li{
 	display: inline-block;
 }
 
 #header .gnbList li a{
-	display: inline-block;
-    padding: 0 32px;
+    display: inline-block;
+    padding: 0 72px;
     color: #101010;
     font-size: 22px;
     line-height: 32px;
@@ -275,13 +276,16 @@ a:visited {
     padding-top: 36px;
 }
 #footer .footerWrap .logo a{
-	display: block;
-    width: 160px;
+    display: block;
+    width: 151px;
     height: 48px;
-    border: 1px solid #fff;
     color: #fff;
     text-align: center;
     line-height: 48px;
+    margin: 0;
+}
+#footer .footerWrap .logo a > img{
+	width: 151px;
 }
 #footer .footerWrap .copy{
 	padding: 45px 0 0 1px;
@@ -964,4 +968,133 @@ input.txt{
 .cmHeight select{
 	font-size: 18px;
 }
-
+.myBest{
+	width: 1180px;
+    margin: 70px auto 0;
+    letter-spacing: -0.5px;
+}
+.myBest .menuListWrap li:first-child .imgWrap a:before {
+	font-family: "nbgB";
+    content: 'BEST 01';
+    display: inherit;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #202020;
+    top: 15px;
+    left: 15px;
+    font-family: "nbgB";
+    color: #fff;
+    line-height: 1.6;
+}
+.myBest .menuListWrap li:nth-of-type(2) .imgWrap a:before {
+	font-family: "nbgB";
+    content: '02';
+    display: inherit;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #202020;
+    top: 15px;
+    left: 15px;
+    font-family: "nbgB";
+    color: #fff;
+    line-height: 51px;
+}
+.myBest .menuListWrap li:nth-of-type(3) .imgWrap a:before {
+	font-family: "nbgB";
+    content: '03';
+    display: inherit;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #202020;
+    top: 15px;
+    left: 15px;
+    font-family: "nbgB";
+    color: #fff;
+    line-height: 51px;
+}
+.myBest .menuListWrap li:nth-of-type(4) .imgWrap a:before {
+	font-family: "nbgB";
+    content: '04';
+    display: inherit;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #202020;
+    top: 15px;
+    left: 15px;
+    font-family: "nbgB";
+    color: #fff;
+    line-height: 51px;
+}
+.myBest .menuListWrap li:nth-of-type(5) .imgWrap a:before {
+	font-family: "nbgB";
+    content: '05';
+    display: inherit;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #202020;
+    top: 15px;
+    left: 15px;
+    font-family: "nbgB";
+    color: #fff;
+    line-height: 51px;
+}
+.myBest .menuListWrap li:nth-of-type(6) .imgWrap a:before {
+	font-family: "nbgB";
+    content: '06';
+    display: inherit;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #202020;
+    top: 15px;
+    left: 15px;
+    font-family: "nbgB";
+    color: #fff;
+    line-height: 51px;
+}
+.myBest .proModule .txtWrap .titInfo .titTxt{
+    color: #000000;
+    font-size: 20px;
+    font-family: "nbgB";
+}
+.myBest #pdWrap .menuListWrap li{
+	min-height: 448px;
+}
+.myFoodit{
+	width: 1180px;
+    margin: 70px auto 0;
+}
+.myFoodit .myFooditLwrap{
+/*     float: left; */
+    width: 500px;
+}
+.myFoodit .myFooditLwrap h2{
+	font-family: "nbgB";
+	margin-top: 32px;
+    color: #101010;
+    font-size: 36px;
+    line-height: 50px;
+}
+.myFoodit .myFooditLwrap .desc_txt{
+    margin-top: 16px;
+    color: #606060;
+    font-size: 15px;
+    line-height: 23px;
+}
+.myFoodit .myFooditLwrap table{
+    margin-top: 32px;
+    border-top: 1px solid #e0e0e0;
+}
+.myFoodit .myFooditLwrap table:after{
+	content: '';
+    display: table;
+    clear: both;
+}
+.myFoodit .myFooditLwrap table tr{
+	border-bottom: 1px solid #e0e0e0;
+}

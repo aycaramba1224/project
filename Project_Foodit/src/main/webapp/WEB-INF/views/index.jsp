@@ -35,7 +35,8 @@
 	
 	</div> 
 	 
- 	<div><!--------- 실시간 베스트  --------->	
+ 	<!--------- 실시간 베스트  --------->	
+ 	<div class="myBest"> 
 		<div id="pdWrap">	
 			<h2 class="singleTit nbgB">실시간 베스트</h2>			
 			
@@ -71,52 +72,49 @@
 				</ul>		 
 			</div>
 		</div>	
-			
-	</div>
-	
-	
+	</div>	
 	 
- 	<div>
-		생생한 리뷰 
-	</div>   
-
-	<div><!--------- 가로 배너 이미지  --------->
+	<!--------- 가로 배너 이미지  --------->
+	<div>
 		<img alt="한끼도 특별하게, FOODIT" src="./resources/main/main1.jpg" style="width:100%; height:100%;">
 	</div>
 	
-	<div><!--------- 푸딧 메뉴 보기 --------->
+	<!--------- 푸딧 메뉴 보기 --------->
 		
-		<div>	
-			<h2 class="singleTit nbgB">푸딧 메뉴보기</h2>  	 
-			<span>
-				당신을 위해 특별히 준비했어요.<br/>
-				간편함은 물론, 완벽한 맛 푸딧이 다~ 했네
-			</span>
-			
-			<table border="1" style="width:450px">
-				<tbody>
-					<c:forEach var="productDto" items="${menuList}" begin="1" end="12">				
-					<tr>
-						<td rowspan="3">
-						<a href="productView?product_no=${productDto.product_no}">	 
-							<img alt="${productDto.product_thumbImg }" 
-							src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" 
-							style="width:150px; height:150px;" />
-						</a>
-						</td>	 		
-					</tr>
-					 <tr>
-						<td>${productDto.product_name}</td>	 		
-					</tr>
-					 <tr>
-						<td><fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원</td>	 		
-					</tr>			 
-					</c:forEach>
-				</tbody>	
-			</table>		 		
+		<div class="myFoodit">	
+			<div class="myFooditLwrap">
+				<div class="mdsPick">
+					<h2 class="singleTit nbgB">푸딧 메뉴보기</h2>  	 
+					<span class="desc_txt">
+						당신을 위해 특별히 준비했어요.<br/>
+						간편함은 물론, 완벽한 맛 푸딧이 다~ 했네
+					</span>
+					
+					<table>
+						<tbody>
+							<c:forEach var="productDto" items="${menuList}" begin="1" end="12">				
+							<tr>
+								<td rowspan="3">
+								<a href="productView?product_no=${productDto.product_no}">	 
+									<img alt="${productDto.product_thumbImg }" 
+									src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" 
+									style="width:150px; height:150px;" />
+								</a>
+								</td>	 		
+							</tr>
+							 <tr>
+								<td>${productDto.product_name}</td>	 		
+							</tr>
+							 <tr>
+								<td><fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원</td>	 		
+							</tr>			 
+							</c:forEach>
+						</tbody>	
+					</table>
+				</div>
+			</div>		 		
 		</div>		 
 		
-	</div> 
 	 
 	 
 	 
