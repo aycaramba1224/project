@@ -4,36 +4,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
 <mapper namespace="com.koreait.foodit.dao.OrderBaseDao">
-<select id="orderList_view" resultType="com.koreait.foodit.dto.OrderBaseDto" parameterType="String">
-	
- SELECT * FROM ORDER_BASE WHERE ORDER_NAME = #{order_name}
-	
-</select>
-
-<update id="orderListModify">
- UPDATE	 ORDER_BASE SET
-           ORDER_NAME = #{param1},
-           ORDER_PHONE = #{param2},
-           ORDER_PHONE2 = #{param3},
-           ORDER_PHONE3 = #{param4},
-           ORDER_EMAIL = #{param5},
-           ORDER_EMAIL2 = #{param6},
-           DELIVERY_NAME = #{param7},
-           DELIVERY_PHONE = #{param8},
-           DELIVERY_PHONE2 = #{param9},
-           DELIVERY_PHONE3 = #{param10},
-		   ORDER_POST = #{param11},
-		   ORDER_ROAD1 = #{param12}
-		WHERE
-			ORDER_NO = #{param13}
-</update>
-
- <delete id="orderBaseDelete">
-
-	 DELETE FROM ORDER_BASE WHERE ORDER_NO= #{param1}
-	 
- </delete>
- 
 
 <insert id="memberdeInsert">
 INSERT INTO ORDER_BASE (ORDER_NO,DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PHONE3,ORDER_POST,ORDER_ROAD1)
@@ -50,7 +20,7 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
   FROM 
      	 CART C ,PRODUCT P,ORDER_BASE O
 	WHERE
-    	C.PRODUCT_NO = P.PRODUCT_NO AND O.ORDER_NO = C.ORDER_NO
+    	 O.ORDER_NO = C.ORDER_NO AND C.PRODUCT_NO = P.PRODUCT_NO
  	
 </select>
  	 
@@ -76,14 +46,12 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
 </select>
 
 
-
 <insert id ="orderInsert">
  INSERT INTO ORDER_BASE (ORDER_NO,GUEST_PW,ORDER_NAME,ORDER_PHONE,ORDER_PHONE2,ORDER_PHONE3,
  ORDER_EMAIL,ORDER_EMAIL2,DELIVERY_NAME,DELIVERY_PHONE,DELIVERY_PHONE2,DELIVERY_PHONE3,ORDER_POST,ORDER_ROAD1)
  VALUES 
  (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},
  #{param5},#{param6},#{param7},#{param8},#{param9},#{param10},#{param11},#{param12},#{param13})
-
 </insert>
 
 <select id="guestOrderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
@@ -99,12 +67,28 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
      	 CART C ,PRODUCT P,ORDER_BASE O
 	WHERE
     	C.PRODUCT_NO = P.PRODUCT_NO AND O.ORDER_NO = C.ORDER_NO 
-    AND O.ORDER_NO = #{param1} AND O.GUEST_PW = #{param2}
+    AND O.ORDER_PHONE2 = #{param1} AND O.GUEST_PW = #{param2}
 	
 </select>
 
+<select  id="adminGuestOrderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
 
+ SELECT 
+       O.ORDER_NO,O.GUEST_PW,O.ORDER_NAME,O.ORDER_PHONE,O.ORDER_PHONE2,O.ORDER_PHONE3,
+       O.ORDER_EMAIL,O.ORDER_EMAIL2,O.DELIVERY_NAME,O.DELIVERY_PHONE,
+       O.DELIVERY_PHONE2,O.DELIVERY_PHONE3,O.ORDER_POST,O.ORDER_ROAD1,
+      C.CART_NO,C.ORDER_NO,C.CART_ID, C.PRODUCT_NO, C.CART_AMOUNT,
+      P.PRODUCT_PRICE, P.PRODUCT_NAME,P.PRODUCT_THUMBIMG,P.PRODUCT_NO
+ 
+  FROM 
+     	 CART C ,PRODUCT P, ORDER_BASE O
+	WHERE
+    	  O.ORDER_NO = C.ORDER_NO AND  C.PRODUCT_NO = P.PRODUCT_NO
+    	
+    ORDER BY O.ORDER_NO DESC
+     
+</select>
 
+	
 
-   
 </mapper>
