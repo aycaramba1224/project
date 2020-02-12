@@ -125,7 +125,7 @@ if(isLogout == "yes"){
 													0
 												</c:when>
 												<c:otherwise>
-													${guestCartListSize }
+													${sessionScope.guestCartListSize }
 												</c:otherwise>
 											</c:choose>										
 										</span>
