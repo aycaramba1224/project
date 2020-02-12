@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.koreait.foodit.command.orderBase.DeliveryInsertCommand;
+import com.koreait.foodit.command.orderBase.AdminguestorderListCommand;
 import com.koreait.foodit.command.orderBase.GuestOrderCommand;
 import com.koreait.foodit.command.orderBase.MemberDeliveryListCommand;
 import com.koreait.foodit.command.orderBase.MemberOderBuyCommand;
@@ -41,6 +40,15 @@ public class OrderBaseController {
 		 return "order/memberDeliverysend";
 		}
 	 
+	  //관리자
+	 
+	 @RequestMapping("adminGuestOrderList")
+		public String  adminGuestOrderList(HttpServletRequest request, Model model) {
+		 model.addAttribute("request", request);
+		 orderBaseCommand =  new AdminguestorderListCommand();
+		 orderBaseCommand.execute(sqlSession, model);
+		 return "order/adminGuestOrderList";
+		}
 	
 	 
 	 //회원일떄 주문내역
@@ -80,33 +88,6 @@ public class OrderBaseController {
 			return "home";
 		}
 		
-	 //따로 필요가..
-	 /*
-	@RequestMapping("orderbaseListview")
-	public String orderbaseListview(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		orderBaseCommand = new OrderBaseViewCommand();
-		orderBaseCommand.execute(sqlSession, model);
-		return "order/orderBaseView";
-	}
 	
-	@RequestMapping("orderListModify")
-	public String orderListModify(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		model.addAttribute("redirectAttributes",redirectAttributes);
-		orderBaseCommand = new OrderBaseModifyCommand();
-		orderBaseCommand.execute(sqlSession, model);
-		return "redirect:/orderBaseList";
-	}
-	
-	@RequestMapping("orderBaseDelete")
-	public String orderBaseDelete(RedirectAttributes redirectAttributes,HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		model.addAttribute("redirectAttributes",redirectAttributes);
-		orderBaseCommand = new OrderBaseDeleteCommand();
-		orderBaseCommand.execute(sqlSession, model);
-		return "redirect:/orderBaseList";
-	}
-	*/
 	 
 }

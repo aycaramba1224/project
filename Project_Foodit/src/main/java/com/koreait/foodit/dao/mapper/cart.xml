@@ -85,7 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	 <update id = "guestcartUPdate">
  	 
  	 UPDATE CART C SET C.ORDER_NO = (SELECT MAX(O.ORDER_NO) FROM ORDER_BASE O)  WHERE C.ORDER_NO IS NULL 
- 	 
+ 	  
  	 
  	 </update>
  	
@@ -99,4 +99,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	   
  	 </select>
  	
+ 	
+
 </mapper>

@@ -75,7 +75,7 @@
 	/* 비회원 선택주문하기 페이지로 이동*/
 	
 
- 	function GuestorderPage(f){
+ 	function guestorderPage(f){
  		f.action = "guestorderPage";
  		f.submit();
  	}

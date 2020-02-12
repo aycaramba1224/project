@@ -28,8 +28,8 @@ public class GuestCartListCommand implements CartCommand {
 		
 		model.addAttribute("sumMoney", cartDao.sumMoney(cart_id));		// 장바구니에 담긴 상품의 합계 금액 
 		model.addAttribute("fee", fee);		 							// 합계금액이 30,000원 미만인 경우 배송비 3,000원 추가 
-		model.addAttribute("guestCartList", cartDao.guestCartList(cart_id));
-		model.addAttribute("guestCartListSize", cartDao.guestCartList(cart_id).size());
+		session.setAttribute("guestCartList", cartDao.guestCartList(cart_id));
+		session.setAttribute("guestCartListSize", cartDao.guestCartList(cart_id).size());
 		
 	}
 }
