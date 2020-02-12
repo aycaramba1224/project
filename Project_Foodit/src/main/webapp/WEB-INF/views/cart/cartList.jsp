@@ -107,7 +107,7 @@
 						<tfoot>
 							<tr>
 								<td colspan="6">
-								<button type="button" onclick="location.href='orderInsertPage'">선택 주문하기</button> 
+								<button type="button" onclick="orderInsertPage(this.form)">선택 주문하기</button> 
 								<input type="submit" value="전체 주문하기" /> 
 								</td>
 							</tr>

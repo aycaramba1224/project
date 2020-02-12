@@ -34,7 +34,7 @@ public class GuestCartInsertCommand implements CartCommand {
 		if(count == 0) {	// 동일한 상품번호가 없는 경우 insert한다.
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
 			redirectAttributes.addFlashAttribute("cartInsert", cartDao.guestCartInsert(cart_id, product_no, cart_amount));
-			model.addAttribute("cart_id", cart_id);
+			redirectAttributes.addFlashAttribute("cart_id", cart_id);
 		} else {			// 동일한 상품번호가 있는 경우 수량을 update한다.
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
 			redirectAttributes.addFlashAttribute("cartUpdate", cartDao.cartUpdate(product_no, cart_amount));

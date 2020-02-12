@@ -55,13 +55,15 @@
 		            
 		         <div>
 		            <h2>결제정보</h2>
-		           <c:if test="${mOrderDto.product_price < 30000}">
-                                    <fmt:formatNumber value= "${mOrderDto.product_price + 3000 }"/> 원
+		            <c:if test="${mOrderDto.product_price * mOrderDto.cart_amount >30000}">
+		           총 금액:  <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount }" pattern="#,###,###" />원
+                       </c:if>
+                                 
+		          
+		          <c:if test="${mOrderDto.product_price * mOrderDto.cart_amount < 30000}">
+                          총 금액:     <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount+ 3000 }"/> 원
                                  </c:if>
-	             <div>
-									
-								</div>
-	            
+	           
 		           </div>       
 		            
 		     

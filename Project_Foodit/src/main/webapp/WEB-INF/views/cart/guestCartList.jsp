@@ -23,7 +23,9 @@
  	function goLogin(f){ 		// 비회원의 임시아이디를 본래 아이디로 업데이트함
 	 	f.action = "sbmr?cart_id=${cart_id}";	 
 		f.submit();  
-	}   	
+	}
+ 	
+ 	
 
 </script>
 </head>
@@ -117,7 +119,7 @@
 				<tfoot>
 					<tr>
 						<td colspan="6">
-						<button type="button" onclick="location.href='guestorderPage'">선택 주문하기</button>  <!-- 비회원 선택 주문  -->
+						<input type="button" onclick="GuestorderPage(this.form)" value="선택주문하기"> <!-- 비회원 선택 주문  -->
 						<input type="submit" value="전체 주문하기" /> 
 						</td>
 					</tr>

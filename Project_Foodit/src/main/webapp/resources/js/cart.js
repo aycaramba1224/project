@@ -49,7 +49,6 @@
 		} 
 						 
 	}	
- 	
 	
 	//체크박스 선택 후 선택 삭제 (비회원)
 	function gc_selectDelete() {	 
@@ -73,10 +72,42 @@
 						 
 	}	
 	
+	/* 비회원 선택주문하기 페이지로 이동*/
 	
 
-	
-	
+ 	function GuestorderPage(f){
+ 		f.action = "guestorderPage";
+ 		f.submit();
+ 	}
+   /* 회원 선택주문하기 페이지로 이동*/
+ 	
+   function	orderInsertPage(f){
+	   f.action = "orderInsertPage";
+	   f.submit();
+   }
+	/*
+	//체크박스 선택 후 선택 삭제 (회원)
+	function selectDelete() {	 
+		if($('input:checkbox[name=chBox]:checked').length== 0){
+			alert("선택된 상품이 없습니다.")
+			return;
+		} else {
+			var chk = confirm("상품을 삭제하시겠습니까?");			  
+			if(chk) {
+				var select = $('input:checkbox[name=chBox]:checked').val();	
+				var arr = [];
+				$("input[class=chBox]:checked").each(function(){
+					arr.push($(this).attr("cartNo"));					
+				});
+				for(var i in arr){					 	
+					location.href="orderInsertPage?cart_no=" + arr[i];
+					for(var i = 0; i < 1000000000; i++) { }
+				}
+			}
+		} 
+						 
+	}
+	*/
 	
 	
 	

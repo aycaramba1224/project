@@ -14,7 +14,7 @@
       <c:choose>
          <c:when test="${gDto ne null }" >
         <div>
-                주문번호: ${gDto.guest_no }
+                주문번호: ${gDto.order_no}
         </div>
         
         <div>
@@ -44,9 +44,15 @@
 		            
 		         <div>
 		            <h2>결제정보</h2>
-		         총 금액: <fmt:formatNumber value= "${gDto.product_price * gDto.cart_amount }" pattern="#,###,###" />원
+		            
+		         <c:if test="${gDto.product_price * gDto.cart_amount >30000}">
+		           총 금액:  <fmt:formatNumber value= "${gDto.product_price * gDto.cart_amount }" pattern="#,###,###" />원
+                       </c:if>
+                                 
 		          
-		         
+		          <c:if test="${gDto.product_price * gDto.cart_amount < 30000}">
+                          총 금액:     <fmt:formatNumber value= "${gDto.product_price * gDto.cart_amount+ 3000 }"/> 원
+                                 </c:if>
         </div>
         
         

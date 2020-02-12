@@ -71,7 +71,7 @@
 				
 		     <!-- 회원일떄 보내는 button -->
 		            <h2>상품정보</h2>
-		            <c:if test="${orderCartListSize ne null }" >
+		            <c:if test="${orderCartListSize ne 0 }" >
 		            <c:forEach var="oDto" items="${orderCartList }" >
 		            
 		            <div>

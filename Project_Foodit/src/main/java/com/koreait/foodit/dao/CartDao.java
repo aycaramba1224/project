@@ -27,8 +27,10 @@ public interface CartDao {
 	
   //주문하기 페이지 관련 회원일떄
    public ArrayList<CartDto> ordercartList(String cart_id);
+   public int  membercartUpdate(String cart_id);
 
   //주문하기 페이지 비회원일 떄
 	public ArrayList<CartDto> guestordercartList(String cart_id);
+	public int  guestcartUPdate();
 	
 }
