@@ -21,6 +21,28 @@ $(function(){
 		} else {
 			$(".cart_amount").val(minusNum);          
 		}
-	});		
+	});
+	// anchor 이동
+	var target = $(".pdTabNav ");
+	target.on("click", function (e){
+		$(this).addClass("on");
+		target.not($(this)).removeClass("on");
+		e.preventDefault();
+		var tabName = $(this).children("a").attr("href");
+		if( tabName == "#detail" ){
+			window.scrollTo(773,773);
+			$("#faq").css("display","none");
+			$("#detail").css("display","block");
+		} else {
+			window.scrollTo(773,773);
+			$("#faq").css("display","block");
+			$("#detail").css("display","none");
+			
+		}
+	});
+	// QnA 슬라이드
+	$(document).on("click", ".pdHead", function() {
+		$(this).next().slideToggle("fast");
+	});
 	
 });

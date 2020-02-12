@@ -44,5 +44,297 @@
     text-align: center;
     border-top: 2px solid #202020;
 }
- 
-
+#cartWrap .detail .cartSelect{
+    position: relative;
+    z-index: 5;
+    height: 50px;
+    border-bottom: 2px solid #202020;
+    margin-bottom: -57px;
+} 
+#cartWrap .detail .cartSelect .cartTotalChkWrap{
+    display: inline-block;
+} 
+#cartWrap .detail input{
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+} 
+#cartWrap .detail label{
+	font-family: "nbgB";
+	display: inline-block;
+    padding-right: 8px;
+    font-size: 22px;
+    line-height: 32px;
+    color: #101010;
+    cursor: pointer;
+} 
+#cartWrap .detail input + label:before{
+	content: '';
+    zoom: 1;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: -3px 0 0 0; 
+    background: url(../images/btn_nchk.png) no-repeat;
+    background-position: center;
+    background-size: 25px;
+    vertical-align: middle;
+} 
+#cartWrap .detail input:checked + label:before{
+    background: url(../images/btn_chk.png) no-repeat;
+    background-position: center;
+    background-size: 25px;
+    vertical-align: middle;
+}
+#cartWrap .detail .cartSelect button{
+    display: inline-block;
+    width: 108px;
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    height: 32px;
+    padding: 4px 13px 5px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 21px;
+   	cursor: pointer;
+}
+#cartWrap .detail .deliveryArea{
+	margin-top: 56px;
+    border: 1px solid #CCC;
+}
+.productList li{
+	display: block;
+    width: 100%;
+	padding: 16px 0;
+    border-top: 1px solid #CCCCCC;
+    white-space: initial;
+}
+.productList li:first-child{
+    margin-top: -1px;
+    padding-top: 26px;
+    margin-left: 0;
+}
+.productList .proModule{
+    display: table-cell;
+    position: relative;
+    padding-right: 31px;
+    padding-left: 173px;
+    height: 80px;
+    vertical-align: middle;
+    padding: 0 0 0 104px;
+}
+.productList .proModule{
+	content: '';
+    display: block;
+    clear: both;
+}
+.productList .proModule .proCheckWrap{
+	position: absolute;
+	display: inline-block;
+	left: 30px;
+    top: 50%;
+	transform: translate(0, -50%);
+}
+.productList .proModule .proimgWrap{
+    position: absolute;
+	left: 69px;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    text-align: center;
+    -ms-transform: translate(0, -35%);
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+.productList .proModule .proimgWrap > img{
+    width: 80px;
+    height: 80px;
+    vertical-align: middle;
+}
+.productList .proModule > a{
+    position: relative;
+    display: table-cell;
+    height: 80px;
+    vertical-align: middle;
+    left: 70px;
+}
+.productList .proModule .cartProInfo{
+    width: 650px;
+    padding-right: 325px;
+}
+.productList .proModule .cartProInfo span{
+    display: block;
+}
+.productList .proModule .cartProInfo .cartProInfoTit{
+    margin-top: 4px;
+    font-size: 17px;
+    line-height: 24px;
+    color: #101010;
+}
+.productList .proModule .cartProInfo .cartProInfoPrice{
+    margin-top: 8px;
+    font-size: 18px;
+    line-height: 27px;
+    color: #101010;
+    font-weight: 700;
+}
+.productList .proModule .proCartQuantityWrap{
+	transform: translate(0, -50%);
+    position: absolute;
+    right: 200px;
+    top: 50%;
+    height: auto;
+}
+.productList .proModule .proCartQuantity{
+	font-family: "nbgB";
+    display: inline-block;
+    width: 40px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    color: #101010;
+    text-align: center;
+}
+.productList .proModule .proCartPrice{
+	font-family: "nbgB";
+	transform: translate(0, -50%);
+    position: absolute;
+    right: 64px;
+    top: 50%;
+    height: auto;
+    color: #101010;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: right;
+    vertical-align: top;
+}
+.productList .proModule .proCartDel{
+	font-family: "nbgB";
+    position: absolute;
+    right: 28px;
+    top: 48%;
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    cursor: pointer;
+    border: 0;
+}
+.productList .proModule .proCartDel:after{
+	content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    width: 16px;
+    height: 16px;
+    background: url(../images/cartXmark.png) no-repeat;
+    background-position: center;
+    background-size: 25px;
+    vertical-align: middle;
+}
+.detail .prdTotalPay{
+    margin-top: 56px;
+    padding: 33px 0 34px;
+    border-top: 2px solid #202020;
+    border-bottom: 1px solid #E0E0E0;
+    text-align: center;
+}
+.detail .prdTotalPay span{
+	display: inline-block;
+    width: 236px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #101010;
+    vertical-align: middle;
+}
+.detail .prdTotalPay span .strong{
+	font-family: "nbgB";
+    display: block;
+    margin-top: 7px;
+    font-size: 32px;
+    line-height: 48px;
+    color: #101010;
+}
+.detail .prdTotalPay .plusIco{
+	position: relative;
+    width: 48px;
+    height: 80px;
+}
+.detail .prdTotalPay .plusIco:before{
+    font-family: "nbg";
+    content: '+';
+    position: absolute;
+    left: 50%;
+    top: 36%;
+    font-size: 30px;
+    margin: -8px 0 0 -8px;
+    word-break: break-all;
+}
+.detail .prdTotalPay .equalIco{
+	position: relative;
+    width: 48px;
+    height: 80px;
+}
+.detail .prdTotalPay .equalIco:before{
+    font-family: "nbg";
+    content: '=';
+    position: absolute;
+    left: 50%;
+    top: 36%;
+    font-size: 30px;
+    margin: -8px 0 0 -8px;
+    word-break: break-all;
+}
+.detail .prdTotalPay span.prDtotal{
+	width: 266px;
+}
+.detail .prdTotalPay span.prDtotal .strong{
+	font-family: "nbgB";
+    width: 280px;
+    margin-top: 4px;
+    font-size: 36px;
+    line-height: 50px;
+    color: #EE0700;
+}
+.detail .deliveryArea .freeDelivery{
+    margin-top: -8px;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: #f7f7f7;
+}
+.detail .deliveryArea .freeDelivery .deliveryTxt{
+	position: relative;
+    display: inline-block;
+    padding-right: 22px;
+    font-size: 15px;
+    line-height: 23px;
+    color: #0379A6;
+}
+.detail .proBtn{
+    margin-top: 56px;
+    text-align: center;
+}
+.detail .proBtn button{
+	font-family: "nbgB";
+	width: auto;
+    min-width: 240px;
+    margin-left: 5px;
+    display: inline-block;
+    height: 56px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 54px;
+    cursor: pointer;
+}
+.detail .proBtn button[type=button]{
+    text-align: center;
+    color: #101010;
+    border: 1px solid #202020;
+    background-color: #FFFFFF;
+}
+.detail .proBtn button[type=submit]{
+    color: #101010;
+    border: 1px solid #BDD61A;
+    background-color: #BDD61A;
+}

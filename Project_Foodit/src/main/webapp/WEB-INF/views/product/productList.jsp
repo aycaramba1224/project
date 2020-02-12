@@ -94,11 +94,11 @@
 				</c:forEach> 
 			</ul>		 
 		</div>
+		<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
+			<button type="button" class="adminBtn" onclick="location.href='productInsertPage'">상품등록</button>   
+		</c:if>
 	</div>
 	
-	<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
-		<input type="button" value="상품등록" onclick="location.href='productInsertPage'"/><br/><br/>   
-	</c:if>
 	<div class="pageNavi">
 		<div class="pagingWrap">
     		${pagingView }

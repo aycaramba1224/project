@@ -104,7 +104,17 @@ a:visited {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+/* admin Btn */
+.adminBtn{
+	position: absolute;
+    min-width: 54px;
+    font-size: 17px;
+    line-height: 22px;
+    border: 1px solid #BDD61A;
+    background-color: #BDD61A;
+    font-family: "nbgB";
+    cursor: pointer;
+}
 /* common-header */
 #header{
 	width: 100%;
@@ -232,7 +242,7 @@ a:visited {
     background: url(../images/iconset.png) no-repeat;
     background-size: 470px 780px;
 }
-#header .gnbSide li a .txt{
+#header .gnbSide li .txt{
 	display: block;
     margin-top: -2px;
     font-size: 12px;

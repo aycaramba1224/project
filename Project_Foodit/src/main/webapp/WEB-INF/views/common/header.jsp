@@ -107,10 +107,10 @@ if(isLogout == "yes"){
 							 		<c:otherwise>
 							 			<c:choose> 
 							 				<c:when test="${guestCartListSize eq null}"> 
-							 					<a href="cartMain">
+							 					<a href="cartMain"></a>
 							 				</c:when>
 							 				<c:otherwise>
-							 					<a href="guestCartList">	
+							 					<a href="guestCartList"></a>	
 							 				</c:otherwise>
 							 			</c:choose>							 
 									<span class="txt">장바구니</span>

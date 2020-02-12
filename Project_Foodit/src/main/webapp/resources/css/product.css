@@ -1,4 +1,11 @@
 @charset "UTF-8";
+/* pro_list admin Btn */
+#pdWrap .adminBtn{
+    top: 203px;
+    left: 373px;
+    height: 32px;
+    width: 87px;
+}
 #pdWrap .sortList{
 	font-family: "nbgB";
 }
@@ -324,18 +331,173 @@ pdTabWrap .pdTabList{
     font-family: "nbgB";
 }
 
-.bottomInfo #detail{
+.bottomInfo .tabContent{
     position: relative;
     width: 1180px;
     min-height: 100vh;
     margin: 0 auto;
 }
-.bottomInfo #detail{
-    position: relative;
-    width: 1180px;
-    min-height: 100vh;
-    margin: 0 auto;
+.bottomInfo .tabContent .tabView.viewDetail{
+    padding-top: 72px;
 }
+.bottomInfo .tabContent .tabView{
+    padding-top: 72px;
+}
+.bottomInfo .detailBox .detailImg{
+    text-align: center;
+}
+.bottomInfo .detailBox .detailImg img{
+  	max-width: 780px;
+    vertical-align: top;
+}
+.bottomInfo .viewDetail .tTit_wrap .h2_tit{
+	font-family: "nbgB";
+    color: #101010;
+    font-size: 22px;
+    line-height: 32px;
+}
+.bottomInfo .viewDetail .tTit_wrap .subTtext{
+	display: block;
+    padding: 6px 0 0;
+    color: #606060;
+    font-size: 14px;
+    line-height: 22px;
+}
+.bottomInfo .list_acco{
+   	margin-top: 18px;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+.bottomInfo .list_acco > ul{
+    border-top: 2px solid #202020;
+    border-bottom: none;
+}
+.bottomInfo .list_acco > ul > li{
+    border-top: 1px solid #e0e0e0;
+}
+.bottomInfo .list_acco > ul > li:first-child{
+    border-top: 0;
+}
+.bottomInfo .list_acco .pdHead{
+    position: relative;
+}
+.bottomInfo .list_acco .pdHead:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    width: 12px;
+    height: 12px;
+    margin-top: -8px;
+    border: 1.5px solid #303030;
+    border-top: none;
+    border-left: none;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+.bottomInfo .list_acco .pdHead a{
+   	display: block;
+    padding-right: 44px;
+}
+.bottomInfo .list_acco .pdHead a .pTit{
+	font-family: "nbgB";
+	display: block;
+	padding: 20px 16px 20px 0;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: #101010;
+    word-break: break-all;
+}
+.bottomInfo .list_acco .pdBottom{
+    padding: 24px 0;
+    background-color: #fff;
+   	border-top: 1px solid #e0e0e0;
+    color: #101010;
+    font-size: 14px;
+    line-height: 22px;
+}
+.bottomInfo .list_acco .pdBottom dl{
+   	padding-top: 20px;
+    font-size: 0;
+}
+.bottomInfo .list_acco .pdBottom dl:first-child{
+   	padding-top: 0;
+}
+.bottomInfo .list_acco .pdBottom dl .txtPar:first-child{
+    margin-top: 0;
+}
+.bottomInfo .list_acco .pdBottom .fc_black{
+   	color: #101010;
+}
+.bottomInfo .pdBottom dl dt.pContTit{
+   	color: #101010;
+    font-size: 15px;
+    line-height: 23px;
+}
+.bottomInfo .list_acco .pdBottom dl dt.pContTit{
+	font-family: "nbgB";
+	display: inline-block;
+    width: 160px;
+    vertical-align: top;
+}
+.bottomInfo .list_acco .pdBottom dl dd{
+	display: inline-block;
+    width: 616px;
+    padding-left: 28px;
+    padding-right: 32px;
+    color: #606060;
+    font-size: 15px;
+    line-height: 23px;
+    vertical-align: top;
+}
+.bottomInfo .list_acco .pdBottom dl dd .txtPar{
+	margin-top: 16px;
+}
+.bottomInfo .list_acco .pdBottom dl dd .txtBox{
+    margin-top: 8px;
+    padding: 12px 16px;
+    background-color: #f7f7f7;
+}
+.bul_list li:first-child{
+	margin-top: 0;
+}
+.bul_list li{
+    text-indent: -10px;
+    margin-left: 10px;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 20px;
+    color: #606060;
+}
+.bul_list .bul{
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin: 8px 4px 0 0;
+    background-color: #b0b0b0;
+    vertical-align: top;
+    font-style: normal;
+    text-indent: -10px;
+}
+.bul_num_list li:first-child{
+	margin-top: 0;
+}
+.bul_num_list li{
+	margin-top: 8px;
+    font-size: 13px;
+    line-height: 21px;
+}
+.bul_num_list li .num_txt{
+	margin-left: 3px;
+}
+
+
+
+
 
 
 
