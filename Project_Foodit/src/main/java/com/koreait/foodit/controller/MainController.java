@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.koreait.foodit.command.product.BestListCommand;
 import com.koreait.foodit.command.product.MenuListCommand;
 import com.koreait.foodit.command.product.ProductCommand;
-import com.koreait.foodit.command.product.TasteListCommand;
 
  
 @Controller
@@ -39,12 +38,5 @@ public class MainController {
 		return "index";
 	}  
 	
-	// 맛추천
-	@RequestMapping("tasteList")
-	public String tasteList(HttpServletRequest request, Model model) {
-		model.addAttribute("request", request);
-		productCommand = new TasteListCommand();
-		productCommand.execute(sqlSession, model);
-		return "index";
-	}
+	 
 }

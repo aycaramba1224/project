@@ -47,7 +47,7 @@
 		<div class="menuListWrap">		
 		
 			<ul>		 
-			<c:forEach var="productDto" items="${productList }" >	<!-- 가로정렬을 위해 임시 이렇게 설정했습니다. -->
+			<c:forEach var="productDto" items="${productList }" >
 				<li class="item">	
 					<div class="proModule">	 	
 						<div class="imgWrap">
@@ -93,10 +93,7 @@
 				</li>		  
 				</c:forEach> 
 			</ul>		 
-		</div>
-		<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
-			<button type="button" class="adminBtn" onclick="location.href='productInsertPage'">상품등록</button>   
-		</c:if>
+		</div>	
 	</div>
 	
 	<div class="pageNavi">

@@ -18,7 +18,7 @@
 		}
 
 		if(f.product_content.value==""){
-			alert("상품설명을 입력하세요.");
+			alert("상품내용을 입력하세요.");
 			f.product_content.focus();
 			return;
 		}
@@ -31,6 +31,11 @@
 			alert("상품맛을 선택하세요.");
 			return;
 		}
+		if(f.file_.value==""){
+			alert("상품이미지를 등록 하세요.");
+			return;
+		}
+		 
 		f.action = "productInsert";
 		f.submit();
 	}

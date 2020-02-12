@@ -82,8 +82,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  	<select id="menuList" resultType="com.koreait.foodit.dto.ProductDto">	
 		SELECT * FROM PRODUCT
 	</select>
-	<!-- 메인페이지 (맛추천) -->
-	<select id="tasteList" resultType="com.koreait.foodit.dto.ProductDto">	
-		SELECT * FROM PRODUCT WHERE PRODUCT_TASTE = #{param1}
-	</select> 
+
 </mapper>

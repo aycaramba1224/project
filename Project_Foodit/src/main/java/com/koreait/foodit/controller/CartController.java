@@ -18,6 +18,7 @@ import com.koreait.foodit.command.cart.GuestCartDeleteCommand;
 import com.koreait.foodit.command.cart.GuestCartInsertCommand;
 import com.koreait.foodit.command.cart.GuestCartListCommand;
 import com.koreait.foodit.command.cart.GuestOrderCartListCommand;
+import com.koreait.foodit.command.cart.GuestSelectOrderCommand;
 import com.koreait.foodit.command.cart.OrderCartListCommand;
 
 @Controller
@@ -107,5 +108,13 @@ public class CartController {
 					return "order/guestorder";
 				}
 			
+			//비회원 선택 주문 
+			@RequestMapping("guestSelectOrder")
+			public String guestSelectOrder(HttpServletRequest request, Model model) {
+				model.addAttribute("request", request);
+				cartCommand = new GuestSelectOrderCommand();
+				cartCommand.execute(sqlSession, model);
+				return "redirect:guestorderPage";
+			}
 }
 

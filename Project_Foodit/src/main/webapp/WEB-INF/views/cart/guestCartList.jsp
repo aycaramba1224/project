@@ -52,7 +52,7 @@
 					</div>
 				</c:when>
 				<c:otherwise>
-					<form method="POST" action ="orderInsertPage">
+					<form method="POST" action ="guestorderPage">
 						<input type="hidden" name="cart_id" value="${cart_id }"/>
 						<div class="cartSelect"> 					
 							<!-- 전체 선택 체크박스   -->	
@@ -127,7 +127,7 @@
 							</c:if>
 						</div>
 						<div class="proBtn">
-							<button type="button" onclick="guestorderPage(this.form)">선택 주문하기</button> 
+							<button type="button" onclick="guestSelectOrder()">선택 주문하기</button> 
 							<button type="submit" >전체 주문하기</button>
 						</div>
 					</form>
