@@ -3,9 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
- <jsp:include page="/WEB-INF/views/common/header.jsp" >
+<jsp:include page="/WEB-INF/views/common/header.jsp" >
 	<jsp:param value="FOODIT 메뉴" name="title"/>
-</jsp:include>   
+</jsp:include> 
 
 <script type="text/javascript"> 
 	var isProductInsert = "${isProductInsert}";
@@ -17,53 +17,92 @@
 			alert("상품 등록이 성공하였습니다.");
 		}
 	}  
+	var isProductModify = "${isProductModify}";
+	if(isProductModify == "yes"){
+		var modifyResult = "${modifyResult}";
+		if(isProductModify == 0){
+			alert("상품 등록이 실패하였습니다.");
+		} else {
+			alert("상품 등록이 성공하였습니다.");
+		}
+	}  
+
 </script>
- 
-	<div id="pd_wrap">	
-		<h2 class="singleTit nbgB">FOODIT 메뉴</h2> 
- 	 
-		<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
-			<input type="button" value="상품등록" onclick="location.href='productInsertPage'"/><br/><br/>   
-		</c:if>
+	<div id="pdWrap">	
+	<h2 class="singleTit nbgB">FOODIT 메뉴</h2> 
 	 	
-	 	<jsp:include page="/WEB-INF/views/product/menuOrder.jsp"/>	<!-- 상품 정렬  -->
+	 	<div class="sortList">
+			<div class="sortLwrap"><a href="productListOrder1">신메뉴</a></div>
+			<div class="sortLwrap"><a href="productListOrder2">높은 가격 순</a></div>
+			<div class="sortLwrap"><a href="productListOrder3">낮은 가격순</a></div>
+			<div class="sortLwrap"><a class="on" href="productListOrder4">만족도순</a></div>
+		</div>
 	 	
 	 	<c:if test="${productListOrder4Size eq 0 }">
 			등록된 메뉴가 없습니다.
-		</c:if>	
- 	 
-		<c:forEach var="productDto" items="${productListOrder4 }" >	
-			<div style="float:left; padding:20px; width:366px;" >			
-				<ul style="list-style-type:none;">		 
-					<li>		 	
-						<a href="productView?product_no=${productDto.product_no}">	 
-							<!-- 상품 목록 썸네일 이미지 사이즈 : 366x366  -->
-							<span> <img alt="${productDto.product_thumbImg }" 
-									src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" 
-									style="width:366px; height:366px;" /></span><br/>
-							<span> ${productDto.product_name} </span><br/>
-							<span> <fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />원 </span><br/> 
-							<span> ${productDto.product_content } </span><br/>
-							<span> 별점 &nbsp;|&nbsp; 리뷰글수 </span> 
-						</a>		 	
-					</li>		  
-				</ul>		 
-			</div>
-		</c:forEach> 
+		</c:if>	 		
 		
+		
+		
+		<div class="menuListWrap">		
+		
+			<ul>		 
+			<c:forEach var="productDto" items="${productListOrder4 }" >	<!-- 가로정렬을 위해 임시 이렇게 설정했습니다. -->
+				<li class="item">	
+					<div class="proModule">	 	
+						<div class="imgWrap">
+							<a href="productView?product_no=${productDto.product_no}">
+								<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}" /> 
+							</a>
+						</div>	 
+						<div class="txtWrap">							 
+							<a href="productView?product_no=${productDto.product_no}">
+								<div class="contInfo">
+									<span class="contTxt"> ${productDto.product_content } </span>
+								</div>
+								<div class="titInfo">
+									<span class="titTxt mtElps"> ${productDto.product_name} </span>
+								</div>
+								<div class="priceInfo">
+									<p class="priceTxt"> 
+										<span class="priceNum">
+											<fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />
+											<span class="wonTxt">원</span>
+										</span> 
+									</p>
+								</div>
+								<div class="etcInfo">
+									<div class="ratingWrap"> 
+										<span class="ratingStar">
+											<span class="star">
+												<span>
+												<!-- 별점 영역 -->
+												별점
+												</span>
+											</span>
+										</span>
+										  
+									</div>
+									<div class="reviewNum">
+										리뷰<!-- 여기에 EL 넣기 -->
+									</div>
+								</div> 
+							</a>
+						</div>
+					</div>
+				</li>		  
+				</c:forEach> 
+			</ul>		 
+		</div>
+		<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
+			<button type="button" class="adminBtn" onclick="location.href='productInsertPage'">상품등록</button>   
+		</c:if>
 	</div>
 	
-	<br />
-    ${pagingView }
-    <br /> 
+	<div class="pageNavi">
+		<div class="pagingWrap">
+    		${pagingView }
+   		</div>
+   	</div>
 	
-	
-	
-	
-	
-	
- 
-	
-	
-	
-
+	<%@ include file="/WEB-INF/views/common/footer.jsp" %>

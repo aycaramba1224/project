@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -21,6 +22,7 @@ import com.koreait.foodit.command.product.ProductListOrder4Command;
 import com.koreait.foodit.command.product.ProductModifyCommand;
 import com.koreait.foodit.command.product.ProductSearchCommand;
 import com.koreait.foodit.command.product.ProductViewCommand;
+import com.koreait.foodit.dao.CartDao;
 
 @Controller
 public class ProductController {
@@ -31,7 +33,7 @@ public class ProductController {
 		
 	// 기본 CRUD
 	@RequestMapping("productList")
-	public String productList(HttpServletRequest request, Model model) {	
+	public String productList(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
 		productCommand = new ProductListCommand();
 		productCommand.execute(sqlSession, model);

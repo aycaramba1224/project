@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 import com.koreait.foodit.dao.ProductDao;
 
-public class RecommendCommand implements ProductCommand {
+public class TasteListCommand implements ProductCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
@@ -23,7 +23,7 @@ public class RecommendCommand implements ProductCommand {
 		
 		model.addAttribute("bestList", productDao.bestList()); 		
 		model.addAttribute("menuList", productDao.menuList()); 		
-		model.addAttribute("recommendList", productDao.recommendList(product_taste));
+		model.addAttribute("tasteList", productDao.tasteList(product_taste));
 		 
 	}
 
