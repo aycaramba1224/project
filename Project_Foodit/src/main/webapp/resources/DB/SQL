@@ -33,18 +33,17 @@ DROP SEQUENCE  GUESTORDER_SEQ;
 CREATE TABLE CART
 ( 
    CART_NO        NUMBER    NOT NULL PRIMARY KEY,
-    ORDER_NO    NUMBER,  
-    CART_ID             VARCHAR2(200)    NULL, 
-    PRODUCT_NO         NUMBER          NULL, 
-    CART_AMOUNT    NUMBER          DEFAULT 0 
-);
+    ORDER_NO NUMBER,  
+    CART_ID VARCHAR2(200) NULL, 
+    PRODUCT_NO NUMBER NULL, 
+    CART_AMOUNT NUMBER DEFAULT 0 );
 
 CREATE SEQUENCE CART_SEQ START WITH 1 INCREMENT BY 1;
 
 
 
 insert into order_base(order_no,delivery_name,delivery_phone,delivery_phone2,delivery_phone3,
- order_post,order_road1) values (ORDER_BASE_SEQ.NEXTVAL,'wjstngus03','010','3565','6478','123-45','seloul');
+ order_post,order_road1) values (ORDER_BASE_SEQ.NEXTVAL,'wjstngus03','010','3565','6478','123-45','seoul');
  
  
 ★★★★★CART(장바구니) TABLE 생성 (BUY -> CART로 이름 변경 되었습니다.) =======================================================
@@ -53,8 +52,7 @@ DROP TABLE CART;
 
 CREATE TABLE cart ( 
  CART_NO NUMBER NOT NULL PRIMARY KEY,
- ORDER_NO NUMBER,  
- GUEST_NO NUMBER,
+ ORDER_NO NUMBER,
  CART_ID VARCHAR2(200) NULL, 
  PRODUCT_NO NUMBER NULL, 
  CART_AMOUNT NUMBER DEFAULT 0 );
@@ -72,16 +70,16 @@ CREATE SEQUENCE  GUESTORDER_SEQ START WITH 1 INCREMENT BY 1;
 DROP TABLE MEMBER;
 
 CREATE TABLE MEMBER ( 
-ID VARCHAR2(20) NOT NULL PRIMARY KEY, 
-PW VARCHAR2(20) NOT NULL,
-NAME VARCHAR2(20) NOT NULL,
-PHONE VARCHAR2(20) NOT NULL,
-EMAIL VARCHAR2(20) NOT NULL,
-BIRTH VARCHAR2(20) NOT NULL,
-POST VARCHAR2(20) NOT NULL,
-ROAD VARCHAR2(50) NOT NULL,
-REG_DATE DATE NOT NULL,
-ROLE VARCHAR2(20) DEFAULT 'USER' NOT NULL );
+ ID VARCHAR2(20) NOT NULL PRIMARY KEY, 
+ PW VARCHAR2(20) NOT NULL,
+ NAME VARCHAR2(20) NOT NULL,
+ PHONE VARCHAR2(20) NOT NULL,
+ EMAIL VARCHAR2(20) NOT NULL,
+ BIRTH VARCHAR2(20) NOT NULL,
+ POST VARCHAR2(20) NOT NULL,
+ ROAD VARCHAR2(50) NOT NULL,
+ REG_DATE DATE NOT NULL,
+ ROLE VARCHAR2(20) DEFAULT 'USER' NOT NULL );
 
 ★★★★★PRODUCT(상품) TABLE 생성 =====================================================================================
 
@@ -113,7 +111,7 @@ CREATE TABLE FAQ (
 DROP SEQUENCE FAQ_SEQ;
 CREATE SEQUENCE FAQ_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ notice 테이블 생성 ===============================================================================================
+★★★★★ NOTICE 테이블 생성 ===============================================================================================
 
 DROP TABLE NOTICE;
 
