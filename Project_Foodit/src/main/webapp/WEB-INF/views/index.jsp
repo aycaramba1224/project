@@ -7,19 +7,6 @@
     <jsp:param value="한끼도 특별하게, FOODIT " name="title"/>
 </jsp:include>  
  
-
-<script type="text/javascript">
-	// 맛추천	 
-	$(function(){
-		$('#selectBox').change(function() {				 		 
-			var taste = $('#selectBox option:selected').val();	
-			location.href="tasteList?product_taste=" + taste;	
-			$("#result").show();		 
-		}); 		
-	});
- 
-</script>
-
 	<div> <!--------- 이미지 슬라이드 --------->	
 		<div class="slideshow-container">
 		
@@ -46,42 +33,7 @@
 			
 		</div>
 	
-	</div>
-	
-	<div><!--------- 맛추천 리스트  --------->	 
-		<select	name="product_taste" id="selectBox" >
-			<option value="spicy" ${param.product_taste eq "spicy"? "selected":"" }>매콤한맛</option>
-			<option value="salty" ${param.product_taste eq "salty"? "selected":"" }>짭짤한맛</option>
-			<option value="plain" ${param.product_taste eq "plain"? "selected":"" }>담백한맛</option>
-			<option value="fresh" ${param.product_taste eq "fresh"? "selected":"" }>상큼한맛</option>
-			<option value="exotic" ${param.product_taste eq "exotic"? "selected":"" }>이국적인맛</option>
-		</select>
-		 
-		<span>메뉴</span>		
-		<span>추천 드려요.</span>	
-		
-	
-		<div id="result"> <!-- 맛 선택 후 표시되는 영역 -->
-			
-			<div>  
-		 		<ul>
-					<c:forEach var="productDto" items="${tasteList }" begin="1" end="3">
-						<li style="">
-							<a href="productView?product_no=${productDto.product_no}">						 
-							<img alt="${productDto.product_thumbImg }" src="${pageContext.request.contextPath }/resources/upload/${productDto.product_thumbImg}"
-							style="width:250px; height:250px;"/>							 	
-							</a> 
-						 <span> ${productDto.product_name } </span>
-						 <span>
-						 <fmt:formatNumber value="${productDto.product_price}" pattern="#,###,###" />
-						 </span> 			 
-						</li>
-					</c:forEach>
-				</ul> 
-		 	</div>
-		</div>
-	  
-	</div>	  
+	</div> 
 	 
  	<div><!--------- 실시간 베스트  --------->	
 		<div id="pdWrap">	

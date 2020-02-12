@@ -62,15 +62,14 @@ if(isLogout == "yes"){
 						<ul>
 							<li>${ sessionScope.mDto.name }님</li>
 							<li><a href="logout">로그아웃</a></li>
-							<li><a href="faqList">고객행복센터</a></li>
-							<li><a href="">배송지역검색</a></li>
+							<li><a href="faqList">고객행복센터</a></li>							 
 						</ul>
 					</c:if>
 					</div>
 				</div>
 				<div class="gnbMenu">
 				 	<h1 class="logo">
-				 	 	<a href="main">로고</a>
+				 	 	<a href="main"><img alt="FOODIT" src="./resources/images/logo-small.png"></a>
 				 	</h1>
 				 	<ul class="gnbList nbgB">
 				 		<li><a href="#" onclick="return false;">FOODIT 소개</a></li>

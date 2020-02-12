@@ -13,6 +13,7 @@ public class BestListCommand implements ProductCommand {
 		ProductDao productDao = sqlSession.getMapper(ProductDao.class);	
 		 	   
 		model.addAttribute("bestList", productDao.bestList()); 
+		model.addAttribute("menuList", productDao.menuList());
 		
 	}
 

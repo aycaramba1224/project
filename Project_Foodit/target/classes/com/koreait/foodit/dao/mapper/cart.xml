@@ -98,6 +98,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		WHERE CART.CART_ID = #{param1}  
  	   
  	 </select>
+ 	 
+ 	 <insert id="guestSelectOrder">
+ 	 	INSERT INTO CART VALUES ( #{param1} ) WHERE CART_ID = #{param2}
+ 	 </insert>
+ 	 
+ 	 
+ 	 
  	
  	
 
