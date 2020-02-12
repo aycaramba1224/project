@@ -29,9 +29,14 @@ public interface ProductDao {
 	public int totalCountProduct();
 	
 	// 메인페이지 
+ 		// 맛추천
+	public ArrayList<ProductDto> recommendList(String product_taste);
 		// 실시간 베스트
 	public ArrayList<ProductDto> bestList();
-	 	// 맛추천
-	public ArrayList<ProductDto> recommendList(String product_taste);
+		// 푸딧 메뉴보기
+	public ArrayList<ProductDto> menuList();
+	 	 
+	 
+
 	
 }

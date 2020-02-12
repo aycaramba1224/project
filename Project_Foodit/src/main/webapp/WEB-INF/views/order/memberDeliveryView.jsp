@@ -30,9 +30,7 @@
 			<c:forEach var="OrderBaseDto" items="${memberDeliveryList}">
 				    <div class="contaniner">
 			      
-			       <div>
-			            주문번호:{OrderBaseDto.order_no}
-			       </div>
+			     
 			       
 			         <div>
 			                 배송자이름:

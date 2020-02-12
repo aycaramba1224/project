@@ -14,7 +14,7 @@
       <c:choose>
          <c:when test="${gDto ne null }" >
         <div>
-                주문번호: ${gDto.guest_no }
+                주문번호: ${gDto.order_no}
         </div>
         
         <div>
@@ -27,13 +27,8 @@
 						${gDto.order_phone3 }</div>
 	    <div>주문자 이메일:${gDto.order_email } @ ${gDto.order_email2}</div>
         
-        <div>
-        <br />
+      
         <h1>상품정보</h1>
-         <div>
-		                장바구니 번호:  ${gDto.cart_no }
-		             </div>
-		           
 		            <div>
 		           <img alt="${gDto.product_thumbImg }" 
 					src="${pageContext.request.contextPath }/resources/upload/${gDto.product_thumbImg}" style="width:100; height:100px;" />
@@ -48,12 +43,19 @@
 		            </div>
 		            
 		         <div>
-		         총 금액: <fmt:formatNumber value= "${gDto.product_price * gDto.cart_amount }" pattern="#,###,###" />원
-		           
-		           </div>       
-        
+		            <h2>결제정보</h2>
+		            
+		         <c:if test="${gDto.product_price * gDto.cart_amount >30000}">
+		           총 금액:  <fmt:formatNumber value= "${gDto.product_price * gDto.cart_amount }" pattern="#,###,###" />원
+                       </c:if>
+                                 
+		          
+		          <c:if test="${gDto.product_price * gDto.cart_amount < 30000}">
+                          총 금액:     <fmt:formatNumber value= "${gDto.product_price * gDto.cart_amount+ 3000 }"/> 원
+                                 </c:if>
         </div>
-        <br />
+        
+        
          <h1>배송정보</h1>
          
          
@@ -72,9 +74,7 @@
 		주소: ${gDto.order_road1}
 		</div>
 		
-		<div>
-		 주문날짜: ${gDto.orderDate }
-	    </div>
+         
          
 		</c:when>
          </c:choose>

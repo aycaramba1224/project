@@ -1,4 +1,5 @@
- //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+ 
+//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -53,14 +54,67 @@
         }
     }).open();
 }
+    
+  
+    
 
 function regCancel(){
 	history.back();
 }
 
+
+
+//회원일떄 결제하기
+function orderBuy() {
+	var regName = /^[가-힣]{2,6}$/; // 성명 정규식
+	
+	
+	// 1. 이름 체크
+	if ( !regName.exec(f.delivery_name.value) ) {
+		alert("이름: 2~6자, 한글");
+		f.delivery_name.focus();
+		return;
+	}
+	
+	if ( f.delivery_phone.value == "" ) {
+		alert("휴대폰번호 입력하세요.");
+		f.delivery_phone.focus();
+		return;
+	}
+	
+	if ( f.delivery_phone2.value == "" ) {
+		alert("휴대폰번호 다 입력하셧나요?다 입력해주세요.");
+		f.delivery_phone2.focus();
+		return;
+	}
+	if ( f.delivery_phone3.value == "" ) {
+		alert("휴대폰번호 다 입력하셨나요?다 입력해주세요.");
+		f.delivery_phone3.focus();
+		return;
+	}
+	
+	if ( f.order_post.value == "" ) {
+		alert("우편번호 입력하세요.");
+		f.order_post.focus();
+		return;
+	}
+	if ( f.order_road1.value == "" ) {
+		alert("주소를 입력하세요.");
+		f.order_road1.focus();
+		return;
+	}
+	
+	 f.action = "memberbuy";
+	 f.submit();
+	 alert("주문성공했습니다!주문내역은 주문내역 페이지에서 확인해주세요");
+}
+	
+	
 function passchk() {
+	
 	 var guest_pw = f.guest_pw.value;
 	 var guest_pw2 =f.guest_pw2.value;
+	 
 	 if (guest_pw2.length == 0 || guest_pw2 == null) {
 	  f.chk.value = "비밀번호를 입력하세요";
 	 } else if (guest_pw != guest_pw2) {
@@ -71,15 +125,84 @@ function passchk() {
 	 return;
 	}
 	
-	
-	//회원일떄 결제하기
-	function memberbuy() {
-		 f.action = "memberbuy";
-		 f.submit();
-		 alert("주문성공했습니다!주문내역은 주문내역 페이지에서 확인해주세요");
-	}
-	
+
+
 	function guestOrder() {
+		
+		var regName = /^[가-힣]{2,6}$/; // 성명 정규식
+		var regExpPw = (/^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,20}$/);
+		// 1. 이름 체크
+		if ( !regName.exec(f.order_name.value) ) {
+			alert("이름: 2~6자, 한글");
+			f.order_name.focus();
+			return;
+		}
+		if ( f.order_phone.value == "" ) {
+			alert("휴대폰번호 입력하세요.");
+			f.order_phone.focus();
+			return;
+		}
+		if ( f.order_phone2.value == "" ) {
+			alert("휴대폰번호 입력하셨나요? 입력해주세요.");
+			f.order_phone2.focus();
+			return;
+		}
+		if ( f.order_phone3.value == "" ) {
+			alert("휴대폰번호 다입력하셨나요?다  입력해주세요");
+			f.order_phone3.focus();
+			return;
+		}
+		
+		if ( f.order_email.value == "" ) {
+			alert("이메일 입력하세요.");
+			f.order_email.focus();
+			return;
+		}
+		
+		if ( f.order_email2.value == "" ) {
+			alert("이메일 다  입력하셨나요?다 입력해주세요.");
+			f.order_email2.focus();
+			return;
+		}
+
+		   if(!regExpPw.exec(f.guest_pw.value)){
+				alert("비밀번호 입력해주세요" +
+						"8~20자 영문 대 소문자, 숫자, 특수문자를 사용하세요.");
+				f.guest_pw.focus();
+				return;
+			}
+		
+		if ( !regName.exec(f.delivery_name.value) ) {
+			alert("배송자이름: 2~6자, 한글");
+			f.delivery_name.focus();
+			return;
+		}
+		if ( f.delivery_phone.value == "" ) {
+			alert("배송받으실 분 휴대폰번호 입력하세요.");
+			f.delivery_phone.focus();
+			return;
+		}
+		if ( f.delivery_phone2.value == "" ) {
+			alert("배송받으실 분 휴대폰번호 입력하셨나요? 입력해주세요.");
+			f.delivery_phone2.focus();
+			return;
+		}
+		if ( f.delivery_phone3.value == "" ) {
+			alert("배송받으실 분 휴대폰번호 다입력하셨나요?다  입력해주세요");
+			f.delivery_phone3.focus();
+			return;
+		}
+		
+		if ( f.order_post.value == "" ) {
+			alert("우편번호 입력하세요.");
+			f.order_post.focus();
+			return;
+		}
+		if ( f.order_road1.value == "" ) {
+			alert("주소를 입력하세요.");
+			f.order_road1.focus();
+			return;
+		}
 		
 		f.action = "orderInsert";
 		 f.submit();

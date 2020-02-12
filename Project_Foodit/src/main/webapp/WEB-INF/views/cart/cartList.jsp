@@ -121,14 +121,14 @@
 							</c:if>
 						</div>
 						<div class="proBtn">
-							<button type="button" onclick="location.href='orderInsertPage'">선택 주문하기</button> 
+							<button type="button" onclick="orderInsertPage(this.form)">선택 주문하기</button> 
 							<button type="submit" >전체 주문하기</button>
 						</div>
 					</form>
 				</c:otherwise>
 			</c:choose>  		
 		</div>  
-	</div>  
+	</div>
 	
 <script type="text/javascript" src="resources/js/cart.js"></script>
 <%@ include file="/WEB-INF/views/common/footer.jsp" %>

@@ -29,9 +29,8 @@ public class CartController {
 
 	// 기본 CRUD
 	@RequestMapping("cartList") 
-	public String cartList(HttpServletRequest request, Model model, HttpSession session) {
+	public String cartList(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
-		model.addAttribute("session", session);
 		cartCommand = new CartListCommand();
 		cartCommand.execute(sqlSession, model);
 		return "cart/cartList";

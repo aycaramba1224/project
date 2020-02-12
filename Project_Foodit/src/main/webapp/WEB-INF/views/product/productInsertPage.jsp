@@ -63,11 +63,11 @@
 						<td>상품맛</td>
 						<td>
 							<select name="product_taste">
-								<option value="매콤한맛">매콤한맛</option>
-								<option value="짭짤한맛">짭짤한맛</option>
-								<option value="담백한맛">담백한맛</option>
-								<option value="이국적인맛">이국적인맛</option>
-								<option value="상큼한맛">상큼한맛</option>
+								<option value="spicy">매콤한맛</option>
+								<option value="salty">짭짤한맛</option>
+								<option value="plain">담백한맛</option>
+								<option value="fresh">상큼한맛</option>
+								<option value="exotic">이국적인맛</option>
 							</select>					
 						</td>
 					</tr>					

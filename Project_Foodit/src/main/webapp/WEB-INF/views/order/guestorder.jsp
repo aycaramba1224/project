@@ -38,8 +38,8 @@
 			          <option value="011">011</option>
 			          <option value="019">019</option>
 		               </select>
-		               <input type="text" name="order_phone2" />
-		               <input type="text" name="order_phone3" />
+		               <input type="text"  numberOnly name="order_phone2" />
+		               <input type="text"  numberOnly name="order_phone3" />
 		               </div>
 		              
 						
@@ -77,13 +77,13 @@
 			          <option value="011">011</option>
 			          <option value="019">019</option>
 		               </select>
-		               <input type="text" name="delivery_phone2" />
-		               <input type="text" name="delivery_phone3" />
+		               <input type="text" numberOnly name="delivery_phone2" />
+		               <input type="text" numberOnly  name="delivery_phone3" />
 		               </div>
 		  
                         <div>
                      <label>주소</label>
-					<input type="text" id="sample4_postcode" placeholder="우편번호" name="order_post" />
+					<input type="text" id="sample4_postcode" numberOnly placeholder="우편번호" name="order_post" />
 			    	<input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
 				      </div>
 				      
@@ -96,9 +96,6 @@
                	  <div>
                	   <c:if test="${GuestOrderCartListSize ne null }" >
 		            <c:forEach var="oDto" items="${GuestOrderCartList }" >
-		             <div>
-		           장바구니 번호:  ${oDto.cart_no }
-		             </div>
 		           
 		            <div>
 		           <img alt="${oDto.product_thumbImg }" 
@@ -108,20 +105,28 @@
 					<div>
 		          상품이름:  ${oDto.product_name }
 		            </div>
-		            <fmt:formatNumber value="${oDto.product_price}" pattern="#,###,###" />원
+		       상품금액: <fmt:formatNumber value="${oDto.product_price}" pattern="#,###,###" />원
 		            <div>
 		            총개수: ${oDto.cart_amount } 
 		            </div>
 		            
 		            <div>
-		           <fmt:formatNumber value= "${oDto.product_price * oDto.cart_amount }" pattern="#,###,###" />원
-		           </div>
+									총 상품금액&nbsp;&nbsp;&nbsp;&nbsp;총 배송비&nbsp;&nbsp;&nbsp;&nbsp;총  결제예정금액<br/>			
+									<fmt:formatNumber value= "${sumMoney}" pattern="#,###,###" />원&nbsp;&nbsp; + &nbsp;&nbsp;	
+									<fmt:formatNumber value= "${fee }" pattern="#,###,###" />원&nbsp;&nbsp;	= &nbsp;&nbsp;	
+									<fmt:formatNumber value= "${sumMoney + fee }" pattern="#,###,###" />원 <br/>
+									<c:if test="${fee >= 30000 }"> <!-- 30,000원 이상 구매시 무료배송 -->
+										${30000-sumMoney }원 더 구매시 무료배송 해드려요.
+									</c:if>
+								</div>
+		         
+		           
+		           
 		            </c:forEach>
 		            </c:if>
-		           
                	 </div>
                	 
-	             <input type="button" value="비회원결제하기" onclick="guestOrder()"/>
+	             <input type="button" value="결제하기" onclick="guestOrder()"/>
 	            
 			    </c:when>
 			</c:choose>

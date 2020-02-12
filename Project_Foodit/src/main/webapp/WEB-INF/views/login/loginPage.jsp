@@ -98,7 +98,7 @@ if( flag == "2" ){
 		<div id="loginNm" class="loginCont nbg" style="display:none">
 			<form method="post" id="nl">
 				<div class="inputArea">
-					<input type="text" name="guest_no" id="gNo" numberOnly placeholder="주문번호 입력" /> 
+					<input type="text" name="order_no" id="gNo" numberOnly placeholder="주문번호 입력" /> 
 				</div>
 				<div class="inputArea">
 					<input type="password" name="guest_pw" id="gPw" placeholder="주문 비밀번호 입력" />  

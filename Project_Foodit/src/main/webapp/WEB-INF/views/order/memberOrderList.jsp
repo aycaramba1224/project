@@ -40,10 +40,6 @@
 			      <h1>상품정보</h1>
 		            <c:forEach var="mOrderDto" items="${memberOrderList}" >
 		            
-		               <div>
-		                장바구니 번호:  ${mOrderDto.cart_no }
-		             </div>
-		           
 		            <div>
 		           <img alt="${mOrderDto.product_thumbImg }" 
 					src="${pageContext.request.contextPath }/resources/upload/${mOrderDto.product_thumbImg}" style="width:100; height:100px;" />
@@ -58,11 +54,19 @@
 		            </div>
 		            
 		         <div>
-		         총 금액: <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount }" pattern="#,###,###" />원
-		           
+		            <h2>결제정보</h2>
+		            <c:if test="${mOrderDto.product_price * mOrderDto.cart_amount >30000}">
+		           총 금액:  <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount }" pattern="#,###,###" />원
+                       </c:if>
+                                 
+		          
+		          <c:if test="${mOrderDto.product_price * mOrderDto.cart_amount < 30000}">
+                          총 금액:     <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount+ 3000 }"/> 원
+                                 </c:if>
+	           
 		           </div>       
 		            
-		            <br />
+		     
 		            
 		            <h1>배송정보</h1>
 		            <div>
@@ -86,7 +90,7 @@
 					주소
 				${mOrderDto.order_road1}
 				   </div>
-				   	${mOrderDto.orderDate}
+				   
 			  
 			  
 			 

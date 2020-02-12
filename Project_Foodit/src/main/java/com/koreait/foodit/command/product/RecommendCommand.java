@@ -19,10 +19,12 @@ public class RecommendCommand implements ProductCommand {
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
-		String product_taste = request.getParameter("product_taste");
+		String product_taste = request.getParameter("product_taste");		
 		
-		model.addAttribute("recommandList", productDao.recommendList(product_taste));
-		model.addAttribute("product_taste", product_taste);
+		model.addAttribute("bestList", productDao.bestList()); 		
+		model.addAttribute("menuList", productDao.menuList()); 		
+		model.addAttribute("recommendList", productDao.recommendList(product_taste));
+		 
 	}
 
 }

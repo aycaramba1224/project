@@ -1,31 +1,52 @@
- ★★★★★ oder_base 테이블 생성 ===============================================================================================
+ 占쎌겲占쎌겲占쎌겲占쎌겲占쎌겲 oder_base 占쎈�믭옙�뵠�뇡占� 占쎄문占쎄쉐 ===============================================================================================
  
-DROP TABLE ORDER_BASE;
+ drop table order_base;
+drop SEQUENCE ORDER_BASE_SEQ;
+drop SEQUENCE GUEST_NO_SEQ;
+ CREATE TABLE order_base
+(
+    order_no NUMBER , 
+    guest_pw VARCHAR2(20)  , 
+    order_name    VARCHAR2(10) , 
+    order_phone   VARCHAR2(10) ,
+    order_phone2   VARCHAR2(10) ,
+    order_phone3   VARCHAR2(10) ,
+    order_email      VARCHAR2(20) , 
+    order_email2      VARCHAR2(20) ,
+    delivery_name     VARCHAR2(20),
+    delivery_phone   VARCHAR2(20) ,
+    delivery_phone2   VARCHAR2(20) ,
+    delivery_phone3   VARCHAR2(20) ,
+    order_post      VARCHAR2(20), 
+    order_road1    VARCHAR2(50) ,
+   orderDate   Date default sysdate,
+   primary key (order_no)
+);
 
-CREATE TABLE order_base (
- ORDER_NO NUMBER PRIMARY KEY,  
- GUEST_NO NUMBER,
- GUEST_PW VARCHAR2(20) ,
- ORDER_NAME VARCHAR2(10) , 
- ORDER_PHONE VARCHAR2(10) ,
- ORDER_PHONE2 VARCHAR2(10) ,
- ORDER_PHONE3 VARCHAR2(10) ,
- ORDER_EMAIL VARCHAR2(20) , 
- ORDER_EMAIL2 VARCHAR2(20) ,
- DELIVERY_NAME VARCHAR2(20),
- DELIVERY_PHONE VARCHAR2(20) ,
- DELIVERY_PHONE2 VARCHAR2(20) ,
- DELIVERY_PHONE3 VARCHAR2(20) ,
- ORDER_POST VARCHAR2(20)NOT NULL, 
- ORDER_ROAD1 VARCHAR2(50) NOT NULL,
- ORDERDATE DATE DEFAULT SYSDATE );
+CREATE SEQUENCE ORDER_BASE_SEQ START WITH 1 increment by 1;
 
-DROP SEQUENCE ORDER_BASE_SEQ;
-DROP SEQUENCE GUEST_NO_SEQ;
-CREATE SEQUENCE ORDER_BASE_SEQ START WITH 1 INCREMENT BY 1;
-CREATE SEQUENCE GUEST_NO_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★CART(장바구니) TABLE 생성 (BUY -> CART로 이름 변경 되었습니다.) =======================================================
+
+drop table cart;
+drop SEQUENCE cart_SEQ;
+drop SEQUENCE  cartorder_SEQ;
+drop SEQUENCE  guestorder_SEQ;
+CREATE TABLE cart
+( 
+   cart_no        NUMBER    NOT NULL primary key,
+    order_no    NUMBER,  
+    cart_id             VARCHAR2(200)    NULL, 
+    product_no         NUMBER          NULL, 
+    cart_amount    NUMBER          default 0 
+);
+
+CREATE SEQUENCE cart_SEQ START WITH 1 increment by 1;
+
+
+
+insert into order_base(order_no,delivery_name,delivery_phone,delivery_phone2,delivery_phone3,
+ order_post,order_road1) values (ORDER_BASE_SEQ.NEXTVAL,'wjstngus03','010','3565','6478','123-45','seloul');
+占쎌겲占쎌겲占쎌겲占쎌겲占쎌겲CART(占쎌삢獄쏅떽�럡占쎈빍) TABLE 占쎄문占쎄쉐 (BUY -> CART嚥∽옙 占쎌뵠�뵳占� 癰귨옙野껓옙 占쎈┷占쎈�占쎈뮸占쎈빍占쎈뼄.) =======================================================
 
 DROP TABLE CART;
 
@@ -45,8 +66,8 @@ CREATE SEQUENCE CART_SEQ START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE  CARTORDER_SEQ START WITH 1 INCREMENT BY 1;
 CREATE SEQUENCE  GUESTORDER_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★MEMBER(회원) TABLE 생성 =====================================================================================
-
+占쎌겲占쎌겲占쎌겲占쎌겲占쎌겲MEMBER(占쎌돳占쎌뜚) TABLE 占쎄문占쎄쉐 =====================================================================================
+drop table member;
 CREATE TABLE MEMBER ( 
 ID VARCHAR2(20) NOT NULL PRIMARY KEY, 
 PW VARCHAR2(20) NOT NULL,
@@ -59,7 +80,7 @@ ROAD VARCHAR2(50) NOT NULL,
 REG_DATE DATE NOT NULL,
 ROLE VARCHAR2(20) DEFAULT 'USER' NOT NULL );
 
-★★★★★PRODUCT(상품) TABLE 생성 =====================================================================================
+占쎌겲占쎌겲占쎌겲占쎌겲占쎌겲PRODUCT(占쎄맒占쎈��) TABLE 占쎄문占쎄쉐 =====================================================================================
 
 DROP TABLE PRODUCT;
 
@@ -76,7 +97,7 @@ CREATE TABLE PRODUCT (
 DROP SEQUENCE PRODUCT_SEQ;						
 CREATE SEQUENCE PRODUCT_SEQ START WITH 5002215 INCREMENT BY 1;
 
-★★★★★ FAQ 테이블 생성 ===============================================================================================
+占쎌겲占쎌겲占쎌겲占쎌겲占쎌겲 FAQ 占쎈�믭옙�뵠�뇡占� 占쎄문占쎄쉐 ===============================================================================================
 
 DROP TABLE FAQ;
  
@@ -89,7 +110,7 @@ CREATE TABLE FAQ (
 DROP SEQUENCE FAQ_SEQ;
 CREATE SEQUENCE FAQ_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ NOTICE 테이블 생성 ===============================================================================================
+占쎌겲占쎌겲占쎌겲占쎌겲占쎌겲 NOTICE 占쎈�믭옙�뵠�뇡占� 占쎄문占쎄쉐 ===============================================================================================
 
 DROP TABLE NOTICE;
 
@@ -103,7 +124,7 @@ CREATE TABLE NOTICE (
 DROP SEQUENCE NOTICE_SEQ;
 CREATE SEQUENCE NOTICE_SEQ START WITH 1 INCREMENT BY 1;
 
-★★★★★ REVIEW 테이블 생성 ===============================================================================================
+占쎌겲占쎌겲占쎌겲占쎌겲占쎌겲 REVIEW 占쎈�믭옙�뵠�뇡占� 占쎄문占쎄쉐 ===============================================================================================
 
 DROP TABLE REVIEW;
 

@@ -13,10 +13,8 @@ import com.koreait.foodit.command.orderBase.MemberDeliveryListCommand;
 import com.koreait.foodit.command.orderBase.MemberOderBuyCommand;
 import com.koreait.foodit.command.orderBase.MemberOrderListCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseCommand;
-import com.koreait.foodit.command.orderBase.OrderBaseDeleteCommand;
 import com.koreait.foodit.command.orderBase.OrderBaseInsertCommand;
-import com.koreait.foodit.command.orderBase.OrderBaseModifyCommand;
-import com.koreait.foodit.command.orderBase.OrderBaseViewCommand;
+
 
 
 @Controller
@@ -43,14 +41,7 @@ public class OrderBaseController {
 		 return "order/memberDeliverysend";
 		}
 	 
-	 @RequestMapping("memberdeliveryInsert")
-	 public String  memberdeliverylistPage(HttpServletRequest request,Model model ) {
-			model.addAttribute("request", request);
-			orderBaseCommand = new DeliveryInsertCommand();
-			orderBaseCommand.execute(sqlSession, model);
-			return "order/order";
-		}
-	 
+	
 	 
 	 //회원일떄 주문내역
 	 @RequestMapping("memberOrderlistPage")
@@ -67,18 +58,16 @@ public class OrderBaseController {
 		 model.addAttribute("request", request);
 		 orderBaseCommand = new MemberOderBuyCommand();
 		 orderBaseCommand.execute(sqlSession, model);
-		 return "home";
+		 return "index";
 	 }
 	
 	 //비회원 주문/배송조회
-	
-	 
 	 @RequestMapping("guestSearch")
 		public String guestSearch(HttpServletRequest request,Model model) {
 		    model.addAttribute("request", request);
 		    orderBaseCommand = new GuestOrderCommand();
 			orderBaseCommand.execute(sqlSession, model);
-			return "guest/guestOrder";
+			return "guest/guestorderList";
 		}
 	 
 	 
@@ -91,9 +80,8 @@ public class OrderBaseController {
 			return "home";
 		}
 		
+	 //따로 필요가..
 	 /*
-	  * 관리자 입장에서 관리할 거 경로 수정이 필요합니다.
-	  */
 	@RequestMapping("orderbaseListview")
 	public String orderbaseListview(HttpServletRequest request, Model model) {
 		model.addAttribute("request", request);
@@ -119,5 +107,6 @@ public class OrderBaseController {
 		orderBaseCommand.execute(sqlSession, model);
 		return "redirect:/orderBaseList";
 	}
+	*/
 	 
 }

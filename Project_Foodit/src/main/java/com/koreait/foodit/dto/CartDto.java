@@ -5,18 +5,17 @@ public class CartDto {
 	private int cart_no, 
 				product_no, 
 				product_price, 
-				cart_amount,
-				guest_no;
+				cart_amount;
+				
     private String cart_id, 
 				   product_name, 
 				   product_thumbImg; 
     private int order_no;
 	public CartDto() { }
-	public CartDto(int order_no,int guest_no,int cart_no, int product_no, int product_price, int cart_amount, String cart_id, String product_name,
+	public CartDto(int order_no,int cart_no, int product_no, int product_price, int cart_amount, String cart_id, String product_name,
 			String product_thumbImg) {
 		super();
 		this.order_no = order_no;
-		this.guest_no = guest_no;
 		this.cart_no = cart_no;
 		this.product_no = product_no;
 		this.product_price = product_price;
@@ -27,12 +26,7 @@ public class CartDto {
 	}
     
 	
-	public int getGuest_no() {
-		return guest_no;
-	}
-	public void setGuest_no(int guest_no) {
-		this.guest_no = guest_no;
-	}
+	
 	public int getOrder_no() {
 		return order_no;
 	}

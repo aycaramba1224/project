@@ -30,7 +30,7 @@ public class ProductListCommand implements ProductCommand {
 		// 현재 페이지 번호를 알면
 		// 현재 페이지에 표시되는 게시글을 시작 번호와 끝 번호를 알 수 있다.
 		// 추가로 페이지 당 게시글 수(recordPerPage)를 알아야 한다.
-		int recordPerPage = 8;
+		int recordPerPage = 9;
 		int begin = (nowPage - 1) * recordPerPage + 1;
 		int end = begin + recordPerPage - 1;
 		
