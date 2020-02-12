@@ -114,7 +114,7 @@
 				<div class="pdTabWrap">
 					<div class="pdTabList">
 						<ul class="pdTab">
-							<li class="pdTabNav">
+							<li class="pdTabNav on">
 								<a href="#detail">
 									<span>상세설명</span>
 								</a>

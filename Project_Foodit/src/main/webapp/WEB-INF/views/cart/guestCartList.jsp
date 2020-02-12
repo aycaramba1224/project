@@ -29,7 +29,7 @@
 
 </script>
 	
- 	<div id="cartWrap1">
+ 	<div id="cartWrap">
 	 	<div class="cartTitWrap">
 			<h2 class="cartTit">장바구니</h2>
 	 	</div>

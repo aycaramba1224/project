@@ -40,7 +40,7 @@ public class Paging {
 		// 1. 이전 버튼의 링크가 필요 없는 경우 : beginPageOfBlock < pagePerBlock
 		// 2. 이전 버튼의 링크가 필요한 경우
 		if ( beginPageOfBlock < pagePerBlock ) {
-			sb.append("<span class='prevBtn'></span>");
+			sb.append("<span class='prevBtnNone'></span>");
 		} else {
 			sb.append("<a class='prevBtn' href='" + path + "?currentPage=" + (beginPageOfBlock - 1) + "'></a>");
 		}
@@ -62,7 +62,7 @@ public class Paging {
 		// 1. 다음 버튼의 링크가 필요 없는 경우 : endPageOfBlock == totalPage
 		// 2. 다음 버튼의 링크가 필요한 경우
 		if ( endPageOfBlock == totalPage ) {
-			sb.append("<span class='nextBtn'></span>");
+			sb.append("<span class='nextBtnNone'></span>");
 		} else {
 			sb.append("<a class='nextBtn' href='" + path + "?currentPage=" + (endPageOfBlock + 1) + "'></a>");
 		}

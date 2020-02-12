@@ -38,14 +38,13 @@ if(isFaqDelete == "yes"){
     }
 }  
 function faqSearch(f) {
-	if(f.content.value==""){
+	if(f.faq_content.value==""){
 		alert("검색어를 입력해 주세요.");
 		return;
 	}				
 	f.action = "faqSearchResult"; 
 	f.submit();
 }
-
 </script>
 <div id="faqWrap">
 	<h1>고객행복센터</h1>
@@ -124,7 +123,7 @@ function faqSearch(f) {
 	 	<div class="faqTabView">
 		 	<div class="faqView">
 			 	<p class="faqResultTxt">
-					<span class="faqQuery">${ content }</span>
+					<span class="faqQuery">${ faq_content }</span>
 					검색결과 총 ${ faqListCount }개
 				</p>
 			 	<div class="faqViewList">

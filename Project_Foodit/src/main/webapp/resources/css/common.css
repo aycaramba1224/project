@@ -745,13 +745,13 @@ input.txt{
     vertical-align: middle;
 }
 .pageNavi .pagingWrap a{
+	font-family: "nbgB";
 	display: inline-block;
     min-width: 40px;
     height: 40px;
     background-color: #fff;
     color: #606060;
     font-size: 14px;
-    font-weight: 700;
     text-align: center;
     line-height: 40px;
     vertical-align: top;
@@ -760,16 +760,40 @@ input.txt{
 	border-bottom: 1px solid #202020;
 }
 .pageNavi .pagingWrap span{
+	
     display: inline-block;
     min-width: 40px;
     height: 40px;
     background-color: #fff;
     color: #606060;
     font-size: 14px;
-    font-weight: 700;
     text-align: center;
     line-height: 40px;
     vertical-align: top;
+}
+.pageNavi .pagingWrap span.nextBtn{
+    background: url(../images/right_arrow.png) no-repeat;
+    background-position: center;
+    background-size: 13px;
+    vertical-align: middle;
+}
+.pageNavi .pagingWrap span.prevBtn{
+    background: url(../images/left_arrow.png) no-repeat;
+    background-position: center;
+    background-size: 13px;
+    vertical-align: middle;
+}
+.pageNavi .pagingWrap span.nextBtnNone{
+    background: url(../images/right_arrow_none.png) no-repeat;
+    background-position: center;
+    background-size: 13px;
+    vertical-align: middle;
+}
+.pageNavi .pagingWrap span.prevBtnNone{
+    background: url(../images/left_arrow_none.png) no-repeat;
+    background-position: center;
+    background-size: 13px;
+    vertical-align: middle;
 }
 .pageNavi .pagingWrap span.ptPtxt{
 	background-color: #202020;
@@ -835,3 +859,109 @@ input.txt{
     background-size: 13px;
     vertical-align: middle;
 }
+/* commonWrap */
+.commonWrap .commonArea{
+	max-width: 1200px;
+    margin: 0 auto;
+}
+.commonWrap .commonArea .commonListTit{
+	font-family: "ngB";
+	text-align: center;
+	font-size: 30px;
+}
+.commonWrap .commonArea .commonCont{
+	margin: 0 auto;
+}
+.commonWrap .commonArea .commonCont table{
+	width: 100%;
+	margin-top: 25px;
+	box-sizing: border-box;
+	border-collapse: collapse;
+}
+.commonWrap .commonArea .commonCont table tbody{
+	margin-bottom: 15px;
+}
+.commonWrap .commonArea .commonCont th{
+	font-family: "nbg";
+    font-size: 20px;
+    text-align: left;
+}
+.commonWrap .commonArea .commonCont input[type=text]{
+	font-family: "nbgB";
+    border: 4px solid #000;
+    padding: 8px;
+    width: 752px;
+    height: 30px;
+    margin: 15px;
+    color: #777;
+    font-size: 18px;
+}
+.commonWrap .commonArea .commonCont textarea{
+	display: block;
+    position: relative;
+    left: 10px;
+    border: 4px solid #000;
+    width: 776px;
+    font-size: 18px;
+    color: #777;
+    box-sizing: border-box;
+    resize: none;
+    margin: 5px;
+}
+.commonWrap .commonArea .commonCont .comBtnWrap{
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 25px;
+}
+.commonWrap .commonArea .commonCont button{
+    font-family: "nbgB";
+    width: 130px;
+    color: #101010;
+    border: 1px solid #BDD61A;
+    background-color: #BDD61A;
+    height: 46px;
+    font-size: 20px;
+    line-height: 27px;
+    cursor: pointer;
+    margin: 0 12px 0 12px;
+}
+.cmHeight{
+	height: 40px;
+}
+.cmHeight td{
+	padding-left: 13px;
+}
+.cmHeight label{
+	font-family: "nbg";
+	display: inline-block;
+    padding: 10px 20px;
+    color: #999;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+}
+.cmHeight input[type=file]{
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+.cmHeight .upform{
+    display: inline-block;
+    height: 35px;
+    font-size: 18px;
+    padding: 0 10px;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    width: 669px;
+}
+.cmHeight select{
+	font-size: 18px;
+}
+

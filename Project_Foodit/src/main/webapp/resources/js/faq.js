@@ -98,7 +98,7 @@ $(function(){
 		$(".class").off('click');
 	});
 	// 검색영역의 값이 없을때에는 텍스트 hide
-	var searchVal = $('input[name=content]').val();
+	var searchVal = $('input[name=faq_content]').val();
 	if( searchVal == "" ){
 		$(".faqResultTxt").css("display","none");
 	} 

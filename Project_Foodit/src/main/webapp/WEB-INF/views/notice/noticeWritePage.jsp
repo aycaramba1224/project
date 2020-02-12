@@ -1,50 +1,55 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 등록</title>
+<jsp:include page="/WEB-INF/views/admin/adminPageLmenu.jsp" />    
 <script type="text/javascript">
   function noticeWrite(f) {
       f.action="noticeWrite";
       f.submit();
   }
 </script>
-</head>
-<body>
-<div id="wrap">
-        <h3>공지사항 등록</h3>
-        <form method="POST" enctype="multipart/form-data">
-            <table border="1">              
-                <tbody>
-                    <tr>
-                        <td>글제목</td>
-                        <td><input type="text" name="notice_title"/></td>
-                    </tr>
-                  
-                    <tr>
-                        <td>공지내용</td>
-                        <!--★ 사이즈 변경예정 ★-->
-                        <td><textarea rows="10" cols="10" name="notice_content"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                          상품 이미지 등록 <input type="file" name="file_"/>
-                        </td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td colspan="2">
-                            <input type="button" value="등록" onclick="noticeWrite(this.form)"/>
-                            <input type="button" value="목록" onclick="location.href='noticeList'"/>
-                        </td>                   
-                    </tr>
-                </tfoot>
-            </table>    
-        </form>
-    </div>
-</body>
-</html>
 
+	<div class="commonWrap">
+		<div class="commonArea">
+			<div class="commonListTit nbg">
+        		<h2>공지사항 글쓰기</h2>
+        	</div>
+        	<div class="commonCont">
+		        <form method="POST" enctype="multipart/form-data">
+		            <table>              
+		                <tbody>
+		                    <tr>
+		                        <th>글제목</th>
+		                        <td><input type="text" name="notice_title"/></td>
+		                    </tr>
+		                  
+		                    <tr>
+		                        <th>공지내용</th>
+		                        <td><textarea rows="10" cols="10" name="notice_content"></textarea></td>
+		                    </tr>
+		                    <tr class="cmHeight">
+								<th>
+									상품 이미지 등록 
+								</th>
+								<td>
+								  	<label for="thumnailImg2">업로드</label> 
+								  	<input type="file" id="thumnailImg2" name="file_"/> 
+								    <input class="upload-name3 upform" value="파일선택">
+							    </td>
+							</tr>
+		                </tbody>
+		                <tfoot>
+		                    <tr>
+		                        <td colspan="2">
+		                        	<div class="comBtnWrap">
+			                            <button type="button" onclick="noticeWrite(this.form)">등록</button>
+			                            <button type="button" onclick="location.href='noticeList'">목록</button>
+		                            </div>
+		                        </td>                   
+		                    </tr>
+		                </tfoot>
+		            </table>    
+		        </form>
+	        </div>
+        </div>
+    </div>
+<%@ include file="/WEB-INF/views/admin/adminPageRmenu.jsp" %>
