@@ -110,8 +110,8 @@
     white-space: initial;
 }
 .productList li:first-child{
-    margin-top: -1px;
-    padding-top: 26px;
+	margin-top: -1px;
+    padding-top: 15px;
     margin-left: 0;
 }
 .productList .proModule{

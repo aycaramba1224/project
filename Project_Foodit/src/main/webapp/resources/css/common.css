@@ -128,7 +128,7 @@ a:visited {
 }
 #header .gnbWrap .gnbUtil{
 	min-width: 1260px;
-	height: 35px;
+	height: 33px;
     padding-top: 7px;
     background-color: #202020;
     text-align: left;
@@ -136,6 +136,7 @@ a:visited {
 #header .gnbUtil ul{
 	float: right;
 	padding-right: 40px;
+	padding-top: 4px;
 }
 #header .gnbUtil ul li{
 	float: left;
@@ -162,7 +163,7 @@ a:visited {
 	position: relative;
     max-width: 1920px;
     min-width: 1260px;
-    height: 81px;
+    height: 53px;
     margin: 0 auto;
     padding-top: 24px;
     text-align: center;
