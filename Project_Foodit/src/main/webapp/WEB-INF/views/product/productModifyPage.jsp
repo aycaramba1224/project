@@ -68,14 +68,7 @@
 					</tr>					
 					<tr>
 						<td>		
-							상품 맛 :${productDto.product_taste} <br /> 				
-							<select name="product_taste">
-									<option value="spicy">매콤한맛</option>
-									<option value="salty">짭짤한맛</option>
-									<option value="plain">담백한맛</option>
-									<option value="fresh">상큼한맛</option>
-									<option value="exotic">이국적인맛</option>
-							</select>					
+							상품 맛 :${productDto.product_taste} <br />												
 						</td>
 					</tr>				
 					<tr>
@@ -114,5 +107,4 @@
 		</form>
 	</div>
 
-</body>
-</html>
+ <%@ include file="/WEB-INF/views/common/footer.jsp" %> 

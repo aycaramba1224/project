@@ -35,7 +35,7 @@
 			<div class="sortLwrap"><a href="productListOrder1">신메뉴</a></div>
 			<div class="sortLwrap"><a href="productListOrder2">높은 가격 순</a></div>
 			<div class="sortLwrap"><a href="productListOrder3">낮은 가격순</a></div>
-			<div class="sortLwrap"><a class="on" href="productListOrder4">만족도순</a></div>
+			<div class="sortLwrap"><a href="productListOrder4">만족도순</a></div>
 		</div>
 	 	
 	 	<c:if test="${productListSize eq 0 }">

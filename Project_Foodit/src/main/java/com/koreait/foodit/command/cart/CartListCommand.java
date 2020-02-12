@@ -32,6 +32,5 @@ public class CartListCommand implements CartCommand {
 		model.addAttribute("fee", fee);									// 합계금액이 30,000원 미만인 경우 배송비 3,000원 추가 
 		model.addAttribute("cartList", cartDao.cartList(cart_id));
 		model.addAttribute("cartListSize", cartDao.cartList(cart_id).size());
-		
 	}
 }

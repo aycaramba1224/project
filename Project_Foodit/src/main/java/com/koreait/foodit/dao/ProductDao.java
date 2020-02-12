@@ -30,7 +30,7 @@ public interface ProductDao {
 	
 	// 메인페이지 
  		// 맛추천
-	public ArrayList<ProductDto> recommendList(String product_taste);
+	public ArrayList<ProductDto> tasteList(String product_taste);
 		// 실시간 베스트
 	public ArrayList<ProductDto> bestList();
 		// 푸딧 메뉴보기

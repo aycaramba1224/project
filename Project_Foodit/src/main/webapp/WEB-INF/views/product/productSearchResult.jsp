@@ -40,7 +40,7 @@
 		<div class="menuSearchList">
 			<h3>판매중</h3>
 		</div>
-	
+		 
 		<jsp:include page="/WEB-INF/views/product/searchResult.jsp">
 			<jsp:param name="productList" value="${param.productList }"/>
 			<jsp:param name="productListSize" value="${param.productListSize }"/>
