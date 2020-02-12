@@ -11,25 +11,27 @@
 <body>
 		<form method="post"  name="f">
         
-		     
-	       <h1>주문자 정보</h1>
-	       <c:if test="${adminGuestOrderListSize ne 0}">
-     <c:forEach var="gDto" items="${adminGuestOrderList}" >
-	        <div>
-	                주문번호: ${gDto.order_no}
-	        </div>
+		     <!-- 회원 비회원 정보가 같이 들어감... -->
+		
 	        
-	        <div>
-	                비밀번호:${gDto.guest_pw }
-	            
-	         </div>
-	         <div>주문자이름: ${gDto.order_name } </div>
-			<div>주문자 휴대폰:${gDto.order_phone }-
-							${gDto.order_phone2 }-
-							${gDto.order_phone3 }</div>
-		    <div>주문자 이메일:${gDto.order_email } @ ${gDto.order_email2}</div>
-	        
+	       <c:if test="${guest ne null}">
+     <c:forEach var="gDto" items="${adminOrderList}" >
 	      
+	       <h1>주문자 정보</h1>
+	   
+	      <div>
+                주문번호: ${gDto.order_no}
+        </div>
+        
+        <div>
+                비밀번호:${gDto.guest_pw }
+            
+         </div>
+         <div>주문자이름: ${gDto.order_name } </div>
+		<div>주문자 휴대폰:${gDto.order_phone }-
+						${gDto.order_phone2 }-
+						${gDto.order_phone3 }</div>
+	    <div>주문자 이메일:${gDto.order_email } @ ${gDto.order_email2}</div>
 	        <h1>상품정보</h1>
 			            <div>
 			           <img alt="${gDto.product_thumbImg }" 
@@ -75,10 +77,11 @@
 			<div>
 			주소: ${gDto.order_road1}
 			</div>
+			
 		
 		</c:forEach>
 		</c:if>
-		
+	
 		</form>
 		
            <%@ include file="/WEB-INF/views/common/footer.jsp" %>

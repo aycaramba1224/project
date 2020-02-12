@@ -11,7 +11,7 @@
 	
 	  
 	 <input type="button" value="비회원 주문/배송 조회하기" onclick="location.href='guestSearchPage'" />
-	  <input type="button" value="관리자 비회원 주문내역" onclick="location.href='adminGuestOrderList'"/>
+	  <input type="button" value="관리자 주문내역" onclick="location.href='adminOrderList'"/>
 	  <input type="button" value="회원주문내역" onclick="location.href='memberOrderlistPage'" />
 	 
 		&nbsp;

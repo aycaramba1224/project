@@ -94,7 +94,7 @@
                	  <!-- 비회원일떄보는 submit -->
                	 <h2>상품정보</h2>
                	  <div>
-               	   <c:if test="${GuestOrderCartListSize ne null }" >
+               	   <c:if test="${GuestOrderCartListSize ne 0 }" >
 		            <c:forEach var="oDto" items="${GuestOrderCartList }" >
 		           
 		            <div>

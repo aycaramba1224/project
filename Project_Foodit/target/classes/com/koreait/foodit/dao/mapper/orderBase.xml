@@ -41,7 +41,7 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
   FROM 
      	 CART C ,ORDER_BASE O
 	WHERE
-    	 O.ORDER_NO = C.ORDER_NO
+    	 O.ORDER_NO = C.ORDER_NO 
 	
 </select>
 
@@ -71,9 +71,9 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
 	
 </select>
 
-<select  id="adminGuestOrderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
+<select  id="adminOrderList" resultType="com.koreait.foodit.dto.OrderBaseDto">
 
- SELECT 
+  SELECT 
        O.ORDER_NO,O.GUEST_PW,O.ORDER_NAME,O.ORDER_PHONE,O.ORDER_PHONE2,O.ORDER_PHONE3,
        O.ORDER_EMAIL,O.ORDER_EMAIL2,O.DELIVERY_NAME,O.DELIVERY_PHONE,
        O.DELIVERY_PHONE2,O.DELIVERY_PHONE3,O.ORDER_POST,O.ORDER_ROAD1,
@@ -81,13 +81,18 @@ VALUES (ORDER_BASE_SEQ.NEXTVAL,#{param1},#{param2},#{param3},#{param4},#{param5}
       P.PRODUCT_PRICE, P.PRODUCT_NAME,P.PRODUCT_THUMBIMG,P.PRODUCT_NO
  
   FROM 
-     	 CART C ,PRODUCT P, ORDER_BASE O
+     	 CART C ,PRODUCT P,ORDER_BASE O
 	WHERE
-    	  O.ORDER_NO = C.ORDER_NO AND  C.PRODUCT_NO = P.PRODUCT_NO
+    	C.PRODUCT_NO = P.PRODUCT_NO AND O.ORDER_NO = C.ORDER_NO 
     	
-    ORDER BY O.ORDER_NO DESC
      
 </select>
+  
+  <select id ="selectguest_pw" resultType="com.koreait.foodit.dto.OrderBaseDto">
+  
+  SELECT * FROM ORDER_BASE GUEST_PW
+  
+  </select>
 
 	
 

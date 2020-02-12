@@ -17,7 +17,8 @@ public interface OrderBaseDao {
 	public ArrayList<OrderBaseDto> deliveryList();
 	public int deliveryeInsert(String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,
 			String order_post,String order_road1);
-
+	
+	
 	//비회원 관련
 	
 	public OrderBaseDto guestOrderList(String order_phone2,String guest_pw);
@@ -25,9 +26,9 @@ public interface OrderBaseDao {
 			String delivery_name,String delivery_phone,String delivery_phone2,String delivery_phone3,
 			String order_post,String order_road1);
 	
-	public OrderBaseDto selectguest_pw(String guest_pw);
 	
-	public ArrayList<OrderBaseDto> adminGuestOrderList();
+	public ArrayList<OrderBaseDto> adminOrderList();
+	public ArrayList<OrderBaseDto> selectguest_pw(String guest_pw);
 	//장바구니 관련
 	public int sumMoney();
 	
