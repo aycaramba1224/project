@@ -20,6 +20,7 @@
 					<ul class="menuList">
 						<li><a href="">고객 리뷰 관리</a></li>
 						<li><a href="adminMemberList">고객 목록 조회</a></li>
+						<li><a href="adminOrderList">주문내역조회(비회원,회원)</a>
 						
 					</ul>
 				</dd>

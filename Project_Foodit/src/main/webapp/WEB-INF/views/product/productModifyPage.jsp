@@ -34,7 +34,7 @@
 	}	
 </script>
 
-	<form method="POST">
+	<form action="productModify" method="POST" enctype="multipart/form-data">
 		<div class="pdDetailWrap">
 		 	 
 			 	<c:if test="${mDto.role == 'admin' }">	<!-- 관리자만 보이는 부분   -->
@@ -59,6 +59,8 @@
 									<span class="pdRCont"><textarea name="product_content" >${productDto.product_content }</textarea> </span>
 									<span class="pdRTit">${productDto.product_name }</span>
 									<span class="pdRTit"><textarea name="product_name">${productDto.product_name }</textarea></span>
+									<span class="pdRTit">${productDto.product_stock }</span>
+									<span class="pdRTit"><textarea name="product_stock">${productDto.product_stock }</textarea></span>
 								</div>
 							</div>
 							<p class="pdOrgin">원산지 : 상품정보 참조</p>

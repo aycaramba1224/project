@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,11 +21,11 @@ public class ProductModifyCommand implements ProductCommand {
 		
 		Map<String, Object> map = model.asMap();
 		MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
-				
-		String product_name = request.getParameter("product_name");
-		int product_price = Integer.parseInt(request.getParameter("product_price"));	
-		String product_stock = request.getParameter("product_stock");
+			
 		String product_content = request.getParameter("product_content");
+		String product_name = request.getParameter("product_name");
+		String product_stock = request.getParameter("product_stock");
+		int product_price = Integer.parseInt(request.getParameter("product_price"));	
 		
 		// 이미지 업로드 
 		List<MultipartFile> uploadFileList = request.getFiles("file_2");
@@ -65,9 +63,12 @@ public class ProductModifyCommand implements ProductCommand {
 			} // end for
 			int product_no =  Integer.parseInt(request.getParameter("product_no"));
 			
+			
+			
+			
 			RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
-			redirectAttributes.addFlashAttribute("modifyResult", productDao.productModify(product_name, product_price, product_stock, 
-																 product_content, product_img, product_thumbImg, product_no));
+			redirectAttributes.addFlashAttribute("modifyResult", productDao.productModify(product_content, product_name, product_stock,
+																						 product_price, product_img, product_thumbImg, product_no));
 			redirectAttributes.addFlashAttribute("isProductModify", "yes");	 
 		} // end if 
 		
