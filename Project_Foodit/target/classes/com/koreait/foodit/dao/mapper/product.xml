@@ -36,9 +36,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE 
 			PRODUCT 
 		SET 
-			PRODUCT_NAME = #{param1}, PRODUCT_PRICE = #{param2}, PRODUCT_STOCK = #{param3}, 
-			PRODUCT_CONTENT = #{param4}, PRODUCT_IMG = #{param5}, PRODUCT_THUMBIMG = #{param6}
+			PRODUCT_CONTENT = #{param1}, PRODUCT_NAME = #{param2}, PRODUCT_STOCK = #{param3}, 
+			PRODUCT_PRICE = #{param4}, PRODUCT_IMG = #{param5}, PRODUCT_THUMBIMG = #{param6}
 		WHERE PRODUCT_NO = #{param7}
+		
+		
 	</update>
 
 	<delete id="productDelete">
