@@ -16,14 +16,15 @@ public class ReviewDeleteCommand implements ReviewCommand {
 	public void execute(SqlSession sqlSession, Model model) {
 
 		ReviewDao rDao = sqlSession.getMapper(ReviewDao.class); 
-		
 		Map<String, Object> map = model.asMap();
+		HttpServletRequest request = (HttpServletRequest)map.get("request");
 		
-		HttpServletRequest request = (HttpServletRequest)map.get("attribute");
+		int re_no = Integer.parseInt(request.getParameter("re_no"));
 		
-		RedirectAttributes attributes = (RedirectAttributes)map.get("attribute");
-		attributes.addFlashAttribute("ReviewDeleteRes", rDao.reviewDelete(Integer.parseInt(request.getParameter("re_no"))));
-		attributes.addFlashAttribute("isReviewDelete", "Yes");
+		
+		RedirectAttributes redirectAttributes = (RedirectAttributes)map.get("redirectAttributes");
+		redirectAttributes.addFlashAttribute("ReviewDeleteRes", rDao.reviewDelete(re_no));
+		redirectAttributes.addFlashAttribute("isReviewDelete", "Yes");
 		
 	}
 }

@@ -9,7 +9,7 @@
 <script type="text/javascript">
 
 var iNoticeModify = "${isNoticeModify}";
-if(isFaqModify == "Yes"){
+if(isNoticeModify == "Yes"){
     var noticeModifyRes = "${noticeModifyRes}";
     if(noticeModifyRes == 0){
         alert(" 글수정이 실패하였습니다.");
@@ -69,28 +69,24 @@ if(isNoticeDelete == "Yes"){
                     <td colspan="3" class="noticeTit">등록된 글이 없습니다.</td>                  
                   </tr>               
                 </c:if>
-                <c:forEach var="noticeDto" items="${noticeList }">
+                <c:forEach var="nDto" items="${noticeList }">
                  <tr>                    
-                    <td>${noticeDto.notice_no }</td>
-                    <td class="noticeTit"><a href="noticeView?notice_no=${noticeDto.notice_no}">${noticeDto.notice_title}</a></td>
-                    <td>${noticeDto.notice_date }</td>
+                    <td>${nDto.notice_no }</td>
+                    <td class="noticeTit"><a href="noticeView?notice_no=${nDto.notice_no}">${nDto.notice_title}</a></td>
+                    <td>${nDto.notice_date }</td>
                  </tr>
                 </c:forEach>
             </tbody>
             
         </table>    
 	</div>
-	<%-- 관리자 권한에 따른 글 수정 권한 --%>
-	<%-- 관리자 페이지로 빼세요! --%>
-	<c:if test="${mDto.role == 'admin' }">    
-		<button type="button" onclick="location.href='noticeWritePage'">
-			공지사항등록
-		</button>  
-    </c:if> 
+
 	<%-- 페이징 처리 예정--%>
-	<div class="pageNavi">
-		<%-- 여기에 작업 --%>	
-	    ${pagingView }
-	</div>
+		<div class="pageNavi">
+		<div class="pagingWrap">
+    		${pagingView }
+   		</div>
+   	</div>
 </div>
         
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

@@ -14,9 +14,11 @@ import com.koreait.foodit.command.review.ReviewCommand;
 import com.koreait.foodit.command.review.ReviewDeleteCommand;
 import com.koreait.foodit.command.review.ReviewListCommand;
 import com.koreait.foodit.command.review.ReviewModifyCommand;
+import com.koreait.foodit.command.review.ReviewMyReviewCommand;
 import com.koreait.foodit.command.review.ReviewSearchCommand;
 import com.koreait.foodit.command.review.ReviewViewCommand;
 import com.koreait.foodit.command.review.ReviewWriteCommand;
+import com.koreait.foodit.command.review.ReviewWritePageCommand;
 
 @Controller
 public class ReviewController {
@@ -34,12 +36,15 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("reviewWritePage")
-	public String reviewWritePage() {
+	public String reviewWritePage(HttpServletRequest request, Model model) {
+		model.addAttribute("re_product_name", request.getParameter("re_product_name"));
 		return "review/reviewWritePage";
 	}
 	
 	@RequestMapping("reviewWrite")
-	public String reviewWrite(RedirectAttributes redirectAttributes, MultipartHttpServletRequest request, Model model) {
+	public String reviewWrite(RedirectAttributes redirectAttributes, 
+								MultipartHttpServletRequest request, 
+								Model model) {
 		
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request); 
@@ -65,7 +70,7 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("reviewModify")
-	public String reviewModify(RedirectAttributes redirectAttributes, HttpServletRequest request, Model model) {
+	public String reviewModify(RedirectAttributes redirectAttributes, MultipartHttpServletRequest request, Model model) {
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request);
 		reviewCommand = new ReviewModifyCommand();
@@ -74,12 +79,14 @@ public class ReviewController {
 	}
 	
 	@RequestMapping("reviewDelete")
-	public String review(RedirectAttributes redirectAttributes, HttpServletRequest request, Model model) {
+	public String reviewDelete(RedirectAttributes redirectAttributes,
+							   HttpServletRequest request, 
+							   Model model) {
 		model.addAttribute("redirectAttributes", redirectAttributes);
 		model.addAttribute("request", request); 
 		reviewCommand = new ReviewDeleteCommand();
         reviewCommand.execute(sqlSession, model);
-        return "redirect:/reviewList";
+        return "redirect:/myReview";
 	}
 	
 	@RequestMapping("reviewSearchResult")
@@ -90,14 +97,18 @@ public class ReviewController {
         return "review/reviewList";
 	}
 	
-	@RequestMapping("reviewSearch")
-	public String reviewSearch() {
-		return "review/reviewSearchResult";
+	@RequestMapping("myReview")
+	public String myReview(HttpServletRequest request, Model model) {
+		model.addAttribute("request", request);
+		reviewCommand = new ReviewMyReviewCommand();
+		reviewCommand.execute(sqlSession, model);
+		return "review/myReview";
 	}
 	
 	
 	
+	@RequestMapping("reviewSearch")
+	public String reviewSearch() {
+		return "review/reviewSearchResult";
+	}	
 }
-
-
-

@@ -18,7 +18,7 @@ public class ReviewViewCommand implements ReviewCommand {
          Map<String, Object> map = model.asMap();
          
          HttpServletRequest request = (HttpServletRequest)map.get("request");
-         model.addAttribute("rDto", rDao.reviewView(Integer.parseInt(request.getParameter("re_no"))));
+         model.addAttribute("reviewDto", rDao.reviewView(Integer.parseInt(request.getParameter("re_no"))));
 	}
 
 }

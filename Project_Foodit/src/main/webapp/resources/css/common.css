@@ -1066,11 +1066,16 @@ input.txt{
 	min-height: 448px;
 }
 .myFoodit{
-	width: 1180px;
-    margin: 70px auto 0;
+    width: 1180px;
+    margin: 140px auto 80px;
+}
+.myFoodit:after{
+    content: '';
+    display: table;
+    clear: both;
 }
 .myFoodit .myFooditLwrap{
-/*     float: left; */
+    float: left;
     width: 500px;
 }
 .myFoodit .myFooditLwrap h2{
@@ -1084,17 +1089,94 @@ input.txt{
     margin-top: 16px;
     color: #606060;
     font-size: 15px;
-    line-height: 23px;
+    line-height: 20px;
+    display: inline-block;
 }
-.myFoodit .myFooditLwrap table{
-    margin-top: 32px;
+.mdsWrap{
+	margin-top: 25px;
+}
+.mdsWrap ul{
+	display: table;
+    table-layout: fixed;
+    width: 100%;
     border-top: 1px solid #e0e0e0;
 }
-.myFoodit .myFooditLwrap table:after{
-	content: '';
-    display: table;
-    clear: both;
+.mdsWrap ul li{
+    display: table-row;
 }
-.myFoodit .myFooditLwrap table tr{
-	border-bottom: 1px solid #e0e0e0;
+.mdsWrap ul .mfWrap{
+    border-bottom: 1px solid #e0e0e0;
 }
+.mdsWrap ul .mfWrap:first-child{
+    margin-top: 0;
+}
+.mdsWrap ul .mfWrap .mfimg{
+    position: static;
+    display: table-cell;
+    width: 132px;
+    height: 132px;
+    background-color: #f2f2f2;
+    vertical-align: middle;
+}
+.mdsWrap ul .mfWrap .mfimg a{
+	text-align: center;
+	display: block;
+}
+.mdsWrap ul .mfWrap .mfimg img{
+    display: block;
+    width: 100%;
+}
+.mdsWrap ul .mfWrap .mfTtxt{
+    display: table-cell;
+    width: 308px;
+    height: 132px;
+    padding: 18px 0 17px 18px;
+    vertical-align: middle;
+}
+.mdsWrap ul .mfWrap .mfTtxt div:last-child{
+    margin-top: 13px;
+}
+.mdsWrap ul .mfWrap .mfTtxt div .strong{
+	display: block;
+    font-family: "nbgB";
+    width: 230px;
+    max-height: 11px;
+    word-break: break-all;
+    white-space: pre-line;
+    line-height: 24px;
+    padding-bottom: 12px;
+    font-size: 19px;
+}
+.mdsWrap a{
+	display: block;
+}
+.myFooditRwrap{
+	float: right;
+    width: 500px;
+}
+.myFoodit .imgMajor{
+    position: relative;
+}
+.myFoodit .imgMajorTit{
+	font-family: "nbgB";
+    margin-top: 32px;
+    color: #101010;
+    font-size: 36px;
+    line-height: 50px;
+}
+.myFoodit .myFooditRwrap .imgMajorTit{
+    margin-top: 30px;
+}
+.myFooditRwrap .imgMajorTxt{
+	margin-top: 16px;
+    color: #606060;
+    font-size: 15px;
+    line-height: 23px;
+}
+.myFooditRwrap .myFooditDownCont {
+	margin-top: 70px;
+}
+.myFooditRwrap .myFooditDownCont .imgMajorTit{
+   	margin-top: 8px;
+}
+

@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			(SELECT
 				ROWNUM R_NUM, A.*
 			FROM
-				(SELECT * FROM NOTICE ORDER BY NOTICE_NO) A)
+				(SELECT * FROM NOTICE ORDER BY NOTICE_NO DESC) A)
 		WHERE
 			R_NUM BETWEEN #{param1} AND #{param2}
 	</select>

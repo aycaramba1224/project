@@ -1,0 +1,130 @@
+@charset "UTF-8";
+.reviewWrap{
+	padding: 20px;
+    border-top: 2px solid #202020;
+    font-family: "nbg";
+    margin-top: 90px;
+}
+.reviewWrap ul li:first-child{
+    border-top: 0;
+}
+.reviewWrap ul li{
+    padding: 24px 0;
+    border-top: 1px solid #e0e0e0;
+}
+.no_data #icon {
+    display: block;
+    width: 83px;
+    height: 80px;
+    margin: 0 auto 24px;
+    background: url(../images/iconset.png) -632px -1007px no-repeat;
+    background-size: 1500px 2094px;
+}
+.reviewWrap ul li .topWrap{
+    margin-bottom: 6px;
+}
+.reviewWrap ul li .date{
+	font-family: "nbg";
+	float: right;
+    margin-top: 2px;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.5px;
+}
+.reviewWrap ul li .topWrap .tit{
+    float: left;
+    padding-left: 1px;
+}
+.reviewWrap ul li .topWrap .tit .titName{
+	float: left;
+    display: inline-block;
+    width: 560px;
+    color: #101010;
+    font-family: "ngB";
+    font-size: 20px;
+    line-height: 24px;
+}
+.reviewWrap ul li .topWrap:after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.reviewWrap ul li .linkWrap{
+    content: '';
+    display: table;
+    clear: both;
+}
+.reviewWrap ul li .linkWrap .etcInfo{
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.reviewWrap ul li .linkWrap .etcInfo .ratingWrap{
+	display: inline-block;
+    vertical-align: middle;
+    line-height: 22px;
+    color: #606060;
+    font-size: 14px;
+}
+.reviewWrap ul li .linkWrap .etcInfo .userReId{
+    display: inline-block;
+    color: #606060;
+    font-size: 14px;
+    line-height: 22px;
+    vertical-align: middle;
+}
+.reviewWrap ul li .linkWrap .userReId:before{
+	content: '';
+    display: inline-block;
+    width: 1px;
+    height: 14px;
+    margin: 0 10px;
+    background-color: #e0e0e0;
+    vertical-align: middle;
+}
+.reviewWrap ul li .linkWrap .linkMore{
+    display: block;
+    width: 100%;
+}
+.reviewWrap ul li .linkWrap .linkMore .txtWrap{
+    width: 904px;
+}
+.reviewWrap ul li .linkWrap .linkMore .imgLeftWrap{
+    float: left;
+    width: 206px;
+}
+.reviewWrap ul li .linkWrap .linkMore .imgLeftWrap{
+	position: relative;
+}
+.reviewWrap ul li .linkWrap .linkMore .imgLeftWrap .reviewImg{
+	position: relative;
+    width: 186px;
+    height: 116px;
+    overflow: hidden;
+}
+.reviewWrap ul li .linkWrap .linkMore .imgLeftWrap .reviewImg img{
+	position: absolute;
+    width: 100%;
+    height: auto;
+    margin: auto;
+    top: 50%;
+    left: 0;
+    -ms-transform: translateY( -50% );
+    -moz-transform: translateY( -50% );
+    transform: translateY( -50% );
+}
+.reviewWrap ul li .linkWrap .txtWrap{
+	width: 974px;
+	float: right;
+}
+.reviewWrap ul li .linkWrap .txtWrap .txt.mt_Elps{
+    max-height: 44px;
+    font-size: 14px;
+    line-height: 22px;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    width: 100%;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+}

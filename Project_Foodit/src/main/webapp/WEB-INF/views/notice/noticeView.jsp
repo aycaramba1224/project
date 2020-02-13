@@ -7,11 +7,8 @@
     <jsp:param value="FOODIT 메뉴" name="title"/>
 </jsp:include> 
     
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>NOTICE VIEW</title>
+
+
 <script type="text/javascript">
     function noticeDelete() {
         var check = confirm("삭제하시겠습니까?");
@@ -21,14 +18,11 @@
     }
 
     function noticeModify(f) {
-    	f.action = "noticeModifyPage?notice_no=${nDto.notice_no}";
+    	f.action = "noticeModifyPage";
     	f.submit();
     }
-    
+</script>  
 
-</script>
-</head>
-<body>
  <div id="wrap">
         <h1>고객행복센터</h1>
         <hr/>
@@ -36,7 +30,10 @@
             <a href="faqList">FAQ</a> <a href="noticeList">공지사항</a> 
         </div>        
         
-        <form method="POST">
+        <form method="POST" >
+        
+        	<input type="hidden" name="notice_no" value="${nDto.notice_no}" />
+        
             <div id="title">
                 <a>${nDto.notice_title }</a><br/>
                 <a>${nDto.notice_date }</a>
@@ -54,5 +51,4 @@
                 </c:if> 
         </form>
     </div>
-</body>
-</html>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>

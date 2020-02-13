@@ -9,13 +9,21 @@
 
 </head>
 <body>
+<script type="text/javascript">
+ function reviewWritePage() {
+	 if(check) {
+	 location.href="reviewWritePage?re_product_name={mOrderDto.re_product_name}";
+	 }
+ }
 
+
+</script>
 <!-- 손을 봐야됨 -->
 		
 		<!-- 회원일떄 -->
      <div class="div1">
      
-   <form method="post">
+   <form method="POST">
 	       
      <h1>회원정보</h1>
       
@@ -39,7 +47,7 @@
 			  <br />
 			      <h1>상품정보</h1>
 		            <c:forEach var="mOrderDto" items="${memberOrderList}" >
-		            
+		             
 		            <div>
 		           <img alt="${mOrderDto.product_thumbImg }" 
 					src="${pageContext.request.contextPath }/resources/upload/${mOrderDto.product_thumbImg}" style="width:100; height:100px;" />
@@ -55,15 +63,13 @@
 		            
 		         <div>
 		            <h2>결제정보</h2>
-		            <c:if test="${mOrderDto.product_price * mOrderDto.cart_amount >30000}">
-		           총 금액:  <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount }" pattern="#,###,###" />원
-                       </c:if>
-                                 
-		          
-		          <c:if test="${mOrderDto.product_price * mOrderDto.cart_amount < 30000}">
-                          총 금액:     <fmt:formatNumber value= "${mOrderDto.product_price * mOrderDto.cart_amount+ 3000 }"/> 원
+		           <c:if test="${mOrderDto.product_price < 30000}">
+                                    <fmt:formatNumber value= "${mOrderDto.product_price + 3000 }"/> 원
                                  </c:if>
-	           
+	             <div>
+									
+								</div>
+	            
 		           </div>       
 		            
 		     
@@ -91,20 +97,18 @@
 				${mOrderDto.order_road1}
 				   </div>
 				   
-			  
-			  
-			 
+			<input type="button" value="리뷰등록" onclick="location.href='reviewWritePage?re_product_name=${mOrderDto.product_name}'"/>
 			  </c:forEach>
 			  </c:when>
 			  </c:choose>
-			  
-			   <c:if test="${ mDto eq null }" >
+		 <c:if test="${ mDto eq null }" >
            <script>
                alert("로그인 후 이용해주세요");
                location.href="sbmr";
            </script>
            
          </c:if>
+				   <
     </form>
     </div>
     

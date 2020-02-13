@@ -26,8 +26,8 @@ public class ReviewWriteCommand implements ReviewCommand {
 		ReviewDao rDao = sqlSession.getMapper(ReviewDao.class); 
 		
 		Map<String, Object> map = model.asMap(); 
-        MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
         
+		MultipartHttpServletRequest request = (MultipartHttpServletRequest) map.get("request");
 		
 		String re_product_name = request.getParameter("re_product_name"); 
 		String re_id = request.getParameter("re_id"); 
@@ -35,22 +35,15 @@ public class ReviewWriteCommand implements ReviewCommand {
 		String re_pw = request.getParameter("re_pw"); 
 		String re_score = request.getParameter("re_score");
 	    int re_product_no = Integer.parseInt(request.getParameter("re_product_no"));
-		MultipartFile re_img = request.getFile("re_img"); 
-		MultipartFile re_thumbImg = request.getFile("re_thumbImg"); 
 		
-		String originFilename = re_img.getOriginalFilename();
-		String originFilename2 = re_thumbImg.getOriginalFilename(); 
-		
+	    MultipartFile re_imgFile = request.getFile("refile_"); 
+		String originFilename = re_imgFile.getOriginalFilename();
 		String extentionName = originFilename.substring(originFilename.lastIndexOf(".") + 1, originFilename.length()); 
-		String extentionName2 = originFilename2.substring(originFilename2.lastIndexOf(".") + 1, originFilename2.length()); 
-		
 		String imgSaveFileName = null; 
-		String thumbImgSaveFilename = null;
 		
 		try {
 			
 			imgSaveFileName = originFilename.substring(0,originFilename.lastIndexOf(".")) + "_" + "detail" + "." + extentionName;
-		    thumbImgSaveFilename = originFilename2.substring(0,originFilename2.lastIndexOf(".")) + "_" + "thumbnail" + "." + extentionName2;
 		    
 		    // 업로드 할 파일이 저장될 경로 
 		   String realPath = request.getSession().getServletContext().getRealPath("/resources/upload");
@@ -62,13 +55,11 @@ public class ReviewWriteCommand implements ReviewCommand {
 		   }
 		   
 		   File saveFile = new File(realPath, imgSaveFileName);
-		   re_img.transferTo(saveFile);
+		   			re_imgFile.transferTo(saveFile);
 		   
-		   File saveFile2 = new File(realPath, thumbImgSaveFilename);
-		   re_thumbImg.transferTo(saveFile2);
 
 		   RedirectAttributes attributes = (RedirectAttributes)map.get("redirectAttributes");
-		   attributes.addFlashAttribute("reviewWriteRes", rDao.reviewWrite(re_id, re_product_name, re_content, re_pw, re_score, re_product_no, imgSaveFileName, thumbImgSaveFilename));
+		   attributes.addFlashAttribute("reviewWriteRes", rDao.reviewWrite(re_id, re_product_name, re_content, re_pw, re_score, re_product_no, imgSaveFileName));
 		   attributes.addFlashAttribute("isReviewWrite", "Yes");
 		   
 		   
@@ -77,4 +68,3 @@ public class ReviewWriteCommand implements ReviewCommand {
 		}
 	}
 }
-

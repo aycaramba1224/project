@@ -14,7 +14,7 @@ public class NoticeModifyCommand implements NoticeCommand {
 
 	@Override
 	public void execute(SqlSession sqlSession, Model model) {
-	NoticeDao nDao= sqlSession.getMapper(NoticeDao.class);
+	NoticeDao nDao = sqlSession.getMapper(NoticeDao.class);
 		
 		Map<String, Object> map = model.asMap();
 		

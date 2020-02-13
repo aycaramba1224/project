@@ -15,6 +15,7 @@ import com.koreait.foodit.command.notice.NoticeCommand;
 import com.koreait.foodit.command.notice.NoticeDeleteCommand;
 import com.koreait.foodit.command.notice.NoticeListCommand;
 import com.koreait.foodit.command.notice.NoticeModifyCommand;
+import com.koreait.foodit.command.notice.NoticeModifyPageCommand;
 import com.koreait.foodit.command.notice.NoticeQueryCommand;
 import com.koreait.foodit.command.notice.NoticeViewCommand;
 import com.koreait.foodit.command.notice.NoticeWriteCommand;
@@ -63,18 +64,19 @@ public class NoticeController {
 		
 	
 	 @RequestMapping("noticeModifyPage")
-	 	public String noticeModifyPage() {
+	 	public String noticeModifyPage(HttpServletRequest request, Model model) {
+		  model.addAttribute("request", request); 
+		  noticeCommand = new NoticeModifyPageCommand(); 
+		  noticeCommand.execute(sqlSession, model);
 		 return "notice/noticeModifyPage";
 	 }
 	 
-	 @RequestMapping(value="noticeModify", method=RequestMethod.POST)
+	 @RequestMapping("noticeModify")
 		public String noticeModify(RedirectAttributes attributes,
 				                HttpServletRequest request,
 				                Model model) {
-			
 			model.addAttribute("request", request);
 			model.addAttribute("attributes", attributes);
-			
 			noticeCommand = new NoticeModifyCommand();
 			noticeCommand.execute(sqlSession, model);
 			return "redirect:/noticeList"; 

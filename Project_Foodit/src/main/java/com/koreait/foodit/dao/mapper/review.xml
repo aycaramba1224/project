@@ -50,22 +50,45 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
        SELECT * FROM REVIEW WHERE RE_NO = #{param1}
     </select>
 
+    <select id="myReview" resultType="com.koreait.foodit.dto.ReviewDto">
+      SELECT
+            *
+        FROM
+            (SELECT
+                ROWNUM R_NUM, A.*
+            FROM
+                (SELECT * FROM REVIEW WHERE RE_ID = #{param1} ORDER BY RE_NO) A)
+        WHERE
+            R_NUM BETWEEN #{param2} AND #{param3}
+    </select>
+    
+    <select id="myReviewTotalCount" resultType="int">
+      SELECT
+            COUNT(*)
+        FROM 
+            REVIEW
+        WHERE
+            RE_ID = #{param1}
+    </select>
+
+
+
     <update id="reviewModify">
        UPDATE 
            REVIEW 
        SET
            RE_CONTENT = #{param1}, RE_PW = #{param2},
-           RE_SCORE = #{param3}
-       WHERE RE_NO = #{param4}
+           RE_SCORE = #{param3}, RE_IMG = #{param4}
+       WHERE RE_NO = #{param5}
     </update>
 
     <insert id="reviewWrite">
        INSERT INTO 
-           REVIEW (RE_NO,  RE_ID, RE_PRODUCT_NAME, RE_CONTENT,
-                   RE_PW, RE_SCORE, RE_PRODUCT_NO, RE_IMG, RE_THUMBIMG)
+           REVIEW (RE_NO, RE_DATE, RE_ID, RE_PRODUCT_NAME, RE_CONTENT,
+                   RE_PW, RE_SCORE, RE_PRODUCT_NO, RE_IMG)
            VALUES
-           (REVIEW_SEQ.NEXTVAL,  #{param1}, #{param2}, #{param3},
-            #{param4}, #{param5}, #{param6}, #{param7}, #{param8})         
+           (REVIEW_SEQ.NEXTVAL, SYSDATE, #{param1}, #{param2}, #{param3},
+            #{param4}, #{param5}, #{param6}, #{param7})         
     </insert>
 
     <delete id="reviewDelete">
