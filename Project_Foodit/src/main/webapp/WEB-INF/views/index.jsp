@@ -94,7 +94,7 @@
 					</span>
 					<div class="mdsWrap">
 						<ul>
-							<c:forEach var="productDto" items="${menuList}" begin="1" end="12">				
+							<c:forEach var="productDto" items="${menuList}" begin="1" end="6">				
 							<li>
 								<div class="mfWrap">
 									<div class="mfimg">
