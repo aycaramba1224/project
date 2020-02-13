@@ -5,63 +5,104 @@
 	    <jsp:param value="회원 배송지 목록" name="title"/>
       </jsp:include>
 	<style>
+	 h1,h2{
+        margin-top:50px;
+        font-size: 20px;
+        
+        }
+      table {
+           width: 700px; height: 500px;
+       }
+       table, th, td {
+           border: 1px solid gray;
+           border-collapse: collapse;
+           text-align: left;		/* 가로 정렬 */
+           vertical-align: middle;	/* 세로 정렬 */
+           padding: 0 5px;
+       }
+       td:nth-child(1) {
+       	font-weight: bold;
+       	width: 100px;
+       }
+       
 	
-	 .contaniner {
-	  border: 1px solid black;
-	  width: 800px;
-	}
 	</style>
 
-       
+       <table border="1">
            <c:choose>
 		     <c:when test="${ mDto ne null }">
-		     <h1>회원정보</h1>
-		        <div> 
-			    이름:${mDto.name}
-			    </div>
+		    
+		<p>해당회원의 배송 정보 </p>
+		      <tr>
+		      <td>
+			    이름
+			   </td>
+			   <td>
+			    ${mDto.name}
+			    </td>
+			   </tr>
 			    
-			    <div>
-			  휴대폰:${mDto.phone}
-			  </div>
+			    <tr>
+			    <td>
+			  휴대폰
+			  </td>
+			  <td>
+			  ${mDto.phone}
+			  </td>
+			  </tr>
+			  
 		  <form method="post">
-          
-			
-          <h1>배송정보</h1>
+        
 			<c:forEach var="OrderBaseDto" items="${memberDeliveryList}">
-				    <div class="contaniner">
+				   
 			      
-			     
-			       
-			         <div>
-			                 배송자이름:
+			         <tr>
+			         <td>
+			                 배송자이름
+			         </td>
+			                 <td>
 				    <input type="text" name="delivery_name" value="${OrderBaseDto.delivery_name}">
-				    </div>
+				    </td>
+				    </tr>
 				    
-				    <div>
-				           배송자휴대폰:
-				         <input type="text" name="delivery_phone" value="${OrderBaseDto.delivery_phone}" />
-				         <input type="text" name="delivery_phone2" value="${OrderBaseDto.delivery_phone}" />-
-				         <input type="text" name="delivery_phone3" value="${OrderBaseDto.delivery_phone}" />
-				         </div>
+				    <tr>
+				    <td>
+				           배송자휴대폰
+				           </td>
+				           <td>
+				         <input type="text" name="delivery_phone" value="${OrderBaseDto.delivery_phone}">-
+				         <input type="text" name="delivery_phone2" value="${OrderBaseDto.delivery_phone}">-
+				         <input type="text" name="delivery_phone3" value="${OrderBaseDto.delivery_phone}">
+				      </td>
+				      </tr>
 				      
-				      <div>
-				          우편번호:
+				     <tr>
+				     <td>
+				          우편번호
+				          </td>
+				          <td>
 				    <input type="text" name="order_post" value="${OrderBaseDto.order_post}">
-					</div>
+				    </td>
+					</tr>
 					
-					<div>
+				<tr>
+				<td>
 					주소
+					</td>
+					
+					<td>
 				<input type="text" name ="order_road1" value="${OrderBaseDto.order_road1}"/>
-				   </div>
-				 
+				</td>
+				   </tr>
 				   
-				   
-				   </div>
+				
 				</c:forEach>
+				<hr />
 			
 	              <input type="button" value="신규배송정보등록" onclick="location.href='mdeliverysendPage'" />
 				 
        </form>
    </c:when>
    </c:choose>
+   </table>
  	<%@ include file="/WEB-INF/views/common/footer.jsp" %>
