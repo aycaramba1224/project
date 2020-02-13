@@ -66,7 +66,7 @@ public class OrderBaseController {
 		 model.addAttribute("request", request);
 		 orderBaseCommand = new MemberOderBuyCommand();
 		 orderBaseCommand.execute(sqlSession, model);
-		 return "index";
+		 return "main";
 	 }
 	
 	 //비회원 주문/배송조회
@@ -85,7 +85,7 @@ public class OrderBaseController {
 		   model.addAttribute("request", request);
 			orderBaseCommand = new OrderBaseInsertCommand();
 			orderBaseCommand.execute(sqlSession, model);
-			return "home";
+			return "main";
 		}
 		
 	
